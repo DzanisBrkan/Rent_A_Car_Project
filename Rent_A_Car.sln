@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rent_A_Car.WebAPI", "Rent_A_Car.WebAPI\Rent_A_Car.WebAPI.csproj", "{F8700232-EAB5-4ED2-BB1F-1DB00436C88C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rent_A_Car.Model", "Rent_A_Car.Model\Rent_A_Car.Model.csproj", "{AD3B72B8-7D86-4D05-9163-A02F67A76746}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{9F90AB69-BEFC-4595-AC4A-9C7A13ECFACD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rent_A_Car.WinUI", "Rent_A_Car.WinUI\Rent_A_Car.WinUI.csproj", "{30A66F5D-EB29-4C15-9243-1E456A5550CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8700232-EAB5-4ED2-BB1F-1DB00436C88C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8700232-EAB5-4ED2-BB1F-1DB00436C88C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8700232-EAB5-4ED2-BB1F-1DB00436C88C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8700232-EAB5-4ED2-BB1F-1DB00436C88C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD3B72B8-7D86-4D05-9163-A02F67A76746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD3B72B8-7D86-4D05-9163-A02F67A76746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD3B72B8-7D86-4D05-9163-A02F67A76746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD3B72B8-7D86-4D05-9163-A02F67A76746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30A66F5D-EB29-4C15-9243-1E456A5550CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30A66F5D-EB29-4C15-9243-1E456A5550CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30A66F5D-EB29-4C15-9243-1E456A5550CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30A66F5D-EB29-4C15-9243-1E456A5550CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{30A66F5D-EB29-4C15-9243-1E456A5550CC} = {9F90AB69-BEFC-4595-AC4A-9C7A13ECFACD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {54CF655B-2B6B-4E5B-9529-A353F2F8F617}
+	EndGlobalSection
+EndGlobal
