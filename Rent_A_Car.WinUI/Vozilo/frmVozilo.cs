@@ -75,8 +75,8 @@ namespace Rent_A_Car.WinUI.Vozilo
             {
                 request.KategorijaId = kategorijaId;
             }
-            request.RegistracijskiBroj = txtReg;
-            request.Model = txtModel;
+            //request.RegistracijskiBroj = txtReg;
+            //request.Model = txtModel;
         }
     }
 }
