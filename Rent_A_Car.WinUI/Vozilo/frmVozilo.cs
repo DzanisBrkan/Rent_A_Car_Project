@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,7 +16,8 @@ namespace Rent_A_Car.WinUI.Vozilo
     {
         private readonly APIService _voziloService = new APIService("Vozilo");
         private readonly APIService _kategorijaService = new APIService("Kategorija");
-        //private readonly APIService _specifikacijaService = new APIService("Specifikacija");
+        private readonly APIService _specifikacijaService = new APIService("Specifikacija");
+        //private readonly APIService _tipService = new APIService("Tip");
         public frmVozilo()
         {
             InitializeComponent();
@@ -25,7 +27,7 @@ namespace Rent_A_Car.WinUI.Vozilo
         {
             //overajdanje eventa
             await LoadKategorija();
-            //await LoadSpecifikacija();
+            await LoadSpecifikacija();
         }
 
         private async Task LoadKategorija()
@@ -36,14 +38,14 @@ namespace Rent_A_Car.WinUI.Vozilo
             cmbKategorija.ValueMember = "KategorijaId";
             cmbKategorija.DataSource = result;
         }
-        //private async Task LoadSpecifikacija()
-        //{
-        //    var result = await _specifikacijaService.Get<List<Model.Specifikacija>>(null);
-        //    result.Insert(0, new Model.Specifikacija());
-        //    cmbSpecifikacija.DisplayMember = "EuroNorma";
-        //    cmbSpecifikacija.ValueMember = "SpecifikacijaId";
-        //    cmbSpecifikacija.DataSource = result;
-        //}
+        private async Task LoadSpecifikacija()
+        {
+            var result = await _specifikacijaService.Get<List<Model.Specifikacija>>(null);
+            result.Insert(0, new Model.Specifikacija());
+            cmbSpecifikacija.DisplayMember = "EuroNorma";
+            cmbSpecifikacija.ValueMember = "SpecifikacijaId";
+            cmbSpecifikacija.DataSource = result;
+        }
 
         private async void cmbKategorija_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -65,9 +67,9 @@ namespace Rent_A_Car.WinUI.Vozilo
             VoziloGrid.DataSource = result;
         }
 
-        private void btnSacuvaj_Click(object sender, EventArgs e)
+        VoziloUpsertRequest request = new VoziloUpsertRequest();
+        private async void btnSacuvaj_Click(object sender, EventArgs e)
         {
-            VoziloUpsertRequest request = new VoziloUpsertRequest();
 
             var idObj = cmbKategorija.SelectedValue;
 
@@ -75,8 +77,49 @@ namespace Rent_A_Car.WinUI.Vozilo
             {
                 request.KategorijaId = kategorijaId;
             }
-            //request.RegistracijskiBroj = txtReg;
-            //request.Model = txtModel;
+            request.RegistracijskiBroj = txtRegistracijskiBroj.Text;
+            request.Model = txtModel.Text;
+            request.BrSjedista = txtBrojVrata.Text;
+            request.BrSjedista = txtBrojVrata.Text;
+            //request.CijenaPoSatu = txtCijenaPoSatu.Text;
+            request.Zauzeto = cbIznajmljeno.Checked;
+
+            await _voziloService.Insert<Model.Vozilo>(request);
+        }
+
+        private void textBox7_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox6_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDodaj_Click(object sender, EventArgs e)
+        {
+            var result = openFileDialog1.ShowDialog();
+
+            if(result == DialogResult.OK)
+            {
+                var fileName = openFileDialog1.FileName;
+                var file = File.ReadAllBytes(fileName);
+                request.SlikaThumb = file;
+                txtSlikaInput.Text = fileName;
+                Image image = Image.FromFile(fileName);
+                pictureBox.Image = image;
+            }
         }
     }
 }
