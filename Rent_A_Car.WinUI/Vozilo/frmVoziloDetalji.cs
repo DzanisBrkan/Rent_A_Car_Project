@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Rent_A_Car.WinUI
+namespace Rent_A_Car.WinUI.Vozilo
 {
-    public partial class Form1 : Form
+    public partial class frmVoziloDetalji : Form
     {
-        public Form1()
+        public frmVoziloDetalji()
         {
             InitializeComponent();
         }

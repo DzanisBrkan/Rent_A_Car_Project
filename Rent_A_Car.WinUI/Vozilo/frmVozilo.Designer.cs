@@ -69,12 +69,15 @@
             // 
             // btnSacuvaj
             // 
+            this.btnSacuvaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnSacuvaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSacuvaj.ForeColor = System.Drawing.Color.White;
             this.btnSacuvaj.Location = new System.Drawing.Point(657, 378);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(131, 43);
             this.btnSacuvaj.TabIndex = 3;
             this.btnSacuvaj.Text = "Sačuvaj";
-            this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.UseVisualStyleBackColor = false;
             this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
             // label2
@@ -104,12 +107,15 @@
             // 
             // btnDodaj
             // 
+            this.btnDodaj.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnDodaj.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDodaj.ForeColor = System.Drawing.Color.White;
             this.btnDodaj.Location = new System.Drawing.Point(657, 212);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(131, 21);
+            this.btnDodaj.Size = new System.Drawing.Size(131, 33);
             this.btnDodaj.TabIndex = 10;
             this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.UseVisualStyleBackColor = false;
             // 
             // cmbKategorija
             // 
@@ -224,6 +230,7 @@
             this.Controls.Add(this.VoziloGrid);
             this.Controls.Add(this.label1);
             this.Name = "frmVozilo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVozilo";
             this.Load += new System.EventHandler(this.frmVozilo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.VoziloGrid)).EndInit();

@@ -47,15 +47,16 @@
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.Potvrda = new System.Windows.Forms.Label();
             this.txtPasswordPotvrda = new System.Windows.Forms.TextBox();
-            this.btnSnimi = new System.Windows.Forms.Button();
-            this.txtNazad = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNazad = new System.Windows.Forms.Button();
+            this.btnSnimi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // txtIme
             // 
-            this.txtIme.Location = new System.Drawing.Point(111, 83);
+            this.txtIme.Location = new System.Drawing.Point(169, 173);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(265, 20);
             this.txtIme.TabIndex = 0;
@@ -64,7 +65,7 @@
             // Ime
             // 
             this.Ime.AutoSize = true;
-            this.Ime.Location = new System.Drawing.Point(13, 86);
+            this.Ime.Location = new System.Drawing.Point(71, 176);
             this.Ime.Name = "Ime";
             this.Ime.Size = new System.Drawing.Size(24, 13);
             this.Ime.TabIndex = 1;
@@ -73,7 +74,7 @@
             // Prezime
             // 
             this.Prezime.AutoSize = true;
-            this.Prezime.Location = new System.Drawing.Point(13, 124);
+            this.Prezime.Location = new System.Drawing.Point(71, 214);
             this.Prezime.Name = "Prezime";
             this.Prezime.Size = new System.Drawing.Size(44, 13);
             this.Prezime.TabIndex = 3;
@@ -81,7 +82,7 @@
             // 
             // txtPrezime
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(111, 121);
+            this.txtPrezime.Location = new System.Drawing.Point(169, 211);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(265, 20);
             this.txtPrezime.TabIndex = 2;
@@ -90,7 +91,7 @@
             // Email
             // 
             this.Email.AutoSize = true;
-            this.Email.Location = new System.Drawing.Point(13, 167);
+            this.Email.Location = new System.Drawing.Point(71, 257);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(32, 13);
             this.Email.TabIndex = 5;
@@ -98,7 +99,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(111, 164);
+            this.txtEmail.Location = new System.Drawing.Point(169, 254);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(265, 20);
             this.txtEmail.TabIndex = 4;
@@ -107,7 +108,7 @@
             // Telefon
             // 
             this.Telefon.AutoSize = true;
-            this.Telefon.Location = new System.Drawing.Point(13, 209);
+            this.Telefon.Location = new System.Drawing.Point(71, 299);
             this.Telefon.Name = "Telefon";
             this.Telefon.Size = new System.Drawing.Size(43, 13);
             this.Telefon.TabIndex = 7;
@@ -115,7 +116,7 @@
             // 
             // txtTelefon
             // 
-            this.txtTelefon.Location = new System.Drawing.Point(111, 206);
+            this.txtTelefon.Location = new System.Drawing.Point(169, 296);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(265, 20);
             this.txtTelefon.TabIndex = 6;
@@ -124,7 +125,7 @@
             // KorisnickoIme
             // 
             this.KorisnickoIme.AutoSize = true;
-            this.KorisnickoIme.Location = new System.Drawing.Point(13, 47);
+            this.KorisnickoIme.Location = new System.Drawing.Point(71, 137);
             this.KorisnickoIme.Name = "KorisnickoIme";
             this.KorisnickoIme.Size = new System.Drawing.Size(75, 13);
             this.KorisnickoIme.TabIndex = 9;
@@ -132,7 +133,7 @@
             // 
             // txtKorisnickoIme
             // 
-            this.txtKorisnickoIme.Location = new System.Drawing.Point(111, 44);
+            this.txtKorisnickoIme.Location = new System.Drawing.Point(169, 134);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(265, 20);
             this.txtKorisnickoIme.TabIndex = 8;
@@ -141,7 +142,7 @@
             // Adresa
             // 
             this.Adresa.AutoSize = true;
-            this.Adresa.Location = new System.Drawing.Point(13, 252);
+            this.Adresa.Location = new System.Drawing.Point(71, 342);
             this.Adresa.Name = "Adresa";
             this.Adresa.Size = new System.Drawing.Size(40, 13);
             this.Adresa.TabIndex = 11;
@@ -149,7 +150,7 @@
             // 
             // txtAdresa
             // 
-            this.txtAdresa.Location = new System.Drawing.Point(111, 249);
+            this.txtAdresa.Location = new System.Drawing.Point(169, 339);
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(265, 20);
             this.txtAdresa.TabIndex = 10;
@@ -158,7 +159,7 @@
             // DatumRodjenja
             // 
             this.DatumRodjenja.AutoSize = true;
-            this.DatumRodjenja.Location = new System.Drawing.Point(13, 301);
+            this.DatumRodjenja.Location = new System.Drawing.Point(71, 391);
             this.DatumRodjenja.Name = "DatumRodjenja";
             this.DatumRodjenja.Size = new System.Drawing.Size(77, 13);
             this.DatumRodjenja.TabIndex = 13;
@@ -166,7 +167,7 @@
             // 
             // txtDatumRodjenja
             // 
-            this.txtDatumRodjenja.Location = new System.Drawing.Point(111, 298);
+            this.txtDatumRodjenja.Location = new System.Drawing.Point(169, 388);
             this.txtDatumRodjenja.Name = "txtDatumRodjenja";
             this.txtDatumRodjenja.Size = new System.Drawing.Size(265, 20);
             this.txtDatumRodjenja.TabIndex = 12;
@@ -175,7 +176,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(9, 343);
+            this.Password.Location = new System.Drawing.Point(67, 433);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(53, 13);
             this.Password.TabIndex = 15;
@@ -183,7 +184,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(12, 368);
+            this.txtPassword.Location = new System.Drawing.Point(70, 458);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(168, 20);
@@ -192,7 +193,7 @@
             // Potvrda
             // 
             this.Potvrda.AutoSize = true;
-            this.Potvrda.Location = new System.Drawing.Point(205, 343);
+            this.Potvrda.Location = new System.Drawing.Point(263, 433);
             this.Potvrda.Name = "Potvrda";
             this.Potvrda.Size = new System.Drawing.Size(44, 13);
             this.Potvrda.TabIndex = 17;
@@ -200,42 +201,60 @@
             // 
             // txtPasswordPotvrda
             // 
-            this.txtPasswordPotvrda.Location = new System.Drawing.Point(208, 368);
+            this.txtPasswordPotvrda.Location = new System.Drawing.Point(266, 458);
             this.txtPasswordPotvrda.Name = "txtPasswordPotvrda";
             this.txtPasswordPotvrda.PasswordChar = '*';
             this.txtPasswordPotvrda.Size = new System.Drawing.Size(168, 20);
             this.txtPasswordPotvrda.TabIndex = 18;
             // 
-            // btnSnimi
-            // 
-            this.btnSnimi.Location = new System.Drawing.Point(208, 415);
-            this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(167, 23);
-            this.btnSnimi.TabIndex = 19;
-            this.btnSnimi.Text = "Sačuvaj";
-            this.btnSnimi.UseVisualStyleBackColor = true;
-            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
-            // 
-            // txtNazad
-            // 
-            this.txtNazad.Location = new System.Drawing.Point(12, 414);
-            this.txtNazad.Name = "txtNazad";
-            this.txtNazad.Size = new System.Drawing.Size(168, 23);
-            this.txtNazad.TabIndex = 20;
-            this.txtNazad.Text = "Nazad";
-            this.txtNazad.UseVisualStyleBackColor = true;
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(114, 55);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(265, 39);
+            this.label1.TabIndex = 41;
+            this.label1.Text = "Postavke profila";
+            // 
+            // txtNazad
+            // 
+            this.txtNazad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.txtNazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.txtNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNazad.ForeColor = System.Drawing.Color.White;
+            this.txtNazad.Location = new System.Drawing.Point(70, 514);
+            this.txtNazad.Name = "txtNazad";
+            this.txtNazad.Size = new System.Drawing.Size(168, 58);
+            this.txtNazad.TabIndex = 84;
+            this.txtNazad.Text = "Nazad";
+            this.txtNazad.UseVisualStyleBackColor = false;
+            // 
+            // btnSnimi
+            // 
+            this.btnSnimi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSnimi.ForeColor = System.Drawing.Color.White;
+            this.btnSnimi.Location = new System.Drawing.Point(266, 515);
+            this.btnSnimi.Name = "btnSnimi";
+            this.btnSnimi.Size = new System.Drawing.Size(167, 57);
+            this.btnSnimi.TabIndex = 83;
+            this.btnSnimi.Text = "Sačuvaj";
+            this.btnSnimi.UseVisualStyleBackColor = false;
             // 
             // frmKlijentDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(412, 471);
+            this.ClientSize = new System.Drawing.Size(506, 574);
             this.Controls.Add(this.txtNazad);
             this.Controls.Add(this.btnSnimi);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPasswordPotvrda);
             this.Controls.Add(this.Potvrda);
             this.Controls.Add(this.Password);
@@ -254,7 +273,9 @@
             this.Controls.Add(this.txtPrezime);
             this.Controls.Add(this.Ime);
             this.Controls.Add(this.txtIme);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmKlijentDetalji";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKlijentDetalji";
             this.Load += new System.EventHandler(this.frmKlijentDetalji_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
@@ -283,8 +304,9 @@
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.Label Potvrda;
         private System.Windows.Forms.TextBox txtPasswordPotvrda;
-        private System.Windows.Forms.Button btnSnimi;
-        private System.Windows.Forms.Button txtNazad;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button txtNazad;
+        private System.Windows.Forms.Button btnSnimi;
     }
 }
