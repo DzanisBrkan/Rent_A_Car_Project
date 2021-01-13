@@ -119,6 +119,7 @@ namespace Rent_A_Car.WinUI.Vozilo
                 txtSlikaInput.Text = fileName;
                 Image image = Image.FromFile(fileName);
                 pictureBox.Image = image;
+                //radi
             }
         }
     }
