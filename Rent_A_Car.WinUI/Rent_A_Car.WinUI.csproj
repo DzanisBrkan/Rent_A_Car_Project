@@ -123,6 +123,7 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Grad\frmGrad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -262,6 +263,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Grad\frmGrad.resx">
       <DependentUpon>frmGrad.cs</DependentUpon>
     </EmbeddedResource>
@@ -346,6 +348,5 @@
       <Name>Rent_A_Car.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
