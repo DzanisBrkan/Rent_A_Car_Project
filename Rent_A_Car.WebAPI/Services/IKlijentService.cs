@@ -9,15 +9,15 @@ namespace Rent_A_Car.WebAPI.Services
 {
     public interface IKlijentService
     {
-        //get
         List<Model.Klijent> Get(KlijentSearchRequest request);
 
-        //get by id
         Model.Klijent GetById(int id);
 
         Model.Klijent Insert(KlijentInsertRequest request);
 
         Model.Klijent Update(int id, KlijentInsertRequest request);
+
+        Model.Klijent Authenticiraj(string username, string pass);
 
     }
 }

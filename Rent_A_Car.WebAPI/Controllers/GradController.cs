@@ -10,10 +10,11 @@ using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
+    //Grad mora biti crud jer ce ih unositi i mijenjati admin
     [Authorize]
-    public class KategorijaController : BaseController<Model.Kategorija, object>
+    public class GradController : BaseController<Model.Grad, object>
     {
-        public KategorijaController(IService<Kategorija, object> service) : base(service)
+        public GradController(IService<Grad, object> service) : base(service)
         {
         }
     }

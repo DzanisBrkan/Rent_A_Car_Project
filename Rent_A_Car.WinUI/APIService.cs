@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 using Flurl.Http;
 using Flurl;
 using Rent_A_Car.Model;
+using System.Windows.Forms;
 
 namespace Rent_A_Car.WinUI
 {
     public class APIService
     {
+        public static string Username { get; set; }
+        public static string Password { get; set; }
+
+
         private readonly string _route = null;
         public APIService(string route)
         {
@@ -22,13 +27,14 @@ namespace Rent_A_Car.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
-            if(search != null)
+            if (search != null)
             {
                 url += "?";
                 url += await search.ToQueryString();
             }
-            
-            return await url.GetJsonAsync<T>();
+
+            //implementacija autentifikacije
+            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
         }
 
         // GET BY ID PREMA SERVERU -----------------------
@@ -37,7 +43,7 @@ namespace Rent_A_Car.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            return await url.GetJsonAsync<T>();
+            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
         }
 
@@ -47,7 +53,24 @@ namespace Rent_A_Car.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
-            return await url.PostJsonAsync(request).ReceiveJson<T>();
+            try
+            {
+                return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
+
 
         }
 
@@ -56,9 +79,25 @@ namespace Rent_A_Car.WinUI
         public async Task<T> Update<T>(object id, object request)
         {
 
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
+            try
+            {
+                var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            return await url.PutJsonAsync(request).ReceiveJson<T>();
+                return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+
+                MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return default(T);
+            }
         }
     }
 }
