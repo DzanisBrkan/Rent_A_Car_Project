@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVozilo));
             this.label1 = new System.Windows.Forms.Label();
             this.VoziloGrid = new System.Windows.Forms.DataGridView();
             this.btnSacuvaj = new System.Windows.Forms.Button();
@@ -58,6 +59,7 @@
             this.cmbTip = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.VoziloGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
@@ -81,7 +83,7 @@
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(657, 378);
+            this.btnSacuvaj.Location = new System.Drawing.Point(651, 71);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(131, 43);
             this.btnSacuvaj.TabIndex = 3;
@@ -116,9 +118,9 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(657, 212);
+            this.btnDodaj.Location = new System.Drawing.Point(167, 82);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(131, 21);
+            this.btnDodaj.Size = new System.Drawing.Size(148, 21);
             this.btnDodaj.TabIndex = 10;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
@@ -312,11 +314,25 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(735, 2);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 35;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmVozilo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 631);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.cmbTip);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.cbIznajmljeno);
@@ -346,6 +362,7 @@
             this.Controls.Add(this.btnSacuvaj);
             this.Controls.Add(this.VoziloGrid);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmVozilo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVozilo";
@@ -389,5 +406,6 @@
         private System.Windows.Forms.ComboBox cmbTip;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button btnExit;
     }
 }

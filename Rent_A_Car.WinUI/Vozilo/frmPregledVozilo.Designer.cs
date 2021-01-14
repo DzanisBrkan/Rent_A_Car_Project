@@ -1,0 +1,205 @@
+﻿namespace Rent_A_Car.WinUI.Vozilo
+{
+    partial class frmPregledVozilo
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPregledVozilo));
+            this.btnExit = new System.Windows.Forms.Button();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
+            this.btnPrikazi = new System.Windows.Forms.Button();
+            this.groupBoxVozila = new System.Windows.Forms.GroupBox();
+            this.dgvKlijent = new System.Windows.Forms.DataGridView();
+            this.VoziloID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RegistracijskiBroj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BrojSjedala = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BrojVrata = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZapreminaPrtljaznika = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CijenaPoSatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBoxVozila.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(738, 7);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 16;
+            this.btnExit.UseVisualStyleBackColor = true;
+            // 
+            // txtPretraga
+            // 
+            this.txtPretraga.Location = new System.Drawing.Point(15, 69);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(596, 20);
+            this.txtPretraga.TabIndex = 15;
+            // 
+            // btnPrikazi
+            // 
+            this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrikazi.ForeColor = System.Drawing.Color.White;
+            this.btnPrikazi.Location = new System.Drawing.Point(668, 69);
+            this.btnPrikazi.Name = "btnPrikazi";
+            this.btnPrikazi.Size = new System.Drawing.Size(117, 23);
+            this.btnPrikazi.TabIndex = 14;
+            this.btnPrikazi.Text = "Prikazi";
+            this.btnPrikazi.UseVisualStyleBackColor = false;
+            // 
+            // groupBoxVozila
+            // 
+            this.groupBoxVozila.Controls.Add(this.dgvKlijent);
+            this.groupBoxVozila.Location = new System.Drawing.Point(12, 122);
+            this.groupBoxVozila.Name = "groupBoxVozila";
+            this.groupBoxVozila.Size = new System.Drawing.Size(776, 321);
+            this.groupBoxVozila.TabIndex = 13;
+            this.groupBoxVozila.TabStop = false;
+            this.groupBoxVozila.Text = "Vozila";
+            // 
+            // dgvKlijent
+            // 
+            this.dgvKlijent.AllowUserToAddRows = false;
+            this.dgvKlijent.AllowUserToDeleteRows = false;
+            this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VoziloID,
+            this.RegistracijskiBroj,
+            this.Model,
+            this.Marka,
+            this.BrojSjedala,
+            this.BrojVrata,
+            this.ZapreminaPrtljaznika,
+            this.CijenaPoSatu});
+            this.dgvKlijent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvKlijent.Location = new System.Drawing.Point(3, 16);
+            this.dgvKlijent.Name = "dgvKlijent";
+            this.dgvKlijent.ReadOnly = true;
+            this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvKlijent.Size = new System.Drawing.Size(770, 302);
+            this.dgvKlijent.TabIndex = 0;
+            // 
+            // VoziloID
+            // 
+            this.VoziloID.DataPropertyName = "VoziloID";
+            this.VoziloID.HeaderText = "VoziloID";
+            this.VoziloID.Name = "VoziloID";
+            this.VoziloID.ReadOnly = true;
+            this.VoziloID.Visible = false;
+            // 
+            // RegistracijskiBroj
+            // 
+            this.RegistracijskiBroj.DataPropertyName = "RegistracijskiBroj";
+            this.RegistracijskiBroj.HeaderText = "RegistracijskiBroj";
+            this.RegistracijskiBroj.Name = "RegistracijskiBroj";
+            this.RegistracijskiBroj.ReadOnly = true;
+            // 
+            // Model
+            // 
+            this.Model.DataPropertyName = "Model";
+            this.Model.HeaderText = "Model";
+            this.Model.Name = "Model";
+            this.Model.ReadOnly = true;
+            // 
+            // Marka
+            // 
+            this.Marka.DataPropertyName = "Marka";
+            this.Marka.HeaderText = "Marka";
+            this.Marka.Name = "Marka";
+            this.Marka.ReadOnly = true;
+            // 
+            // BrojSjedala
+            // 
+            this.BrojSjedala.DataPropertyName = "BrojSjedala";
+            this.BrojSjedala.HeaderText = "BrojSjedala";
+            this.BrojSjedala.Name = "BrojSjedala";
+            this.BrojSjedala.ReadOnly = true;
+            // 
+            // BrojVrata
+            // 
+            this.BrojVrata.DataPropertyName = "BrojVrata";
+            this.BrojVrata.HeaderText = "BrojVrata";
+            this.BrojVrata.Name = "BrojVrata";
+            this.BrojVrata.ReadOnly = true;
+            // 
+            // ZapreminaPrtljaznika
+            // 
+            this.ZapreminaPrtljaznika.DataPropertyName = "ZapreminaPrtljaznika";
+            this.ZapreminaPrtljaznika.HeaderText = "ZapreminaPrtljaznika";
+            this.ZapreminaPrtljaznika.Name = "ZapreminaPrtljaznika";
+            this.ZapreminaPrtljaznika.ReadOnly = true;
+            // 
+            // CijenaPoSatu
+            // 
+            this.CijenaPoSatu.DataPropertyName = "CijenaPoSatu";
+            this.CijenaPoSatu.HeaderText = "CijenaPoSatu";
+            this.CijenaPoSatu.Name = "CijenaPoSatu";
+            this.CijenaPoSatu.ReadOnly = true;
+            // 
+            // frmPregledVozilo
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.txtPretraga);
+            this.Controls.Add(this.btnPrikazi);
+            this.Controls.Add(this.groupBoxVozila);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmPregledVozilo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmPregledVozilo";
+            this.groupBoxVozila.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).EndInit();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.Button btnPrikazi;
+        private System.Windows.Forms.GroupBox groupBoxVozila;
+        private System.Windows.Forms.DataGridView dgvKlijent;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VoziloID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RegistracijskiBroj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Model;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marka;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BrojSjedala;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BrojVrata;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ZapreminaPrtljaznika;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CijenaPoSatu;
+    }
+}

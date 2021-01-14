@@ -46,7 +46,7 @@ namespace Rent_A_Car.WebAPI.Database
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Bosnian_Latin_100_BIN");
+            modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
 
             modelBuilder.Entity<Drzava>(entity =>
             {
@@ -82,7 +82,7 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Drzava)
                     .WithMany(p => p.Grads)
                     .HasForeignKey(d => d.DrzavaId)
-                    .HasConstraintName("FK__Grad__DrzavaID__3E52440B");
+                    .HasConstraintName("FK__Grad__DrzavaID__267ABA7A");
             });
 
             modelBuilder.Entity<Greska>(entity =>
@@ -154,19 +154,16 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.Property(e => e.KorisnickiNalogId).HasColumnName("KorisnickiNalogID");
 
                 entity.Property(e => e.KorisnickoIme)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false);
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.LozinkaHash)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false);
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.LozinkaSalt)
-                    .IsRequired()
-                    .HasMaxLength(150)
-                    .IsUnicode(false);
+                    .HasMaxLength(50)
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.Prezime)
                     .HasMaxLength(60)
@@ -175,12 +172,12 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Grad)
                     .WithMany(p => p.Klijents)
                     .HasForeignKey(d => d.GradId)
-                    .HasConstraintName("FK__Klijent__GradID__72C60C4A");
+                    .HasConstraintName("FK__Klijent__GradID__38996AB5");
 
                 entity.HasOne(d => d.KorisnickiNalog)
                     .WithMany(p => p.Klijents)
                     .HasForeignKey(d => d.KorisnickiNalogId)
-                    .HasConstraintName("FK__Klijent__Korisni__73BA3083");
+                    .HasConstraintName("FK__Klijent__Korisni__398D8EEE");
             });
 
             modelBuilder.Entity<KorisnickiNalog>(entity =>
@@ -225,7 +222,7 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Grad)
                     .WithMany(p => p.Lokacijas)
                     .HasForeignKey(d => d.GradId)
-                    .HasConstraintName("FK__Lokacija__GradID__4E88ABD4");
+                    .HasConstraintName("FK__Lokacija__GradID__2F10007B");
             });
 
             modelBuilder.Entity<NacinPlacanja>(entity =>
@@ -252,7 +249,7 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Rezervacija)
                     .WithMany(p => p.Ocjenas)
                     .HasForeignKey(d => d.RezervacijaId)
-                    .HasConstraintName("FK__Ocjena__Rezervac__04E4BC85");
+                    .HasConstraintName("FK__Ocjena__Rezervac__5070F446");
             });
 
             modelBuilder.Entity<Osiguranje>(entity =>
@@ -300,7 +297,7 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.NacinPlacanja)
                     .WithMany(p => p.Racuns)
                     .HasForeignKey(d => d.NacinPlacanjaId)
-                    .HasConstraintName("FK__Racun__NacinPlac__7A672E12");
+                    .HasConstraintName("FK__Racun__NacinPlac__45F365D3");
             });
 
             modelBuilder.Entity<Rezervacija>(entity =>
@@ -330,32 +327,32 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Klijent)
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.KlijentId)
-                    .HasConstraintName("FK__Rezervaci__Klije__7F2BE32F");
+                    .HasConstraintName("FK__Rezervaci__Klije__4AB81AF0");
 
                 entity.HasOne(d => d.Lokacija)
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.LokacijaId)
-                    .HasConstraintName("FK__Rezervaci__Lokac__7D439ABD");
+                    .HasConstraintName("FK__Rezervaci__Lokac__48CFD27E");
 
                 entity.HasOne(d => d.Osiguranje)
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.OsiguranjeId)
-                    .HasConstraintName("FK__Rezervaci__Osigu__7E37BEF6");
+                    .HasConstraintName("FK__Rezervaci__Osigu__49C3F6B7");
 
                 entity.HasOne(d => d.Popust)
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.PopustId)
-                    .HasConstraintName("FK__Rezervaci__Popus__01142BA1");
+                    .HasConstraintName("FK__Rezervaci__Popus__4CA06362");
 
                 entity.HasOne(d => d.Racun)
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.RacunId)
-                    .HasConstraintName("FK__Rezervaci__Racun__02084FDA");
+                    .HasConstraintName("FK__Rezervaci__Racun__4D94879B");
 
                 entity.HasOne(d => d.Vozilo)
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.VoziloId)
-                    .HasConstraintName("FK__Rezervaci__Vozil__00200768");
+                    .HasConstraintName("FK__Rezervaci__Vozil__4BAC3F29");
             });
 
             modelBuilder.Entity<Specifikacija>(entity =>
@@ -408,7 +405,7 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.Property(e => e.TipId).HasColumnName("TipID");
 
                 entity.Property(e => e.Naziv)
-                    .HasMaxLength(255)
+                    .HasMaxLength(120)
                     .IsUnicode(false);
             });
 
@@ -453,22 +450,22 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Kategorija)
                     .WithMany(p => p.Vozilos)
                     .HasForeignKey(d => d.KategorijaId)
-                    .HasConstraintName("FK__Vozilo__Kategori__5629CD9C");
+                    .HasConstraintName("FK__Vozilo__Kategori__31EC6D26");
 
                 entity.HasOne(d => d.Lokacija)
                     .WithMany(p => p.Vozilos)
                     .HasForeignKey(d => d.LokacijaId)
-                    .HasConstraintName("FK__Vozilo__Lokacija__5812160E");
+                    .HasConstraintName("FK__Vozilo__Lokacija__33D4B598");
 
                 entity.HasOne(d => d.Specifikacija)
                     .WithMany(p => p.Vozilos)
                     .HasForeignKey(d => d.SpecifikacijaId)
-                    .HasConstraintName("FK__Vozilo__Specifik__571DF1D5");
+                    .HasConstraintName("FK__Vozilo__Specifik__32E0915F");
 
                 entity.HasOne(d => d.Tip)
                     .WithMany(p => p.Vozilos)
                     .HasForeignKey(d => d.TipId)
-                    .HasConstraintName("FK__Vozilo__TipID__160F4887");
+                    .HasConstraintName("FK__Vozilo__TipID__6FE99F9F");
             });
 
             modelBuilder.Entity<Zaposlenik>(entity =>
@@ -501,12 +498,12 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Grad)
                     .WithMany(p => p.Zaposleniks)
                     .HasForeignKey(d => d.GradId)
-                    .HasConstraintName("FK__Zaposleni__GradI__76969D2E");
+                    .HasConstraintName("FK__Zaposleni__GradI__3C69FB99");
 
                 entity.HasOne(d => d.KorisnickiNalog)
                     .WithMany(p => p.Zaposleniks)
                     .HasForeignKey(d => d.KorisnickiNalogId)
-                    .HasConstraintName("FK__Zaposleni__Koris__778AC167");
+                    .HasConstraintName("FK__Zaposleni__Koris__3D5E1FD2");
             });
 
             OnModelCreatingPartial(modelBuilder);

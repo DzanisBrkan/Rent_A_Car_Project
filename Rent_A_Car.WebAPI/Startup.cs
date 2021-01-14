@@ -75,8 +75,8 @@ namespace Rent_A_Car.WebAPI
                         .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<ICRUDService<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>, VoziloService>();
-            services.AddScoped<ICRUDService<Model.Zaposlenik, ZaposlenikSearchRequest, ZaposlenikUpsertRequest, ZaposlenikUpsertRequest>, ZaposlenikService>();
 
+            services.AddScoped<ICRUDService<Model.Zaposlenik, ZaposlenikSearchRequest, ZaposlenikUpsertRequest, ZaposlenikUpsertRequest>, ZaposlenikService>();
 
             services.AddScoped<IService<Model.Grad, object>, BaseService<Model.Grad, object, Grad>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();

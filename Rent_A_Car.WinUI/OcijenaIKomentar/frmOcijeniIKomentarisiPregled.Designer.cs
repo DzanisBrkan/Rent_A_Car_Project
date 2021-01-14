@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOcijeniIKomentarisiPregled));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
             this.KlijentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -37,6 +38,7 @@
             this.DatumRezervacijeDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Komentar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +46,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvKlijent);
-            this.groupBox1.Location = new System.Drawing.Point(12, 24);
+            this.groupBox1.Location = new System.Drawing.Point(12, 70);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(704, 321);
             this.groupBox1.TabIndex = 4;
@@ -118,11 +120,25 @@
             this.Ocijena.Name = "Ocijena";
             this.Ocijena.ReadOnly = true;
             // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(669, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmOcijeniIKomentarisiPregled
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 368);
+            this.ClientSize = new System.Drawing.Size(743, 403);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmOcijeniIKomentarisiPregled";
@@ -145,5 +161,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DatumRezervacijeDO;
         private System.Windows.Forms.DataGridViewTextBoxColumn Komentar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ocijena;
+        private System.Windows.Forms.Button btnExit;
     }
 }

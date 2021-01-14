@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOcijenaIKomentar));
             this.Komentar = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.Ocijena = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox6 = new System.Windows.Forms.CheckBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Komentar
@@ -99,7 +101,7 @@
             // 
             this.Ocijeniikomentarisi.AutoSize = true;
             this.Ocijeniikomentarisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ocijeniikomentarisi.Location = new System.Drawing.Point(74, 19);
+            this.Ocijeniikomentarisi.Location = new System.Drawing.Point(49, 27);
             this.Ocijeniikomentarisi.Name = "Ocijeniikomentarisi";
             this.Ocijeniikomentarisi.Size = new System.Drawing.Size(330, 39);
             this.Ocijeniikomentarisi.TabIndex = 87;
@@ -150,11 +152,25 @@
             this.checkBox6.TabIndex = 92;
             this.checkBox6.UseVisualStyleBackColor = true;
             // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(419, 24);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 93;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmOcijenaIKomentar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(478, 470);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.checkBox6);
             this.Controls.Add(this.checkBox3);
             this.Controls.Add(this.checkBox4);
@@ -188,5 +204,6 @@
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.Button btnExit;
     }
 }
