@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGradDetalji));
             this.txtNazad = new System.Windows.Forms.Button();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.Grada = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.txtKorisnickoIme = new System.Windows.Forms.TextBox();
             this.PostanskiBroj = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtNazad
@@ -105,11 +107,25 @@
             this.txtIme.Size = new System.Drawing.Size(265, 20);
             this.txtIme.TabIndex = 85;
             // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(441, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 106;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmGradDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 292);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtNazad);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.Grada);
@@ -135,5 +151,6 @@
         private System.Windows.Forms.TextBox txtKorisnickoIme;
         private System.Windows.Forms.Label PostanskiBroj;
         private System.Windows.Forms.TextBox txtIme;
+        private System.Windows.Forms.Button btnExit;
     }
 }

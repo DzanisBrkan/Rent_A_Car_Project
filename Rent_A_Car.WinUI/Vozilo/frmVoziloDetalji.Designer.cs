@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVoziloDetalji));
             this.label1 = new System.Windows.Forms.Label();
             this.Zauzeto = new System.Windows.Forms.Label();
             this.CijenaPoSatu = new System.Windows.Forms.Label();
@@ -53,6 +54,7 @@
             this.cbZauzeto = new System.Windows.Forms.CheckBox();
             this.txtNazad = new System.Windows.Forms.Button();
             this.btnSnimi = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -272,11 +274,25 @@
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
             // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(434, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 85;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmVoziloDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(493, 733);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtNazad);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.cbZauzeto);
@@ -338,5 +354,6 @@
         private System.Windows.Forms.CheckBox cbZauzeto;
         private System.Windows.Forms.Button txtNazad;
         private System.Windows.Forms.Button btnSnimi;
+        private System.Windows.Forms.Button btnExit;
     }
 }

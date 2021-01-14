@@ -99,6 +99,12 @@
     <Compile Include="FormRegistracija.Designer.cs">
       <DependentUpon>FormRegistracija.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormVerzija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormVerzija.Designer.cs">
+      <DependentUpon>FormVerzija.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormZaposlenik.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,7 @@
     <Compile Include="frmIndex.Designer.cs">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmVozila.cs" />
     <Compile Include="Grad\frmGrad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +153,12 @@
     </Compile>
     <Compile Include="Klijent\frmKlijentDetalji.Designer.cs">
       <DependentUpon>frmKlijentDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIParent1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIParent1.Designer.cs">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
     </Compile>
     <Compile Include="OcijenaIKomentar\frmOcijenaIKomentar.cs">
       <SubType>Form</SubType>
@@ -184,6 +197,12 @@
     </Compile>
     <Compile Include="Ugovor\frmUgovorDetalji.Designer.cs">
       <DependentUpon>frmUgovorDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vozilo\frmPregledVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vozilo\frmPregledVozilo.Designer.cs">
+      <DependentUpon>frmPregledVozilo.cs</DependentUpon>
     </Compile>
     <Compile Include="Vozilo\frmVozilo.cs">
       <SubType>Form</SubType>
@@ -227,6 +246,9 @@
     <EmbeddedResource Include="FormRegistracija.resx">
       <DependentUpon>FormRegistracija.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormVerzija.resx">
+      <DependentUpon>FormVerzija.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormZaposlenik.resx">
       <DependentUpon>FormZaposlenik.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Klijent\frmKlijentDetalji.resx">
       <DependentUpon>frmKlijentDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIParent1.resx">
+      <DependentUpon>MDIParent1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="OcijenaIKomentar\frmOcijenaIKomentar.resx">
       <DependentUpon>frmOcijenaIKomentar.cs</DependentUpon>
@@ -278,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ugovor\frmUgovorDetalji.resx">
       <DependentUpon>frmUgovorDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vozilo\frmPregledVozilo.resx">
+      <DependentUpon>frmPregledVozilo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vozilo\frmVozilo.resx">
       <DependentUpon>frmVozilo.cs</DependentUpon>

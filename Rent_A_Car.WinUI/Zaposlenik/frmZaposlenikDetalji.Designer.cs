@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmZaposlenikDetalji));
             this.label1 = new System.Windows.Forms.Label();
             this.txtPasswordPotvrda = new System.Windows.Forms.TextBox();
             this.Potvrda = new System.Windows.Forms.Label();
@@ -49,6 +50,7 @@
             this.txtIme = new System.Windows.Forms.TextBox();
             this.txtNazad = new System.Windows.Forms.Button();
             this.btnSnimi = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -214,7 +216,7 @@
             this.txtNazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.txtNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNazad.ForeColor = System.Drawing.Color.White;
-            this.txtNazad.Location = new System.Drawing.Point(68, 522);
+            this.txtNazad.Location = new System.Drawing.Point(68, 487);
             this.txtNazad.Name = "txtNazad";
             this.txtNazad.Size = new System.Drawing.Size(168, 58);
             this.txtNazad.TabIndex = 84;
@@ -227,18 +229,32 @@
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(264, 523);
+            this.btnSnimi.Location = new System.Drawing.Point(264, 488);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(167, 57);
             this.btnSnimi.TabIndex = 83;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
             // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(467, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 85;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // frmZaposlenikDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 620);
+            this.ClientSize = new System.Drawing.Size(526, 561);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtNazad);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.label1);
@@ -292,5 +308,6 @@
         private System.Windows.Forms.TextBox txtIme;
         private System.Windows.Forms.Button txtNazad;
         private System.Windows.Forms.Button btnSnimi;
+        private System.Windows.Forms.Button btnExit;
     }
 }
