@@ -81,12 +81,12 @@
             // 
             // btnSacuvaj
             // 
-            this.btnSacuvaj.Location = new System.Drawing.Point(651, 36);
+            this.btnSacuvaj.Location = new System.Drawing.Point(657, 378);
             this.btnSacuvaj.Name = "btnSacuvaj";
             this.btnSacuvaj.Size = new System.Drawing.Size(131, 43);
             this.btnSacuvaj.TabIndex = 3;
             this.btnSacuvaj.Text = "Sačuvaj";
-            this.btnSacuvaj.UseVisualStyleBackColor = true;
+            this.btnSacuvaj.UseVisualStyleBackColor = false;
             this.btnSacuvaj.Click += new System.EventHandler(this.btnSacuvaj_Click);
             // 
             // label2
@@ -116,13 +116,12 @@
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(167, 99);
+            this.btnDodaj.Location = new System.Drawing.Point(657, 212);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(148, 21);
+            this.btnDodaj.Size = new System.Drawing.Size(131, 21);
             this.btnDodaj.TabIndex = 10;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
-            this.btnDodaj.Click += new System.EventHandler(this.btnDodaj_Click);
             // 
             // cmbKategorija
             // 
@@ -348,6 +347,7 @@
             this.Controls.Add(this.VoziloGrid);
             this.Controls.Add(this.label1);
             this.Name = "frmVozilo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmVozilo";
             this.Load += new System.EventHandler(this.frmVozilo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.VoziloGrid)).EndInit();

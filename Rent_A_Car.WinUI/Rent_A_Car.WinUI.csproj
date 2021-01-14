@@ -62,12 +62,48 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="APIService.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Admin\frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Admin\frmAdmin.Designer.cs">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\frmAdminDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\frmAdminDetalji.Designer.cs">
+      <DependentUpon>frmAdminDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="APIService.cs" />
+    <Compile Include="FormAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdmin.Designer.cs">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormKlijent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormKlijent.Designer.cs">
+      <DependentUpon>FormKlijent.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPrijava.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPrijava.Designer.cs">
+      <DependentUpon>FormPrijava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormRegistracija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormRegistracija.Designer.cs">
+      <DependentUpon>FormRegistracija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormZaposlenik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormZaposlenik.Designer.cs">
+      <DependentUpon>FormZaposlenik.cs</DependentUpon>
     </Compile>
     <Compile Include="frmIndex.cs">
       <SubType>Form</SubType>
@@ -80,6 +116,29 @@
     </Compile>
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    <Compile Include="Grad\frmGrad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grad\frmGrad.Designer.cs">
+      <DependentUpon>frmGrad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Grad\frmGradDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Grad\frmGradDetalji.Designer.cs">
+      <DependentUpon>frmGradDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorija\frmKategorija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorija\frmKategorija.Designer.cs">
+      <DependentUpon>frmKategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorija\frmKategorijaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorija\frmKategorijaDetalji.Designer.cs">
+      <DependentUpon>frmKategorijaDetalji.cs</DependentUpon>
     </Compile>
     <Compile Include="Klijent\frmKlijent.cs">
       <SubType>Form</SubType>
@@ -93,25 +152,117 @@
     <Compile Include="Klijent\frmKlijentDetalji.Designer.cs">
       <DependentUpon>frmKlijentDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="OcijenaIKomentar\frmOcijenaIKomentar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OcijenaIKomentar\frmOcijenaIKomentar.Designer.cs">
+      <DependentUpon>frmOcijenaIKomentar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OcijenaIKomentar\frmOcijeniIKomentarisiPregled.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OcijenaIKomentar\frmOcijeniIKomentarisiPregled.Designer.cs">
+      <DependentUpon>frmOcijeniIKomentarisiPregled.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rezervacija\frmRezervacija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervacija\frmRezervacija.Designer.cs">
+      <DependentUpon>frmRezervacija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Rezervacija\frmRezervacjiaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Rezervacija\frmRezervacjiaDetalji.Designer.cs">
+      <DependentUpon>frmRezervacjiaDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ugovor\frmUgovor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ugovor\frmUgovor.Designer.cs">
+      <DependentUpon>frmUgovor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ugovor\frmUgovorDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ugovor\frmUgovorDetalji.Designer.cs">
+      <DependentUpon>frmUgovorDetalji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Vozilo\frmVozilo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Vozilo\frmVozilo.Designer.cs">
       <DependentUpon>frmVozilo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Vozilo\frmVoziloDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vozilo\frmVoziloDetalji.Designer.cs">
+      <DependentUpon>frmVoziloDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zaposlenik\frmZaposlenik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zaposlenik\frmZaposlenik.Designer.cs">
+      <DependentUpon>frmZaposlenik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zaposlenik\frmZaposlenikDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zaposlenik\frmZaposlenikDetalji.Designer.cs">
+      <DependentUpon>frmZaposlenikDetalji.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin\frmAdmin.resx">
+      <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\frmAdminDetalji.resx">
+      <DependentUpon>frmAdminDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdmin.resx">
+      <DependentUpon>FormAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormKlijent.resx">
+      <DependentUpon>FormKlijent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPrijava.resx">
+      <DependentUpon>FormPrijava.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRegistracija.resx">
+      <DependentUpon>FormRegistracija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormZaposlenik.resx">
+      <DependentUpon>FormZaposlenik.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    <EmbeddedResource Include="Grad\frmGrad.resx">
+      <DependentUpon>frmGrad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Grad\frmGradDetalji.resx">
+      <DependentUpon>frmGradDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorija\frmKategorija.resx">
+      <DependentUpon>frmKategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorija\frmKategorijaDetalji.resx">
+      <DependentUpon>frmKategorijaDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Klijent\frmKlijent.resx">
       <DependentUpon>frmKlijent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Klijent\frmKlijentDetalji.resx">
       <DependentUpon>frmKlijentDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OcijenaIKomentar\frmOcijenaIKomentar.resx">
+      <DependentUpon>frmOcijenaIKomentar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OcijenaIKomentar\frmOcijeniIKomentarisiPregled.resx">
+      <DependentUpon>frmOcijeniIKomentarisiPregled.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -123,8 +274,29 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Rezervacija\frmRezervacija.resx">
+      <DependentUpon>frmRezervacija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Rezervacija\frmRezervacjiaDetalji.resx">
+      <DependentUpon>frmRezervacjiaDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ugovor\frmUgovor.resx">
+      <DependentUpon>frmUgovor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ugovor\frmUgovorDetalji.resx">
+      <DependentUpon>frmUgovorDetalji.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Vozilo\frmVozilo.resx">
       <DependentUpon>frmVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vozilo\frmVoziloDetalji.resx">
+      <DependentUpon>frmVoziloDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zaposlenik\frmZaposlenik.resx">
+      <DependentUpon>frmZaposlenik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zaposlenik\frmZaposlenikDetalji.resx">
+      <DependentUpon>frmZaposlenikDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -146,8 +318,6 @@
       <Name>Rent_A_Car.Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Zaposlenik\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
