@@ -12,7 +12,7 @@ namespace Rent_A_Car.WinUI
 {
     public partial class frmLogin : Form
     {
-        APIService _service = new APIService("Klijent"); //ovdje moze stajati sta god
+        APIService _service = new APIService("Klijent"); //ovdje moze stajati sta god -> Kategorija
         public frmLogin()
         {
             InitializeComponent();
