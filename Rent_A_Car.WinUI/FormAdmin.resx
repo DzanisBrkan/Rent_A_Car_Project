@@ -120,14 +120,13 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="brnOcjeneIKomentari.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAFWSURBVGhD7Zk9SwNBAERPQcHKyk4hrmKT0j9opzYW4l7MLxDs/QP2qW0t/Ogsbg/b9S6MEGSK
-        wWb2YB+8Ind7w0uKFElTqVQqZTJ/zLth0V8ft+ljMJt8D21/NbYgS2d8kAxaHFuQpTM86Pzk//qJLB0y
-        YhVZOmzEKbJ02IhTZOmwEafI0mEjTpGlw0acIkuHjThFlg4bcYosHTbiFFk6bMQpsnTYiFNk6bARp8jS
-        YSNOkaXDRpwiS4eNOEWWDhtxiiwdNuIUWTpsxCmydNiIU2TpsBGnyNJhI06RpcNGnCJLh424DG16Q5YO
-        G3I5i/0lsnTYkMH//7RIxjbsXsNdd4ajZcLDB2N6OYnfRzhWLiw+LNLq9DYd4EjZkDfwHJZf+7hdPpvx
-        s9g9Hd7kPdyaBr/xw3fww/ky7+DydFjHx3TfXORtXJoW639Fct7Cy0qlUqkQmuYH387f4cb5y40AAAAA
-        SUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAABGdBTUEAALGPC/xhBQAAAVZJREFUaEPt
+        mT1LA0EARE9BwcrKTiGuYpPSP2inNhbiXswvEOz9A/apbS386CxuD9v1LowQZIrBZvZgH7wid3vDS4oU
+        SVOpVCplMn/Mu2HRXx+36WMwm3wPbX81tiBLZ3yQDFocW5ClMzzo/OT/+oksHTJiFVk6bMQpsnTYiFNk
+        6bARp8jSYSNOkaXDRpwiS4eNOEWWDhtxiiwdNuIUWTpsxCmydNiIU2TpsBGnyNJhI06RpcNGnCJLh404
+        RZYOG3GKLB024hRZOmzEKbJ02IhTZOmwEafI0mEjTpGlw0acIkuHjbgMbXpDlg4bcjmL/SWydNiQwf//
+        tEjGNuxew113hqNlwsMHY3o5id9HOFYuLD4s0ur0Nh3gSNmQN/Acll/7uF0+m/Gz2D0d3uQ93JoGv/HD
+        d/DD+TLv4PJ0WMfHdN9c5G1cmhbrf0Vy3sLLSqVSqRCa5gffzt/hxvnLjQAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btnRezervacije.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

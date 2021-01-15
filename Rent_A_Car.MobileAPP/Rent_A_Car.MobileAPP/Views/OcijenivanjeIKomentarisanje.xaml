@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.OcijenivanjeIKomentarisanje">
+    <ContentPage.Content>
+        <StackLayout Padding="35"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="FillAndExpand">
+
+
+
+            <Label TextColor="#2196F3" 
+               FontAttributes="Bold" Text="Ostavi komentar i ocijenu:"
+              FontSize="Title"
+                HorizontalOptions="Center" 
+                  />
+
+
+
+            <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
+
+
+            <Label Text="Komentar:" />
+            <Entry Text="{Binding Komentar}"></Entry>
+
+            <Label Text="Ocijena:" />
+            <Entry Text="{Binding Ocijena}"></Entry>
+
+            <!--skadakdsak-->
+
+            <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak"></Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

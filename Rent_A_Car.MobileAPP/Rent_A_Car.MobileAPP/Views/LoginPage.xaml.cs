@@ -19,5 +19,12 @@ namespace Rent_A_Car.MobileAPP.Views
             //BindingContext = new LoginViewModel();//ako ovako spojimo vm sa vjuom izgubit cemo inteli sense
 
         }
+
+        private void Entry_OnTextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
     }
 }

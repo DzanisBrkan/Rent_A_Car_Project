@@ -97,7 +97,11 @@ namespace Rent_A_Car.WebAPI
             }
 
 
+            //app.UseHttpsRedirection();
+
+
             app.UseHttpsRedirection();
+
 
             app.UseRouting();
 
