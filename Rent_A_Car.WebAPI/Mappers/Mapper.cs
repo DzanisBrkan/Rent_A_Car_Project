@@ -20,9 +20,13 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Kategorija, Model.Kategorija>();
 
             CreateMap<Database.Specifikacija, Model.Specifikacija>();
+            CreateMap<Database.Grad, Model.Grad>();
+
 
             CreateMap<Database.Grad, Model.Grad>();
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
+            CreateMap<Database.KorisnickiNalog, Model.KorisnickiNalog>();
+
 
         }
     }

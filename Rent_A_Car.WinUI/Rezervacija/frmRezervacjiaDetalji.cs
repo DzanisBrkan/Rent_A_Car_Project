@@ -16,5 +16,10 @@ namespace Rent_A_Car.WinUI.Rezervacija
         {
             InitializeComponent();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

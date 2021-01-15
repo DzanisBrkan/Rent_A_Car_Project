@@ -122,5 +122,10 @@ namespace Rent_A_Car.WinUI.Vozilo
                 //radi
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

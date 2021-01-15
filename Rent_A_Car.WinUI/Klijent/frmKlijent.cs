@@ -47,5 +47,10 @@ namespace Rent_A_Car.WinUI.Klijent
             frmKlijentDetalji frm = new frmKlijentDetalji(int.Parse(id.ToString()));
             frm.Show();
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

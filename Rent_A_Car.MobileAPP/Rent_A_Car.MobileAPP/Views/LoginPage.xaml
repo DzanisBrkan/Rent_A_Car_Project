@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:vm="clr-namespace:Rent_A_Car.MobileAPP.ViewModels"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.LoginPage">
+
+
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel />
+    </ContentPage.BindingContext> 
+
+    <ContentPage.Content>
+        <StackLayout Padding="35"
+                     VerticalOptions="CenterAndExpand"
+                     HorizontalOptions="FillAndExpand">
+
+            <Label TextColor="#2196F3" 
+               FontAttributes="Bold" Text="Rent a Car"
+              FontSize="Title"
+                HorizontalOptions="Center" 
+                  />
+
+
+            <Label TextColor="#1, 39, 40" 
+               FontAttributes="None" Text="Prijava"
+              FontSize="Caption"
+                HorizontalOptions="CenterAndExpand" 
+                  />
+
+            <!--<Image Source="kamion.jpg" Margin="0,100,0,70" HeightRequest="150" WidthRequest="200"/>-->
+
+
+
+            <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
+
+
+            <Label Text="Username:" />
+            <Entry Text="{Binding Username}"></Entry>
+            
+            <Label Text="Password:" />
+            <Entry Text="{Binding Password}"></Entry>
+
+            <!--skadakdsak-->
+
+            <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Login"></Button>
+            <Label IsVisible="{Binding IsBusy}" Text="Working..."></Label>
+
+            <Label TextColor="#2296f3" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Registruj se" Margin="0,5,0,0">
+                <!--<Label.GestureRecognizers>
+                    <TapGestureRecognizer x:Name="RegisterLabel" Tapped="RegisterLabel_Tapped"/>
+                </Label.GestureRecognizers>-->
+                
+            </Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
