@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rent_A_Car.Model.Requests;
@@ -11,6 +12,7 @@ using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class KlijentController : ControllerBase
@@ -28,7 +30,6 @@ namespace Rent_A_Car.WebAPI.Controllers
             return _service.Get(request); 
         }
 
-        //GET BY ID ----------------------------------
         [HttpGet("{id}")]
         public Model.Klijent GetById(int id)
         {
