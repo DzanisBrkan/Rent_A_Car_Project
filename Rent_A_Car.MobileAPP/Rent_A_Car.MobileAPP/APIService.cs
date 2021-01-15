@@ -7,9 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-
-
-
+using System.Net;
 
 namespace Rent_A_Car.MobileAPP
 {
@@ -22,7 +20,7 @@ namespace Rent_A_Car.MobileAPP
         private readonly string _route = null;
 
 #if DEBUG
-        private string _apiUrl = "https://localhost:44374/api"; 
+        private string _apiUrl = "http://localhost:57723/api"; 
 #endif
 #if RELEASE
         private string _apiUrl = "https://mywebsite.com/api";
@@ -52,9 +50,10 @@ namespace Rent_A_Car.MobileAPP
             }
             catch (FlurlHttpException ex)
             {
-                //if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
-                if (ex == null)// mls da ovdje treba biti ==
+                //if (ex == null)// mls da ovdje treba biti ==
+                if (ex.StatusCode.ToString() == System.Net.HttpStatusCode.Unauthorized.ToString())
                 {
+                    
                     await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
 
                 }
