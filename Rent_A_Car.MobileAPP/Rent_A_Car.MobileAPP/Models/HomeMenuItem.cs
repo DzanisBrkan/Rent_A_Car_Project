@@ -7,7 +7,8 @@ namespace Rent_A_Car.MobileAPP.Models
     public enum MenuItemType
     {
         Browse,
-        About
+        About,
+        Vozila
     }
     public class HomeMenuItem
     {

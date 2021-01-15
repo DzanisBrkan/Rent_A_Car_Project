@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.brnOcjeneIKomentari = new System.Windows.Forms.Button();
             this.btnRezervacije = new System.Windows.Forms.Button();
             this.lbLogiraniKorisnik = new System.Windows.Forms.Label();
             this.brnUgovori = new System.Windows.Forms.Button();
@@ -50,7 +51,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.RentACarTopLabel = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.brnOcjeneIKomentari = new System.Windows.Forms.Button();
             this.LeftPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,21 @@
             this.LeftPanel.Name = "LeftPanel";
             this.LeftPanel.Size = new System.Drawing.Size(299, 679);
             this.LeftPanel.TabIndex = 0;
+            // 
+            // brnOcjeneIKomentari
+            // 
+            this.brnOcjeneIKomentari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.brnOcjeneIKomentari.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnOcjeneIKomentari.ForeColor = System.Drawing.Color.White;
+            this.brnOcjeneIKomentari.Image = ((System.Drawing.Image)(resources.GetObject("brnOcjeneIKomentari.Image")));
+            this.brnOcjeneIKomentari.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.brnOcjeneIKomentari.Location = new System.Drawing.Point(0, 477);
+            this.brnOcjeneIKomentari.Name = "brnOcjeneIKomentari";
+            this.brnOcjeneIKomentari.Size = new System.Drawing.Size(299, 49);
+            this.brnOcjeneIKomentari.TabIndex = 28;
+            this.brnOcjeneIKomentari.Text = "Ocijene i komentari";
+            this.brnOcjeneIKomentari.UseVisualStyleBackColor = true;
+            this.brnOcjeneIKomentari.Click += new System.EventHandler(this.brnOcjeneIKomentari_Click);
             // 
             // btnRezervacije
             // 
@@ -322,21 +337,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // brnOcjeneIKomentari
-            // 
-            this.brnOcjeneIKomentari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.brnOcjeneIKomentari.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brnOcjeneIKomentari.ForeColor = System.Drawing.Color.White;
-            this.brnOcjeneIKomentari.Image = ((System.Drawing.Image)(resources.GetObject("brnOcjeneIKomentari.Image")));
-            this.brnOcjeneIKomentari.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.brnOcjeneIKomentari.Location = new System.Drawing.Point(0, 477);
-            this.brnOcjeneIKomentari.Name = "brnOcjeneIKomentari";
-            this.brnOcjeneIKomentari.Size = new System.Drawing.Size(299, 49);
-            this.brnOcjeneIKomentari.TabIndex = 28;
-            this.brnOcjeneIKomentari.Text = "Ocijene i komentari";
-            this.brnOcjeneIKomentari.UseVisualStyleBackColor = true;
-            this.brnOcjeneIKomentari.Click += new System.EventHandler(this.brnOcjeneIKomentari_Click);
             // 
             // FormAdmin
             // 
