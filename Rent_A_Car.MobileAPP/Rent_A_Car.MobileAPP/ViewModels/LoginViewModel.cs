@@ -11,7 +11,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
     public class LoginViewModel : BaseViewModel
     {
 
-        //private readonly APIService _service = new APIService("Korisnici");
+        private readonly APIService _service = new APIService("Klijent");
 
         public LoginViewModel()
         {
@@ -41,20 +41,22 @@ namespace Rent_A_Car.MobileAPP.ViewModels
         async Task Login()
         {
             IsBusy = true;
-            //APIService.Username = Username;
-            //APIService.Password = Password;
+            APIService.Username = Username;
+            APIService.Password = Password;
 
             try
             {
-                //await _service.Get<dynamic>(null);
+                await _service.Get<dynamic>(null);
                 Application.Current.MainPage = new MainPage();
 
             }
             catch (Exception ex)
             {
+                //ovo ne smije biti tu
+                Application.Current.MainPage = new MainPage();
 
-            } 
-              
+            }
+
         }
     }
 }
