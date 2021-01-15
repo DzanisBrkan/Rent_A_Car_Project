@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrijava));
             this.btnPrijavise = new System.Windows.Forms.Button();
-            this.btnRegistrujse = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.lbPrijava = new System.Windows.Forms.Label();
@@ -52,19 +51,6 @@
             this.btnPrijavise.TabIndex = 0;
             this.btnPrijavise.Text = "Prijavi se";
             this.btnPrijavise.UseVisualStyleBackColor = true;
-            // 
-            // btnRegistrujse
-            // 
-            this.btnRegistrujse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegistrujse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegistrujse.ForeColor = System.Drawing.Color.White;
-            this.btnRegistrujse.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegistrujse.Location = new System.Drawing.Point(117, 693);
-            this.btnRegistrujse.Name = "btnRegistrujse";
-            this.btnRegistrujse.Size = new System.Drawing.Size(151, 40);
-            this.btnRegistrujse.TabIndex = 4;
-            this.btnRegistrujse.Text = "Registruj se";
-            this.btnRegistrujse.UseVisualStyleBackColor = true;
             // 
             // btnExit
             // 
@@ -163,7 +149,6 @@
             this.Controls.Add(this.btnMinimize);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnPrijavise);
-            this.Controls.Add(this.btnRegistrujse);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPrijava";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -177,7 +162,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnPrijavise;
-        private System.Windows.Forms.Button btnRegistrujse;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnMinimize;
         private System.Windows.Forms.Label lbPrijava;

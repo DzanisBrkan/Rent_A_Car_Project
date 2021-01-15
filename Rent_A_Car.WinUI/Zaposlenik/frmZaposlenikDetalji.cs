@@ -21,5 +21,10 @@ namespace Rent_A_Car.WinUI.Zaposlenik
         {
 
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

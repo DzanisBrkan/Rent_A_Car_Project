@@ -157,5 +157,10 @@ namespace Rent_A_Car.WinUI.Klijent
                 errorProvider.SetError(txtDatumRodjenja, null);
             }
         }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

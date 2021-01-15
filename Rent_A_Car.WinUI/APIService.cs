@@ -34,7 +34,8 @@ namespace Rent_A_Car.WinUI
             }
 
             //implementacija autentifikacije
-            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            var list = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            return list;
         }
 
         // GET BY ID PREMA SERVERU -----------------------

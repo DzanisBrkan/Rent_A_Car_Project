@@ -18,6 +18,7 @@ namespace Rent_A_Car.WinUI
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Form1());
+            //Application.Run(new FormAdmin());
             Application.Run(new frmLogin());
 
         }
