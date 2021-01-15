@@ -36,6 +36,9 @@ namespace Rent_A_Car.MobileAPP.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+                    case (int)MenuItemType.Vozila:
+                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        break;
                 }
             }
 

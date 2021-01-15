@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.KorisnickiPodaci">
+
+    <ContentPage.BindingContext>
+        <viewModels:KorisnickiPodaciViewModel></viewModels:KorisnickiPodaciViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Padding="35">
+            <Label Text="Postavke profila:"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+
+
+            <ScrollView  VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Ime" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Klijent.Ime}" IsReadOnly="True"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Prezime" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Klijent.Prezime}" IsReadOnly="True"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Broj telefona" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Klijent.BrTelefona}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Email" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Klijent.Email}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Adresa" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Klijent.Adresa}"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Datum rodjenja" FontAttributes="Bold"/>
+                        <Entry Text="{Binding Klijent.DatumRodjenja}" Placeholder="" IsPassword="True"/>
+                    </StackLayout>
+    
+
+
+                    <Button Margin="15" WidthRequest="50" HeightRequest="35" BackgroundColor="LimeGreen" TextColor="White" Text="Spasi promjene" Command="{Binding SpasiProfilCommand}"/>
+
+                </StackLayout>
+            </ScrollView>
+
+
+
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
