@@ -51,7 +51,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             }
             catch (Exception ex)
             {
-
+                //
             } 
               
         }
