@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent" xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.DetaljiVozilaPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:DetaljiVozilaViewModel></viewModel:DetaljiVozilaViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Detalji vozila!" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" FontAttributes="Bold"/>
+
+            
+
+
+            <ListView ItemsSource="{Binding VozilaList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Padding="10" Orientation="Vertical">
+
+
+                                <StackLayout >
+                                    <Image Margin="0,100,0,70" HeightRequest="150" WidthRequest="200" Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}">
+
+                                        <Image.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                                        </Image.GestureRecognizers>
+                                        
+                                    </Image>
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                    <Label HorizontalTextAlignment="Center" Text="{Binding Model}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16" />
+
+                                    <Label HorizontalTextAlignment="Center" Text="Marka" FontAttributes="Bold"/>
+                                    <Entry HorizontalTextAlignment="Center" Text="{Binding Marka}" IsReadOnly="True"/>
+
+                                    <Label HorizontalTextAlignment="Center" Text="RegistracijskiBroj" FontAttributes="Bold"/>
+                                    <Entry HorizontalTextAlignment="Center" Text="{Binding RegistracijskiBroj}" IsReadOnly="True"/>
+
+                                    <Label HorizontalTextAlignment="Center" Text="BrSjedista" FontAttributes="Bold"/>
+                                    <Entry HorizontalTextAlignment="Center" Text="{Binding BrSjedista}" IsReadOnly="True"/>
+
+
+                                    <Label HorizontalTextAlignment="Center" Text="BrVrata" FontAttributes="Bold"/>
+                                    <Entry HorizontalTextAlignment="Center" Text="{Binding BrVrata}" IsReadOnly="True"/>
+
+
+                                    <Label HorizontalTextAlignment="Center" Text="ZapreminaPrtljaznika" FontAttributes="Bold"/>
+                                    <Entry HorizontalTextAlignment="Center" Text="{Binding ZapreminaPrtljaznika}" IsReadOnly="True"/>
+
+
+                                    <Label HorizontalTextAlignment="Center" Text="CijenaPoSatu" FontAttributes="Bold"/>
+                                    <Entry HorizontalTextAlignment="Center" Text="{Binding CijenaPoSatu}" IsReadOnly="True"/>
+
+
+                                    
+                                    
+                                </StackLayout>                              
+                            </StackLayout>                          
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

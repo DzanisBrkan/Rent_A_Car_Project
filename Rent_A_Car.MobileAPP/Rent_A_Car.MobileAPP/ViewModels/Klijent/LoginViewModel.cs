@@ -19,6 +19,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
         
         }
 
+        public
 
         string _username = string.Empty;
         public string Username
@@ -43,17 +44,24 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             IsBusy = true;
             APIService.Username = Username;
             APIService.Password = Password;
-
+          
             try
             {
-                await _service.Get<dynamic>(null);
-                Application.Current.MainPage = new MainPage();
+
+                //var klijent = await _service.Get<Model.Klijent>(null);              
+                //if (klijent != null)
+                //{
+                    await _service.Get<dynamic>(null);
+                    Application.Current.MainPage = new MainPage();
+                //    APIService.LogovaniKlijent = klijent;
+                //    return;
+                //}
 
             }
             catch (Exception ex)
             {
                 //ovo ne smije biti tu
-                Application.Current.MainPage = new MainPage();
+                //Application.Current.MainPage = new MainPage();
 
             }
 

@@ -1,6 +1,13 @@
-﻿using System;
+﻿using Rent_A_Car.MobileAPP.Views;
+using Rent_A_Car.Model;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
+
 
 namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 {
@@ -57,13 +64,34 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
+        private readonly APIService _klijentService = new APIService("Klijent");
 
+        public KorisnickiPodaciViewModel()
+        {
+            InitCommand = new Command(async () => await Init());
+        }
+
+        public ObservableCollection<Model.Klijent> KlijentiList { get; set; } = new ObservableCollection<Model.Klijent>();
+
+
+        public ICommand InitCommand { get; set; }
+
+        public async Task Init()
+        {
+            var list = await _klijentService.Get<IEnumerable<Model.Klijent>>(null);
+
+            KlijentiList.Clear();
+            foreach (var klijent in list)
+            {
+                KlijentiList.Add(klijent);
+            }
+        }
 
 
         //private readonly APIService _klijentiService = new APIService("Klijenti");
         //private int _klijentId;
-        //private Model.KlijentiUpdateRequest _klijent;
-        //public Model.KlijentiUpdateRequest Klijent
+        //private Model.Requests.KlijentInsertRequest _klijent;
+        //public Model.Requests.KlijentInsertRequest Klijent
         //{
         //    get { return _klijent; }
         //    set { SetProperty(ref _klijent, value); }
@@ -76,20 +104,21 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         //public async Task Init()
         //{
-        //    _klijentId = APIService.LogovaniKlijent.KlijentId;
+        //    //_klijentId = APIService.LogovaniKlijent.KlijentId;
         //    await LoadUser();
         //}
         //private async Task LoadUser()
         //{
-        //    Klijent = await _klijentiService.GetById<Model.KlijentiUpdateRequest>(_klijentId);
+        //    //Klijent = await _klijentiService.GetById<Model.KlijentiUpdateRequest>(_klijentId);
 
+        //    Klijent = await _klijentiService.GetById<Model.Requests.KlijentInsertRequest>(_klijentId);
         //    Title = Klijent.KorisnickoIme + "- Korisnicki podaci";
 
 
         //}
         //private async Task SpasiProfil()
         //{
-        //    var entity = await _klijentiService.Update<Model.Klijenti>(APIService.LogovaniKlijent.KlijentId, Klijent);
+        //    var entity = await _klijentiService.Update<Model.Klijent>(APIService.LogovaniKlijent.KlijentId, Klijent);
         //    if (entity != null)
         //    {
         //        APIService.Username = Klijent.KorisnickoIme;

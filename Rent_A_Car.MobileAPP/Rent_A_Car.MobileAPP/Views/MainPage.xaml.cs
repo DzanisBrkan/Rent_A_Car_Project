@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using Rent_A_Car.MobileAPP.Models;
+using Rent_A_Car.MobileAPP.Views.Klijent;
 
 namespace Rent_A_Car.MobileAPP.Views
 {
@@ -37,37 +38,41 @@ namespace Rent_A_Car.MobileAPP.Views
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
 
-         //--------------------------------------------------------------------------------
-                    
+                    //--------------------------------------------------------------------------------
+
                     case (int)MenuItemType.Vozila:
                         MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
                         break;
 
                     case (int)MenuItemType.MojiUgovori:
-                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        MenuPages.Add(id, new NavigationPage(new UgovorPage()));
                         break;
 
                     case (int)MenuItemType.RezervacijaVozila:
-                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));
                         break;
 
 
                     case (int)MenuItemType.MojiKomentarIOcjene:
-                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        MenuPages.Add(id, new NavigationPage(new OcijenivanjeIKomentarisanje()));
                         break;
 
+                    case (int)MenuItemType.OcijeniIKomentarisi:
+                        MenuPages.Add(id, new NavigationPage(new DojamPage()));
+                        break;
 
                     case (int)MenuItemType.MojeRezervacije:
-                        MenuPages.Add(id, new NavigationPage(new KorisnickiPodaci()));
+                        MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));
                         break;
 
 
                     case (int)MenuItemType.PostavkeProfila:
-                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        MenuPages.Add(id, new NavigationPage(new KorisnickiPodaci()));
                         break;
 
+
                     case (int)MenuItemType.Odjava:
-                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
                         break;
                 }
             }

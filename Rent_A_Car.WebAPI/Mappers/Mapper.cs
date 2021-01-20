@@ -26,6 +26,11 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Grad, Model.Grad>();
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
             CreateMap<Database.KorisnickiNalog, Model.KorisnickiNalog>();
+            CreateMap<Database.Tip, Model.Tip>();
+            CreateMap<Database.Ocjena, Model.Ocjena>();
+            CreateMap<Database.Racun, Model.Racun>();
+            CreateMap<Database.Rezervacija, Model.Rezervacija>();
+
 
 
         }

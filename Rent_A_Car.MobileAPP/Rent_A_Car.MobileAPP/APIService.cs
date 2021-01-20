@@ -19,6 +19,9 @@ namespace Rent_A_Car.MobileAPP
 
         private readonly string _route = null;
 
+        public static Model.Klijent LogovaniKlijent { get; set; }
+
+
 #if DEBUG
         private string _apiUrl = "http://localhost:57723/api"; 
 #endif
@@ -26,7 +29,6 @@ namespace Rent_A_Car.MobileAPP
         private string _apiUrl = "https://mywebsite.com/api";
 #endif
 
-            //http://localhost:57723
         public APIService(string route)
         {
             _route = route;
@@ -47,16 +49,25 @@ namespace Rent_A_Car.MobileAPP
 
                 //implementacija autentifikacije
                 return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+
             }
             catch (FlurlHttpException ex)
             {
-                //if (ex == null)// mls da ovdje treba biti ==
-                if (ex.StatusCode.ToString() == System.Net.HttpStatusCode.Unauthorized.ToString())
-                {
-                    
-                    await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
+                if (ex != null)
+                    //if (ex.StatusCode.ToString() == System.Net.HttpStatusCode.Unauthorized.ToString())
+                    if(ex.Call.HttpResponseMessage.RequestMessage.ToString() == System.Net.HttpStatusCode.Unauthorized.ToString())
+                    {
 
-                }
+                        await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
+
+                    }
+                else if (ex.Call.HttpResponseMessage.RequestMessage.ToString() == "401")
+                    {
+
+                        await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
+
+                    }
                 throw;
             }
         }

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.RegistracijaPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="35" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                <Label FontSize="Large" Text="Registruj se"></Label>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Ime"/>
+                    <Entry Text="{Binding Ime}" Placeholder="Ime"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Prezime"/>
+                    <Entry Text="{Binding Prezime}" Placeholder="Prezime"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Email"/>
+                    <Entry Text="{Binding Email}" Placeholder="ime.prezime@gmail.com"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Broj Telefona"/>
+                    <Entry Text="{Binding BrojTel}" Placeholder="062-555-333"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="Adresa"/>
+                    <Entry Text="{Binding Adresa}" Placeholder="Ulica xx br. 30, Mostar"/>
+                </StackLayout>
+                <StackLayout Orientation="Vertical">
+                    <Label Text="DatumRodjenja"/>
+                    <Entry Text="{Binding DatumRodjenja}" Placeholder="01.01.2000"/>
+
+
+                    <!--<Label Text="DatumRodjenja"/>
+                    <Picker ItemsSource="{Binding DatumRodjenja}" SelectedItem="{Binding Grad}" ItemDisplayBinding="{Binding Naziv}"/>-->
+
+
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Korisničko ime"/>
+                        <Entry Text="{Binding KorisnickoIme}" Placeholder="Korisnicko ime"/>
+                    </StackLayout>
+                    <!--<StackLayout Orientation="Vertical">
+                        <Label Text="Lozinka"/>
+                        <Entry Text="{Binding Klijent.Password}" IsPassword="True" Placeholder="Password"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Potvrda lozinke"/>
+                        <Entry Text="{Binding Klijent.PasswordPotvrda}" IsPassword="True" Placeholder="Password potvrda"/>
+                    </StackLayout>-->
+
+                </StackLayout>
+
+                <Button Command="{Binding RegistracijaCommand}"  HorizontalOptions="FillAndExpand" BackgroundColor="Green" Text="Kreiraj account" IsEnabled="{Binding IsButtonEnabled}"></Button>
+
+                <Label TextColor="#2296f3" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Već imate account? Prijavite se" Margin="0,5,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="LoginLabel" Tapped="LoginLabel_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

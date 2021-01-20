@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent" xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.PrikazVozila">
+
+    <ContentPage.BindingContext>
+        <viewModel:PrikazVozilaViewModel></viewModel:PrikazVozilaViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label TextColor="#2196F3" FontAttributes="Bold" Text="Prikaz vozila:" FontSize="Title" HorizontalOptions="Center" />
+
+
+            <Picker ItemsSource="{Binding TipVozila}" SelectedItem="{Binding SelectedTipVozila}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+            
+            <ListView ItemsSource="{Binding VozilaList}" ItemSelected="ListView_ItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Padding="10" Orientation="Vertical">
+                                
+                                
+                                <StackLayout >
+                                    <Image Margin="0,100,0,70" HeightRequest="350" WidthRequest="400" Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></Image>
+                                </StackLayout>
+
+                                <Label HorizontalTextAlignment="Center" Text="{Binding Marka}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16" />
+
+                                <StackLayout Orientation="Vertical">
+                                    <Label HorizontalTextAlignment="Center" Text="{Binding Model}"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="16" />
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                    <Label HorizontalTextAlignment="Center" Text="Ocijena"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="9" />
+                                    <Label HorizontalTextAlignment="Center" Text="Komentar"
+                                       LineBreakMode="NoWrap"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="9" />
+                                </StackLayout>
+
+                                <Button BackgroundColor="#2196F3" Text="Detalji vozila"  Clicked="Button_Clicked"></Button>
+
+
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

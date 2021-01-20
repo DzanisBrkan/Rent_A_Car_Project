@@ -14,6 +14,8 @@ namespace Rent_A_Car.Model
         public string Adresa { get; set; }
         public string DatumRodjenja { get; set; }
         public string KorisnickoIme { get; set; }
+        public byte[] SlikaThumb { get; set; }
+
 
     }
 }

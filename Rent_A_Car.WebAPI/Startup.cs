@@ -82,6 +82,11 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IService<Model.Grad, object>, BaseService<Model.Grad, object, Grad>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
             services.AddScoped<IService<Model.Specifikacija, object>, BaseService<Model.Specifikacija, object, Specifikacija>>();
+            services.AddScoped<IService<Model.Tip, object>, BaseService<Model.Tip, object, Tip>>();
+            services.AddScoped<IService<Model.Ocjena, object>, BaseService<Model.Ocjena, object, Ocjena>>();
+            services.AddScoped<IService<Model.Racun, object>, BaseService<Model.Racun, object, Racun>>();
+            services.AddScoped<IService<Model.Rezervacija, object>, BaseService<Model.Rezervacija, object, Rezervacija>>();
+
             services.AddScoped<IKlijentService, KlijentService>();
 
             var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
@@ -97,7 +102,7 @@ namespace Rent_A_Car.WebAPI
             }
 
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

@@ -12,7 +12,7 @@ using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class KlijentController : ControllerBase

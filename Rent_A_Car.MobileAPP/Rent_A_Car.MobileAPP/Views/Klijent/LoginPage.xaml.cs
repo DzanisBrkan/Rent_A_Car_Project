@@ -1,4 +1,5 @@
 ﻿using Rent_A_Car.MobileAPP.ViewModels;
+using Rent_A_Car.MobileAPP.Views.Klijent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,6 +26,16 @@ namespace Rent_A_Car.MobileAPP.Views
 
         }
 
+        // ----------------JEROVATNO KADA KLIKNE DA SE REGISTRUJE PA GA ODVEDE NA REGISTRACIJSKI PAGE
+        //-----------------------------------------------------------------------------------------------
+
+        private void RegisterLabel_Tapped(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new RegistracijaPage();
+            //await Navigation.PushAsync(new RegistracijaPage()); // ovo ima back tipku
+                                                                  // ali ne moze jer udje u loop i pukne
+
+        }
 
     }
 }

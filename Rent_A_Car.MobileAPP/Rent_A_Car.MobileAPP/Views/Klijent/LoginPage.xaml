@@ -12,9 +12,7 @@
     </ContentPage.BindingContext> 
 
     <ContentPage.Content>
-        <StackLayout Padding="35"
-                     VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="FillAndExpand">
+        <StackLayout Padding="35" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
 
             <Label TextColor="#2196F3" 
                FontAttributes="Bold" Text="Rent a Car"
@@ -29,7 +27,7 @@
                 HorizontalOptions="CenterAndExpand" 
                   />
 
-            <!--<Image Source="kamion.jpg" Margin="0,100,0,70" HeightRequest="150" WidthRequest="200"/>-->
+            <Image Source="rent_a_car-48.png" Margin="0,100,0,70" HeightRequest="150" WidthRequest="200"/>
 
 
 
@@ -48,10 +46,10 @@
             <Label IsVisible="{Binding IsBusy}" Text="Working..."></Label>
 
             <Label TextColor="#2296f3" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Registruj se" Margin="0,5,0,0">
-                <!--<Label.GestureRecognizers>
+                <Label.GestureRecognizers>
                     <TapGestureRecognizer x:Name="RegisterLabel" Tapped="RegisterLabel_Tapped"/>
-                </Label.GestureRecognizers>-->
-                
+                </Label.GestureRecognizers>                     <!--MOZE BIT DA NECE TREBA SE SAM KREIRAT-->
+
             </Label>
 
         </StackLayout>
