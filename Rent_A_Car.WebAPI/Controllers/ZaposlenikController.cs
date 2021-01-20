@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rent_A_Car.Model;
@@ -10,14 +11,44 @@ using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ZaposlenikController
-        : BaseCRUDController<Model.Zaposlenik, ZaposlenikSearchRequest, ZaposlenikUpsertRequest, ZaposlenikUpsertRequest>
-
+    public class ZaposlenikController : ControllerBase
     {
-        public ZaposlenikController(ICRUDService<Zaposlenik, ZaposlenikSearchRequest, ZaposlenikUpsertRequest, ZaposlenikUpsertRequest> service) : base(service)
+        private readonly IZaposlenikService _service;
+
+        public ZaposlenikController(IZaposlenikService service)
         {
+            _service = service;
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpGet]
+        public ActionResult<List<Model.Zaposlenik>> Get([FromQuery]ZaposlenikSearchRequest request)
+        {
+            return _service.Get(request);
+        }
+
+        //[Authorize(Roles = "Administrator")]
+        [HttpGet("{id}")]
+        public Model.Zaposlenik GetById(int id)
+        {
+            return _service.GetById(id);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPost]
+        public Model.Zaposlenik Insert(ZaposlenikInsertRequest request)
+        {
+            return _service.Insert(request);
+        }
+
+        [Authorize(Roles = "Administrator")]
+        [HttpPut("{id}")]
+        public Model.Zaposlenik Update(int id, ZaposlenikInsertRequest request)
+        {
+            return _service.Update(id, request);
         }
     }
 }

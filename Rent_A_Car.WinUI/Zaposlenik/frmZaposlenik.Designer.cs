@@ -32,7 +32,7 @@
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvKlijent = new System.Windows.Forms.DataGridView();
+            this.dgvZaposlenik = new System.Windows.Forms.DataGridView();
             this.KlijentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.KorisnickoIme = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ime = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,14 +43,14 @@
             this.DatumRodjenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenik)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(12, 64);
+            this.txtPretraga.Location = new System.Drawing.Point(12, 76);
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(596, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(496, 20);
             this.txtPretraga.TabIndex = 5;
             // 
             // btnPrikazi
@@ -58,16 +58,17 @@
             this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(665, 64);
+            this.btnPrikazi.Location = new System.Drawing.Point(560, 73);
             this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(117, 23);
+            this.btnPrikazi.Size = new System.Drawing.Size(222, 23);
             this.btnPrikazi.TabIndex = 4;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvKlijent);
+            this.groupBox1.Controls.Add(this.dgvZaposlenik);
             this.groupBox1.Location = new System.Drawing.Point(9, 117);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(776, 321);
@@ -75,12 +76,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zaposlenici";
             // 
-            // dgvKlijent
+            // dgvZaposlenik
             // 
-            this.dgvKlijent.AllowUserToAddRows = false;
-            this.dgvKlijent.AllowUserToDeleteRows = false;
-            this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvZaposlenik.AllowUserToAddRows = false;
+            this.dgvZaposlenik.AllowUserToDeleteRows = false;
+            this.dgvZaposlenik.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvZaposlenik.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.KlijentID,
             this.KorisnickoIme,
             this.Ime,
@@ -89,13 +90,14 @@
             this.Email,
             this.Adresa,
             this.DatumRodjenja});
-            this.dgvKlijent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKlijent.Location = new System.Drawing.Point(3, 16);
-            this.dgvKlijent.Name = "dgvKlijent";
-            this.dgvKlijent.ReadOnly = true;
-            this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijent.Size = new System.Drawing.Size(770, 302);
-            this.dgvKlijent.TabIndex = 0;
+            this.dgvZaposlenik.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvZaposlenik.Location = new System.Drawing.Point(3, 16);
+            this.dgvZaposlenik.Name = "dgvZaposlenik";
+            this.dgvZaposlenik.ReadOnly = true;
+            this.dgvZaposlenik.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvZaposlenik.Size = new System.Drawing.Size(770, 302);
+            this.dgvZaposlenik.TabIndex = 0;
+            this.dgvZaposlenik.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvZaposlenik_CellContentClick);
             // 
             // KlijentID
             // 
@@ -160,7 +162,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(735, 2);
+            this.btnExit.Location = new System.Drawing.Point(735, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
             this.btnExit.TabIndex = 12;
@@ -181,7 +183,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmZaposlenik";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvZaposlenik)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,7 +194,7 @@
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvKlijent;
+        private System.Windows.Forms.DataGridView dgvZaposlenik;
         private System.Windows.Forms.DataGridViewTextBoxColumn KlijentID;
         private System.Windows.Forms.DataGridViewTextBoxColumn KorisnickoIme;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ime;

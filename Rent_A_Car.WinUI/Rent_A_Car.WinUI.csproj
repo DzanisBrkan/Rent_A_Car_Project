@@ -33,11 +33,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Flurl, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Flurl.3.0.1\lib\net461\Flurl.dll</HintPath>
+    <Reference Include="Flurl, Version=2.8.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.2.8.1\lib\net40\Flurl.dll</HintPath>
     </Reference>
-    <Reference Include="Flurl.Http, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Flurl.Http.3.0.1\lib\net461\Flurl.Http.dll</HintPath>
+    <Reference Include="Flurl.Http, Version=2.4.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Flurl.Http.2.4.1\lib\net46\Flurl.Http.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
@@ -86,12 +86,6 @@
     </Compile>
     <Compile Include="FormKlijent.Designer.cs">
       <DependentUpon>FormKlijent.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormPrijava.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormPrijava.Designer.cs">
-      <DependentUpon>FormPrijava.cs</DependentUpon>
     </Compile>
     <Compile Include="FormRegistracija.cs">
       <SubType>Form</SubType>
@@ -192,6 +186,9 @@
     <Compile Include="Rezervacija\frmRezervacjiaDetalji.Designer.cs">
       <DependentUpon>frmRezervacjiaDetalji.cs</DependentUpon>
     </Compile>
+    <Compile Include="RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Ugovor\frmUgovor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,9 +242,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormKlijent.resx">
       <DependentUpon>FormKlijent.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormPrijava.resx">
-      <DependentUpon>FormPrijava.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormRegistracija.resx">
       <DependentUpon>FormRegistracija.cs</DependentUpon>
@@ -347,6 +341,18 @@
       <Project>{ad3b72b8-7d86-4d05-9163-a02f67a76746}</Project>
       <Name>Rent_A_Car.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\background win login.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cover2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cover3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user profile icon-02.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

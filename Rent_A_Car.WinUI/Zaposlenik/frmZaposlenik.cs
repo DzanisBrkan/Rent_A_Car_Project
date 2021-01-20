@@ -7,11 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Flurl.Http;
+using Flurl;
+using Rent_A_Car.Model.Requests;
+//ovo se mora rucno dodati
 
 namespace Rent_A_Car.WinUI.Zaposlenik
 {
     public partial class frmZaposlenik : Form
     {
+        private readonly APIService _apiService = new APIService("Zaposlenik");
         public frmZaposlenik()
         {
             InitializeComponent();
@@ -20,6 +25,26 @@ namespace Rent_A_Car.WinUI.Zaposlenik
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void btnPrikazi_Click(object sender, EventArgs e)
+        {
+            var search = new ZaposlenikSearchRequest()
+            {
+                Ime = txtPretraga.Text
+            };
+            var result = await _apiService.Get<List<Model.Zaposlenik>>(search);
+
+            dgvZaposlenik.AutoGenerateColumns = false;
+
+            dgvZaposlenik.DataSource = result;
+        }
+
+        private void dgvZaposlenik_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

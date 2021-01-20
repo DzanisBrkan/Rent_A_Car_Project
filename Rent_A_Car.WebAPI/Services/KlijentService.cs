@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Rent_A_Car.Model.Requests;
 using Rent_A_Car.WebAPI.Database;
 using Rent_A_Car.WebAPI.Exceptions;
@@ -22,6 +23,7 @@ namespace Rent_A_Car.WebAPI.Services
             _mapper = mapper;
         }
 
+
         public Model.Klijent Authenticiraj(string username, string pass)
         {
             var user = _context.Klijent.FirstOrDefault(x => x.KorisnickoIme == username);
@@ -37,14 +39,12 @@ namespace Rent_A_Car.WebAPI.Services
             }
             return null;
         }
-
         public static string GenerateSalt()
         {
             var buf = new byte[16];
             (new RNGCryptoServiceProvider()).GetBytes(buf);
             return Convert.ToBase64String(buf);
         }
-
         public static string GenerateHash(string salt, string password)
         {
             byte[] src = Convert.FromBase64String(salt);
@@ -58,6 +58,8 @@ namespace Rent_A_Car.WebAPI.Services
             byte[] inArray = algorithm.ComputeHash(dst);
             return Convert.ToBase64String(inArray);
         }
+
+
         public List<Model.Klijent> Get(KlijentSearchRequest request)
         {
             //querry
@@ -76,13 +78,11 @@ namespace Rent_A_Car.WebAPI.Services
             var list = query.ToList();
             return _mapper.Map<List<Model.Klijent>>(list);
         }
-
         public Model.Klijent GetById(int id)
         {
             var entity = _context.Klijent.Find(id);
             return _mapper.Map<Model.Klijent>(entity);
         }
-
         public Model.Klijent Insert(KlijentInsertRequest request)
         {
             var entity = _mapper.Map<Database.Klijent>(request);
@@ -99,7 +99,6 @@ namespace Rent_A_Car.WebAPI.Services
 
             return _mapper.Map<Model.Klijent>(entity);
         }
-
         public Model.Klijent Update(int id, KlijentInsertRequest request)
         {
             var entity = _context.Klijent.Find(id);

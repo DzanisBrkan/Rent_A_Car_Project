@@ -47,20 +47,20 @@
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.RentACarTopLabel = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.LeftPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // LeftPanel
             // 
-            this.LeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.LeftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.LeftPanel.Controls.Add(this.panel2);
+            this.LeftPanel.Controls.Add(this.panel1);
             this.LeftPanel.Controls.Add(this.brnOcjeneIKomentari);
             this.LeftPanel.Controls.Add(this.btnRezervacije);
-            this.LeftPanel.Controls.Add(this.lbLogiraniKorisnik);
             this.LeftPanel.Controls.Add(this.brnUgovori);
             this.LeftPanel.Controls.Add(this.btnInfo);
             this.LeftPanel.Controls.Add(this.btnOdjava);
@@ -112,11 +112,11 @@
             this.lbLogiraniKorisnik.AutoSize = true;
             this.lbLogiraniKorisnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbLogiraniKorisnik.ForeColor = System.Drawing.Color.White;
-            this.lbLogiraniKorisnik.Location = new System.Drawing.Point(34, 34);
+            this.lbLogiraniKorisnik.Location = new System.Drawing.Point(31, 41);
             this.lbLogiraniKorisnik.Name = "lbLogiraniKorisnik";
-            this.lbLogiraniKorisnik.Size = new System.Drawing.Size(232, 33);
+            this.lbLogiraniKorisnik.Size = new System.Drawing.Size(388, 33);
             this.lbLogiraniKorisnik.TabIndex = 27;
-            this.lbLogiraniKorisnik.Text = "Logirani Korisnik";
+            this.lbLogiraniKorisnik.Text = "Dobrodošli, Logirani Korisnik";
             // 
             // brnUgovori
             // 
@@ -270,7 +270,7 @@
             this.btnMinimize.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMinimize.ForeColor = System.Drawing.Color.White;
             this.btnMinimize.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimize.Image")));
-            this.btnMinimize.Location = new System.Drawing.Point(923, 25);
+            this.btnMinimize.Location = new System.Drawing.Point(782, 32);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(47, 42);
             this.btnMinimize.TabIndex = 10;
@@ -283,7 +283,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(985, 25);
+            this.btnExit.Location = new System.Drawing.Point(844, 32);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
             this.btnExit.TabIndex = 11;
@@ -294,49 +294,36 @@
             // 
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Location = new System.Drawing.Point(226, 25);
+            this.panel1.Location = new System.Drawing.Point(12, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(47, 54);
+            this.panel1.Size = new System.Drawing.Size(52, 69);
             this.panel1.TabIndex = 10;
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Location = new System.Drawing.Point(679, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(47, 54);
-            this.panel2.TabIndex = 11;
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.panel3.Controls.Add(this.RentACarTopLabel);
-            this.panel3.Controls.Add(this.panel1);
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
             this.panel3.Controls.Add(this.btnExit);
-            this.panel3.Controls.Add(this.panel2);
             this.panel3.Controls.Add(this.btnMinimize);
+            this.panel3.Controls.Add(this.lbLogiraniKorisnik);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(299, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1050, 117);
+            this.panel3.Size = new System.Drawing.Size(917, 117);
             this.panel3.TabIndex = 13;
-            // 
-            // RentACarTopLabel
-            // 
-            this.RentACarTopLabel.AutoSize = true;
-            this.RentACarTopLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RentACarTopLabel.ForeColor = System.Drawing.Color.White;
-            this.RentACarTopLabel.Location = new System.Drawing.Point(315, 25);
-            this.RentACarTopLabel.Name = "RentACarTopLabel";
-            this.RentACarTopLabel.Size = new System.Drawing.Size(315, 55);
-            this.RentACarTopLabel.TabIndex = 14;
-            this.RentACarTopLabel.Text = "RENT A CAR";
             // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Location = new System.Drawing.Point(89, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(186, 69);
+            this.panel2.TabIndex = 11;
             // 
             // FormAdmin
             // 
@@ -345,7 +332,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1349, 679);
+            this.ClientSize = new System.Drawing.Size(1216, 679);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.LeftPanel);
             this.DoubleBuffered = true;
@@ -355,7 +342,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.LeftPanel.ResumeLayout(false);
-            this.LeftPanel.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.ResumeLayout(false);
@@ -374,17 +360,16 @@
         private System.Windows.Forms.Button btnHome;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label lbLogiraniKorisnik;
         private System.Windows.Forms.Button btnRezervacije;
         private System.Windows.Forms.Button brnUgovori;
         private System.Windows.Forms.Button btnVozila;
         private System.Windows.Forms.Button btnKlijenti;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label RentACarTopLabel;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.Button btnOdjava;
         private System.Windows.Forms.Button brnOcjeneIKomentari;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 

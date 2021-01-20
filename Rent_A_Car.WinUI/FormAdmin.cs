@@ -40,8 +40,7 @@ namespace Rent_A_Car.WinUI
         {
           
 
-            frmZaposlenik frm = new frmZaposlenik();
-            frm.MdiParent = this;
+            frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
             frm.Show();
         }
 
