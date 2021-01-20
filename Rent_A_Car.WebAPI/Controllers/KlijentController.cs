@@ -36,6 +36,7 @@ namespace Rent_A_Car.WebAPI.Controllers
             return _service.GetById(id);
         }
 
+        //[Authorize(Roles = "Administrator")]
         [HttpPost]
         public Model.Klijent Insert(KlijentInsertRequest request)
         {

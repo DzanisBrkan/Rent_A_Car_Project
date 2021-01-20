@@ -70,19 +70,26 @@ namespace Rent_A_Car.WebAPI
                 });
             });
 
-
             services.AddAuthentication("BasicAuthentication")
                         .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+     
+            services.AddScoped<IZaposlenikService,ZaposlenikService>();
+            services.AddScoped<IKlijentService, KlijentService>();
 
             services.AddScoped<ICRUDService<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>, VoziloService>();
+            services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaController>();
 
-            services.AddScoped<ICRUDService<Model.Zaposlenik, ZaposlenikSearchRequest, ZaposlenikUpsertRequest, ZaposlenikUpsertRequest>, ZaposlenikService>();
 
             services.AddScoped<IService<Model.KorisnickiNalog, object>, BaseService<Model.KorisnickiNalog, object, KorisnickiNalog>>();
             services.AddScoped<IService<Model.Grad, object>, BaseService<Model.Grad, object, Grad>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
             services.AddScoped<IService<Model.Specifikacija, object>, BaseService<Model.Specifikacija, object, Specifikacija>>();
-            services.AddScoped<IKlijentService, KlijentService>();
+            services.AddScoped<IService<Model.Tip, object>, BaseService<Model.Tip, object, Tip>>();
+            services.AddScoped<IService<Model.Drzava, object>, BaseService<Model.Drzava, object, Drzava>>();
+            services.AddScoped<IService<Model.Greska, object>, BaseService<Model.Greska, object, Greska>>();
+            services.AddScoped<IService<Model.Lokacija, object>, BaseService<Model.Lokacija, object, Lokacija>>();
+
+
 
             var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<Rent_A_CarContext>(options => options.UseSqlServer(connection));
@@ -96,23 +103,20 @@ namespace Rent_A_Car.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.UseHttpsRedirection();
 
-            app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthentication();
-
             app.UseAuthorization();
 
             app.UseSwagger();
-
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.), 
             // specifying the Swagger JSON endpoint.
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
-
             });
 
 
@@ -120,8 +124,6 @@ namespace Rent_A_Car.WebAPI
             {
                 endpoints.MapControllers();
             });
-
-
         }
     }
 }

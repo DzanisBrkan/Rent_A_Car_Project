@@ -17,6 +17,8 @@ namespace Rent_A_Car.WinUI.Vozilo
         private readonly APIService _voziloService = new APIService("Vozilo");
         private readonly APIService _kategorijaService = new APIService("Kategorija");
         private readonly APIService _specifikacijaService = new APIService("Specifikacija");
+        private readonly APIService _tipVozila = new APIService("Tip");
+
         //private readonly APIService _tipService = new APIService("Tip");
         public frmVozilo()
         {
@@ -28,6 +30,7 @@ namespace Rent_A_Car.WinUI.Vozilo
             //overajdanje eventa
             await LoadKategorija();
             await LoadSpecifikacija();
+            await LoadTipVozila();
         }
 
         private async Task LoadKategorija()
@@ -45,6 +48,15 @@ namespace Rent_A_Car.WinUI.Vozilo
             cmbSpecifikacija.DisplayMember = "EuroNorma";
             cmbSpecifikacija.ValueMember = "SpecifikacijaId";
             cmbSpecifikacija.DataSource = result;
+        }
+
+        private async Task LoadTipVozila()
+        {
+            var result = await _tipVozila.Get<List<Model.Tip>>(null);
+            result.Insert(0, new Model.Tip());
+            cmbTip.DisplayMember = "Naziv";
+            cmbTip.ValueMember = "TipId";
+            cmbTip.DataSource = result;
         }
 
         private async void cmbKategorija_SelectedIndexChanged(object sender, EventArgs e)

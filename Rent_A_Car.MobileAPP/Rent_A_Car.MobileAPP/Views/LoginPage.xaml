@@ -7,30 +7,29 @@
              x:Class="Rent_A_Car.MobileAPP.Views.LoginPage">
 
 
+    <!--SPajanje sa view modelom-->
     <ContentPage.BindingContext>
         <vm:LoginViewModel />
-    </ContentPage.BindingContext> 
+    </ContentPage.BindingContext>
 
     <ContentPage.Content>
         <StackLayout Padding="35"
                      VerticalOptions="CenterAndExpand"
                      HorizontalOptions="FillAndExpand">
 
-            <Label TextColor="#2196F3" 
-               FontAttributes="Bold" Text="Rent a Car"
-              FontSize="Title"
+            <!--<Label TextColor="#c00000" 
+               FontAttributes="Bold" Text="Dobrodošli na Rent a Car"
+               FontSize="Title"
                 HorizontalOptions="Center" 
-                  />
+                  />-->
 
-
-            <Label TextColor="#1, 39, 40" 
-               FontAttributes="None" Text="Prijava"
-              FontSize="Caption"
+            <!--<Label TextColor="#c00000" 
+               FontAttributes="Bold" Text="Prijavite se"
+              FontSize="Large"
                 HorizontalOptions="CenterAndExpand" 
-                  />
+                  />-->
 
-            <!--<Image Source="kamion.jpg" Margin="0,100,0,70" HeightRequest="150" WidthRequest="200"/>-->
-
+            <Image Source="banner_small.png" Margin="0,100,0,70" HeightRequest="350" WidthRequest="650"/>
 
 
             <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
@@ -42,16 +41,17 @@
             <Label Text="Password:" />
             <Entry x:Name="Password" Text="{Binding Password}"></Entry>
 
-            <!--skadakdsak-->
 
-            <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Text="Login"></Button>
+
+            <Button BackgroundColor="#c00000" Command="{Binding LoginCommand}" Text="Login"></Button>
+
             <Label IsVisible="{Binding IsBusy}" Text="Working..."></Label>
 
-            <Label TextColor="#2296f3" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Registruj se" Margin="0,5,0,0">
+            <Label TextColor="#c00000" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Registruj se" Margin="0,5,0,0">
                 <!--<Label.GestureRecognizers>
                     <TapGestureRecognizer x:Name="RegisterLabel" Tapped="RegisterLabel_Tapped"/>
                 </Label.GestureRecognizers>-->
-                
+               
             </Label>
 
         </StackLayout>

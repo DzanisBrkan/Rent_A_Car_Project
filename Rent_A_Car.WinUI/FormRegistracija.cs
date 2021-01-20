@@ -16,5 +16,10 @@ namespace Rent_A_Car.WinUI
         {
             InitializeComponent();
         }
+
+        private void txtNazad_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -11,23 +11,21 @@ namespace Rent_A_Car.MobileAPP.ViewModels
     public class LoginViewModel : BaseViewModel
     {
 
-        private readonly APIService _service = new APIService("Klijent");
+        private readonly APIService _service = new APIService("Zaposlenik");
+
 
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await Login());
-        
         }
-
-
+        //USERNAME
         string _username = string.Empty;
         public string Username
         {
             get { return _username; }
             set { SetProperty(ref _username, value); }
         }
-
-
+        //PASSWORD
         string _password = string.Empty;
         public string Password
         {
@@ -35,12 +33,15 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             set { SetProperty(ref _password, value); }
         }
 
-
-        public ICommand LoginCommand { get; set; }
+        //Komand patern - sluzi za povezivanje sa view modelom
+        public ICommand LoginCommand { get; set; } //icomand interface omogucava da povezujemo butone itd sa komandama
 
         async Task Login()
         {
             IsBusy = true;
+
+            //odavde isto kao u win formi login
+
             APIService.Username = Username;
             APIService.Password = Password;
 
@@ -52,10 +53,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             }
             catch (Exception ex)
             {
-                //ovo ne smije biti tu
-                Application.Current.MainPage = new MainPage();
+                //
+            } 
 
-            }
 
         }
     }

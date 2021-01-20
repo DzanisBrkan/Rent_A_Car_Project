@@ -13,6 +13,7 @@ namespace Rent_A_Car.Model
         public string Email { get; set; }
         public string Adresa { get; set; }
         public string DatumRodjenja { get; set; }
+        public int? GradId { get; set; }
         public string KorisnickoIme { get; set; }
 
     }

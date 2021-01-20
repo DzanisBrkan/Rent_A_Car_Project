@@ -13,24 +13,22 @@ namespace Rent_A_Car.MobileAPP
 {
     public class APIService
     {
-
         public static string Username { get; set; }
         public static string Password { get; set; }
 
         private readonly string _route = null;
 
 #if DEBUG
-        private string _apiUrl = "http://localhost:57723/api"; 
+        private string _apiUrl = "http://localhost:57723/api";
 #endif
 #if RELEASE
-        private string _apiUrl = "https://mywebsite.com/api";
+       private string _apiUrl = "https://mywebsite.com/api";
 #endif
-
-            //http://localhost:57723
         public APIService(string route)
-        {
-            _route = route;
-        }
+            {
+                _route = route;
+            }
+
 
         public async Task<T> Get<T>(object search)
         {
@@ -50,18 +48,15 @@ namespace Rent_A_Car.MobileAPP
             }
             catch (FlurlHttpException ex)
             {
-                //if (ex == null)// mls da ovdje treba biti ==
-                if (ex.StatusCode.ToString() == System.Net.HttpStatusCode.Unauthorized.ToString())
+                if(ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
                 {
-                    
-                    await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
-
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Niste autenticifirani", "OK");
                 }
                 throw;
             }
         }
-
-        // GET BY ID PREMA SERVERU -----------------------
+         
+        //GET BY ID PREMA SERVERU -----------------------
         public async Task<T> GetById<T>(object id)
         {
 
@@ -76,7 +71,6 @@ namespace Rent_A_Car.MobileAPP
         {
 
             var url = $"{_apiUrl}/{_route}";
-
             try
             {
                 return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
@@ -86,13 +80,12 @@ namespace Rent_A_Car.MobileAPP
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
                 var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
+              
+                foreach(var error in errors)
                 {
                     stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
                 }
-
-                //MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
+                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
                 return default(T);
             }
 
@@ -110,7 +103,7 @@ namespace Rent_A_Car.MobileAPP
 
                 return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
             }
-            catch (FlurlHttpException ex)
+            catch(FlurlHttpException ex)
             {
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
@@ -119,16 +112,38 @@ namespace Rent_A_Car.MobileAPP
                 {
                     stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
                 }
-
-                //MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                await Application.Current.MainPage.DisplayAlert("Greska", stringBuilder.ToString(), "OK");
-
+                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
                 return default(T);
             }
         }
+
+
+        //public async Task<T> Get(object search)
+        //{
+        //    var url = $"{_apiUrl}/{_route}";
+
+        //    try
+        //    {
+        //        if (search != null)
+        //        {
+        //            url += "?";
+        //            url += await search.ToQueryString();
+        //        }
+        //    }
+        //    catch (FlurlHttpException ex)
+        //    {
+        //        //if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
+        //        if (ex != null)
+        //        {
+        //            await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
+        //        }
+        //        throw;
+        //    }
+
+        //}
+
+
     }
-
-
 
 }
 

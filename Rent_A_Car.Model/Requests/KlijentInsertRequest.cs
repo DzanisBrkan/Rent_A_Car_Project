@@ -5,6 +5,8 @@ using System.Text;
 
 namespace Rent_A_Car.Model.Requests
 {
+    //OVDJE MORA BITI ISTI RASPORED KO U DATABASE KLASI
+
     public class KlijentInsertRequest
     {
         [Required(AllowEmptyStrings = false)]
@@ -28,6 +30,8 @@ namespace Rent_A_Car.Model.Requests
 
         [Required]
         public string DatumRodjenja { get; set; }
+        public int? GradId { get; set; }
+
 
         [Required(AllowEmptyStrings = false)]
         [MinLength(3)]

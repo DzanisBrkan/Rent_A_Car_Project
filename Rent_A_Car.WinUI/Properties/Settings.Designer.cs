@@ -25,7 +25,9 @@ namespace Rent_A_Car.WinUI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44374/api")]
+
+        [global::System.Configuration.DefaultSettingValueAttribute("https://localhost:44391/api")]
+
         public string APIUrl {
             get {
                 return ((string)(this["APIUrl"]));

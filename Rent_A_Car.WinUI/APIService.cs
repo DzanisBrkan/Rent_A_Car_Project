@@ -17,7 +17,7 @@ namespace Rent_A_Car.WinUI
 
 
         private readonly string _route = null;
-        public APIService(string route)
+        public APIService(string route) 
         {
             _route = route;
         }
@@ -27,15 +27,26 @@ namespace Rent_A_Car.WinUI
 
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
-            if (search != null)
+            try
             {
-                url += "?";
-                url += await search.ToQueryString();
+                if (search != null)
+                {
+                    url += "?";
+                    url += await search.ToQueryString();
+                }
+                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             }
-
+            catch(FlurlHttpException ex)
+            {
+                if(ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("Niste authentificirani");
+                }
+               throw;
+            }
             //implementacija autentifikacije
-            var list = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
-            return list;
+            //var list = await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+            //return list;
         }
 
         // GET BY ID PREMA SERVERU -----------------------

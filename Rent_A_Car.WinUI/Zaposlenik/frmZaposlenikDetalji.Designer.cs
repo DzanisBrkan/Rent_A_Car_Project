@@ -37,7 +37,7 @@
             this.DatumRodjenja = new System.Windows.Forms.Label();
             this.txtDatumRodjenja = new System.Windows.Forms.TextBox();
             this.Adresa = new System.Windows.Forms.Label();
-            this.txtAdresa = new System.Windows.Forms.TextBox();
+            this.txtSpol = new System.Windows.Forms.TextBox();
             this.KorisnickoIme = new System.Windows.Forms.Label();
             this.txtKorisnickoIme = new System.Windows.Forms.TextBox();
             this.Telefon = new System.Windows.Forms.Label();
@@ -48,24 +48,27 @@
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.Ime = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
-            this.txtNazad = new System.Windows.Forms.Button();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtGrad = new System.Windows.Forms.TextBox();
+            this.cmbKorisnickiNalog = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(112, 35);
+            this.label1.Location = new System.Drawing.Point(65, 32);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 39);
+            this.label1.Size = new System.Drawing.Size(307, 39);
             this.label1.TabIndex = 62;
-            this.label1.Text = "Postavke profila";
+            this.label1.Text = "Detalji zaposlenika";
             // 
             // txtPasswordPotvrda
             // 
-            this.txtPasswordPotvrda.Location = new System.Drawing.Point(264, 438);
+            this.txtPasswordPotvrda.Location = new System.Drawing.Point(264, 584);
             this.txtPasswordPotvrda.Name = "txtPasswordPotvrda";
             this.txtPasswordPotvrda.PasswordChar = '*';
             this.txtPasswordPotvrda.Size = new System.Drawing.Size(168, 20);
@@ -74,7 +77,7 @@
             // Potvrda
             // 
             this.Potvrda.AutoSize = true;
-            this.Potvrda.Location = new System.Drawing.Point(261, 413);
+            this.Potvrda.Location = new System.Drawing.Point(261, 559);
             this.Potvrda.Name = "Potvrda";
             this.Potvrda.Size = new System.Drawing.Size(44, 13);
             this.Potvrda.TabIndex = 58;
@@ -83,7 +86,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(65, 413);
+            this.Password.Location = new System.Drawing.Point(65, 559);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(53, 13);
             this.Password.TabIndex = 57;
@@ -91,7 +94,7 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(68, 438);
+            this.txtPassword.Location = new System.Drawing.Point(68, 584);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(168, 20);
@@ -123,12 +126,12 @@
             this.Adresa.Text = "Spol";
             this.Adresa.Click += new System.EventHandler(this.Adresa_Click);
             // 
-            // txtAdresa
+            // txtSpol
             // 
-            this.txtAdresa.Location = new System.Drawing.Point(167, 319);
-            this.txtAdresa.Name = "txtAdresa";
-            this.txtAdresa.Size = new System.Drawing.Size(265, 20);
-            this.txtAdresa.TabIndex = 52;
+            this.txtSpol.Location = new System.Drawing.Point(167, 319);
+            this.txtSpol.Name = "txtSpol";
+            this.txtSpol.Size = new System.Drawing.Size(265, 20);
+            this.txtSpol.TabIndex = 52;
             // 
             // KorisnickoIme
             // 
@@ -210,31 +213,19 @@
             this.txtIme.Size = new System.Drawing.Size(265, 20);
             this.txtIme.TabIndex = 42;
             // 
-            // txtNazad
-            // 
-            this.txtNazad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.txtNazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNazad.ForeColor = System.Drawing.Color.White;
-            this.txtNazad.Location = new System.Drawing.Point(68, 487);
-            this.txtNazad.Name = "txtNazad";
-            this.txtNazad.Size = new System.Drawing.Size(168, 58);
-            this.txtNazad.TabIndex = 84;
-            this.txtNazad.Text = "Nazad";
-            this.txtNazad.UseVisualStyleBackColor = false;
-            // 
             // btnSnimi
             // 
             this.btnSnimi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(264, 488);
+            this.btnSnimi.Location = new System.Drawing.Point(360, 667);
             this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(167, 57);
+            this.btnSnimi.Size = new System.Drawing.Size(154, 38);
             this.btnSnimi.TabIndex = 83;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // btnExit
             // 
@@ -249,13 +240,49 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(69, 422);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(30, 13);
+            this.label2.TabIndex = 87;
+            this.label2.Text = "Grad";
+            // 
+            // txtGrad
+            // 
+            this.txtGrad.Location = new System.Drawing.Point(167, 419);
+            this.txtGrad.Name = "txtGrad";
+            this.txtGrad.Size = new System.Drawing.Size(265, 20);
+            this.txtGrad.TabIndex = 86;
+            // 
+            // cmbKorisnickiNalog
+            // 
+            this.cmbKorisnickiNalog.FormattingEnabled = true;
+            this.cmbKorisnickiNalog.Location = new System.Drawing.Point(167, 475);
+            this.cmbKorisnickiNalog.Name = "cmbKorisnickiNalog";
+            this.cmbKorisnickiNalog.Size = new System.Drawing.Size(265, 21);
+            this.cmbKorisnickiNalog.TabIndex = 89;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(69, 483);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 13);
+            this.label3.TabIndex = 90;
+            this.label3.Text = "Vrsta Naloga";
+            // 
             // frmZaposlenikDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 561);
+            this.ClientSize = new System.Drawing.Size(526, 717);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cmbKorisnickiNalog);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtGrad);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtNazad);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPasswordPotvrda);
@@ -265,7 +292,7 @@
             this.Controls.Add(this.DatumRodjenja);
             this.Controls.Add(this.txtDatumRodjenja);
             this.Controls.Add(this.Adresa);
-            this.Controls.Add(this.txtAdresa);
+            this.Controls.Add(this.txtSpol);
             this.Controls.Add(this.KorisnickoIme);
             this.Controls.Add(this.txtKorisnickoIme);
             this.Controls.Add(this.Telefon);
@@ -280,6 +307,7 @@
             this.Name = "frmZaposlenikDetalji";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmZaposlenikDetalji";
+            this.Load += new System.EventHandler(this.frmZaposlenikDetalji_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -295,7 +323,7 @@
         private System.Windows.Forms.Label DatumRodjenja;
         private System.Windows.Forms.TextBox txtDatumRodjenja;
         private System.Windows.Forms.Label Adresa;
-        private System.Windows.Forms.TextBox txtAdresa;
+        private System.Windows.Forms.TextBox txtSpol;
         private System.Windows.Forms.Label KorisnickoIme;
         private System.Windows.Forms.TextBox txtKorisnickoIme;
         private System.Windows.Forms.Label Telefon;
@@ -306,8 +334,11 @@
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.Label Ime;
         private System.Windows.Forms.TextBox txtIme;
-        private System.Windows.Forms.Button txtNazad;
         private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtGrad;
+        private System.Windows.Forms.ComboBox cmbKorisnickiNalog;
+        private System.Windows.Forms.Label label3;
     }
 }
