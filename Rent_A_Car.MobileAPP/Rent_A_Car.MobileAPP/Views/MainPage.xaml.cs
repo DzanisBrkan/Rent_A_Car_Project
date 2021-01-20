@@ -36,7 +36,37 @@ namespace Rent_A_Car.MobileAPP.Views
                     case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;
+
+         //--------------------------------------------------------------------------------
+                    
                     case (int)MenuItemType.Vozila:
+                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        break;
+
+                    case (int)MenuItemType.MojiUgovori:
+                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        break;
+
+                    case (int)MenuItemType.RezervacijaVozila:
+                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        break;
+
+
+                    case (int)MenuItemType.MojiKomentarIOcjene:
+                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        break;
+
+
+                    case (int)MenuItemType.MojeRezervacije:
+                        MenuPages.Add(id, new NavigationPage(new KorisnickiPodaci()));
+                        break;
+
+
+                    case (int)MenuItemType.PostavkeProfila:
+                        MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
+                        break;
+
+                    case (int)MenuItemType.Odjava:
                         MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
                         break;
                 }

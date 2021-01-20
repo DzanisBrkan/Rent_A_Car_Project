@@ -36,13 +36,15 @@
 
 
             <Label Text="Username:" />
-            <Entry Text="{Binding Username}"></Entry>
+            <Entry x:Name="Username" Text="{Binding Username}"></Entry>
             
             <Label Text="Password:" />
-            <Entry Text="{Binding Password}"></Entry>
+            <Entry x:Name="Password" Text="{Binding Password}"></Entry>
+
 
 
             <Button BackgroundColor="#c00000" Command="{Binding LoginCommand}" Text="Login"></Button>
+
             <Label IsVisible="{Binding IsBusy}" Text="Working..."></Label>
 
             <Label TextColor="#c00000" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Registruj se" Margin="0,5,0,0">

@@ -13,6 +13,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
 
         private readonly APIService _service = new APIService("Zaposlenik");
 
+
         public LoginViewModel()
         {
             LoginCommand = new Command(async () => await Login());
@@ -40,6 +41,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             IsBusy = true;
 
             //odavde isto kao u win formi login
+
             APIService.Username = Username;
             APIService.Password = Password;
 
@@ -53,7 +55,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             {
                 //
             } 
-              
+
+
         }
     }
 }
