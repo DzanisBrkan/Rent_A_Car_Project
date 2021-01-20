@@ -11,27 +11,27 @@
                 <Label FontSize="Large" Text="Registruj se"></Label>
                 <StackLayout Orientation="Vertical">
                     <Label Text="Ime"/>
-                    <Entry Text="{Binding Ime}" Placeholder="Ime"/>
+                    <Entry Text="{Binding Ime}" x:Name="imeEntry" Placeholder="Ime"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <Label Text="Prezime"/>
-                    <Entry Text="{Binding Prezime}" Placeholder="Prezime"/>
+                    <Entry Text="{Binding Prezime}" x:Name="prezimeEntry" Placeholder="Prezime"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <Label Text="Email"/>
-                    <Entry Text="{Binding Email}" Placeholder="ime.prezime@gmail.com"/>
+                    <Entry Text="{Binding Email}" x:Name="emailEntry" Placeholder="ime.prezime@gmail.com"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <Label Text="Broj Telefona"/>
-                    <Entry Text="{Binding BrojTel}" Placeholder="062-555-333"/>
+                    <Entry Text="{Binding BrojTel}" x:Name="brojEntry" Placeholder="062-555-333"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <Label Text="Adresa"/>
-                    <Entry Text="{Binding Adresa}" Placeholder="Ulica xx br. 30, Mostar"/>
+                    <Entry Text="{Binding Adresa}" x:Name="adresaEntry" Placeholder="Ulica xx br. 30, Mostar"/>
                 </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <Label Text="DatumRodjenja"/>
-                    <Entry Text="{Binding DatumRodjenja}" Placeholder="01.01.2000"/>
+                    <Entry Text="{Binding DatumRodjenja}" x:Name="datumRodjenjaEntry" Placeholder="01.01.2000"/>
 
 
                     <!--<Label Text="DatumRodjenja"/>
@@ -40,7 +40,7 @@
 
                     <StackLayout Orientation="Vertical">
                         <Label Text="Korisničko ime"/>
-                        <Entry Text="{Binding KorisnickoIme}" Placeholder="Korisnicko ime"/>
+                        <Entry Text="{Binding KorisnickoIme}" x:Name="korisnickoImeEntry" Placeholder="Korisnicko ime"/>
                     </StackLayout>
                     <!--<StackLayout Orientation="Vertical">
                         <Label Text="Lozinka"/>
@@ -53,7 +53,12 @@
 
                 </StackLayout>
 
-                <Button Command="{Binding RegistracijaCommand}"  HorizontalOptions="FillAndExpand" BackgroundColor="Green" Text="Kreiraj account" IsEnabled="{Binding IsButtonEnabled}"></Button>
+                <!--<Button Command="{Binding RegistracijaCommand}"  HorizontalOptions="FillAndExpand" BackgroundColor="Green" Text="Kreiraj account" IsEnabled="{Binding IsButtonEnabled}"></Button>-->
+
+
+                <Button Command="{Binding RegistracijaCommand}"  HorizontalOptions="FillAndExpand" BackgroundColor="Green" Text="Kreiraj account" Clicked="Button_Clicked"></Button>
+
+
 
                 <Label TextColor="#2296f3" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Već imate account? Prijavite se" Margin="0,5,0,0">
                     <Label.GestureRecognizers>

@@ -39,6 +39,8 @@
             this.Komentar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExit = new System.Windows.Forms.Button();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
+            this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -133,11 +135,33 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // txtPretraga
+            // 
+            this.txtPretraga.Location = new System.Drawing.Point(12, 27);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(493, 20);
+            this.txtPretraga.TabIndex = 14;
+            // 
+            // btnPrikazi
+            // 
+            this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPrikazi.ForeColor = System.Drawing.Color.White;
+            this.btnPrikazi.Location = new System.Drawing.Point(556, 27);
+            this.btnPrikazi.Name = "btnPrikazi";
+            this.btnPrikazi.Size = new System.Drawing.Size(71, 22);
+            this.btnPrikazi.TabIndex = 13;
+            this.btnPrikazi.Text = "Prikazi";
+            this.btnPrikazi.UseVisualStyleBackColor = false;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
+            // 
             // frmOcijeniIKomentarisiPregled
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 403);
+            this.Controls.Add(this.txtPretraga);
+            this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -147,6 +171,7 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -162,5 +187,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Komentar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ocijena;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox txtPretraga;
+        private System.Windows.Forms.Button btnPrikazi;
     }
 }

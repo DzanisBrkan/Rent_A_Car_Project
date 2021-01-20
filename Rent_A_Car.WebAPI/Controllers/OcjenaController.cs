@@ -5,15 +5,17 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rent_A_Car.Model;
+using Rent_A_Car.Model.Requests;
 using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class OcjenaController : BaseController<Model.Ocjena, object>
+    public class OcjenaController
+        : BaseCRUDController<Model.Ocjena, OcijenaSearchRequest, OcijenaUpsertRequest, OcijenaUpsertRequest>
     {
-        public OcjenaController(IService<Ocjena, object> service) : base(service)
+        public OcjenaController(ICRUDService<Ocjena, OcijenaSearchRequest, OcijenaUpsertRequest, OcijenaUpsertRequest> service) : base(service)
         {
         }
     }

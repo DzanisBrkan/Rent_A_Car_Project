@@ -77,13 +77,16 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<ICRUDService<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>, VoziloService>();
 
             services.AddScoped<ICRUDService<Model.Zaposlenik, ZaposlenikSearchRequest, ZaposlenikUpsertRequest, ZaposlenikUpsertRequest>, ZaposlenikService>();
+            services.AddScoped<ICRUDService<Model.Ocjena, OcijenaSearchRequest, OcijenaUpsertRequest, OcijenaUpsertRequest>,OcijenaService>();
+
+
 
             services.AddScoped<IService<Model.KorisnickiNalog, object>, BaseService<Model.KorisnickiNalog, object, KorisnickiNalog>>();
             services.AddScoped<IService<Model.Grad, object>, BaseService<Model.Grad, object, Grad>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
             services.AddScoped<IService<Model.Specifikacija, object>, BaseService<Model.Specifikacija, object, Specifikacija>>();
             services.AddScoped<IService<Model.Tip, object>, BaseService<Model.Tip, object, Tip>>();
-            services.AddScoped<IService<Model.Ocjena, object>, BaseService<Model.Ocjena, object, Ocjena>>();
+
             services.AddScoped<IService<Model.Racun, object>, BaseService<Model.Racun, object, Racun>>();
             services.AddScoped<IService<Model.Rezervacija, object>, BaseService<Model.Rezervacija, object, Rezervacija>>();
 
@@ -102,7 +105,7 @@ namespace Rent_A_Car.WebAPI
             }
 
 
-            //app.UseHttpsRedirection();
+            app.UseHttpsRedirection();
 
             app.UseRouting();
 

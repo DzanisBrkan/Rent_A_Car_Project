@@ -38,8 +38,6 @@
             this.txtDatumRodjenja = new System.Windows.Forms.TextBox();
             this.Adresa = new System.Windows.Forms.Label();
             this.txtAdresa = new System.Windows.Forms.TextBox();
-            this.KorisnickoIme = new System.Windows.Forms.Label();
-            this.txtKorisnickoIme = new System.Windows.Forms.TextBox();
             this.Telefon = new System.Windows.Forms.Label();
             this.txtTelefon = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
@@ -48,7 +46,6 @@
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.Ime = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
-            this.txtNazad = new System.Windows.Forms.Button();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -130,22 +127,6 @@
             this.txtAdresa.Size = new System.Drawing.Size(265, 20);
             this.txtAdresa.TabIndex = 52;
             // 
-            // KorisnickoIme
-            // 
-            this.KorisnickoIme.AutoSize = true;
-            this.KorisnickoIme.Location = new System.Drawing.Point(69, 117);
-            this.KorisnickoIme.Name = "KorisnickoIme";
-            this.KorisnickoIme.Size = new System.Drawing.Size(75, 13);
-            this.KorisnickoIme.TabIndex = 51;
-            this.KorisnickoIme.Text = "Korisničko ime";
-            // 
-            // txtKorisnickoIme
-            // 
-            this.txtKorisnickoIme.Location = new System.Drawing.Point(167, 114);
-            this.txtKorisnickoIme.Name = "txtKorisnickoIme";
-            this.txtKorisnickoIme.Size = new System.Drawing.Size(265, 20);
-            this.txtKorisnickoIme.TabIndex = 50;
-            // 
             // Telefon
             // 
             this.Telefon.AutoSize = true;
@@ -210,31 +191,19 @@
             this.txtIme.Size = new System.Drawing.Size(265, 20);
             this.txtIme.TabIndex = 42;
             // 
-            // txtNazad
-            // 
-            this.txtNazad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.txtNazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNazad.ForeColor = System.Drawing.Color.White;
-            this.txtNazad.Location = new System.Drawing.Point(68, 487);
-            this.txtNazad.Name = "txtNazad";
-            this.txtNazad.Size = new System.Drawing.Size(168, 58);
-            this.txtNazad.TabIndex = 84;
-            this.txtNazad.Text = "Nazad";
-            this.txtNazad.UseVisualStyleBackColor = false;
-            // 
             // btnSnimi
             // 
             this.btnSnimi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(264, 488);
+            this.btnSnimi.Location = new System.Drawing.Point(167, 492);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(167, 57);
             this.btnSnimi.TabIndex = 83;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // btnExit
             // 
@@ -255,7 +224,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 561);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtNazad);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPasswordPotvrda);
@@ -266,8 +234,6 @@
             this.Controls.Add(this.txtDatumRodjenja);
             this.Controls.Add(this.Adresa);
             this.Controls.Add(this.txtAdresa);
-            this.Controls.Add(this.KorisnickoIme);
-            this.Controls.Add(this.txtKorisnickoIme);
             this.Controls.Add(this.Telefon);
             this.Controls.Add(this.txtTelefon);
             this.Controls.Add(this.Email);
@@ -296,8 +262,6 @@
         private System.Windows.Forms.TextBox txtDatumRodjenja;
         private System.Windows.Forms.Label Adresa;
         private System.Windows.Forms.TextBox txtAdresa;
-        private System.Windows.Forms.Label KorisnickoIme;
-        private System.Windows.Forms.TextBox txtKorisnickoIme;
         private System.Windows.Forms.Label Telefon;
         private System.Windows.Forms.TextBox txtTelefon;
         private System.Windows.Forms.Label Email;
@@ -306,7 +270,6 @@
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.Label Ime;
         private System.Windows.Forms.TextBox txtIme;
-        private System.Windows.Forms.Button txtNazad;
         private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.Button btnExit;
     }

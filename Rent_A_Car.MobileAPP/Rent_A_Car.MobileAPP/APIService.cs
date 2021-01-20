@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using System.Net;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace Rent_A_Car.MobileAPP
 {
     public class APIService
     {
+
 
         public static string Username { get; set; }
         public static string Password { get; set; }
@@ -137,6 +140,45 @@ namespace Rent_A_Car.MobileAPP
                 return default(T);
             }
         }
+
+
+        public async Task<bool> RegisterUserAsynic(string ime, string prezime, string mail, string broj, string adresa,string datumrojenja, string korisnickoIme)
+        {
+
+            bool Response = false; 
+            await Task.Run(() =>
+            {
+                var client = new HttpClient();
+
+                var model = new Model.Klijent
+                {
+                    Ime = ime,
+                    Prezime = prezime,
+                    Email = mail,
+                    BrojTel = broj,
+                    Adresa = adresa,
+                    DatumRodjenja = datumrojenja,
+                    KorisnickoIme = korisnickoIme 
+                };
+
+                var jason = JsonConvert.SerializeObject(model);
+                HttpContent httpContent = new StringContent(jason);
+                httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
+                var response = client.PostAsync(_apiUrl + "/Klijent", httpContent);
+                var mystring = response.GetAwaiter().GetResult();
+
+                if (response.Result.IsSuccessStatusCode)
+                {
+                    Response = true;
+                }
+
+            });
+            return Response;
+        }
+
+
+
+
     }
 
 

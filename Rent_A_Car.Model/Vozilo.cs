@@ -6,7 +6,7 @@ namespace Rent_A_Car.Model
 {
     public partial class Vozilo
     { 
-        public int VoziloID { get; set; }
+        public int VoziloId { get; set; }
         public string RegistracijskiBroj { get; set; }
         public string Model { get; set; }
         public string Marka { get; set; }

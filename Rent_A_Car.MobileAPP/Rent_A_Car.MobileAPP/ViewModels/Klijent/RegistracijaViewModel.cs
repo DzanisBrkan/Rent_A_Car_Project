@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 using Rent_A_Car.Model.Requests;
+using Rent_A_Car.MobileAPP.Services;
 
 namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 {
     public class RegistracijaViewModel : BaseViewModel
     {
+        APIServisi apiservisi = new APIServisi();
+
         private readonly APIService _serviceKlijenti = new APIService("Klijent");
         private readonly APIService _serviceGradovi = new APIService("Gradovi");
 
@@ -22,6 +25,16 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             _klijent = new KlijentInsertRequest();
         }
 
+
+         //public string ime { get; set; }
+         //public string preime { get; set; }
+         //public string mail { get; set; }
+         //public string broj { get; set; }
+         //public string adresa { get; set; }
+         //public string datumRodjenja { get; set; }
+         //public string korisnickoIme { get; set; }
+
+       
 
 
         private bool _isButtonEnabled = true;
@@ -62,39 +75,42 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         async Task Register()
         {
-            IsButtonEnabled = false;
+            //IsButtonEnabled = false;
 
-            try
-            {
-                //if (Grad != null)
-                //    Klijent.GradId = Grad.GradId;
+            //try
+            //{
+            //    //if (Grad != null)
+            //    //    Klijent.GradId = Grad.GradId;
 
-                var entity = await _serviceKlijenti.Insert<Model.Klijent>(Klijent);
-                if (entity == null)
-                    throw new Exception();
+            //    var entity = await _serviceKlijenti.Insert<Model.Klijent>(Klijent);
+            //    if (entity == null)
+            //        throw new Exception();
 
-                APIService.Username = Klijent.KorisnickoIme;
-                APIService.Password = Klijent.Password;
+            //    APIService.Username = Klijent.KorisnickoIme;
+            //    APIService.Password = Klijent.Password;
 
-                //var request = new LoginSearchRequest
-                //{
-                //    KorisnickoIme = APIService.Username,
-                //    Lozinka = APIService.Password
-                //};
-                //APIService.LogovaniKlijent = await _serviceKlijenti.Get<Model.Klijent>(request, "login");
-                APIService.LogovaniKlijent = await _serviceKlijenti.Get<Model.Klijent>(null);
+            //    //var request = new LoginSearchRequest
+            //    //{
+            //    //    KorisnickoIme = APIService.Username,
+            //    //    Lozinka = APIService.Password
+            //    //};
+            //    //APIService.LogovaniKlijent = await _serviceKlijenti.Get<Model.Klijent>(request, "login");
+            //    APIService.LogovaniKlijent = await _serviceKlijenti.Get<Model.Klijent>(null);
 
 
-                Application.Current.MainPage = new MainPage();
-            }
-            catch (Exception)
-            {
+            //    Application.Current.MainPage = new MainPage();
+            //}
+            //catch (Exception)
+            //{
 
-            }
-            finally
-            {
-                IsButtonEnabled = true;
-            }
+            //}
+            //finally
+            //{
+            //    IsButtonEnabled = true;
+            //}
+
+            
+  
         }
 
     }
