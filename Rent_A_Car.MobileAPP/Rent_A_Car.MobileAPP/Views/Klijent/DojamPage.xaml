@@ -3,15 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
              mc:Ignorable="d"
-             x:Class="Rent_A_Car.MobileAPP.Views.OcijenivanjeIKomentarisanje">
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.DojamPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:DojamViewModel></viewModel:DojamViewModel>
+    </ContentPage.BindingContext>
+
+
     <ContentPage.Content>
-        <StackLayout Padding="35"
-                     VerticalOptions="CenterAndExpand"
-                     HorizontalOptions="FillAndExpand">
-
-
-
+        <StackLayout Padding="35">
             <Label TextColor="#2196F3" 
                FontAttributes="Bold" Text="Ostavi komentar i ocijenu:"
               FontSize="Title"
@@ -20,18 +22,15 @@
 
 
 
-            <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
 
 
             <Label Text="Komentar:" />
-            <Entry Text="{Binding Komentar}"></Entry>
+            <Entry Placeholder="Odlicno" Text="{Binding _Komentar}" ></Entry>
 
-            <Label Text="Ocijena:" />
-            <Entry Text="{Binding Ocijena}"></Entry>
+            <Label Text="Ocjena:" />
+            <Entry Placeholder="5" Text="{Binding _Ocjena}" ></Entry>
 
-            <!--skadakdsak-->
-
-            <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak"></Button>
+            <Button BackgroundColor="#2196F3" Command="{Binding InitCommand}" Clicked="Button_Clicked" Text="Ostavi utisak"></Button>
 
 
         </StackLayout>

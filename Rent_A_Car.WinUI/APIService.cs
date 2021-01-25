@@ -14,6 +14,7 @@ namespace Rent_A_Car.WinUI
     {
         public static string Username { get; set; }
         public static string Password { get; set; }
+        public static int UserID { get; set; }
 
 
         private readonly string _route = null;

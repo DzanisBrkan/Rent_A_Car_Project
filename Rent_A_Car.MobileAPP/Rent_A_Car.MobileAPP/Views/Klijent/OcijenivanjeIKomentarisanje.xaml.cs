@@ -8,23 +8,24 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Rent_A_Car.MobileAPP.Views
+namespace Rent_A_Car.MobileAPP.Views.Klijent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PrikazVozila : ContentPage
+    public partial class OcijenivanjeIKomentarisanje : ContentPage
     {
-        PrikazVozilaViewModel model = null;
-
-        public PrikazVozila()
+        OcijenivanjeIKomentarisanjeViewModel model = null;
+        public OcijenivanjeIKomentarisanje()
         {
             InitializeComponent();
-            BindingContext = model = new PrikazVozilaViewModel();
+            BindingContext = model = new OcijenivanjeIKomentarisanjeViewModel();
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-           await model.Init();
+            await model.Init();
         }
+
+        // treba napraviti button kada frajer spasi ocijenu i komentar
     }
 }

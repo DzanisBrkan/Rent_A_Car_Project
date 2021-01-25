@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.NapraviRezervaciju">
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+
+            <Label Text="Unesite Rezervaciju:" FontAttributes="Bold"  FontSize="Title" HorizontalOptions="CenterAndExpand"></Label>
+
+            <Label Text="Vrijeme starta rezervacije"></Label>
+            <Entry Text="{Binding _VrijemePocetka}"></Entry>
+
+            <Label Text="Vrijeme Rezervacije"></Label>
+            <Entry Text="{Binding _VrijemeRezervacije}"></Entry>
+
+            <Label Text="Kolicina"></Label>
+            <Entry Text="{Binding _Kolicina}"></Entry>
+
+            <Label Text="Status"></Label>
+            <Entry Text="{Binding _Status}"></Entry>
+
+            <Label Text="Cijena"></Label>
+            <Entry Text="{Binding _Cijena}"></Entry>
+
+            <!--<Label Text="Odaberite lokaciju:"></Label>
+            <Picker ItemsSource="{Binding _citiesList}" SelectedItem="{Binding _LokacijaId}" ItemDisplayBinding="{Binding CityName}"></Picker>-->
+
+            <!--<Label Text="Odaberite osiguranje"></Label>
+            <Picker ItemsSource="{Binding _modelsList}" SelectedItem="{Binding _OsiguranjeId}" ItemDisplayBinding="{Binding CarModelName}"></Picker>-->
+
+            <!--OVDJE IDE KLIJENTID-->
+            <!--<Label Text="Ovdje ide klijentID"></Label>
+            <Picker ItemsSource="{Binding _modelsList}" SelectedItem="{Binding _KlijentId}" ItemDisplayBinding="{Binding CarModelName}"></Picker>-->
+
+            <!--OVDJE IDE VOZILOID-->
+            <!--<Label Text="Odaberite Vozilo"></Label>
+            <Picker ItemsSource="{Binding _modelsList}" SelectedItem="{Binding _VoziloId}" ItemDisplayBinding="{Binding CarModelName}"></Picker>-->
+
+
+            <!--<Label Text="Odaberite popust   "></Label>
+            <Picker ItemsSource="{Binding _modelsList}" SelectedItem="{Binding _PopustId}" ItemDisplayBinding="{Binding CarModelName}"></Picker>-->
+
+
+            <!--<Label Text="Odaberite Racun   "></Label>
+            <Picker ItemsSource="{Binding _modelsList}" SelectedItem="{Binding _RacunID}" ItemDisplayBinding="{Binding CarModelName}"></Picker>-->
+
+            <Button BackgroundColor="#2196F3" Clicked="Button_Clicked_1" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Napravi Rezervaciju"></Button>
+            <!--<Button BackgroundColor="Red" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Vrati se na Ugovor"></Button>-->
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

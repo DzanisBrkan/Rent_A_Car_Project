@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.NapraviteUgovor">
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <Label Text="Ugovor:" FontAttributes="Bold"  FontSize="Title" HorizontalOptions="CenterAndExpand"></Label>
+
+            <Label Text="Datum ugovora:"></Label>
+            <DatePicker Date="{Binding _Datum}" Format="dd-MM-yyyy" ></DatePicker>
+
+            <!--VALJDA BI SE OVO SAMO TREBALO GENERISAT-->
+            <Label Text="Ukupna cijena:"></Label>
+            <Entry Text="{Binding _UkupnaCijena}"></Entry>
+
+            <Label Text="Ukupna kolicina:"></Label>
+            <Entry Text="{Binding _UkupnaKolicina}"></Entry>
+
+            <Label Text="Nacin placanja:"></Label>
+            <Entry Text="{Binding _NacinPlacanja}"></Entry>
+
+            <Label Text="Placen:"></Label>
+            <Entry Text="{Binding _Placen}"></Entry>
+
+
+            <Button BackgroundColor="#2196F3" Clicked="Button_Clicked_1"  BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Napravi Rezervaciju"></Button>
+            <!--<Button BackgroundColor="Red" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Ponisti"></Button>-->
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

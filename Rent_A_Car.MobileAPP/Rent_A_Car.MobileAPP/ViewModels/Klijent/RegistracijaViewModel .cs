@@ -1,0 +1,251 @@
+﻿using Rent_A_Car.MobileAPP.Views;
+using Rent_A_Car.MobileAPP.Views.Klijent;
+using Rent_A_Car.Model.Requests;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using Xamarin.Forms;
+
+namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
+{
+    class RegistracijaViewModel : BaseViewModel
+    {
+        private readonly APIService _serviceKlijenti = new APIService("Klijent");
+        private readonly APIService _serviceGradovi = new APIService("Gradovi");
+
+        //private readonly APIService _usersService = new APIService("Klijent");
+
+
+        public RegistracijaViewModel()
+        {
+            RegistracijaCommand = new Command(async () => await Register());
+            Title = "Registracija";
+            _klijent = new KlijentInsertRequest();
+        }
+
+        private bool _isButtonEnabled = true;
+        public bool IsButtonEnabled
+        {
+            get { return _isButtonEnabled; }
+            set { SetProperty(ref _isButtonEnabled, value); }
+        }
+
+        //public ObservableCollection<Model.Gradovi> Gradovi { get; set; } = new ObservableCollection<Gradovi>();
+        //private Model.Gradovi _grad;
+
+
+        //public Model.Gradovi Grad
+        //{
+        //    get { return _grad; }
+        //    set { SetProperty(ref _grad, value); }
+        //}
+
+        public string _Ime { get; set; } = null;
+        public string _Prezime { get; set; } = null;
+        public string _DatumRodjenja { get; set; }
+        public string _Email { get; set; } = null;
+        public string _Adresa { get; set; } = null;
+        public string _BrojTelefona { get; set; } = null;
+        public string _KorisnickoIme { get; set; } = null;
+        public string _Password { get; set; } = null;
+        public string _PasswordConfirmation { get; set; } = null;
+
+
+
+        private KlijentInsertRequest _klijent;
+        public KlijentInsertRequest Klijent
+        {
+            get { return _klijent; }
+            set { SetProperty(ref _klijent, value); }
+        }
+
+        public async Task Init()
+        {
+            //    var listGradovi = await _serviceGradovi.Get<List<Model.Gradovi>>(null);
+            //    foreach (var grad in listGradovi)
+            //    {
+            //        Gradovi.Add(grad);
+            //    }
+        }
+
+
+
+
+        public ICommand RegistracijaCommand { get; set; }
+        public ICommand SpasiKlijentaRegistrcija { get; set; }
+
+
+
+
+        public async Task Register()
+        {
+
+            try
+            {
+                //if (CityModel == null)
+                //{
+                //    await Application.Current.MainPage.DisplayAlert("Greška", "Odaberi grad!", "Ok");
+                //    return;
+                //}
+                //if (CarModel == null)
+                //{
+                //    await Application.Current.MainPage.DisplayAlert("Greška", "Odaberi model automobila!", "Ok");
+                //    return;
+                //}
+
+                if (_Password != _PasswordConfirmation)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Lozinke se ne podudaraju!", "Unesite ponovo");
+                    return;
+                }
+                //var listUsers = await _serviceKlijenti.Get<List<Model.Klijent>>(null);
+
+                //if (_KorisnickoIme != null)
+                //{
+                //    foreach (var item in listUsers)
+                //    {
+                //        if (_KorisnickoIme == item.KorisnickoIme)
+                //        {
+                //            await Application.Current.MainPage.DisplayAlert("Greška", "Korisničko ime već postoji.", "Pokušajte ponovo");
+                //            return;
+                //        }
+                //    }
+                //}
+                //Name
+                if (string.IsNullOrWhiteSpace(_Ime) || _Ime.Length < 3)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Ime je obavezno polje!Minimalna dužina mora biti 3 karaktera", "Ok");
+                    return;
+
+
+                }
+
+                if (char.IsLower(_Ime[0]))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Prvo slovo imena mora biti veliko!", "Ok");
+                    return;
+                }
+                bool containsInt = _Ime.Any(char.IsDigit);
+                if (containsInt)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Brojevi u imenu nisu dozovljeni!", "Ok");
+                    return;
+                }
+
+                //Last name
+                if (string.IsNullOrWhiteSpace(_Prezime) || _Prezime.Length < 3)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Prezime je obavezno polje!Minimalna dužina mora biti 3 karaktera", "Ok");
+                    return;
+
+
+                }
+
+                if (char.IsLower(_Prezime[0]))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Prvo slovo prezimena mora biti veliko!", "Ok");
+                    return;
+                }
+                //bool containsInta = _Prezime.Any(char.IsDigit);
+                //if (containsInta)
+                //{
+                //    await Application.Current.MainPage.DisplayAlert("Greška", "Brojevi u prezimenu nisu dozovljeni!", "Ok");
+                //    return;
+                //}
+                //Email
+
+                if (string.IsNullOrWhiteSpace(_Email))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Email je obavezno polje!", "Ok");
+                    return;
+                }
+
+                //if (!Regex.IsMatch(_Prezime, @"([a-z]+)([\\.]?)([a-z]*)([@])(yahoo|outlook|gmail|hotmail|fit|edu.fit)(.ba|.com|.org)"))
+                //{
+                //    await Application.Current.MainPage.DisplayAlert("Greška", "Email mora biti u formatu: nešto@(gmail,hotmail,fit,edu.fit,outlook,yahoo).(ba,com,org)", "Ok");
+                //    return;
+                //}
+
+                //PhoneNumber
+                if (string.IsNullOrWhiteSpace(_BrojTelefona))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Broj telefona je obavezno polje!", "Ok");
+                    return;
+                }
+
+                if (!Regex.IsMatch(_BrojTelefona, @"(06[0-9])([/])([0-9]){3}([-])([0-9]){3}$"))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Broj telefona mora biti u formatu: 06X/XXX-XXX", "Ok");
+                    return;
+                }
+
+                //Username
+                if (string.IsNullOrWhiteSpace(_Ime) || _Ime.Length < 3)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Korisničko ime je obavezno polje!Minimalna dužina mora biti 3 karaktera", "Ok");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(_Password))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Unesi lozinku!", "Ok");
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(_PasswordConfirmation))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Unesi potvrdu lozinke!", "Ok");
+                    return;
+                }
+
+
+
+
+
+                var request = new KlijentInsertRequest()
+                {
+                    Ime = _Ime,
+                    Prezime = _Prezime,
+                    Adresa = _Adresa,
+                    Email = _Email,
+                    BrojTel = _BrojTelefona,
+                    KorisnickoIme = _KorisnickoIme,
+                    DatumRodjenja = _DatumRodjenja,
+                    Password = _Password,
+                    PasswordConfirmation = _PasswordConfirmation,
+
+                };
+
+
+                var modelUser = _serviceKlijenti.PostActionResponse<Model.Klijent>("Registracija", request);
+
+
+
+
+                if (modelUser != null)
+                {
+                    if (modelUser.Status.ToString() != "Faulted")
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Uspješno ste napravili profil.", "Sada se prijavite.", "Ok");
+                        await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+                    }
+                    //await Application.Current.MainPage.DisplayAlert("Error.", "Doslo je do greske.", "Ok");
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+
+                                          
+        }
+
+
+    }
+}

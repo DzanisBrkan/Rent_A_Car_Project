@@ -38,23 +38,31 @@ namespace Rent_A_Car.WinUI.Zaposlenik
 
         private async void frmZaposlenikDetalji_Load(object sender, EventArgs e)
         {
-            await LoadKorisnickiNalog();
-            //var nalog = await _korisnickiNalogService.Get<List<Model.KorisnickiNalog>>(null);
-            //clbRole.DisplayMember = "TipKorisnickogNaloga";
-            //clbRole.DataSource = nalog;
-            if (_id.HasValue)
+            try
             {
-                var zaposlenik = await _service.GetById<Model.Zaposlenik>(_id);
+                await LoadKorisnickiNalog();
+                //var nalog = await _korisnickiNalogService.Get<List<Model.KorisnickiNalog>>(null);
+                //clbRole.DisplayMember = "TipKorisnickogNaloga";
+                //clbRole.DataSource = nalog;
+                if (_id.HasValue)
+                {
+                    var zaposlenik = await _service.GetById<Model.Zaposlenik>(_id);
 
-                txtIme.Text = zaposlenik.Ime;
-                txtPrezime.Text = zaposlenik.Prezime;
-                txtEmail.Text = zaposlenik.Email;
-                txtTelefon.Text = zaposlenik.KontaktBr;
-                txtDatumRodjenja.Text = zaposlenik.DatumRodjenja;
-                txtSpol.Text = zaposlenik.Spol;
-                //txtGrad.Text = zaposlenik.GradId.ToString();
-                txtGrad.Text = zaposlenik.KorisnickiNalog.TipKorisnickogNaloga;
-                txtKorisnickoIme.Text = zaposlenik.KorisnickoIme;
+                    txtIme.Text = zaposlenik.Ime;
+                    txtPrezime.Text = zaposlenik.Prezime;
+                    txtEmail.Text = zaposlenik.Email;
+                    txtTelefon.Text = zaposlenik.KontaktBr;
+                    txtDatumRodjenja.Text = zaposlenik.DatumRodjenja;
+                    txtSpol.Text = zaposlenik.Spol;
+                    //txtGrad.Text = zaposlenik.GradId.ToString();
+                    //txtGrad.Text = zaposlenik.KorisnickiNalog.TipKorisnickogNaloga;
+                    txtKorisnickoIme.Text = zaposlenik.KorisnickoIme;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Korisnik nema detalja!");
+                throw;
             }
 
         }
@@ -70,43 +78,55 @@ namespace Rent_A_Car.WinUI.Zaposlenik
         //treba napraviti da spasava odabrani korisnicki nalog
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
-            var idObjekta = cmbKorisnickiNalog.SelectedValue;
-
-            if (this.ValidateChildren())
+            try
             {
+                var idObjekta = cmbKorisnickiNalog.SelectedValue;
 
-                var request = new ZaposlenikInsertRequest()
+                if (this.ValidateChildren())
                 {
-                    KorisnickoIme = txtKorisnickoIme.Text,
-                    Ime = txtIme.Text,
-                    Prezime = txtPrezime.Text,
-                    Email = txtEmail.Text,
-                    Kontakt_br = txtTelefon.Text,
-                    Spol = txtSpol.Text,
-                    GradId = Convert.ToInt32(idObjekta),
-                    DatumRodjenja = txtDatumRodjenja.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPasswordPotvrda.Text
 
-            };
+                    var request = new ZaposlenikInsertRequest()
+                    {
+                        KorisnickoIme = txtKorisnickoIme.Text,
+                        Ime = txtIme.Text,
+                        Prezime = txtPrezime.Text,
+                        Email = txtEmail.Text,
+                        Kontakt_br = txtTelefon.Text,
+                        Spol = txtSpol.Text,
+                        GradId = Convert.ToInt32(idObjekta),
+                        DatumRodjenja = txtDatumRodjenja.Text,
+                        Password = txtPassword.Text,
+                        PasswordConfirmation = txtPasswordPotvrda.Text
 
-                var korisnickiNalog = cmbKorisnickiNalog.SelectedValue;
+                    };
 
-                if (int.TryParse(korisnickiNalog.ToString(), out int korisnickiNalogId))
-                {
-                    request.KorisnickiNalogId = korisnickiNalogId;
+                    var korisnickiNalog = cmbKorisnickiNalog.SelectedValue;
+
+                    //if (int.TryParse(korisnickiNalog.ToString(), out int korisnickiNalogId))
+                    //{
+                    //    request.KorisnickiNalogId = korisnickiNalogId;
+                    //}
+
+                    if (_id.HasValue)
+                    {
+                        await _service.Update<Model.Zaposlenik>(_id, request);
+                    }
+                    else
+                    {
+                        await _service.Insert<Model.Zaposlenik>(request);
+                    }
+
+
+
+
+                    MessageBox.Show("Zaposlenik spjesno dodan!");
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Doslo je do greske!");
 
-                if (_id.HasValue)
-                {
-                    await _service.Update<Model.Zaposlenik>(_id, request);
-                }
-                else
-                {
-                    await _service.Insert<Model.Zaposlenik>(request);
-                }
-
-                MessageBox.Show("Zaposlenik spjesno dodan!");
+                throw;
             }
         }
     }

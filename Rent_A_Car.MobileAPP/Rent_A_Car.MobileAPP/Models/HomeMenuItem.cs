@@ -8,7 +8,14 @@ namespace Rent_A_Car.MobileAPP.Models
     {
         Browse,
         About,
-        Vozila
+        Vozila,
+        MojiUgovori,
+        RezervacijaVozila,
+        MojiKomentarIOcjene,
+        OcijeniIKomentarisi,
+        MojeRezervacije,
+        PostavkeProfila,
+        Odjava
     }
     public class HomeMenuItem
     {

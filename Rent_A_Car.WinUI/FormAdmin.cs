@@ -21,9 +21,12 @@ namespace Rent_A_Car.WinUI
 {
     public partial class FormAdmin : Form
     {
-        public FormAdmin()
+        private readonly APIService _services = new APIService("Zaposlenik");
+        private int? _id = null;
+        public FormAdmin(int? UgovorId = null)
         {
             InitializeComponent();
+            _id = UgovorId;
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
@@ -38,9 +41,11 @@ namespace Rent_A_Car.WinUI
 
         private void btnZaposlenici_Click(object sender, EventArgs e)
         {
-          
 
-            frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
+
+            frmZaposlenik frm = new frmZaposlenik();
+            frm.MdiParent = this;
+
             frm.Show();
         }
 
@@ -89,9 +94,16 @@ namespace Rent_A_Car.WinUI
         private void btnOpcije_Click(object sender, EventArgs e)
         {
             //if(zaposlenik)
-            frmAdminDetalji frm = new frmAdminDetalji();
-            frm.MdiParent = this;
+            var id = _id;
+            //var id = btnOpcije.SelectedRows[0].Cells[0].Value;
+
+            frmAdminDetalji frm = new frmAdminDetalji(int.Parse(id.ToString()));
             frm.Show();
+
+
+            //frmAdminDetalji frm = new frmAdminDetalji();
+            //frm.MdiParent = this;
+            //frm.Show();
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -114,6 +126,13 @@ namespace Rent_A_Car.WinUI
         private void brnOcjeneIKomentari_Click(object sender, EventArgs e)
         {
             frmOcijeniIKomentarisiPregled frm = new frmOcijeniIKomentarisiPregled();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnOdjava_Click(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
             frm.MdiParent = this;
             frm.Show();
         }

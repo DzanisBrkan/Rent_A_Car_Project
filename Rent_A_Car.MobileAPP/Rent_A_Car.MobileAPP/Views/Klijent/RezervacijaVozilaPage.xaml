@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.RezervacijaVozilaPage">
+
+
+    <ContentPage.BindingContext>
+        <viewModel:RezervacijaVozilaViewModel></viewModel:RezervacijaVozilaViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label TextColor="#2196F3" FontAttributes="Bold" Text="Moje rezervacije:" FontSize="Title" HorizontalOptions="Center" />
+
+            <ListView ItemsSource="{Binding _PronadjenaRezervacijaService}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Padding="10" Orientation="Vertical">
+
+                                <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
+
+
+                                <Label Text="Vrijeme pocetka rezervacije:" />
+                                <Entry Text="{Binding VrijemePocetka}"></Entry>
+
+                                <Label Text="Vrijeme kreiranja rezervacije:" />
+                                <Entry Text="{Binding VrijemeRezervacije}"></Entry>
+
+                                <Label Text="Kolicina:" />
+                                <Entry Text="{Binding Kolicina}"></Entry>
+
+                                <Label Text="Status:" />
+                                <Entry Text="{Binding Status}"></Entry>
+
+                                <Label Text="Cijena:" />
+                                <Entry Text="{Binding Cijena}"></Entry>
+
+
+                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak"></Button>
+
+
+                                <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Pogledajte racun"></Button>
+
+
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

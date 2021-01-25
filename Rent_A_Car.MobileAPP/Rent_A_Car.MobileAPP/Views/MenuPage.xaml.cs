@@ -21,8 +21,14 @@ namespace Rent_A_Car.MobileAPP.Views
             menuItems = new List<HomeMenuItem>
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
+                new HomeMenuItem {Id = MenuItemType.Vozila, Title="Pregled Vozila" },
+                //new HomeMenuItem {Id = MenuItemType.MojiUgovori, Title="Moji ugovori" },
+                new HomeMenuItem {Id = MenuItemType.MojeRezervacije, Title="Moje rezervacije" },
+                new HomeMenuItem {Id = MenuItemType.MojiKomentarIOcjene, Title="Moji komentari i ocijene" },
+                new HomeMenuItem {Id = MenuItemType.OcijeniIKomentarisi, Title="Ocijeni i komentarisi" },
+                new HomeMenuItem {Id = MenuItemType.PostavkeProfila, Title="Postavke profila" },
                 new HomeMenuItem {Id = MenuItemType.About, Title="About" },
-                new HomeMenuItem {Id = MenuItemType.Vozila, Title="Vozila" }
+                new HomeMenuItem {Id = MenuItemType.Odjava, Title="Odjavi se" },
             };
 
             ListViewMenu.ItemsSource = menuItems;

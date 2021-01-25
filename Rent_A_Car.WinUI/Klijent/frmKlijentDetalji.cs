@@ -34,8 +34,8 @@ namespace Rent_A_Car.WinUI.Klijent
                     BrojTel = txtTelefon.Text,
                     Adresa = txtAdresa.Text,
                     DatumRodjenja = txtAdresa.Text,
-                    Password = txtPassword.Text,
-                    PasswordConfirmation = txtPasswordPotvrda.Text
+                    //Password = txtPassword.Text,
+                    //PasswordConfirmation = txtPasswordPotvrda.Text
                 };
 
                 if (_id.HasValue)

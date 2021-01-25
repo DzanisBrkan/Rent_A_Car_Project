@@ -3,6 +3,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Rent_A_Car.MobileAPP.Services;
 using Rent_A_Car.MobileAPP.Views;
+using Rent_A_Car.MobileAPP.Views.Klijent;
 
 namespace Rent_A_Car.MobileAPP
 {

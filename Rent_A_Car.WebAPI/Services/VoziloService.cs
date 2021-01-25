@@ -18,11 +18,11 @@ namespace Rent_A_Car.WebAPI.Services
         public override List<Model.Vozilo> Get(VoziloSearchRequest search)
         {
             var query = _context.Set<Vozilo>().AsQueryable();
-            if(search?.KategorijaId.HasValue == true)
+            if(search?.TipId.HasValue == true)
             {
-                query = query.Where(x => x.KategorijaId == search.KategorijaId);
+                query = query.Where(x => x.TipId == search.TipId);
             }
-            query = query.OrderBy(x => x.Kategorija);
+            query = query.OrderBy(x => x.Tip);
             var list = query.ToList();
 
             return _mapper.Map<List<Model.Vozilo>>(list);

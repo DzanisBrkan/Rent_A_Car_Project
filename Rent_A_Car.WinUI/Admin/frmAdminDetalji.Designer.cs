@@ -48,7 +48,6 @@
             this.txtPrezime = new System.Windows.Forms.TextBox();
             this.Ime = new System.Windows.Forms.Label();
             this.txtIme = new System.Windows.Forms.TextBox();
-            this.txtNazad = new System.Windows.Forms.Button();
             this.btnSnimi = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -209,31 +208,19 @@
             this.txtIme.Size = new System.Drawing.Size(265, 20);
             this.txtIme.TabIndex = 42;
             // 
-            // txtNazad
-            // 
-            this.txtNazad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.txtNazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNazad.ForeColor = System.Drawing.Color.White;
-            this.txtNazad.Location = new System.Drawing.Point(86, 476);
-            this.txtNazad.Name = "txtNazad";
-            this.txtNazad.Size = new System.Drawing.Size(168, 58);
-            this.txtNazad.TabIndex = 84;
-            this.txtNazad.Text = "Nazad";
-            this.txtNazad.UseVisualStyleBackColor = false;
-            // 
             // btnSnimi
             // 
             this.btnSnimi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(282, 477);
+            this.btnSnimi.Location = new System.Drawing.Point(185, 472);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(167, 57);
             this.btnSnimi.TabIndex = 83;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
+            this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
             // 
             // btnExit
             // 
@@ -254,7 +241,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(547, 541);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtNazad);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPasswordPotvrda);
@@ -279,6 +265,7 @@
             this.Name = "frmAdminDetalji";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdminDetalji";
+            this.Load += new System.EventHandler(this.frmAdminDetalji_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,7 +292,6 @@
         private System.Windows.Forms.TextBox txtPrezime;
         private System.Windows.Forms.Label Ime;
         private System.Windows.Forms.TextBox txtIme;
-        private System.Windows.Forms.Button txtNazad;
         private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.Button btnExit;
     }

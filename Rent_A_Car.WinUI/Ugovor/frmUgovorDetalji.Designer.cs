@@ -29,51 +29,23 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmUgovorDetalji));
-            this.txtNazad = new System.Windows.Forms.Button();
-            this.btnSnimi = new System.Windows.Forms.Button();
             this.Ugovor = new System.Windows.Forms.Label();
             this.Datum = new System.Windows.Forms.Label();
-            this.txtKorisnickoIme = new System.Windows.Forms.TextBox();
+            this.txtDatum = new System.Windows.Forms.TextBox();
             this.Placen = new System.Windows.Forms.Label();
             this.UkupnaKolicina = new System.Windows.Forms.Label();
-            this.txtPrezime = new System.Windows.Forms.TextBox();
+            this.txtUkupnaKolicina = new System.Windows.Forms.TextBox();
             this.UkupnaCijena = new System.Windows.Forms.Label();
-            this.txtIme = new System.Windows.Forms.TextBox();
+            this.txtUkupnaCijena = new System.Windows.Forms.TextBox();
             this.cbPlacen = new System.Windows.Forms.CheckBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // txtNazad
-            // 
-            this.txtNazad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.txtNazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNazad.ForeColor = System.Drawing.Color.White;
-            this.txtNazad.Location = new System.Drawing.Point(38, 274);
-            this.txtNazad.Name = "txtNazad";
-            this.txtNazad.Size = new System.Drawing.Size(168, 58);
-            this.txtNazad.TabIndex = 105;
-            this.txtNazad.Text = "Nazad";
-            this.txtNazad.UseVisualStyleBackColor = false;
-            // 
-            // btnSnimi
-            // 
-            this.btnSnimi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(234, 275);
-            this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(167, 57);
-            this.btnSnimi.TabIndex = 104;
-            this.btnSnimi.Text = "Sačuvaj";
-            this.btnSnimi.UseVisualStyleBackColor = false;
             // 
             // Ugovor
             // 
             this.Ugovor.AutoSize = true;
             this.Ugovor.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Ugovor.Location = new System.Drawing.Point(145, 21);
+            this.Ugovor.Location = new System.Drawing.Point(175, 25);
             this.Ugovor.Name = "Ugovor";
             this.Ugovor.Size = new System.Drawing.Size(129, 39);
             this.Ugovor.TabIndex = 103;
@@ -88,12 +60,12 @@
             this.Datum.TabIndex = 94;
             this.Datum.Text = "Datum";
             // 
-            // txtKorisnickoIme
+            // txtDatum
             // 
-            this.txtKorisnickoIme.Location = new System.Drawing.Point(136, 100);
-            this.txtKorisnickoIme.Name = "txtKorisnickoIme";
-            this.txtKorisnickoIme.Size = new System.Drawing.Size(265, 20);
-            this.txtKorisnickoIme.TabIndex = 93;
+            this.txtDatum.Location = new System.Drawing.Point(136, 100);
+            this.txtDatum.Name = "txtDatum";
+            this.txtDatum.Size = new System.Drawing.Size(265, 20);
+            this.txtDatum.TabIndex = 93;
             // 
             // Placen
             // 
@@ -113,12 +85,12 @@
             this.UkupnaKolicina.TabIndex = 88;
             this.UkupnaKolicina.Text = "Ukupna Kolicina";
             // 
-            // txtPrezime
+            // txtUkupnaKolicina
             // 
-            this.txtPrezime.Location = new System.Drawing.Point(136, 177);
-            this.txtPrezime.Name = "txtPrezime";
-            this.txtPrezime.Size = new System.Drawing.Size(265, 20);
-            this.txtPrezime.TabIndex = 87;
+            this.txtUkupnaKolicina.Location = new System.Drawing.Point(136, 177);
+            this.txtUkupnaKolicina.Name = "txtUkupnaKolicina";
+            this.txtUkupnaKolicina.Size = new System.Drawing.Size(265, 20);
+            this.txtUkupnaKolicina.TabIndex = 87;
             // 
             // UkupnaCijena
             // 
@@ -129,12 +101,12 @@
             this.UkupnaCijena.TabIndex = 86;
             this.UkupnaCijena.Text = "Ukupna Cijena";
             // 
-            // txtIme
+            // txtUkupnaCijena
             // 
-            this.txtIme.Location = new System.Drawing.Point(136, 139);
-            this.txtIme.Name = "txtIme";
-            this.txtIme.Size = new System.Drawing.Size(265, 20);
-            this.txtIme.TabIndex = 85;
+            this.txtUkupnaCijena.Location = new System.Drawing.Point(136, 139);
+            this.txtUkupnaCijena.Name = "txtUkupnaCijena";
+            this.txtUkupnaCijena.Size = new System.Drawing.Size(265, 20);
+            this.txtUkupnaCijena.TabIndex = 85;
             // 
             // cbPlacen
             // 
@@ -162,40 +134,36 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 379);
+            this.ClientSize = new System.Drawing.Size(469, 278);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.cbPlacen);
-            this.Controls.Add(this.txtNazad);
-            this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.Ugovor);
             this.Controls.Add(this.Datum);
-            this.Controls.Add(this.txtKorisnickoIme);
+            this.Controls.Add(this.txtDatum);
             this.Controls.Add(this.Placen);
             this.Controls.Add(this.UkupnaKolicina);
-            this.Controls.Add(this.txtPrezime);
+            this.Controls.Add(this.txtUkupnaKolicina);
             this.Controls.Add(this.UkupnaCijena);
-            this.Controls.Add(this.txtIme);
+            this.Controls.Add(this.txtUkupnaCijena);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUgovorDetalji";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUgovorDetalji";
+            this.Load += new System.EventHandler(this.frmUgovorDetalji_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button txtNazad;
-        private System.Windows.Forms.Button btnSnimi;
         private System.Windows.Forms.Label Ugovor;
         private System.Windows.Forms.Label Datum;
-        private System.Windows.Forms.TextBox txtKorisnickoIme;
+        private System.Windows.Forms.TextBox txtDatum;
         private System.Windows.Forms.Label Placen;
         private System.Windows.Forms.Label UkupnaKolicina;
-        private System.Windows.Forms.TextBox txtPrezime;
+        private System.Windows.Forms.TextBox txtUkupnaKolicina;
         private System.Windows.Forms.Label UkupnaCijena;
-        private System.Windows.Forms.TextBox txtIme;
+        private System.Windows.Forms.TextBox txtUkupnaCijena;
         private System.Windows.Forms.CheckBox cbPlacen;
         private System.Windows.Forms.Button btnExit;
     }

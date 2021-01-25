@@ -36,6 +36,7 @@
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
             this.VoziloID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RegistracijskiBroj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ZauzetoVozilo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Model = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BrojSjedala = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,6 +58,7 @@
             this.btnExit.Size = new System.Drawing.Size(47, 42);
             this.btnExit.TabIndex = 16;
             this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // txtPretraga
             // 
@@ -76,6 +78,7 @@
             this.btnPrikazi.TabIndex = 14;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBoxVozila
             // 
@@ -95,6 +98,7 @@
             this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VoziloID,
             this.RegistracijskiBroj,
+            this.ZauzetoVozilo,
             this.Model,
             this.Marka,
             this.BrojSjedala,
@@ -124,6 +128,13 @@
             this.RegistracijskiBroj.Name = "RegistracijskiBroj";
             this.RegistracijskiBroj.ReadOnly = true;
             // 
+            // ZauzetoVozilo
+            // 
+            this.ZauzetoVozilo.DataPropertyName = "Zauzeto";
+            this.ZauzetoVozilo.HeaderText = "Zauzeto Vozilo";
+            this.ZauzetoVozilo.Name = "ZauzetoVozilo";
+            this.ZauzetoVozilo.ReadOnly = true;
+            // 
             // Model
             // 
             this.Model.DataPropertyName = "Model";
@@ -140,14 +151,14 @@
             // 
             // BrojSjedala
             // 
-            this.BrojSjedala.DataPropertyName = "BrojSjedala";
+            this.BrojSjedala.DataPropertyName = "BrSjedista";
             this.BrojSjedala.HeaderText = "BrojSjedala";
             this.BrojSjedala.Name = "BrojSjedala";
             this.BrojSjedala.ReadOnly = true;
             // 
             // BrojVrata
             // 
-            this.BrojVrata.DataPropertyName = "BrojVrata";
+            this.BrojVrata.DataPropertyName = "BrVrata";
             this.BrojVrata.HeaderText = "BrojVrata";
             this.BrojVrata.Name = "BrojVrata";
             this.BrojVrata.ReadOnly = true;
@@ -195,6 +206,7 @@
         private System.Windows.Forms.DataGridView dgvKlijent;
         private System.Windows.Forms.DataGridViewTextBoxColumn VoziloID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RegistracijskiBroj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ZauzetoVozilo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Model;
         private System.Windows.Forms.DataGridViewTextBoxColumn Marka;
         private System.Windows.Forms.DataGridViewTextBoxColumn BrojSjedala;

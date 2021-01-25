@@ -172,6 +172,12 @@
     <Compile Include="OcijenaIKomentar\frmOcijeniIKomentarisiPregled.Designer.cs">
       <DependentUpon>frmOcijeniIKomentarisiPregled.cs</DependentUpon>
     </Compile>
+    <Compile Include="OcijenaIKomentar\frmOcjenaDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OcijenaIKomentar\frmOcjenaDetalji.Designer.cs">
+      <DependentUpon>frmOcjenaDetalji.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rezervacija\frmRezervacija.cs">
@@ -284,6 +290,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="OcijenaIKomentar\frmOcijeniIKomentarisiPregled.resx">
       <DependentUpon>frmOcijeniIKomentarisiPregled.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OcijenaIKomentar\frmOcjenaDetalji.resx">
+      <DependentUpon>frmOcjenaDetalji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

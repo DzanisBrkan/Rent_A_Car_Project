@@ -12,6 +12,8 @@ namespace Rent_A_Car.WinUI.Kategorija
 {
     public partial class frmKategorija : Form
     {
+        private readonly APIService _apiService = new APIService("Kategorija");
+
         public frmKategorija()
         {
             InitializeComponent();
@@ -20,6 +22,27 @@ namespace Rent_A_Car.WinUI.Kategorija
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void btnPrikazi_Click(object sender, EventArgs e)
+        {
+            //var search = new KategorijaSearchRequest()
+            //{
+            //    Ime = txtPretraga.Text
+            //};
+            var result = await _apiService.Get<List<Model.Kategorija>>(null);
+
+            dgvKlijent.AutoGenerateColumns = false;
+
+            dgvKlijent.DataSource = result;
+        }
+
+        private void dgvKlijent_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvKlijent.SelectedRows[0].Cells[0].Value;
+
+            frmKategorijaDetalji frm = new frmKategorijaDetalji(int.Parse(id.ToString()));
+            frm.Show();
         }
     }
 }

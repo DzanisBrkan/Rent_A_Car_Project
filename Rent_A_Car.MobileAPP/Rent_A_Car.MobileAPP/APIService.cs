@@ -1,6 +1,7 @@
 ﻿//using Rent_A_Car.Model;
 using Flurl.Http;
 using Rent_A_Car.Model;
+using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,18 +15,24 @@ namespace Rent_A_Car.MobileAPP
         public static string Username { get; set; }
         public static string Password { get; set; }
 
+        public static int UserID { get; set; }
+        public static int UserRacunID { get; set; }
+
+        public static Model.Klijent LogovaniKlijent { get; set; }
+
         private readonly string _route = null;
 
 #if DEBUG
-        private string _apiUrl = "http://localhost:57723/api";
+        private string _apiUrl = "http://localhost:5000/api";
 #endif
 #if RELEASE
        private string _apiUrl = "https://mywebsite.com/api";
 #endif
         public APIService(string route)
-            {
-                _route = route;
-            }
+        {
+            _route = route;
+        }
+
 
         public async Task<T> Get<T>(object search)
         {
@@ -40,26 +47,71 @@ namespace Rent_A_Car.MobileAPP
                     url += await search.ToQueryString();
                 }
 
+                //implementacija autentifikacije
                 return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             }
             catch (FlurlHttpException ex)
             {
-                if(ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
+                if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
                 {
                     await Application.Current.MainPage.DisplayAlert("Greška", "Niste autenticifirani", "OK");
                 }
                 throw;
             }
         }
-         
+
         //GET BY ID PREMA SERVERU -----------------------
         public async Task<T> GetById<T>(object id)
         {
+
             var url = $"{_apiUrl}/{_route}/{id}";
 
             return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
 
         }
+
+
+        public async Task<T> GetActionResponse<T>(string action, object search = null)
+        {
+            var url = $"{_apiUrl}/{_route}/{action}";
+
+            if (search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+
+            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+        }
+
+
+        public async Task<T> PostActionResponse<T>(string action, object request)
+        {
+            var url = $"{_apiUrl}/{_route}/{action}";
+
+            //return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+            try
+            {
+                return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+
+                var stringBuilder = new StringBuilder();
+
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
+
+        }
+
+
 
         // INSERT PREMA SERVERU -----------------------
         public async Task<T> Insert<T>(object request)
@@ -75,7 +127,8 @@ namespace Rent_A_Car.MobileAPP
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
                 var stringBuilder = new StringBuilder();
-                foreach(var error in errors)
+
+                foreach (var error in errors)
                 {
                     stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
                 }
@@ -90,13 +143,14 @@ namespace Rent_A_Car.MobileAPP
         // UPDATE PREMA SERVERU -----------------------
         public async Task<T> Update<T>(object id, object request)
         {
+
             try
             {
                 var url = $"{_apiUrl}/{_route}/{id}";
 
                 return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
             }
-            catch(FlurlHttpException ex)
+            catch (FlurlHttpException ex)
             {
                 var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
 
@@ -111,30 +165,6 @@ namespace Rent_A_Car.MobileAPP
         }
 
 
-        //public async Task<T> Get(object search)
-        //{
-        //    var url = $"{_apiUrl}/{_route}";
-
-        //    try
-        //    {
-        //        if (search != null)
-        //        {
-        //            url += "?";
-        //            url += await search.ToQueryString();
-        //        }
-        //    }
-        //    catch (FlurlHttpException ex)
-        //    {
-        //        //if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
-        //        if (ex != null)
-        //        {
-        //            await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
-        //        }
-        //        throw;
-        //    }
-
-        //}
-
-
+       
     }
 }

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.DetaljiVozilaSlikePage">
+
+    <ContentPage.BindingContext>
+        <viewModel:DetaljiVozilaViewModel></viewModel:DetaljiVozilaViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Detalji vozila slike:" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" />
+
+            <ListView ItemsSource="{Binding VozilaList}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Padding="10" Orientation="Vertical">
+
+
+                                <StackLayout >
+                                    <Image Margin="0,100,0,70" HeightRequest="450" WidthRequest="600" Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}">
+                                    </Image>
+                                </StackLayout>
+
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

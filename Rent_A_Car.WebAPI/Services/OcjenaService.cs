@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 
 namespace Rent_A_Car.WebAPI.Services
 {
-    public class OcjenaController
+    public class OcjenaServices
      : BaseCRUDService<Model.Ocjena, OcjenaSearchRequest, Database.Ocjena, OcjenaUpsertRequest, OcjenaUpsertRequest>
     {
-        public OcjenaController(Rent_A_CarContext context, IMapper mapper) : base(context, mapper)
+        public OcjenaServices(Rent_A_CarContext context, IMapper mapper) : base(context, mapper)
         {
         }
 

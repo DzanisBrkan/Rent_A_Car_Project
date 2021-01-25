@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rent_A_Car.Model.Requests;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,28 @@ namespace Rent_A_Car.WinUI.Vozilo
 {
     public partial class frmPregledVozilo : Form
     {
+        private readonly APIService _apiService = new APIService("Vozilo");
         public frmPregledVozilo()
         {
             InitializeComponent();
+        }
+
+        private async void btnPrikazi_Click(object sender, EventArgs e)
+        {
+            var search = new VoziloSearchRequest()
+            {
+                Model = txtPretraga.Text
+            };
+            var result = await _apiService.Get<List<Model.Vozilo>>(search);
+
+            dgvKlijent.AutoGenerateColumns = false;
+
+            dgvKlijent.DataSource = result;
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

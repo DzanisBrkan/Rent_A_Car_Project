@@ -33,12 +33,12 @@
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
-            this.KlijentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.KategorijaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Oznaka = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Opis = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MinDob = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -61,6 +61,7 @@
             this.btnPrikazi.TabIndex = 7;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBox1
             // 
@@ -78,7 +79,7 @@
             this.dgvKlijent.AllowUserToDeleteRows = false;
             this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.KlijentID,
+            this.KategorijaID,
             this.Oznaka,
             this.Naziv,
             this.Opis,
@@ -90,14 +91,28 @@
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijent.Size = new System.Drawing.Size(481, 302);
             this.dgvKlijent.TabIndex = 0;
+            this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
-            // KlijentID
+            // btnExit
             // 
-            this.KlijentID.DataPropertyName = "KlijentID";
-            this.KlijentID.HeaderText = "KlijentID";
-            this.KlijentID.Name = "KlijentID";
-            this.KlijentID.ReadOnly = true;
-            this.KlijentID.Visible = false;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(447, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // KategorijaID
+            // 
+            this.KategorijaID.DataPropertyName = "KategorijaID";
+            this.KategorijaID.HeaderText = "KategorijaID";
+            this.KategorijaID.Name = "KategorijaID";
+            this.KategorijaID.ReadOnly = true;
+            this.KategorijaID.Visible = false;
             // 
             // Oznaka
             // 
@@ -127,19 +142,6 @@
             this.MinDob.Name = "MinDob";
             this.MinDob.ReadOnly = true;
             // 
-            // btnExit
-            // 
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(447, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 12;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
-            // 
             // frmKategorija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -166,11 +168,11 @@
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvKlijent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KlijentID;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KategorijaID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Oznaka;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn Opis;
         private System.Windows.Forms.DataGridViewTextBoxColumn MinDob;
-        private System.Windows.Forms.Button btnExit;
     }
 }

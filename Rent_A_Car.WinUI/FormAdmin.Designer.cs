@@ -31,9 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.brnOcjeneIKomentari = new System.Windows.Forms.Button();
             this.btnRezervacije = new System.Windows.Forms.Button();
-            this.lbLogiraniKorisnik = new System.Windows.Forms.Label();
             this.brnUgovori = new System.Windows.Forms.Button();
             this.btnInfo = new System.Windows.Forms.Button();
             this.btnOdjava = new System.Windows.Forms.Button();
@@ -44,12 +45,11 @@
             this.btnKategorije = new System.Windows.Forms.Button();
             this.btnZaposlenici = new System.Windows.Forms.Button();
             this.btnHome = new System.Windows.Forms.Button();
+            this.lbLogiraniKorisnik = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.panel2 = new System.Windows.Forms.Panel();
             this.LeftPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -76,6 +76,24 @@
             this.LeftPanel.Name = "LeftPanel";
             this.LeftPanel.Size = new System.Drawing.Size(299, 679);
             this.LeftPanel.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Location = new System.Drawing.Point(89, 25);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(186, 69);
+            this.panel2.TabIndex = 11;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel1.Location = new System.Drawing.Point(12, 25);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(52, 69);
+            this.panel1.TabIndex = 10;
             // 
             // brnOcjeneIKomentari
             // 
@@ -106,17 +124,6 @@
             this.btnRezervacije.Text = "Rezervacije";
             this.btnRezervacije.UseVisualStyleBackColor = true;
             this.btnRezervacije.Click += new System.EventHandler(this.btnRezervacije_Click);
-            // 
-            // lbLogiraniKorisnik
-            // 
-            this.lbLogiraniKorisnik.AutoSize = true;
-            this.lbLogiraniKorisnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbLogiraniKorisnik.ForeColor = System.Drawing.Color.White;
-            this.lbLogiraniKorisnik.Location = new System.Drawing.Point(31, 41);
-            this.lbLogiraniKorisnik.Name = "lbLogiraniKorisnik";
-            this.lbLogiraniKorisnik.Size = new System.Drawing.Size(388, 33);
-            this.lbLogiraniKorisnik.TabIndex = 27;
-            this.lbLogiraniKorisnik.Text = "Dobrodošli, Logirani Korisnik";
             // 
             // brnUgovori
             // 
@@ -159,6 +166,7 @@
             this.btnOdjava.TabIndex = 4;
             this.btnOdjava.Text = "Odjava";
             this.btnOdjava.UseVisualStyleBackColor = true;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
             // 
             // btnVozila
             // 
@@ -264,6 +272,17 @@
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
             // 
+            // lbLogiraniKorisnik
+            // 
+            this.lbLogiraniKorisnik.AutoSize = true;
+            this.lbLogiraniKorisnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbLogiraniKorisnik.ForeColor = System.Drawing.Color.White;
+            this.lbLogiraniKorisnik.Location = new System.Drawing.Point(31, 41);
+            this.lbLogiraniKorisnik.Name = "lbLogiraniKorisnik";
+            this.lbLogiraniKorisnik.Size = new System.Drawing.Size(388, 33);
+            this.lbLogiraniKorisnik.TabIndex = 27;
+            this.lbLogiraniKorisnik.Text = "Dobrodošli, Logirani Korisnik";
+            // 
             // btnMinimize
             // 
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -290,15 +309,6 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // panel1
-            // 
-            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel1.Location = new System.Drawing.Point(12, 25);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(52, 69);
-            this.panel1.TabIndex = 10;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
@@ -315,15 +325,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // panel2
-            // 
-            this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.panel2.Location = new System.Drawing.Point(89, 25);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(186, 69);
-            this.panel2.TabIndex = 11;
             // 
             // FormAdmin
             // 

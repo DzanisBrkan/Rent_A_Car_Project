@@ -33,13 +33,13 @@
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
-            this.KlijentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VrijemeRezervacijeOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VrijemeRezervacijeDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.RezervacijaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VrijemePocetkaRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.VrijemeRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -62,6 +62,7 @@
             this.btnPrikazi.TabIndex = 7;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBox1
             // 
@@ -71,7 +72,7 @@
             this.groupBox1.Size = new System.Drawing.Size(776, 321);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Admini";
+            this.groupBox1.Text = "Rezervacije";
             // 
             // dgvKlijent
             // 
@@ -79,9 +80,9 @@
             this.dgvKlijent.AllowUserToDeleteRows = false;
             this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.KlijentID,
-            this.VrijemeRezervacijeOD,
-            this.VrijemeRezervacijeDO,
+            this.RezervacijaID,
+            this.VrijemePocetkaRezervacije,
+            this.VrijemeRezervacije,
             this.Kolicina,
             this.Status,
             this.Cijena});
@@ -92,28 +93,42 @@
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijent.Size = new System.Drawing.Size(770, 302);
             this.dgvKlijent.TabIndex = 0;
+            this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
-            // KlijentID
+            // btnExit
             // 
-            this.KlijentID.DataPropertyName = "KlijentID";
-            this.KlijentID.HeaderText = "KlijentID";
-            this.KlijentID.Name = "KlijentID";
-            this.KlijentID.ReadOnly = true;
-            this.KlijentID.Visible = false;
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(735, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
-            // VrijemeRezervacijeOD
+            // RezervacijaID
             // 
-            this.VrijemeRezervacijeOD.DataPropertyName = "VrijemeRezervacijeOD";
-            this.VrijemeRezervacijeOD.HeaderText = "Vrijeme Rezervacije OD";
-            this.VrijemeRezervacijeOD.Name = "VrijemeRezervacijeOD";
-            this.VrijemeRezervacijeOD.ReadOnly = true;
+            this.RezervacijaID.DataPropertyName = "RezervacijaID";
+            this.RezervacijaID.HeaderText = "RezervacijaID";
+            this.RezervacijaID.Name = "RezervacijaID";
+            this.RezervacijaID.ReadOnly = true;
+            this.RezervacijaID.Visible = false;
             // 
-            // VrijemeRezervacijeDO
+            // VrijemePocetkaRezervacije
             // 
-            this.VrijemeRezervacijeDO.DataPropertyName = "VrijemeRezervacijeDO";
-            this.VrijemeRezervacijeDO.HeaderText = "Vrijeme Rezervacije DO";
-            this.VrijemeRezervacijeDO.Name = "VrijemeRezervacijeDO";
-            this.VrijemeRezervacijeDO.ReadOnly = true;
+            this.VrijemePocetkaRezervacije.DataPropertyName = "VrijemePocetka";
+            this.VrijemePocetkaRezervacije.HeaderText = "Vrijeme Pocetka Rezervacije ";
+            this.VrijemePocetkaRezervacije.Name = "VrijemePocetkaRezervacije";
+            this.VrijemePocetkaRezervacije.ReadOnly = true;
+            // 
+            // VrijemeRezervacije
+            // 
+            this.VrijemeRezervacije.DataPropertyName = "VrijemeRezervacije";
+            this.VrijemeRezervacije.HeaderText = "Vrijeme Rezervacije ";
+            this.VrijemeRezervacije.Name = "VrijemeRezervacije";
+            this.VrijemeRezervacije.ReadOnly = true;
             // 
             // Kolicina
             // 
@@ -135,19 +150,6 @@
             this.Cijena.HeaderText = "Cijena";
             this.Cijena.Name = "Cijena";
             this.Cijena.ReadOnly = true;
-            // 
-            // btnExit
-            // 
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(735, 12);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 12;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmRezervacija
             // 
@@ -175,12 +177,12 @@
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvKlijent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KlijentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VrijemeRezervacijeOD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VrijemeRezervacijeDO;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RezervacijaID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VrijemePocetkaRezervacije;
+        private System.Windows.Forms.DataGridViewTextBoxColumn VrijemeRezervacije;
         private System.Windows.Forms.DataGridViewTextBoxColumn Kolicina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Status;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cijena;
-        private System.Windows.Forms.Button btnExit;
     }
 }
