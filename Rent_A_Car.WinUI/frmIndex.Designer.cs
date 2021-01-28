@@ -33,11 +33,14 @@
             this.klijentiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pretragaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajKlijentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.zaposleniciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dodajZaposlenikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vozilaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pretragaVozilaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.vozilaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pretragaVozilaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -46,6 +49,7 @@
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.klijentiToolStripMenuItem,
+            this.zaposleniciToolStripMenuItem,
             this.vozilaToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
@@ -65,16 +69,54 @@
             // pretragaToolStripMenuItem
             // 
             this.pretragaToolStripMenuItem.Name = "pretragaToolStripMenuItem";
-            this.pretragaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pretragaToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.pretragaToolStripMenuItem.Text = "Pretraga";
             this.pretragaToolStripMenuItem.Click += new System.EventHandler(this.pretragaToolStripMenuItem_Click);
             // 
             // dodajKlijentaToolStripMenuItem
             // 
             this.dodajKlijentaToolStripMenuItem.Name = "dodajKlijentaToolStripMenuItem";
-            this.dodajKlijentaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajKlijentaToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.dodajKlijentaToolStripMenuItem.Text = "Dodaj Klijenta";
             this.dodajKlijentaToolStripMenuItem.Click += new System.EventHandler(this.dodajKlijentaToolStripMenuItem_Click);
+            // 
+            // zaposleniciToolStripMenuItem
+            // 
+            this.zaposleniciToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretragaToolStripMenuItem1,
+            this.dodajZaposlenikaToolStripMenuItem});
+            this.zaposleniciToolStripMenuItem.Name = "zaposleniciToolStripMenuItem";
+            this.zaposleniciToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.zaposleniciToolStripMenuItem.Text = "Zaposlenici";
+            // 
+            // pretragaToolStripMenuItem1
+            // 
+            this.pretragaToolStripMenuItem1.Name = "pretragaToolStripMenuItem1";
+            this.pretragaToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.pretragaToolStripMenuItem1.Text = "Pretraga";
+            this.pretragaToolStripMenuItem1.Click += new System.EventHandler(this.pretragaToolStripMenuItem1_Click);
+            // 
+            // dodajZaposlenikaToolStripMenuItem
+            // 
+            this.dodajZaposlenikaToolStripMenuItem.Name = "dodajZaposlenikaToolStripMenuItem";
+            this.dodajZaposlenikaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.dodajZaposlenikaToolStripMenuItem.Text = "Dodaj zaposlenika";
+            this.dodajZaposlenikaToolStripMenuItem.Click += new System.EventHandler(this.dodajZaposlenikaToolStripMenuItem_Click);
+            // 
+            // vozilaToolStripMenuItem
+            // 
+            this.vozilaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pretragaVozilaToolStripMenuItem});
+            this.vozilaToolStripMenuItem.Name = "vozilaToolStripMenuItem";
+            this.vozilaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.vozilaToolStripMenuItem.Text = "Vozila";
+            // 
+            // pretragaVozilaToolStripMenuItem
+            // 
+            this.pretragaVozilaToolStripMenuItem.Name = "pretragaVozilaToolStripMenuItem";
+            this.pretragaVozilaToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.pretragaVozilaToolStripMenuItem.Text = "Pretraga vozila";
+            this.pretragaVozilaToolStripMenuItem.Click += new System.EventHandler(this.pretragaVozilaToolStripMenuItem_Click);
             // 
             // statusStrip
             // 
@@ -91,21 +133,6 @@
             this.toolStripStatusLabel.Name = "toolStripStatusLabel";
             this.toolStripStatusLabel.Size = new System.Drawing.Size(39, 17);
             this.toolStripStatusLabel.Text = "Status";
-            // 
-            // vozilaToolStripMenuItem
-            // 
-            this.vozilaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pretragaVozilaToolStripMenuItem});
-            this.vozilaToolStripMenuItem.Name = "vozilaToolStripMenuItem";
-            this.vozilaToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
-            this.vozilaToolStripMenuItem.Text = "Vozila";
-            // 
-            // pretragaVozilaToolStripMenuItem
-            // 
-            this.pretragaVozilaToolStripMenuItem.Name = "pretragaVozilaToolStripMenuItem";
-            this.pretragaVozilaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.pretragaVozilaToolStripMenuItem.Text = "Pretraga vozila";
-            this.pretragaVozilaToolStripMenuItem.Click += new System.EventHandler(this.pretragaVozilaToolStripMenuItem_Click);
             // 
             // frmIndex
             // 
@@ -139,6 +166,9 @@
         private System.Windows.Forms.ToolStripMenuItem dodajKlijentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vozilaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pretragaVozilaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem zaposleniciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pretragaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem dodajZaposlenikaToolStripMenuItem;
     }
 }
 

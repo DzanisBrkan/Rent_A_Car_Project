@@ -13,11 +13,13 @@ namespace Rent_A_Car.WebAPI.Database
         }
 
         public int RezervacijaId { get; set; }
-        public string VrijemePocetak { get; set; }
-        public string VrijemeRezervacije { get; set; }
-        public int? Kolicina { get; set; }
+        //public string VrijemePocetak { get; set; }
+        //public string VrijemeRezervacije { get; set; }
+        //public int? Kolicina { get; set; }
+
+        public string KrajRezervacije { get; set; }
         public string Status { get; set; }
-        public double? Cijena { get; set; }
+        public double? UkupnaCijena { get; set; }
         public int? LokacijaId { get; set; }
         public int? OsiguranjeId { get; set; }
         public int? KlijentId { get; set; }

@@ -44,14 +44,8 @@
             this.txtAdresa = new System.Windows.Forms.TextBox();
             this.DatumRodjenja = new System.Windows.Forms.Label();
             this.txtDatumRodjenja = new System.Windows.Forms.TextBox();
-            this.Password = new System.Windows.Forms.Label();
-            this.txtPassword = new System.Windows.Forms.TextBox();
-            this.Potvrda = new System.Windows.Forms.Label();
-            this.txtPasswordPotvrda = new System.Windows.Forms.TextBox();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtNazad = new System.Windows.Forms.Button();
-            this.btnSnimi = new System.Windows.Forms.Button();
+            this.lbNaslov = new System.Windows.Forms.Label();
             this.btnExit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
@@ -175,79 +169,19 @@
             this.txtDatumRodjenja.TabIndex = 12;
             this.txtDatumRodjenja.Validating += new System.ComponentModel.CancelEventHandler(this.txtDatumRodjenja_Validating);
             // 
-            // Password
-            // 
-            this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(67, 433);
-            this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(53, 13);
-            this.Password.TabIndex = 15;
-            this.Password.Text = "Password";
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(70, 458);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.PasswordChar = '*';
-            this.txtPassword.Size = new System.Drawing.Size(168, 20);
-            this.txtPassword.TabIndex = 14;
-            // 
-            // Potvrda
-            // 
-            this.Potvrda.AutoSize = true;
-            this.Potvrda.Location = new System.Drawing.Point(263, 433);
-            this.Potvrda.Name = "Potvrda";
-            this.Potvrda.Size = new System.Drawing.Size(44, 13);
-            this.Potvrda.TabIndex = 17;
-            this.Potvrda.Text = "Potvrda";
-            // 
-            // txtPasswordPotvrda
-            // 
-            this.txtPasswordPotvrda.Location = new System.Drawing.Point(266, 458);
-            this.txtPasswordPotvrda.Name = "txtPasswordPotvrda";
-            this.txtPasswordPotvrda.PasswordChar = '*';
-            this.txtPasswordPotvrda.Size = new System.Drawing.Size(168, 20);
-            this.txtPasswordPotvrda.TabIndex = 18;
-            // 
             // errorProvider
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // label1
+            // lbNaslov
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(114, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 39);
-            this.label1.TabIndex = 41;
-            this.label1.Text = "Postavke profila";
-            // 
-            // txtNazad
-            // 
-            this.txtNazad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.txtNazad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.txtNazad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNazad.ForeColor = System.Drawing.Color.White;
-            this.txtNazad.Location = new System.Drawing.Point(70, 514);
-            this.txtNazad.Name = "txtNazad";
-            this.txtNazad.Size = new System.Drawing.Size(168, 58);
-            this.txtNazad.TabIndex = 84;
-            this.txtNazad.Text = "Nazad";
-            this.txtNazad.UseVisualStyleBackColor = false;
-            // 
-            // btnSnimi
-            // 
-            this.btnSnimi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
-            this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(266, 515);
-            this.btnSnimi.Name = "btnSnimi";
-            this.btnSnimi.Size = new System.Drawing.Size(167, 57);
-            this.btnSnimi.TabIndex = 83;
-            this.btnSnimi.Text = "Sačuvaj";
-            this.btnSnimi.UseVisualStyleBackColor = false;
+            this.lbNaslov.AutoSize = true;
+            this.lbNaslov.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNaslov.Location = new System.Drawing.Point(114, 55);
+            this.lbNaslov.Name = "lbNaslov";
+            this.lbNaslov.Size = new System.Drawing.Size(232, 39);
+            this.lbNaslov.TabIndex = 41;
+            this.lbNaslov.Text = "Detalji klijenta";
             // 
             // btnExit
             // 
@@ -266,15 +200,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 574);
+            this.ClientSize = new System.Drawing.Size(506, 490);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtNazad);
-            this.Controls.Add(this.btnSnimi);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPasswordPotvrda);
-            this.Controls.Add(this.Potvrda);
-            this.Controls.Add(this.Password);
-            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.lbNaslov);
             this.Controls.Add(this.DatumRodjenja);
             this.Controls.Add(this.txtDatumRodjenja);
             this.Controls.Add(this.Adresa);
@@ -316,14 +244,8 @@
         private System.Windows.Forms.TextBox txtAdresa;
         private System.Windows.Forms.Label DatumRodjenja;
         private System.Windows.Forms.TextBox txtDatumRodjenja;
-        private System.Windows.Forms.Label Password;
-        private System.Windows.Forms.TextBox txtPassword;
-        private System.Windows.Forms.Label Potvrda;
-        private System.Windows.Forms.TextBox txtPasswordPotvrda;
         private System.Windows.Forms.ErrorProvider errorProvider;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button txtNazad;
-        private System.Windows.Forms.Button btnSnimi;
+        private System.Windows.Forms.Label lbNaslov;
         private System.Windows.Forms.Button btnExit;
     }
 }

@@ -2,48 +2,61 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
              mc:Ignorable="d"
-             x:Class="Rent_A_Car.MobileAPP.Views.OcijenivanjeIKomentarisanje">
-
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.OcijenivanjeIKomentarisanje">
 
     <ContentPage.BindingContext>
         <viewModel:OcijenivanjeIKomentarisanjeViewModel></viewModel:OcijenivanjeIKomentarisanjeViewModel>
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
+        
         <StackLayout Padding="35"
                      VerticalOptions="CenterAndExpand"
                      HorizontalOptions="FillAndExpand">
 
-
-
-            <Label TextColor="#2196F3" 
-               FontAttributes="Bold" Text="Ostavi komentar i ocijenu:"
-              FontSize="Title"
-                HorizontalOptions="Center" 
-                  />
-
-
-            <ListView ItemsSource="{Binding OcijeneList}">
+            <ListView ItemsSource="{Binding PronadjenaOcjenaList}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
 
-                                <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
+
+                                <Label TextColor="#2196F3" FontAttributes="Bold" Text="Moji komentari i ocjene:" FontSize="Title" HorizontalOptions="Center" />
 
 
-                                <Label Text="Komentar:" />
-                                <Entry Text="{Binding Komentar}"></Entry>
+                                <StackLayout Padding="35">
 
-                                <Label Text="Ocijena:" />
-                                <Entry Text="{Binding Ocjena1}"></Entry>
 
-                                <!--skadakdsak-->
 
-                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak"></Button>
+                                    <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
 
+
+                                    <Label Text="Komentar:" />
+                                    <Entry Text="{Binding Komentar}"></Entry>
+
+                                    <Label Text="Ocijena:" />
+                                    <Entry Text="{Binding Ocjena1}"></Entry>
+                                 
+
+
+                                    <!--<Label Text="Status Rezervacije:" />
+                                    <Entry Text="{Binding Status}"></Entry>
+
+
+                                    <Label Text="Cijena:" />
+                                    <Entry Text="{Binding Cijena}"></Entry>
+
+
+                                    <Label Text="Vrijeme rezervacije:" />
+                                    <Entry Text="{Binding VrijemeRezervacije}"></Entry>-->
+
+                                    <!--skadakdsak-->
+
+                                    <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak"></Button>
+                                </StackLayout>
 
 
 
@@ -53,7 +66,13 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-          
+
+
+
+
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,4 +1,5 @@
-﻿using Rent_A_Car.Model.Requests;
+﻿using Rent_A_Car.Model;
+using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,16 +27,24 @@ namespace Rent_A_Car.WinUI.OcijenaIKomentar
 
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
-            var search = new OcijenaSearchRequest()
+            var search = new OcjenaSearchRequest()
             {
-
-                OcjenaId = Convert.ToInt32(txtPretraga.Text)
+                Komentar = txtPretraga.Text
             };
-            var result = await _apiService.Get<List<Model.Ocjena>>(search);
+
+            var result = await _apiService.Get<List<Ocjena>>(search);
 
             dgvKlijent.AutoGenerateColumns = false;
 
             dgvKlijent.DataSource = result;
+        }
+
+        private void dgvKlijent_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvKlijent.SelectedRows[0].Cells[0].Value;
+
+            frmOcjenaDetalji frm = new frmOcjenaDetalji(int.Parse(id.ToString()));
+            frm.Show();
         }
     }
 }

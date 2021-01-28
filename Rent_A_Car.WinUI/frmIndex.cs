@@ -1,5 +1,6 @@
 ﻿using Rent_A_Car.WinUI.Klijent;
 using Rent_A_Car.WinUI.Vozilo;
+using Rent_A_Car.WinUI.Zaposlenik;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -123,6 +124,20 @@ namespace Rent_A_Car.WinUI
         private void pretragaVozilaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmVozilo frm = new frmVozilo();
+            frm.Show();
+        }
+
+        private void pretragaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmZaposlenik frm = new frmZaposlenik();
+            frm.MdiParent = this;
+            frm.WindowState = FormWindowState.Maximized;
+            frm.Show();
+        }
+
+        private void dodajZaposlenikaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
             frm.Show();
         }
     }

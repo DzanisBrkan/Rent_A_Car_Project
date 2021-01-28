@@ -9,8 +9,6 @@ using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
-    [Route("api/[controller]")]
-    [ApiController]
     public class TipController : BaseController<Model.Tip, object>
     {
         public TipController(IService<Tip, object> service) : base(service)

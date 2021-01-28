@@ -1,5 +1,4 @@
 ﻿using Rent_A_Car.Model;
-using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,7 +12,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     public class DetaljiVozilaViewModel : BaseViewModel
     {
 
-
         private readonly APIService _vozilaService = new APIService("Vozilo");
         private readonly APIService _tipVozilaService = new APIService("Tip");
 
@@ -25,7 +23,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public ObservableCollection<Vozilo> VozilaList { get; set; } = new ObservableCollection<Vozilo>();
         public ObservableCollection<Tip> TipVozila { get; set; } = new ObservableCollection<Tip>();
 
-   
+
 
         public ICommand InitCommand { get; set; }
 
@@ -40,9 +38,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             }
 
         }
-
-
-
 
     }
 }

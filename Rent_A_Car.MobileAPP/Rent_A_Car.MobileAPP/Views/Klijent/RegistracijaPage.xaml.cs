@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Rent_A_Car.MobileAPP;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -13,10 +13,7 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RegistracijaPage : ContentPage
     {
-        APIService service = new APIService("Klijent");
         private RegistracijaViewModel VM;
-        
-
         public RegistracijaPage()
         {
             InitializeComponent();
@@ -34,26 +31,16 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             await VM.Init();
         }
 
-        //private async void Button_Clicked(object sender, EventArgs e)
-        //{
-        //    if (string.IsNullOrWhiteSpace(imeEntry.text) || string.IsNullOrWhiteSpace(prezimeEntry.text))
-        //    {
-        //       await DisplayAlert("Unesite podatke", "Popunite podatke", "OK");
-        //    }
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            //await Navigation.PushModalAsync(new LoginPage());
 
+        }
 
-        //    bool response = await service.RegisterUserAsynic(imeEntry, prezimeEntry, mailEntry, brojEntry, adresaEntry, datumRodjenjaEntry, brojEntry, korisnickoImeEntry);
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new LoginPage());
 
-        //    if (response)
-        //    {
-        //        await DisplayAlert("Alert", "Uspjesno ste se logirali", "OK");
-        //        await Navigation.PushAsync(new LoginPage());
-        //    }
-        //    else
-        //    {
-        //        await DisplayAlert("Alert", "Username vec postoji!", "OK");
-
-        //    }
-        //}
+        }
     }
 }

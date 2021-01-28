@@ -1,4 +1,5 @@
-﻿using Rent_A_Car.MobileAPP.ViewModels.Klijent;
+﻿using Rent_A_Car.MobileAPP.ViewModels;
+using Rent_A_Car.MobileAPP.ViewModels.Klijent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Rent_A_Car.MobileAPP.Views
+namespace Rent_A_Car.MobileAPP.Views.Klijent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class KorisnickiPodaci : ContentPage
@@ -18,9 +19,7 @@ namespace Rent_A_Car.MobileAPP.Views
         {
             InitializeComponent();
             BindingContext = model = new KorisnickiPodaciViewModel();
-
         }
-
 
         protected async override void OnAppearing()
         {

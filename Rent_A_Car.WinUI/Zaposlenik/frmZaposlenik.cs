@@ -1,5 +1,4 @@
-﻿using Rent_A_Car.Model.Requests;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,13 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Flurl.Http;
+using Flurl;
+using Rent_A_Car.Model.Requests;
+//ovo se mora rucno dodati
 
 namespace Rent_A_Car.WinUI.Zaposlenik
 {
     public partial class frmZaposlenik : Form
     {
         private readonly APIService _apiService = new APIService("Zaposlenik");
-
         public frmZaposlenik()
         {
             InitializeComponent();
@@ -25,25 +27,36 @@ namespace Rent_A_Car.WinUI.Zaposlenik
             this.Close();
         }
 
-        private void btnPrikazi_Click(object sender, EventArgs e)
+        private async void btnPrikazi_Click(object sender, EventArgs e)
         {
             var search = new ZaposlenikSearchRequest()
             {
                 Ime = txtPretraga.Text
             };
-            var result = _apiService.Get<List<Model.Zaposlenik>>(search);
+            var result = await _apiService.Get<List<Model.Zaposlenik>>(search);
 
-            dgvKlijent.AutoGenerateColumns = false;
+            dgvZaposlenik.AutoGenerateColumns = false;
 
-            dgvKlijent.DataSource = result;
+            dgvZaposlenik.DataSource = result;
         }
 
-        //private void dgvKlijent_MouseDoubleClick(object sender, MouseEventArgs e)
-        //{
-        //    var id = dgvZaposlenik.SelectedRows[0].Cells[0].Value;
+        private void dgvZaposlenik_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var id = dgvZaposlenik.SelectedRows[0].Cells[0].Value;
 
-        //    frmZaposlenikDetalji frm = new frmZaposlenikDetalji(int.Parse(id.ToString()));
-        //    frm.Show();
-        //}
+            frmZaposlenikDetalji frm = new frmZaposlenikDetalji(int.Parse(id.ToString()));
+            //frm.MdiParent = this;//provjeri ovo
+            frm.Show();
+            //frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
+            //frm.MdiParent = this;
+            //frm.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
+            //frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

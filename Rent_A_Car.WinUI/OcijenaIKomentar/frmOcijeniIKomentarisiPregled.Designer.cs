@@ -31,11 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOcijeniIKomentarisiPregled));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
-            this.KlijentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Automobil = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VrstaAutomobila = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatumRezervacijeOD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatumRezervacijeDO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OcjenaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Komentar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ocijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExit = new System.Windows.Forms.Button();
@@ -61,11 +57,7 @@
             this.dgvKlijent.AllowUserToDeleteRows = false;
             this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.KlijentID,
-            this.Automobil,
-            this.VrstaAutomobila,
-            this.DatumRezervacijeOD,
-            this.DatumRezervacijeDO,
+            this.OcjenaId,
             this.Komentar,
             this.Ocijena});
             this.dgvKlijent.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -75,38 +67,15 @@
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijent.Size = new System.Drawing.Size(698, 302);
             this.dgvKlijent.TabIndex = 0;
+            this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
-            // KlijentID
+            // OcjenaId
             // 
-            this.KlijentID.DataPropertyName = "KlijentID";
-            this.KlijentID.HeaderText = "KlijentID";
-            this.KlijentID.Name = "KlijentID";
-            this.KlijentID.ReadOnly = true;
-            this.KlijentID.Visible = false;
-            // 
-            // Automobil
-            // 
-            this.Automobil.HeaderText = "Automobil";
-            this.Automobil.Name = "Automobil";
-            this.Automobil.ReadOnly = true;
-            // 
-            // VrstaAutomobila
-            // 
-            this.VrstaAutomobila.HeaderText = "VrstaAutomobila";
-            this.VrstaAutomobila.Name = "VrstaAutomobila";
-            this.VrstaAutomobila.ReadOnly = true;
-            // 
-            // DatumRezervacijeOD
-            // 
-            this.DatumRezervacijeOD.HeaderText = "DatumRezervacijeOD";
-            this.DatumRezervacijeOD.Name = "DatumRezervacijeOD";
-            this.DatumRezervacijeOD.ReadOnly = true;
-            // 
-            // DatumRezervacijeDO
-            // 
-            this.DatumRezervacijeDO.HeaderText = "DatumRezervacijeDO";
-            this.DatumRezervacijeDO.Name = "DatumRezervacijeDO";
-            this.DatumRezervacijeDO.ReadOnly = true;
+            this.OcjenaId.DataPropertyName = "OcjenaId";
+            this.OcjenaId.HeaderText = "OcjenaId";
+            this.OcjenaId.Name = "OcjenaId";
+            this.OcjenaId.ReadOnly = true;
+            this.OcjenaId.Visible = false;
             // 
             // Komentar
             // 
@@ -117,7 +86,7 @@
             // 
             // Ocijena
             // 
-            this.Ocijena.DataPropertyName = "Ocijena";
+            this.Ocijena.DataPropertyName = "Ocjena1";
             this.Ocijena.HeaderText = "Ocijena";
             this.Ocijena.Name = "Ocijena";
             this.Ocijena.ReadOnly = true;
@@ -137,9 +106,9 @@
             // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(12, 27);
+            this.txtPretraga.Location = new System.Drawing.Point(15, 44);
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(493, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(420, 20);
             this.txtPretraga.TabIndex = 14;
             // 
             // btnPrikazi
@@ -147,9 +116,9 @@
             this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(556, 27);
+            this.btnPrikazi.Location = new System.Drawing.Point(507, 36);
             this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(71, 22);
+            this.btnPrikazi.Size = new System.Drawing.Size(107, 28);
             this.btnPrikazi.TabIndex = 13;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
@@ -160,8 +129,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(743, 403);
-            this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnPrikazi);
+            this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -179,15 +148,11 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvKlijent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KlijentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Automobil;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VrstaAutomobila;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatumRezervacijeOD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatumRezervacijeDO;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Komentar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ocijena;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Button btnPrikazi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn OcjenaId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Komentar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ocijena;
     }
 }

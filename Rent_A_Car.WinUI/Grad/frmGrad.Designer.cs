@@ -33,10 +33,11 @@
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
-            this.KlijentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.GradId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PostanskiBroj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExit = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -45,7 +46,7 @@
             // 
             this.txtPretraga.Location = new System.Drawing.Point(12, 61);
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(596, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(453, 20);
             this.txtPretraga.TabIndex = 8;
             // 
             // btnPrikazi
@@ -53,12 +54,13 @@
             this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(665, 61);
+            this.btnPrikazi.Location = new System.Drawing.Point(490, 59);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(117, 23);
             this.btnPrikazi.TabIndex = 7;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBox1
             // 
@@ -76,7 +78,7 @@
             this.dgvKlijent.AllowUserToDeleteRows = false;
             this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.KlijentID,
+            this.GradId,
             this.Naziv,
             this.PostanskiBroj});
             this.dgvKlijent.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -86,28 +88,7 @@
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijent.Size = new System.Drawing.Size(770, 302);
             this.dgvKlijent.TabIndex = 0;
-            // 
-            // KlijentID
-            // 
-            this.KlijentID.DataPropertyName = "KlijentID";
-            this.KlijentID.HeaderText = "KlijentID";
-            this.KlijentID.Name = "KlijentID";
-            this.KlijentID.ReadOnly = true;
-            this.KlijentID.Visible = false;
-            // 
-            // Naziv
-            // 
-            this.Naziv.DataPropertyName = "Naziv";
-            this.Naziv.HeaderText = "Naziv";
-            this.Naziv.Name = "Naziv";
-            this.Naziv.ReadOnly = true;
-            // 
-            // PostanskiBroj
-            // 
-            this.PostanskiBroj.DataPropertyName = "PostanskiBroj";
-            this.PostanskiBroj.HeaderText = "PostanskiBroj";
-            this.PostanskiBroj.Name = "PostanskiBroj";
-            this.PostanskiBroj.ReadOnly = true;
+            this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
             // btnExit
             // 
@@ -122,11 +103,47 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // GradId
+            // 
+            this.GradId.DataPropertyName = "GradId";
+            this.GradId.HeaderText = "GradId";
+            this.GradId.Name = "GradId";
+            this.GradId.ReadOnly = true;
+            this.GradId.Visible = false;
+            // 
+            // Naziv
+            // 
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
+            // 
+            // PostanskiBroj
+            // 
+            this.PostanskiBroj.DataPropertyName = "PostanskiBr";
+            this.PostanskiBroj.HeaderText = "PostanskiBroj";
+            this.PostanskiBroj.Name = "PostanskiBroj";
+            this.PostanskiBroj.ReadOnly = true;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(665, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Dodaj Grad";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmGrad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnPrikazi);
@@ -148,9 +165,10 @@
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvKlijent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KlijentID;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GradId;
         private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
         private System.Windows.Forms.DataGridViewTextBoxColumn PostanskiBroj;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Button button1;
     }
 }

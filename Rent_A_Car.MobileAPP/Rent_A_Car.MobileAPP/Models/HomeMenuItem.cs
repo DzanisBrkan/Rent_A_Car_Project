@@ -10,7 +10,7 @@ namespace Rent_A_Car.MobileAPP.Models
         About,
         Vozila,
         MojiUgovori,
-        RezervacijaVozila, 
+        RezervacijaVozila,
         MojiKomentarIOcjene,
         OcijeniIKomentarisi,
         MojeRezervacije,

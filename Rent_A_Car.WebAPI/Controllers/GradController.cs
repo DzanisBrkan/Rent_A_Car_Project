@@ -15,9 +15,15 @@ namespace Rent_A_Car.WebAPI.Controllers
 {
     //Grad mora biti crud jer ce ih unositi i mijenjati admin
     [Authorize]
-    public class GradController : BaseController<Model.Grad, object>
+    public class GradController
+        : BaseCRUDController<Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>
+
     {
-        public GradController(IService<Grad, object> service) : base(service)
+        //public GradController(IService<Grad, object> service) : base(service)
+        //{
+        //}
+  
+        public GradController(ICRUDService<Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest> service) : base(service)
         {
         }
     }

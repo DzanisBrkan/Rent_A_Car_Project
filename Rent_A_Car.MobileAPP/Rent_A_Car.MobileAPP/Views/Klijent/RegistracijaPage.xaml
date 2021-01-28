@@ -6,66 +6,43 @@
              mc:Ignorable="d"
              x:Class="Rent_A_Car.MobileAPP.Views.Klijent.RegistracijaPage">
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout Padding="35" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
-                <Label FontSize="Large" Text="Registruj se"></Label>
-                <StackLayout Orientation="Vertical">
-                    <Label Text="Ime"/>
-                    <Entry Text="{Binding Ime}" x:Name="imeEntry" Placeholder="Ime"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
-                    <Label Text="Prezime"/>
-                    <Entry Text="{Binding Prezime}" x:Name="prezimeEntry" Placeholder="Prezime"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
-                    <Label Text="Email"/>
-                    <Entry Text="{Binding Email}" x:Name="emailEntry" Placeholder="ime.prezime@gmail.com"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
-                    <Label Text="Broj Telefona"/>
-                    <Entry Text="{Binding BrojTel}" x:Name="brojEntry" Placeholder="062-555-333"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
-                    <Label Text="Adresa"/>
-                    <Entry Text="{Binding Adresa}" x:Name="adresaEntry" Placeholder="Ulica xx br. 30, Mostar"/>
-                </StackLayout>
-                <StackLayout Orientation="Vertical">
-                    <Label Text="DatumRodjenja"/>
-                    <Entry Text="{Binding DatumRodjenja}" x:Name="datumRodjenjaEntry" Placeholder="01.01.2000"/>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand">
+            <Label Text="Napravi profil:" FontAttributes="Bold"  FontSize="Title" HorizontalOptions="CenterAndExpand"></Label>
+            <Label Text="Ime"></Label>
+            <Entry Text="{Binding _Ime}"></Entry>
+            <Label Text="Prezime"></Label>
+            <Entry Text="{Binding _Prezime}"></Entry>
+            <Label Text="Adresa"></Label>
+            <Entry Text="{Binding _Adresa}"></Entry>
+            <Label Text="Datum rođenja"></Label>
+            <DatePicker Date="{Binding _DatumRodjenja}" Format="dd-MM-yyyy" ></DatePicker>
+            <!--<Label Text="Odaberi grad prebivališta"></Label>
+            <Picker ItemsSource="{Binding _citiesList}" SelectedItem="{Binding CityModel}" ItemDisplayBinding="{Binding CityName}"></Picker>-->
 
+            <!--<Label Text="Odaberi Model automobila koji posjedujete"></Label>
+            <Picker ItemsSource="{Binding _modelsList}" SelectedItem="{Binding CarModel}" ItemDisplayBinding="{Binding CarModelName}"></Picker>-->
 
-                    <!--<Label Text="DatumRodjenja"/>
-                    <Picker ItemsSource="{Binding DatumRodjenja}" SelectedItem="{Binding Grad}" ItemDisplayBinding="{Binding Naziv}"/>-->
+            <Label Text="Email"></Label>
+            <Entry Text="{Binding _Email}"></Entry>
+            <Label Text="Broj telefona"></Label>
+            <Entry Text="{Binding _BrojTelefona}"></Entry>
 
+            <Label Text="Korisničko ime"></Label>
+            <Entry Text="{Binding _KorisnickoIme}"></Entry>
 
-                    <StackLayout Orientation="Vertical">
-                        <Label Text="Korisničko ime"/>
-                        <Entry Text="{Binding KorisnickoIme}" x:Name="korisnickoImeEntry" Placeholder="Korisnicko ime"/>
-                    </StackLayout>
-                    <!--<StackLayout Orientation="Vertical">
-                        <Label Text="Lozinka"/>
-                        <Entry Text="{Binding Klijent.Password}" IsPassword="True" Placeholder="Password"/>
-                    </StackLayout>
-                    <StackLayout Orientation="Vertical">
-                        <Label Text="Potvrda lozinke"/>
-                        <Entry Text="{Binding Klijent.PasswordPotvrda}" IsPassword="True" Placeholder="Password potvrda"/>
-                    </StackLayout>-->
+            <Label  Text="Lozinka"></Label>
+            <Entry Text="{Binding _Password}" IsPassword="True"></Entry>
 
-                </StackLayout>
+            <Label  Text="Potvrda lozinke"></Label>
+            <Entry Text="{Binding _PasswordConfirmation}" IsPassword="True"></Entry>
 
-                <!--<Button Command="{Binding RegistracijaCommand}"  HorizontalOptions="FillAndExpand" BackgroundColor="Green" Text="Kreiraj account" IsEnabled="{Binding IsButtonEnabled}"></Button>-->
-
-
-                <Button Command="{Binding RegistracijaCommand}"  HorizontalOptions="FillAndExpand" BackgroundColor="Green" Text="Kreiraj account" Clicked="Button_Clicked"></Button>
+            <Button       BackgroundColor="Transparent"
+                BorderColor="Transparent" Command="{Binding RegistracijaCommand}" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Registruj se"></Button>
+            <Button Clicked="Button_Clicked_1" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Prekini registraciju"></Button>
 
 
 
-                <Label TextColor="#2296f3" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Već imate account? Prijavite se" Margin="0,5,0,0">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer x:Name="LoginLabel" Tapped="LoginLabel_Tapped"/>
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
-        </ScrollView>
+
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

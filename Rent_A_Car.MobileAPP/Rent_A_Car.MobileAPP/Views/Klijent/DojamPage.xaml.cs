@@ -14,19 +14,24 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
     public partial class DojamPage : ContentPage
     {
         DojamViewModel model = null;
-
-
         public DojamPage()
         {
             InitializeComponent();
             BindingContext = model = new DojamViewModel();
-
         }
-
-        protected async override void OnAppearing()
+        protected override void OnAppearing()
         {
             base.OnAppearing();
-            //await model.Init();
+
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await model.Init();
+            await Navigation.PushModalAsync(new MainPage());
+        }
+
+    
+
     }
 }

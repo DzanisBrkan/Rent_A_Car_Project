@@ -2,9 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
              mc:Ignorable="d"
-             x:Class="Rent_A_Car.MobileAPP.Views.UgovorPage">
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.UgovorPage">
 
     <ContentPage.BindingContext>
         <viewModel:UgovorViewModel></viewModel:UgovorViewModel>
@@ -14,7 +15,7 @@
         <StackLayout>
             <Label TextColor="#2196F3" FontAttributes="Bold" Text="Moji ugovori:" FontSize="Title" HorizontalOptions="Center" />
 
-            <ListView ItemsSource="{Binding UgovorList}">
+            <ListView ItemsSource="{Binding RezervacijaList}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
@@ -36,6 +37,8 @@
                                 <Entry Text="{Binding Placen}"></Entry>
 
 
+                                <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Pogledajte vas dojam!"></Button>
+
 
 
 
@@ -48,6 +51,5 @@
 
 
         </StackLayout>
-
     </ContentPage.Content>
 </ContentPage>

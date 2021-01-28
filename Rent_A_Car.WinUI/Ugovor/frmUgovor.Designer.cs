@@ -32,18 +32,15 @@
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvKlijent = new System.Windows.Forms.DataGridView();
-            this.KlijentID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Datum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvUgovor = new System.Windows.Forms.DataGridView();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.UgovorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatumUgovora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CijenaAutomobila = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.UkupnaKolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Placanje = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Adresa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatumRodjenja = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnExit = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUgovor)).BeginInit();
             this.SuspendLayout();
             // 
             // txtPretraga
@@ -64,95 +61,37 @@
             this.btnPrikazi.TabIndex = 7;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
+            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvKlijent);
+            this.groupBox1.Controls.Add(this.dgvUgovor);
             this.groupBox1.Location = new System.Drawing.Point(9, 115);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(776, 321);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Admini";
+            this.groupBox1.Text = "Ugovori";
             // 
-            // dgvKlijent
+            // dgvUgovor
             // 
-            this.dgvKlijent.AllowUserToAddRows = false;
-            this.dgvKlijent.AllowUserToDeleteRows = false;
-            this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.KlijentID,
-            this.Datum,
-            this.UkupnaCijena,
+            this.dgvUgovor.AllowUserToAddRows = false;
+            this.dgvUgovor.AllowUserToDeleteRows = false;
+            this.dgvUgovor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUgovor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UgovorId,
+            this.DatumUgovora,
+            this.CijenaAutomobila,
             this.UkupnaKolicina,
-            this.Placanje,
-            this.Email,
-            this.Adresa,
-            this.DatumRodjenja});
-            this.dgvKlijent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKlijent.Location = new System.Drawing.Point(3, 16);
-            this.dgvKlijent.Name = "dgvKlijent";
-            this.dgvKlijent.ReadOnly = true;
-            this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijent.Size = new System.Drawing.Size(770, 302);
-            this.dgvKlijent.TabIndex = 0;
-            // 
-            // KlijentID
-            // 
-            this.KlijentID.DataPropertyName = "KlijentID";
-            this.KlijentID.HeaderText = "KlijentID";
-            this.KlijentID.Name = "KlijentID";
-            this.KlijentID.ReadOnly = true;
-            this.KlijentID.Visible = false;
-            // 
-            // Datum
-            // 
-            this.Datum.DataPropertyName = "Datum";
-            this.Datum.HeaderText = "Datum";
-            this.Datum.Name = "Datum";
-            this.Datum.ReadOnly = true;
-            // 
-            // UkupnaCijena
-            // 
-            this.UkupnaCijena.DataPropertyName = "UkupnaCijena";
-            this.UkupnaCijena.HeaderText = "UkupnaCijena";
-            this.UkupnaCijena.Name = "UkupnaCijena";
-            this.UkupnaCijena.ReadOnly = true;
-            // 
-            // UkupnaKolicina
-            // 
-            this.UkupnaKolicina.DataPropertyName = "UkupnaKolicina";
-            this.UkupnaKolicina.HeaderText = "UkupnaKolicina";
-            this.UkupnaKolicina.Name = "UkupnaKolicina";
-            this.UkupnaKolicina.ReadOnly = true;
-            // 
-            // Placanje
-            // 
-            this.Placanje.DataPropertyName = "Placanje";
-            this.Placanje.HeaderText = "Placanje";
-            this.Placanje.Name = "Placanje";
-            this.Placanje.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.DataPropertyName = "Email";
-            this.Email.HeaderText = "E-mail";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // Adresa
-            // 
-            this.Adresa.DataPropertyName = "Adresa";
-            this.Adresa.HeaderText = "Adresa";
-            this.Adresa.Name = "Adresa";
-            this.Adresa.ReadOnly = true;
-            // 
-            // DatumRodjenja
-            // 
-            this.DatumRodjenja.DataPropertyName = "DatumRodjenja";
-            this.DatumRodjenja.HeaderText = "Datum rođenja";
-            this.DatumRodjenja.Name = "DatumRodjenja";
-            this.DatumRodjenja.ReadOnly = true;
+            this.Placanje});
+            this.dgvUgovor.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvUgovor.Location = new System.Drawing.Point(3, 16);
+            this.dgvUgovor.Name = "dgvUgovor";
+            this.dgvUgovor.ReadOnly = true;
+            this.dgvUgovor.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvUgovor.Size = new System.Drawing.Size(770, 302);
+            this.dgvUgovor.TabIndex = 0;
+            this.dgvUgovor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvUgovor_MouseDoubleClick);
             // 
             // btnExit
             // 
@@ -166,6 +105,42 @@
             this.btnExit.TabIndex = 12;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // UgovorId
+            // 
+            this.UgovorId.DataPropertyName = "RacunID";
+            this.UgovorId.HeaderText = "UgovorId";
+            this.UgovorId.Name = "UgovorId";
+            this.UgovorId.ReadOnly = true;
+            this.UgovorId.Visible = false;
+            // 
+            // DatumUgovora
+            // 
+            this.DatumUgovora.DataPropertyName = "DatumUgovora";
+            this.DatumUgovora.HeaderText = "Datum Ugovora";
+            this.DatumUgovora.Name = "DatumUgovora";
+            this.DatumUgovora.ReadOnly = true;
+            // 
+            // CijenaAutomobila
+            // 
+            this.CijenaAutomobila.DataPropertyName = "CijenaAutomobila";
+            this.CijenaAutomobila.HeaderText = "Cijena Automobila";
+            this.CijenaAutomobila.Name = "CijenaAutomobila";
+            this.CijenaAutomobila.ReadOnly = true;
+            // 
+            // UkupnaKolicina
+            // 
+            this.UkupnaKolicina.DataPropertyName = "UkupnaKolicina";
+            this.UkupnaKolicina.HeaderText = "UkupnaKolicina";
+            this.UkupnaKolicina.Name = "UkupnaKolicina";
+            this.UkupnaKolicina.ReadOnly = true;
+            // 
+            // Placanje
+            // 
+            this.Placanje.DataPropertyName = "NacinPlacanjaId";
+            this.Placanje.HeaderText = "Placanje";
+            this.Placanje.Name = "Placanje";
+            this.Placanje.ReadOnly = true;
             // 
             // frmUgovor
             // 
@@ -181,7 +156,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUgovor";
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvUgovor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,15 +167,12 @@
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvKlijent;
-        private System.Windows.Forms.DataGridViewTextBoxColumn KlijentID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Datum;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaCijena;
+        private System.Windows.Forms.DataGridView dgvUgovor;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UgovorId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatumUgovora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CijenaAutomobila;
         private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaKolicina;
         private System.Windows.Forms.DataGridViewTextBoxColumn Placanje;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Adresa;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatumRodjenja;
-        private System.Windows.Forms.Button btnExit;
     }
 }

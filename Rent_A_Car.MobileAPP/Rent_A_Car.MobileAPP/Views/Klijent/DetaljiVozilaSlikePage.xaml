@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent" xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
              mc:Ignorable="d"
              x:Class="Rent_A_Car.MobileAPP.Views.Klijent.DetaljiVozilaSlikePage">
 
@@ -15,6 +17,7 @@
             <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
         </ResourceDictionary>
     </ContentPage.Resources>
+
 
     <ContentPage.Content>
         <StackLayout>
@@ -32,13 +35,12 @@
                                     </Image>
                                 </StackLayout>
 
-     
+
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

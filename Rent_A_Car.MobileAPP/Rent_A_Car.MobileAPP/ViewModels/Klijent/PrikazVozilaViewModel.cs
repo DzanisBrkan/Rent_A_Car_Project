@@ -1,9 +1,9 @@
-﻿using Rent_A_Car.MobileAPP.Views.Klijent;
-using Rent_A_Car.Model;
+﻿using Rent_A_Car.Model;
 using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -18,13 +18,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public PrikazVozilaViewModel()
         {
             InitCommand = new Command(async () => await Init());
-            DetaljiVozilaCommand = new Command(async () => await Detalji()); 
+            DetaljiVozilaCommand = new Command(async () => await Detalji());
         }
-        
+
 
 
         public ObservableCollection<Vozilo> VozilaList { get; set; } = new ObservableCollection<Vozilo>();
-        public ObservableCollection<Tip> TipVozila{ get; set; } = new ObservableCollection<Tip>();
+        public ObservableCollection<Tip> TipVozila { get; set; } = new ObservableCollection<Tip>();
 
         Tip _selectedTipVozila = null;
         public Tip SelectedTipVozila
@@ -44,7 +44,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
 
 
-       
+
         public ICommand InitCommand { get; set; }
 
         public async Task Init()
@@ -62,9 +62,40 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             if (SelectedTipVozila != null)
             {
                 VoziloSearchRequest search = new VoziloSearchRequest();
-                search.KategorijaId = SelectedTipVozila.TipId;
+                search.TipId = SelectedTipVozila.TipId;
 
                 var list = await _vozilaService.Get<IEnumerable<Vozilo>>(search);
+                //Promiojenjeno VoziloServices
+
+                int brojac = 0;
+                VozilaList.Clear();
+                foreach (var vozilo in list)
+                {
+                    if (list.ElementAt(brojac).Zauzeto != true)
+                    {
+                        VozilaList.Add(vozilo);
+
+                    }
+                    brojac++;
+
+                }
+
+               
+
+
+                //for (int i = 0; i < VozilaList.Count; i++)
+                //{
+                //    if (VozilaList[i].VoziloID != 0)
+                //    {
+                //        APIService.UserVoziloID = VozilaList[i].VoziloID;
+
+                //    }
+                //}
+
+            }
+            else
+            {
+                var list = await _vozilaService.Get<IEnumerable<Vozilo>>(null);
 
 
                 VozilaList.Clear();
@@ -72,8 +103,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 {
                     VozilaList.Add(vozilo);
                 }
-
-            }           
+            }
         }
 
 
@@ -85,11 +115,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             IsBusy = true;
             //DetaljiVozilaCommand.Execute(null);
             await _vozilaService.Get<dynamic>(null);
-            Application.Current.MainPage = new DetaljiVozilaPage();
-            
+            //Application.Current.MainPage = new DetaljiVozila();
+
 
 
         }
+
 
 
     }

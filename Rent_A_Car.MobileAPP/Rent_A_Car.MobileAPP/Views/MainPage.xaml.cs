@@ -44,9 +44,9 @@ namespace Rent_A_Car.MobileAPP.Views
                         MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
                         break;
 
-                    case (int)MenuItemType.MojiUgovori:
-                        MenuPages.Add(id, new NavigationPage(new UgovorPage()));
-                        break;
+                    //case (int)MenuItemType.MojiUgovori:
+                    //    MenuPages.Add(id, new NavigationPage(new UgovorPage()));
+                    //    break;
 
                     case (int)MenuItemType.RezervacijaVozila:
                         MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));
@@ -57,9 +57,9 @@ namespace Rent_A_Car.MobileAPP.Views
                         MenuPages.Add(id, new NavigationPage(new OcijenivanjeIKomentarisanje()));
                         break;
 
-                    case (int)MenuItemType.OcijeniIKomentarisi:
-                        MenuPages.Add(id, new NavigationPage(new DojamPage()));
-                        break;
+                    //case (int)MenuItemType.OcijeniIKomentarisi:
+                    //    MenuPages.Add(id, new NavigationPage(new DojamPage()));
+                    //    break;
 
                     case (int)MenuItemType.MojeRezervacije:
                         MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));
@@ -72,8 +72,12 @@ namespace Rent_A_Car.MobileAPP.Views
 
 
                     case (int)MenuItemType.Odjava:
-                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
-                        break;
+                        {
+                            // clear logirani korsnik
+                            MenuPages.Add(id, new NavigationPage(new LoginPage()));
+                            break;
+                        }
+                      
                 }
             }
 

@@ -10,5 +10,7 @@ namespace Rent_A_Car.Model
         public int? Ocjena1 { get; set; }
         public string Komentar { get; set; }
         public int? RezervacijaId { get; set; }
+
+        //public virtual Rezervacija Rezervacija { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using Flurl.Http;
 using Flurl;
 using Rent_A_Car.Model;
+using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,169 +16,75 @@ namespace Rent_A_Car.MobileAPP
 {
     public class APIService
     {
-
-
         public static string Username { get; set; }
         public static string Password { get; set; }
 
-        private readonly string _route = null;
+        public static int UserID { get; set; }
+        public static int UserRacunID { get; set; }
+        public static int UserVoziloID { get; set; }
+        public static int CijenaVozila { get; set; }
 
         public static Model.Klijent LogovaniKlijent { get; set; }
 
+        private readonly string _route = null;
 
-#if DEBUG
-        private string _apiUrl = "http://localhost:57723/api"; 
-#endif
-#if RELEASE
-        private string _apiUrl = "https://mywebsite.com/api";
-#endif
-
-        public APIService(string route)
-        {
-            _route = route;
-        }
-
-        public async Task<T> Get<T>(object search)
-        {
-
-            var url = $"{_apiUrl}/{_route}";
-
-            try
-            {
-                if (search != null)
-                {
-                    url += "?";
-                    url += await search.ToQueryString();
-                }
-
-                //implementacija autentifikacije
-                return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+        //#endif
+        //#if RELEASE 
+        //            private string _apiUrl = "https://mywebsite.com/api";
 
 
-            }
-            catch (FlurlHttpException ex)
-            {
-                if (ex != null)
-                    //if (ex.StatusCode.ToString() == System.Net.HttpStatusCode.Unauthorized.ToString())
-                    if(ex.Call.HttpResponseMessage.RequestMessage.ToString() == System.Net.HttpStatusCode.Unauthorized.ToString())
-                    {
+        //    public async Task<T> Get<T>(object search)
+        //    {
 
-                        await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
+        //        var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
-                    }
-                else if (ex.Call.HttpResponseMessage.RequestMessage.ToString() == "401")
-                    {
+        //        if (search != null)
+        //        {
+        //            url += "?";
+        //            url += await search.ToQueryString();
+        //        }
 
-                        await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
+        //        return await url.GetJsonAsync<T>();
+        //    }
 
-                    }
-                throw;
-            }
-        }
+        //    // GET BY ID PREMA SERVERU -----------------------
+        //    public async Task<T> GetById<T>(object id)
+        //    {
 
-        // GET BY ID PREMA SERVERU -----------------------
-        public async Task<T> GetById<T>(object id)
-        {
+        //        var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
 
-            var url = $"{_apiUrl}/{_route}/{id}";
+        //        return await url.GetJsonAsync<T>();
 
-            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+        //    }
 
-        }
+        //    // INSERT PREMA SERVERU -----------------------
+        //    public async Task<T> Insert<T>(object request)
+        //    {
 
-        // INSERT PREMA SERVERU -----------------------
-        public async Task<T> Insert<T>(object request)
-        {
+        //        var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
 
-            var url = $"{_apiUrl}/{_route}";
+        //        return await url.PostJsonAsync(request).ReceiveJson<T>();
 
-            try
-            {
-                return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
-            }
-            catch (FlurlHttpException ex)
-            {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-                var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
-                {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
-
-                //MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                await Application.Current.MainPage.DisplayAlert("Greska", "Niste autentificirani", "OK");
-                return default(T);
-            }
+        //    }
 
 
-        }
+        //    // UPDATE PREMA SERVERU -----------------------
+        //    public async Task<T> Update<T>(object id, object request)
+        //    {
+
+        //        var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
+
+        //        return await url.PutJsonAsync(request).ReceiveJson<T>();
+        //    }
 
 
-        // UPDATE PREMA SERVERU -----------------------
-        public async Task<T> Update<T>(object id, object request)
-        {
-
-            try
-            {
-                var url = $"{_apiUrl}/{_route}/{id}";
-
-                return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
-            }
-            catch (FlurlHttpException ex)
-            {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
-                var stringBuilder = new StringBuilder();
-                foreach (var error in errors)
-                {
-                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
-                }
-
-                //MessageBox.Show(stringBuilder.ToString(), "Greška", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                await Application.Current.MainPage.DisplayAlert("Greska", stringBuilder.ToString(), "OK");
-
-                return default(T);
-            }
-        }
+        //    public async Task<T> Get(object search)
+        //     {
+        //         var url = $"{_apiUrl}/{_route}";
 
 
-        public async Task<bool> RegisterUserAsynic(string ime, string prezime, string mail, string broj, string adresa,string datumrojenja, string korisnickoIme)
-        {
-
-            bool Response = false; 
-            await Task.Run(() =>
-            {
-                var client = new HttpClient();
-
-                var model = new Model.Klijent
-                {
-                    Ime = ime,
-                    Prezime = prezime,
-                    Email = mail,
-                    BrojTel = broj,
-                    Adresa = adresa,
-                    DatumRodjenja = datumrojenja,
-                    KorisnickoIme = korisnickoIme 
-                };
-
-                var jason = JsonConvert.SerializeObject(model);
-                HttpContent httpContent = new StringContent(jason);
-                httpContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("application/json");
-                var response = client.PostAsync(_apiUrl + "/Klijent", httpContent);
-                var mystring = response.GetAwaiter().GetResult();
-
-                if (response.Result.IsSuccessStatusCode)
-                {
-                    Response = true;
-                }
-
-            });
-            return Response;
-        }
-
-
-
+        //     }
+        //}
 
     }
 

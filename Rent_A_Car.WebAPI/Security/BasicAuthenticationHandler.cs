@@ -12,30 +12,45 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using System.Web.Http.Controllers;
+using System.Diagnostics.Contracts;
+using System.Web.Http;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Rent_A_Car.WebAPI.Security
 {
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
         private readonly IKlijentService _userService;
+        private readonly IZaposlenikService _zaposlenikService;
 
         public BasicAuthenticationHandler(
             IOptionsMonitor<AuthenticationSchemeOptions> options,
             ILoggerFactory logger,
             UrlEncoder encoder,
             ISystemClock clock,
-            IKlijentService userService)
+            IKlijentService userService,
+            IZaposlenikService zaposlenikService)
             : base(options, logger, encoder, clock)
         {
             _userService = userService;
+            _zaposlenikService = zaposlenikService;
         }
 
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
+            var endpoint = Context.GetEndpoint();
+            if(endpoint?.Metadata?.GetMetadata<IAllowAnonymous>() != null)
+            {
+                return await Task.FromResult(AuthenticateResult.NoResult());
+            }
+
             if (!Request.Headers.ContainsKey("Authorization"))
                 return AuthenticateResult.Fail("Missing Authorization Header");
 
-            Model.Klijent user = null;
+            Model.Klijent klijent = null;
+            Model.Zaposlenik zaposlenik = null;
             try
             {
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
@@ -43,31 +58,52 @@ namespace Rent_A_Car.WebAPI.Security
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(':');
                 var username = credentials[0];
                 var password = credentials[1];
-                user = _userService.Authenticiraj(username, password);
+                klijent = _userService.Authenticiraj(username, password);
+                zaposlenik = _zaposlenikService.Authenticiraj(username, password);
             }
             catch
             {
                 return AuthenticateResult.Fail("Invalid Authorization Header");
             }
 
-            if (user == null)
+
+            if (zaposlenik == null && klijent == null)
                 return AuthenticateResult.Fail("Invalid Username or Password");
+            if(zaposlenik != null)
+            {
+                var claimsZaposlenik = new List<Claim> {
+                new Claim(ClaimTypes.NameIdentifier, zaposlenik.KorisnickoIme),
+                new Claim(ClaimTypes.Name, zaposlenik.Ime),
+                };
 
-            var claims = new List<Claim> {
-                new Claim(ClaimTypes.NameIdentifier, user.KorisnickoIme),
-                new Claim(ClaimTypes.Name, user.Ime),
-            };
-            
-            //foreach(var role in user.KorisniciUloge)
-            //{
-            //    claims.Add(new Claim(ClaimTypes.Role, role.Uloga.Naziv));
-            //}
+                claimsZaposlenik.Add(new Claim(ClaimTypes.Role, zaposlenik.KorisnickiNalog.TipKorisnickogNaloga));
 
-            var identity = new ClaimsIdentity(claims, Scheme.Name);
-            var principal = new ClaimsPrincipal(identity);
-            var ticket = new AuthenticationTicket(principal, Scheme.Name);
+                var identity = new ClaimsIdentity(claimsZaposlenik, Scheme.Name);
+                var principal = new ClaimsPrincipal(identity);
+                var ticket = new AuthenticationTicket(principal, Scheme.Name);
 
-            return AuthenticateResult.Success(ticket);
+                return AuthenticateResult.Success(ticket);
+            }
+            else if(klijent != null)
+            {
+                var claims = new List<Claim> {
+                new Claim(ClaimTypes.NameIdentifier, klijent.KorisnickoIme),
+                new Claim(ClaimTypes.Name, klijent.Ime),
+                };
+
+                var identity = new ClaimsIdentity(claims, Scheme.Name);
+                var principal = new ClaimsPrincipal(identity);
+                var ticket = new AuthenticationTicket(principal, Scheme.Name);
+
+                return AuthenticateResult.Success(ticket);
+            }
+            else
+            {
+                return AuthenticateResult.Fail("Invalid Username or Password");
+            }
+           
         }
+
+       
     }
 }

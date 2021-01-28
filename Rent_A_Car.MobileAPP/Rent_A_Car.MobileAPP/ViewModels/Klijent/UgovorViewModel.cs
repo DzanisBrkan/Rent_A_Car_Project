@@ -9,9 +9,11 @@ using Xamarin.Forms;
 
 namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 {
-    class UgovorViewModel
+    public class UgovorViewModel : BaseViewModel
     {
-        private readonly APIService _UgovorService = new APIService("Racun");
+        private readonly APIService _RezervacijaService = new APIService("Rezervacija");
+
+        private readonly APIService _UgovorService = new APIService("Ugovor");
 
 
         public UgovorViewModel()
@@ -21,18 +23,43 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
-        public ObservableCollection<Racun> UgovorList { get; set; } = new ObservableCollection<Racun>();
+        public ObservableCollection<Ugovor> UgovorList { get; set; } = new ObservableCollection<Ugovor>();
+        public ObservableCollection<Ugovor> RezervacijaList { get; set; } = new ObservableCollection<Ugovor>();
 
         public ICommand InitCommand { get; set; }
 
         public async Task Init()
         {
-            var list = await _UgovorService.Get<IEnumerable<Racun>>(null);
+
+            if (APIService.UserRacunID != 0)
+            {
+                var Racun = await _UgovorService.GetById<Model.Ugovor>(APIService.UserRacunID);
+            }
+
+            //ovdje bi trebo napraviti request ili nesto da poredi iz REZERVACIJE id klijenta
+            //var RezervacijaModel = await _rezervacijaService.GetById<Model.Rezervacija>(KlijentModel.KlijentId);
+
+            //RezervacijeList.Clear();
+            //RezervacijeList.Add(RezervacijaModel);
+
+            var list = await _UgovorService.Get<IEnumerable<Ugovor>>(null);
 
             UgovorList.Clear();
+            RezervacijaList.Clear();
             foreach (var ugovor in list)
             {
                 UgovorList.Add(ugovor);
+            }
+
+
+            //trebam provjerit da li je APIService.UserUgovorID prazan 
+            for (int i = 0; i < UgovorList.Count; i++)
+            {
+                if (UgovorList[i].RacunID == APIService.UserRacunID)
+                {
+                    RezervacijaList.Add(UgovorList[i]);
+
+                }
             }
         }
     }

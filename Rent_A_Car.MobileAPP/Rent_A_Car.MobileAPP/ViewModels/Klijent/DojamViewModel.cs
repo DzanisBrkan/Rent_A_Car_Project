@@ -1,4 +1,6 @@
-﻿using Rent_A_Car.Model;
+﻿using Rent_A_Car.MobileAPP.Views;
+using Rent_A_Car.Model;
+using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -9,9 +11,11 @@ using Xamarin.Forms;
 
 namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 {
-    class DojamViewModel : BaseViewModel
+    public class DojamViewModel : BaseViewModel
     {
         private readonly APIService _komentariIOcijeneService = new APIService("Ocjena");
+        private readonly APIService _rezervacijaService = new APIService("Rezervacija");
+
 
         public DojamViewModel()
         {
@@ -20,22 +24,23 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
-        string _komentar = string.Empty;
-        public string Komentar
+        string _Komentar = string.Empty;
+        public string Komentarr
         {
-            get { return _komentar; }
-            set { SetProperty(ref _komentar, value); }
+            get { return _Komentar; }
+            set { SetProperty(ref _Komentar, value); }
         }
 
 
-        string _ocijena = string.Empty;
-        public string Ocijena
+        int _Ocjena = 0;
+        public int Ocjenaa
         {
-            get { return _ocijena; }
-            set { SetProperty(ref _ocijena, value); }
+            get { return _Ocjena; }
+            set { SetProperty(ref _Ocjena, value); }
         }
 
-
+        //public string _Komentar { get; set; } = null;
+        //public string _Ocjena { get; set; } = null;
 
 
         public ObservableCollection<Ocjena> OcijeneList { get; set; } = new ObservableCollection<Ocjena>();
@@ -54,28 +59,68 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         //}
 
 
-        async Task Init()
+        public async Task Init()
         {
-            //TREBO BI DA UNESE OCIJENU I KOMENTAR - TREBA API ZA INSERT
 
-            //IsBusy = true;
-            //APIService.Username = Username;
-            //APIService.Password = Password;
 
-            //try
-            //{
-            //    await _service.Get<dynamic>(null);
-            //    Application.Current.MainPage = new MainPage();
+            try
+            {
 
-            //}
-            //catch (Exception ex)
-            //{
-            //    //ovo ne smije biti tu
-            //    Application.Current.MainPage = new MainPage();
 
-            //}
+
+
+                if (string.IsNullOrWhiteSpace(Komentarr))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti komentar", "Ok");
+                    return;
+
+
+                }
+
+                if (Ocjenaa < 0)
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
+                    return;
+
+
+                }
+
+
+
+
+
+                var request = new OcjenaUpsertRequest()
+                {
+                    Ocjena1 = Ocjenaa,
+                    Komentar = Komentarr,
+                    RezervacijaId = 3
+
+                };
+
+
+                var modelDojam = _komentariIOcijeneService.Insert<Model.Ocjena>(request);
+
+
+                
+                    
+                        await Application.Current.MainPage.DisplayAlert("Notifikacija", "Uspješno ste ostavili dojam.", "Ok");
+                        //await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                   
+               
+
+
+            }
+            catch (Exception ex)
+            {
+                await Application.Current.MainPage.DisplayAlert("Error", "Doslo je do greske!.", "Ok");
+
+                throw;
+            }
+
+
 
         }
+
 
     }
 }
