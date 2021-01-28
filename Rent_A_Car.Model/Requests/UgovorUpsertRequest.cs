@@ -8,10 +8,10 @@ namespace Rent_A_Car.Model.Requests
     public class UgovorUpsertRequest
     {
         [Required(AllowEmptyStrings = false)]
-        public string Datum { get; set; }
-        public string UkupnaCijena { get; set; }
+        public DateTime? DatumUgovora { get; set; }
+        public string CijenaAutomobila { get; set; }
         public string UkupnaKolicina { get; set; }
         public string NacinPlacanjaId { get; set; }
-        public string Placen { get; set; }
+        //public string Placen { get; set; }
     }
 }

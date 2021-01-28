@@ -11,19 +11,14 @@
             <Label Text="Unesite Rezervaciju:" FontAttributes="Bold"  FontSize="Title" HorizontalOptions="CenterAndExpand"></Label>
 
             <Label Text="Vrijeme starta rezervacije"></Label>
-            <Entry Text="{Binding _VrijemePocetka}"></Entry>
-
-            <Label Text="Vrijeme Rezervacije"></Label>
-            <Entry Text="{Binding _VrijemeRezervacije}"></Entry>
-
-            <Label Text="Kolicina"></Label>
-            <Entry Text="{Binding _Kolicina}"></Entry>
+            <!--<DatePicker Date="{Binding KrajRezervacije}" Format="dd-MM-yyyy" ></DatePicker>-->
+            <Entry Text="{Binding KrajRezervacije}"></Entry>
 
             <Label Text="Status"></Label>
-            <Entry Text="{Binding _Status}"></Entry>
+            <Entry Text="{Binding Status}"></Entry>
 
             <Label Text="Cijena"></Label>
-            <Entry Text="{Binding _Cijena}"></Entry>
+            <Entry Text="{Binding UkupnaCijena}"></Entry>
 
             <!--<Label Text="Odaberite lokaciju:"></Label>
             <Picker ItemsSource="{Binding _citiesList}" SelectedItem="{Binding _LokacijaId}" ItemDisplayBinding="{Binding CityName}"></Picker>-->
@@ -47,7 +42,7 @@
             <!--<Label Text="Odaberite Racun   "></Label>
             <Picker ItemsSource="{Binding _modelsList}" SelectedItem="{Binding _RacunID}" ItemDisplayBinding="{Binding CarModelName}"></Picker>-->
 
-            <Button BackgroundColor="#2196F3" Clicked="Button_Clicked_1" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Napravi Rezervaciju"></Button>
+            <Button BackgroundColor="#2196F3" Clicked="Button_Clicked_1" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Rezervisi" Command="{Binding SaveChanges}" ></Button>
             <!--<Button BackgroundColor="Red" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Vrati se na Ugovor"></Button>-->
 
 

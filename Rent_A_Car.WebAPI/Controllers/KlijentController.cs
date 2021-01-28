@@ -27,7 +27,7 @@ namespace Rent_A_Car.WebAPI.Controllers
         [HttpGet]
         public ActionResult<List<Model.Klijent>> Get([FromQuery]KlijentSearchRequest request)
         {
-            return _service.Get(request); 
+            return _service.Get(request);
         }
 
         [HttpGet("{id}")]
@@ -44,9 +44,17 @@ namespace Rent_A_Car.WebAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public Model.Klijent Update(int id, KlijentInsertRequest request)
+        public Model.Klijent Update(int id, KlijentUpdateRequest request)
         {
             return _service.Update(id, request);
         }
+
+        [AllowAnonymous]
+        [HttpPost("Registracija")]
+        public Model.Klijent Registracija(KlijentInsertRequest request)
+        {
+            return _service.Registracija(request);
+        }
+
     }
 }

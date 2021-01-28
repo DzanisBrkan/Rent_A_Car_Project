@@ -3,6 +3,7 @@ using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -66,11 +67,30 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 var list = await _vozilaService.Get<IEnumerable<Vozilo>>(search);
                 //Promiojenjeno VoziloServices
 
+                int brojac = 0;
                 VozilaList.Clear();
                 foreach (var vozilo in list)
                 {
-                    VozilaList.Add(vozilo);
+                    if (list.ElementAt(brojac).Zauzeto != true)
+                    {
+                        VozilaList.Add(vozilo);
+
+                    }
+                    brojac++;
+
                 }
+
+               
+
+
+                //for (int i = 0; i < VozilaList.Count; i++)
+                //{
+                //    if (VozilaList[i].VoziloID != 0)
+                //    {
+                //        APIService.UserVoziloID = VozilaList[i].VoziloID;
+
+                //    }
+                //}
 
             }
             else

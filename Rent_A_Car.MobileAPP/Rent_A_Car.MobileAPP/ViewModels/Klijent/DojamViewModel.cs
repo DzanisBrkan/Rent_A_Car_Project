@@ -14,6 +14,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     public class DojamViewModel : BaseViewModel
     {
         private readonly APIService _komentariIOcijeneService = new APIService("Ocjena");
+        private readonly APIService _rezervacijaService = new APIService("Rezervacija");
+
 
         public DojamViewModel()
         {
@@ -22,23 +24,23 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
-        //string _komentar = string.Empty;
-        //public string Komentar
-        //{
-        //    get { return _komentar; }
-        //    set { SetProperty(ref _komentar, value); }
-        //}
+        string _Komentar = string.Empty;
+        public string Komentarr
+        {
+            get { return _Komentar; }
+            set { SetProperty(ref _Komentar, value); }
+        }
 
 
-        //string _ocijena = string.Empty;
-        //public string Ocijena
-        //{
-        //    get { return _ocijena; }
-        //    set { SetProperty(ref _ocijena, value); }
-        //}
+        int _Ocjena = 0;
+        public int Ocjenaa
+        {
+            get { return _Ocjena; }
+            set { SetProperty(ref _Ocjena, value); }
+        }
 
-        public string _Komentar { get; set; } = null;
-        public string _Ocjena { get; set; } = null;
+        //public string _Komentar { get; set; } = null;
+        //public string _Ocjena { get; set; } = null;
 
 
         public ObservableCollection<Ocjena> OcijeneList { get; set; } = new ObservableCollection<Ocjena>();
@@ -67,7 +69,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
 
 
-                if (string.IsNullOrWhiteSpace(_Komentar))
+                if (string.IsNullOrWhiteSpace(Komentarr))
                 {
                     await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti komentar", "Ok");
                     return;
@@ -75,7 +77,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
                 }
 
-                if (string.IsNullOrWhiteSpace(_Ocjena))
+                if (Ocjenaa < 0)
                 {
                     await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
                     return;
@@ -87,10 +89,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
 
 
-                var request = new OcijenaInsertRequest()
+                var request = new OcjenaUpsertRequest()
                 {
-                    Ocjena = _Ocjena,
-                    Komentar = _Komentar
+                    Ocjena1 = Ocjenaa,
+                    Komentar = Komentarr,
+                    RezervacijaId = 3
 
                 };
 
@@ -98,20 +101,18 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 var modelDojam = _komentariIOcijeneService.Insert<Model.Ocjena>(request);
 
 
-                if (modelDojam != null)
-                {
-                    if (modelDojam.Status.ToString() != "Faulted")
-                    {
+                
+                    
                         await Application.Current.MainPage.DisplayAlert("Notifikacija", "Uspješno ste ostavili dojam.", "Ok");
-                        await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
-                    }
-                    //await Application.Current.MainPage.DisplayAlert("Error.", "Doslo je do greske.", "Ok");
-                }
+                        //await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                   
+               
 
 
             }
             catch (Exception ex)
             {
+                await Application.Current.MainPage.DisplayAlert("Error", "Doslo je do greske!.", "Ok");
 
                 throw;
             }

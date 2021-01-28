@@ -73,9 +73,20 @@
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
                         <Label Text="Datum rodjenja" FontAttributes="Bold"/>
-                        <Entry x:Name="DatumRodjenja" Text="{Binding DatumRodjenja}" Placeholder="" IsPassword="True"/>
+                        <Entry x:Name="DatumRodjenja" Text="{Binding DatumRodjenja}" Placeholder="" />
                     </StackLayout>
-
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Grad" FontAttributes="Bold"/>
+                        <Entry x:Name="Grad" Text="{Binding Grad}" Placeholder="" />
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Password" FontAttributes="Bold"/>
+                        <Entry x:Name="Password" Text="" Placeholder="" IsPassword="True"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Potvrda password-a" FontAttributes="Bold"/>
+                        <Entry x:Name="PasswordConfirmation" Text="" Placeholder="" IsPassword="True"/>
+                    </StackLayout>
 
 
                     <Button Margin="15" WidthRequest="50" HeightRequest="35" BackgroundColor="LimeGreen" TextColor="White" Text="Spasi promjene" Command="{Binding SaveChangesCommand}"/>

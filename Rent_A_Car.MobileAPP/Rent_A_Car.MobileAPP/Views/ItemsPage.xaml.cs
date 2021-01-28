@@ -18,33 +18,46 @@ namespace Rent_A_Car.MobileAPP.Views
     [DesignTimeVisible(false)]
     public partial class ItemsPage : ContentPage
     {
-        ItemsViewModel viewModel;
+        //ItemsViewModel viewModel;
+        private SearchVozilaViewModel model = null;
 
         public ItemsPage()
         {
             InitializeComponent();
 
-            BindingContext = viewModel = new ItemsViewModel();
+            BindingContext = model = new SearchVozilaViewModel();
+            //BindingContext = viewModel = new ItemsViewModel();
         }
 
-        async void OnItemSelected(object sender, EventArgs args)
-        {
-            var layout = (BindableObject)sender;
-            var item = (Item)layout.BindingContext;
-            await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
-        }
+        //async void OnItemSelected(object sender, EventArgs args)
+        //{
+        //    var layout = (BindableObject)sender;
+        //    var item = (Item)layout.BindingContext;
+        //    await Navigation.PushAsync(new ItemDetailPage(new ItemDetailViewModel(item)));
+        //}
+        //async void AddItem_Clicked(object sender, EventArgs e)
+        //{
+        //    await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
+        //}
+        //protected override void OnAppearing()
+        //{
+        //    base.OnAppearing();
 
-        async void AddItem_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NavigationPage(new NewItemPage()));
-        }
+        //    if (viewModel.Items.Count == 0)
+        //        viewModel.IsBusy = true;
+        //}
 
-        protected override void OnAppearing()
+
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
-
-            if (viewModel.Items.Count == 0)
-                viewModel.IsBusy = true;
+            await model.Init();
         }
+
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
     }
 }

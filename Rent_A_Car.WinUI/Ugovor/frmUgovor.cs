@@ -28,7 +28,7 @@ namespace Rent_A_Car.WinUI.Ugovor
         {
             var search = new UgovorSearchRequest()
             {
-                UkupnaCijena = txtPretraga.Text
+                CijenaAutomobila = txtPretraga.Text
             };
             var result = await _apiService.Get<List<Model.Ugovor>>(search);
 

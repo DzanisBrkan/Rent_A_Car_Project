@@ -25,10 +25,10 @@
 
 
             <Label Text="Komentar:" />
-            <Entry Placeholder="Odlicno" Text="{Binding _Komentar}" ></Entry>
+            <Entry Placeholder="Odlicno" Text="{Binding Komentarr}" ></Entry>
 
             <Label Text="Ocjena:" />
-            <Entry Placeholder="5" Text="{Binding _Ocjena}" ></Entry>
+            <Entry Placeholder="5" Text="{Binding Ocjenaa}" ></Entry>
 
             <Button BackgroundColor="#2196F3" Command="{Binding InitCommand}" Clicked="Button_Clicked" Text="Ostavi utisak"></Button>
 

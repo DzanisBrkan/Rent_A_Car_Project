@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmOcjenaDetalji));
-            this.checkBoxPlacen = new System.Windows.Forms.CheckBox();
-            this.placenlabela = new System.Windows.Forms.Label();
             this.CijenaLable = new System.Windows.Forms.Label();
             this.txtCijena = new System.Windows.Forms.TextBox();
             this.labelModel = new System.Windows.Forms.Label();
@@ -49,34 +47,14 @@
             this.txtStatus = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // checkBoxPlacen
-            // 
-            this.checkBoxPlacen.AutoSize = true;
-            this.checkBoxPlacen.Location = new System.Drawing.Point(237, 365);
-            this.checkBoxPlacen.Name = "checkBoxPlacen";
-            this.checkBoxPlacen.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxPlacen.TabIndex = 134;
-            this.checkBoxPlacen.UseVisualStyleBackColor = true;
-            this.checkBoxPlacen.CheckedChanged += new System.EventHandler(this.checkBoxPlacen_CheckedChanged);
-            // 
-            // placenlabela
-            // 
-            this.placenlabela.AutoSize = true;
-            this.placenlabela.Location = new System.Drawing.Point(38, 365);
-            this.placenlabela.Name = "placenlabela";
-            this.placenlabela.Size = new System.Drawing.Size(40, 13);
-            this.placenlabela.TabIndex = 133;
-            this.placenlabela.Text = "Placen";
-            this.placenlabela.Click += new System.EventHandler(this.placenlabela_Click);
-            // 
             // CijenaLable
             // 
             this.CijenaLable.AutoSize = true;
-            this.CijenaLable.Location = new System.Drawing.Point(38, 288);
+            this.CijenaLable.Location = new System.Drawing.Point(30, 288);
             this.CijenaLable.Name = "CijenaLable";
-            this.CijenaLable.Size = new System.Drawing.Size(36, 13);
+            this.CijenaLable.Size = new System.Drawing.Size(90, 13);
             this.CijenaLable.TabIndex = 130;
-            this.CijenaLable.Text = "Cijena";
+            this.CijenaLable.Text = "Cijena automobila";
             // 
             // txtCijena
             // 
@@ -159,11 +137,11 @@
             // LabelDatumRacuna
             // 
             this.LabelDatumRacuna.AutoSize = true;
-            this.LabelDatumRacuna.Location = new System.Drawing.Point(38, 173);
+            this.LabelDatumRacuna.Location = new System.Drawing.Point(30, 173);
             this.LabelDatumRacuna.Name = "LabelDatumRacuna";
-            this.LabelDatumRacuna.Size = new System.Drawing.Size(74, 13);
+            this.LabelDatumRacuna.Size = new System.Drawing.Size(80, 13);
             this.LabelDatumRacuna.TabIndex = 118;
-            this.LabelDatumRacuna.Text = "Datum racuna";
+            this.LabelDatumRacuna.Text = "Datum ugovora";
             // 
             // txtDatumRacuna
             // 
@@ -208,11 +186,9 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 403);
+            this.ClientSize = new System.Drawing.Size(439, 392);
             this.Controls.Add(this.labelStatus);
             this.Controls.Add(this.txtStatus);
-            this.Controls.Add(this.checkBoxPlacen);
-            this.Controls.Add(this.placenlabela);
             this.Controls.Add(this.CijenaLable);
             this.Controls.Add(this.txtCijena);
             this.Controls.Add(this.labelModel);
@@ -238,9 +214,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.CheckBox checkBoxPlacen;
-        private System.Windows.Forms.Label placenlabela;
         private System.Windows.Forms.Label CijenaLable;
         private System.Windows.Forms.TextBox txtCijena;
         private System.Windows.Forms.Label labelModel;

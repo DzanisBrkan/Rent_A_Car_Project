@@ -99,7 +99,7 @@ namespace Rent_A_Car.WebAPI.Services
 
             return _mapper.Map<Model.Klijent>(entity);
         }
-        public Model.Klijent Update(int id, KlijentInsertRequest request)
+        public Model.Klijent Update(int id, KlijentUpdateRequest request)
         {
             var entity = _context.Klijent.Find(id);
             _context.Klijent.Attach(entity);
@@ -123,5 +123,26 @@ namespace Rent_A_Car.WebAPI.Services
             return _mapper.Map<Model.Klijent>(entity);
         }
 
+        public Model.Klijent Registracija(KlijentInsertRequest request)
+        {
+            var entity = _mapper.Map<Database.Klijent>(request);
+
+            if (request.Password != request.PasswordConfirmation)
+            {
+                throw new UserException("Passwordi se ne slažu!");
+            }
+            var zaposlenkUsername = _context.Zaposlenik.FirstOrDefault(x => x.KorisnickoIme == request.KorisnickoIme);
+            if(zaposlenkUsername != null)
+            {
+                throw new UserException("Username se već koristi!");
+            }
+            entity.LozinkaSalt = GenerateSalt();
+            entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
+
+            _context.Klijent.Add(entity);
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Klijent>(entity);
+        }
     }
 }

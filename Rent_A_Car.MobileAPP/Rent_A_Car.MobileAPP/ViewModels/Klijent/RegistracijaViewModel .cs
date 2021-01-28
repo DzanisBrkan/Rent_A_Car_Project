@@ -164,11 +164,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                     return;
                 }
 
-                //if (!Regex.IsMatch(_Prezime, @"([a-z]+)([\\.]?)([a-z]*)([@])(yahoo|outlook|gmail|hotmail|fit|edu.fit)(.ba|.com|.org)"))
-                //{
-                //    await Application.Current.MainPage.DisplayAlert("Greška", "Email mora biti u formatu: nešto@(gmail,hotmail,fit,edu.fit,outlook,yahoo).(ba,com,org)", "Ok");
-                //    return;
-                //}
+                if(!Regex.IsMatch(_Email, @"([a-z]+)([\\.]?)([a-z]*)([@])(yahoo|outlook|gmail|hotmail|fit|edu.fit)(.ba|.com|.org)"))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Email mora biti u formatu: nešto@(gmail,hotmail,fit,edu.fit,outlook,yahoo).(ba,com,org)", "Ok");
+                    return;
+                }
 
                 //PhoneNumber
                 if (string.IsNullOrWhiteSpace(_BrojTelefona))
@@ -202,7 +202,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 }
 
 
+                if (string.IsNullOrWhiteSpace(_DatumRodjenja))
+                {
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Izaberite datum!", "Ok");
+                    return;
+                }
 
+                
 
 
                 var request = new KlijentInsertRequest()
@@ -220,18 +226,19 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 };
 
 
-                var modelUser = _serviceKlijenti.PostActionResponse<Model.Klijent>("Registracija", request);
+                var modelUser = await _serviceKlijenti.PostActionResponse<Model.Klijent>("Registracija", request);
+
+
 
 
 
 
                 if (modelUser != null)
                 {
-                    if (modelUser.Status.ToString() != "Faulted")
-                    {
-                        await Application.Current.MainPage.DisplayAlert("Uspješno ste napravili profil.", "Sada se prijavite.", "Ok");
-                        await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
-                    }
+                 
+                    await Application.Current.MainPage.DisplayAlert("Uspješno ste napravili profil.", "Sada se prijavite.", "Ok");
+                    await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+                    
                     //await Application.Current.MainPage.DisplayAlert("Error.", "Doslo je do greske.", "Ok");
                 }
 

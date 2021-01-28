@@ -8,11 +8,14 @@ namespace Rent_A_Car.Model.Requests
     public class RezervacijaUpsertRequest
     {
         [Required(AllowEmptyStrings = false)]
-        public string VrijemePocetka { get; set; }
-        public string VrijemeRezervacije { get; set; }
-        public string Kolicina { get; set; }
+        //public string VrijemePocetka { get; set; }
+        //public string VrijemeRezervacije { get; set; }
+        //public string Kolicina { get; set; }
+
+        public string KrajRezervacije { get; set; }
+
         public string Status { get; set; }
-        public string Cijena { get; set; }
+        public string UkupnaCijena { get; set; }
 
         public int? LokacijaId { get; set; }
         public int? OsiguranjeId { get; set; }

@@ -32,12 +32,10 @@
             this.Ugovor = new System.Windows.Forms.Label();
             this.Datum = new System.Windows.Forms.Label();
             this.txtDatum = new System.Windows.Forms.TextBox();
-            this.Placen = new System.Windows.Forms.Label();
             this.UkupnaKolicina = new System.Windows.Forms.Label();
             this.txtUkupnaKolicina = new System.Windows.Forms.TextBox();
             this.UkupnaCijena = new System.Windows.Forms.Label();
             this.txtUkupnaCijena = new System.Windows.Forms.TextBox();
-            this.cbPlacen = new System.Windows.Forms.CheckBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -66,15 +64,6 @@
             this.txtDatum.Name = "txtDatum";
             this.txtDatum.Size = new System.Drawing.Size(265, 20);
             this.txtDatum.TabIndex = 93;
-            // 
-            // Placen
-            // 
-            this.Placen.AutoSize = true;
-            this.Placen.Location = new System.Drawing.Point(38, 223);
-            this.Placen.Name = "Placen";
-            this.Placen.Size = new System.Drawing.Size(40, 13);
-            this.Placen.TabIndex = 90;
-            this.Placen.Text = "Placen";
             // 
             // UkupnaKolicina
             // 
@@ -108,15 +97,6 @@
             this.txtUkupnaCijena.Size = new System.Drawing.Size(265, 20);
             this.txtUkupnaCijena.TabIndex = 85;
             // 
-            // cbPlacen
-            // 
-            this.cbPlacen.AutoSize = true;
-            this.cbPlacen.Location = new System.Drawing.Point(244, 223);
-            this.cbPlacen.Name = "cbPlacen";
-            this.cbPlacen.Size = new System.Drawing.Size(15, 14);
-            this.cbPlacen.TabIndex = 106;
-            this.cbPlacen.UseVisualStyleBackColor = true;
-            // 
             // btnExit
             // 
             this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -134,13 +114,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 278);
+            this.ClientSize = new System.Drawing.Size(469, 256);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.cbPlacen);
             this.Controls.Add(this.Ugovor);
             this.Controls.Add(this.Datum);
             this.Controls.Add(this.txtDatum);
-            this.Controls.Add(this.Placen);
             this.Controls.Add(this.UkupnaKolicina);
             this.Controls.Add(this.txtUkupnaKolicina);
             this.Controls.Add(this.UkupnaCijena);
@@ -159,12 +137,10 @@
         private System.Windows.Forms.Label Ugovor;
         private System.Windows.Forms.Label Datum;
         private System.Windows.Forms.TextBox txtDatum;
-        private System.Windows.Forms.Label Placen;
         private System.Windows.Forms.Label UkupnaKolicina;
         private System.Windows.Forms.TextBox txtUkupnaKolicina;
         private System.Windows.Forms.Label UkupnaCijena;
         private System.Windows.Forms.TextBox txtUkupnaCijena;
-        private System.Windows.Forms.CheckBox cbPlacen;
         private System.Windows.Forms.Button btnExit;
     }
 }

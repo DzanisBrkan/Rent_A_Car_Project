@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Rent_A_Car.Model.Requests;
 using Rent_A_Car.Model;
+using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
@@ -14,10 +15,17 @@ namespace Rent_A_Car.WebAPI.Controllers
     public class RezervacijaController 
         : BaseCRUDController<Rezervacija, RezervacijaSearchRequest, RezervacijaUpsertRequest, RezervacijaUpsertRequest>
     {
-        public RezervacijaController(Services.ICRUDService<Rezervacija, RezervacijaSearchRequest, RezervacijaUpsertRequest, RezervacijaUpsertRequest> service) : base(service)
+        private readonly IRezervacijaServicecs _service;
+        public RezervacijaController(Services.ICRUDService<Rezervacija, RezervacijaSearchRequest, RezervacijaUpsertRequest, RezervacijaUpsertRequest> service, IRezervacijaServicecs rez_service) : base(service)
         {
-
-
+            _service = rez_service;
         }
+
+        [HttpGet("GetRezByUserID/{id}")]
+        public Model.Rezervacija GetRezervacijaByUserID(int id)
+        {
+            return _service.GetRezervacijaByUserID(id);
+        }
+
     }
 }

@@ -13,6 +13,12 @@ namespace Rent_A_Car.WebAPI.Mappers
         {
             CreateMap<Database.Klijent, Model.Klijent>();
             CreateMap<Database.Klijent, KlijentInsertRequest>().ReverseMap();
+            CreateMap<Database.Klijent, KlijentUpdateRequest>().ReverseMap();
+            CreateMap<Database.Ocjena, OcjenaUpsertRequest>().ReverseMap();
+
+
+            CreateMap<Database.Rezervacija, RezervacijaUpsertRequest>().ReverseMap();
+            CreateMap<Database.Racun, UgovorUpsertRequest>().ReverseMap();
 
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
             CreateMap<Database.Zaposlenik, ZaposlenikInsertRequest>().ReverseMap();

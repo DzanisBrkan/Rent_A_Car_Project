@@ -74,6 +74,30 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
+        int? _Grad = 0;
+        public int? Grad
+        {
+            get { return _Grad; }
+            set { SetProperty(ref _Grad, value); }
+        }
+
+
+        string _Password = string.Empty;
+        public string Password
+        {
+            get { return _Password; }
+            set { SetProperty(ref _Password, value); }
+        }
+
+
+
+        string _PasswordConfirmation = string.Empty;
+        public string PasswordConfirmation
+        {
+            get { return _PasswordConfirmation; }
+            set { SetProperty(ref _PasswordConfirmation, value); }
+        }
+
 
         string _Username = string.Empty;
         public string Username
@@ -119,6 +143,10 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             Email = KlijentModel.Email;
             Adresa = KlijentModel.Adresa;
             DatumRodjenja = KlijentModel.DatumRodjenja;
+            Grad = KlijentModel.GradId;
+            Username = KlijentModel.KorisnickoIme;
+            //Password = KlijentModel.;
+            //PasswordConfirmation = KlijentModel.;
         }
 
 
@@ -229,6 +257,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 Email = Email,
                 BrojTel = BrojTel,
                 KorisnickoIme = Username,
+                //Password = Username,
+                //PasswordConfirmation = Username,
                 //CityID = CityModel.CityID,
                 //CarBrandID = CarModel.CarBrandID,
                 //CarModelID = CarModel.CarModelID,

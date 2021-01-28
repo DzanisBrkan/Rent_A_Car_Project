@@ -278,7 +278,7 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.RacunId).HasColumnName("RacunID");
 
-                entity.Property(e => e.Datum).HasColumnType("datetime");
+                entity.Property(e => e.DatumUgovora).HasColumnType("datetime");
 
                 entity.Property(e => e.NacinPlacanjaId).HasColumnName("NacinPlacanjaID");
 
@@ -308,9 +308,9 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.VoziloId).HasColumnName("VoziloID");
 
-                entity.Property(e => e.VrijemePocetak).HasMaxLength(55);
+                entity.Property(e => e.KrajRezervacije).HasMaxLength(55);
 
-                entity.Property(e => e.VrijemeRezervacije).HasMaxLength(55);
+                entity.Property(e => e.UkupnaCijena).HasMaxLength(55);
 
                 entity.HasOne(d => d.Klijent)
                     .WithMany(p => p.Rezervacijas)

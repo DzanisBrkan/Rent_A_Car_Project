@@ -47,20 +47,12 @@ namespace Rent_A_Car.WinUI.OcijenaIKomentar
 
                     txtOcjena.Text = ocjena.Ocjena1.ToString();
                     txtKomentar.Text = ocjena.Komentar;
-                    txtDatumRacuna.Text = Racun.Datum.ToString();
+                    txtDatumRacuna.Text = Racun.DatumUgovora.ToString();
                     txtModel.Text = vozilo.Model;
                     txtMarkaa.Text = vozilo.Marka.ToString();
-                    txtCijena.Text = rezervacija.Cijena.ToString();
+                    txtCijena.Text = rezervacija.UkupnaCijena.ToString();
                     txtStatus.Text = rezervacija.Status;
-                    if (Racun.Placen == 1)
-                    {
-                        checkBoxPlacen.Checked = true;
-                    }
-                    else
-                    {
-                        checkBoxPlacen.Checked = false;
-
-                    }
+                  
                 }
             }
             catch (Exception ex)

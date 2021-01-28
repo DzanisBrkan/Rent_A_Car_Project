@@ -17,6 +17,8 @@ namespace Rent_A_Car.MobileAPP
 
         public static int UserID { get; set; }
         public static int UserRacunID { get; set; }
+        public static int UserVoziloID { get; set; }
+        public static int CijenaVozila { get; set; }
 
         public static Model.Klijent LogovaniKlijent { get; set; }
 
@@ -71,6 +73,8 @@ namespace Rent_A_Car.MobileAPP
         }
 
 
+
+
         public async Task<T> GetActionResponse<T>(string action, object search = null)
         {
             var url = $"{_apiUrl}/{_route}/{action}";
@@ -89,16 +93,18 @@ namespace Rent_A_Car.MobileAPP
         {
             var url = $"{_apiUrl}/{_route}/{action}";
 
-            //return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
-
             try
             {
+                if (Username == null && Password == null)
+                {
+                    return await url.PostJsonAsync(request).ReceiveJson<T>();
+                }
                 return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
             }
             catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
-
+                //var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, object>>();
                 var stringBuilder = new StringBuilder();
 
                 foreach (var error in errors)
@@ -124,7 +130,7 @@ namespace Rent_A_Car.MobileAPP
             }
             catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, object>>();
 
                 var stringBuilder = new StringBuilder();
 
@@ -152,7 +158,7 @@ namespace Rent_A_Car.MobileAPP
             }
             catch (FlurlHttpException ex)
             {
-                var errors = await ex.GetResponseJsonAsync<Dictionary<string, string[]>>();
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, object>>();
 
                 var stringBuilder = new StringBuilder();
                 foreach (var error in errors)

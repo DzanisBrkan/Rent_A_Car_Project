@@ -58,7 +58,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                     _PronadjenaRezervacijaService.Add(RezervacijeList[i]);
                 }
             }
-            APIService.UserRacunID = _PronadjenaRezervacijaService.First().RacunId;
+            //radi ovog puca
+            //APIService.UserRacunID = _PronadjenaRezervacijaService.First().RacunId;
 
 
         }

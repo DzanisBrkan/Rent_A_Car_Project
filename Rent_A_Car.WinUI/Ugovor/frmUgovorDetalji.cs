@@ -31,17 +31,10 @@ namespace Rent_A_Car.WinUI.Ugovor
             {
                 var ugovor = await _services.GetById<Model.Ugovor>(_id);
 
-                txtDatum.Text = ugovor.Datum;
-                txtUkupnaCijena.Text = ugovor.UkupnaCijena;
+                txtDatum.Text = ugovor.DatumUgovora;
+                txtUkupnaCijena.Text = ugovor.CijenaAutomobila;
                 txtUkupnaKolicina.Text = ugovor.UkupnaKolicina.ToString();
-                if (ugovor.Placen == 1)
-                {
-                    cbPlacen.Checked = true;
-                }
-                else
-                {
-                    cbPlacen.Checked = false;
-                }
+               
             }
         }
     }

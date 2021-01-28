@@ -57,9 +57,9 @@ namespace Rent_A_Car.MobileAPP.Views
                         MenuPages.Add(id, new NavigationPage(new OcijenivanjeIKomentarisanje()));
                         break;
 
-                    case (int)MenuItemType.OcijeniIKomentarisi:
-                        MenuPages.Add(id, new NavigationPage(new DojamPage()));
-                        break;
+                    //case (int)MenuItemType.OcijeniIKomentarisi:
+                    //    MenuPages.Add(id, new NavigationPage(new DojamPage()));
+                    //    break;
 
                     case (int)MenuItemType.MojeRezervacije:
                         MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));

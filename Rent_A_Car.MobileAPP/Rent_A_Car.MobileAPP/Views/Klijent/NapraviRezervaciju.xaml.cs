@@ -23,20 +23,31 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
         protected async override void OnAppearing()
         {
             base.OnAppearing();
+            await VM.Init();
+
 
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NapraviteUgovor());
+            //await Navigation.PushModalAsync(new NapraviteUgovor());
+            Application.Current.MainPage = new NapraviteUgovor();
+
 
         }
 
         private async void Button_Clicked_1(object sender, EventArgs e)
         {
-            await VM.Init();
-            await Navigation.PushModalAsync(new MainPage());
+            await VM.SaveChanges();
+            //await Navigation.PushModalAsync(new MainPage()); // poslije ove await pukne app
+            Application.Current.MainPage = new MainPage();
+
         }
 
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+            //Application.Current.MainPage = new StripePaymentGatwayPage();
+
+        }
     }
 }

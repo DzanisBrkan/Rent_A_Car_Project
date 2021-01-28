@@ -25,27 +25,22 @@
                                 <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
 
 
-                                <Label Text="Vrijeme pocetka rezervacije:" />
-                                <Entry Text="{Binding VrijemePocetka}"></Entry>
+                                <Label Text="Odaberite Kraj rezervacije:" />
+                                <Entry Text="{Binding KrajRezervacije}"></Entry>
 
-                                <Label Text="Vrijeme kreiranja rezervacije:" />
-                                <Entry Text="{Binding VrijemeRezervacije}"></Entry>
+                                <Label Text="Ukupna Cijena rezervacije iznosi:" />
+                                <Entry Text="{Binding UkupnaCijena}"></Entry>
 
-                                <Label Text="Kolicina:" />
-                                <Entry Text="{Binding Kolicina}"></Entry>
 
-                                <Label Text="Status:" />
+                                <Label Text="Unesite status:" />
                                 <Entry Text="{Binding Status}"></Entry>
 
-                                <Label Text="Cijena:" />
-                                <Entry Text="{Binding Cijena}"></Entry>
 
-
-                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak"></Button>
 
 
                                 <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Pogledajte racun"></Button>
 
+                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak" Clicked="Button_Clicked_1"></Button>
 
 
                             </StackLayout>

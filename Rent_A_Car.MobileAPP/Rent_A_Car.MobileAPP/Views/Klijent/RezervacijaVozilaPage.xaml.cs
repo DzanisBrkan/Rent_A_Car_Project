@@ -30,5 +30,11 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
         {
             await Navigation.PushAsync(new UgovorPage());
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new DojamPage();
+
+        }
     }
 }

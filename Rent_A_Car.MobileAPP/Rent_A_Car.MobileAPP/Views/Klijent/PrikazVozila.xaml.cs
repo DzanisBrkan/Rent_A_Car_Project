@@ -1,4 +1,5 @@
 ﻿using Rent_A_Car.MobileAPP.ViewModels.Klijent;
+using Rent_A_Car.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,9 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushAsync(new NapraviteUgovor()); // kada vise puta udjem, app pukne 
+            //APIService.UserVoziloID;
+            /* APIService.UserVoziloID =((Vozilo)e.SelectedItem).VoziloID;*/
+            await Navigation.PushAsync(new NapraviteUgovor(((Vozilo)e.SelectedItem).VoziloID, ((Vozilo)e.SelectedItem).CijenaPoSatu)); // kada vise puta udjem, app pukne 
             //Application.Current.MainPage = new NapraviteUgovor();
         }
 

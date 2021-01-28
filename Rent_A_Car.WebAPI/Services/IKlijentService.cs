@@ -15,7 +15,10 @@ namespace Rent_A_Car.WebAPI.Services
 
         Model.Klijent Insert(KlijentInsertRequest request);
 
-        Model.Klijent Update(int id, KlijentInsertRequest request);
+        Model.Klijent Registracija(KlijentInsertRequest request);
+
+
+        Model.Klijent Update(int id, KlijentUpdateRequest request);
 
         Model.Klijent Authenticiraj(string username, string pass);
 
