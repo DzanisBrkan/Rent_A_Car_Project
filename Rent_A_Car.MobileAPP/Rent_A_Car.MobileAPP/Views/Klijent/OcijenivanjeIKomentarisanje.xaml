@@ -12,7 +12,7 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        
+
         <StackLayout Padding="35"
                      VerticalOptions="CenterAndExpand"
                      HorizontalOptions="FillAndExpand">
@@ -39,17 +39,13 @@
 
                                     <Label Text="Ocijena:" />
                                     <Entry Text="{Binding Ocjena1}"></Entry>
-                                 
+
 
 
                                     <!--<Label Text="Status Rezervacije:" />
                                     <Entry Text="{Binding Status}"></Entry>
-
-
                                     <Label Text="Cijena:" />
                                     <Entry Text="{Binding Cijena}"></Entry>
-
-
                                     <Label Text="Vrijeme rezervacije:" />
                                     <Entry Text="{Binding VrijemeRezervacije}"></Entry>-->
 

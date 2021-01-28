@@ -31,7 +31,7 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             await Navigation.PushModalAsync(new MainPage());
         }
 
-    
+
 
     }
 }

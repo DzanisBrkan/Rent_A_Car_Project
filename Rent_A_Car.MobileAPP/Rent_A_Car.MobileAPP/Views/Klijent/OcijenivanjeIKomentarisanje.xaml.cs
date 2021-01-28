@@ -8,19 +8,17 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Rent_A_Car.MobileAPP.Views
+namespace Rent_A_Car.MobileAPP.Views.Klijent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class OcijenivanjeIKomentarisanje : ContentPage
     {
         OcijenivanjeIKomentarisanjeViewModel model = null;
-
         public OcijenivanjeIKomentarisanje()
         {
             InitializeComponent();
             BindingContext = model = new OcijenivanjeIKomentarisanjeViewModel();
         }
-
 
         protected async override void OnAppearing()
         {
