@@ -38,7 +38,7 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Ocjena, Model.Ocjena>();
             CreateMap<Database.Rezervacija, Model.Rezervacija>();
             CreateMap<Database.Racun, Model.Ugovor>();
-            //proba
+            //proba dva
 
         }
     }
