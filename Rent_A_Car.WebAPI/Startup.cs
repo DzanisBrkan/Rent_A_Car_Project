@@ -79,7 +79,9 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IRezervacijaServicecs, RezervacijaServices>();
             services.AddScoped<ICRUDService<Model.Rezervacija, RezervacijaSearchRequest, RezervacijaUpsertRequest, RezervacijaUpsertRequest>,RezervacijaServices>();
 
+            //services.AddScoped<IVoziloService, VoziloService>();
             services.AddScoped<ICRUDService<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>, VoziloService>();
+            
             services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaServices>();
             services.AddScoped<ICRUDService<Model.Ugovor, UgovorSearchRequest, UgovorUpsertRequest, UgovorUpsertRequest>, UgovorServices>();
             services.AddScoped<ICRUDService<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>, GradServices>();

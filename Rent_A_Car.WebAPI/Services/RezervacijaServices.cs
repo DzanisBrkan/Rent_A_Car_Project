@@ -13,12 +13,10 @@ namespace Rent_A_Car.WebAPI.Services
         : BaseCRUDService<Model.Rezervacija, RezervacijaSearchRequest, Database.Rezervacija, RezervacijaUpsertRequest, RezervacijaUpsertRequest>,
         IRezervacijaServicecs
     {
-        //private readonly Rent_A_CarContext _context;
-        //private readonly IMapper _mapper;
+
         public RezervacijaServices(Rent_A_CarContext context, IMapper mapper) : base(context, mapper)
         {
-            //this._context = context;
-            //_mapper = mapper;
+
         }
 
 

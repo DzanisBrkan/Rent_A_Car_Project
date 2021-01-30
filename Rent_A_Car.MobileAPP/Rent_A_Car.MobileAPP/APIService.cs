@@ -79,6 +79,14 @@ namespace Rent_A_Car.MobileAPP
         {
             var url = $"{_apiUrl}/{_route}/{action}";
 
+            //if (search is string)
+            //{
+            //    url += "/";
+            //    url += search;
+            //    return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+
+            //}
+
             if (search != null)
             {
                 url += "?";

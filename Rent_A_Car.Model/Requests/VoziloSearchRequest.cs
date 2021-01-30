@@ -11,5 +11,6 @@ namespace Rent_A_Car.Model.Requests
         public int? KategorijaId { get; set; }
         public int? TipId { get; set; }
         public string Model { get; set; }
+        public string Marka { get; set; }
     }
 }

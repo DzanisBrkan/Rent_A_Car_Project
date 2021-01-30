@@ -66,9 +66,15 @@
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
 
-            <Picker ItemsSource="{Binding TipList}" SelectedItem="{Binding SelectedTipVozila}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+            <SearchBar Placeholder="Search..."
+                       Text="{Binding SearchTerm}"
+                       SearchCommand="{Binding SearchTerm}"
+                       ></SearchBar>
+
+
+            <!--<Picker ItemsSource="{Binding TipList}" SelectedItem="{Binding SelectedTipVozila}" ItemDisplayBinding="{Binding Naziv}"></Picker>-->
             <!--ovdje povezujemo nasu listu sa njenim propertijima-->
-            <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected">
+            <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -98,6 +104,7 @@
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13"/>
                                 </StackLayout>
+
                                 
                             </StackLayout>
                         </ViewCell>

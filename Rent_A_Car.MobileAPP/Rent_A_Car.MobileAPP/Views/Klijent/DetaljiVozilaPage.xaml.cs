@@ -12,19 +12,30 @@ using Xamarin.Forms.Xaml;
 namespace Rent_A_Car.MobileAPP.Views.Klijent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DetaljiVozilaSlikePage : ContentPage
+    public partial class DetaljiVozilaPage : ContentPage
     {
         private DetaljiVozilaViewModel model = null;
-        public DetaljiVozilaSlikePage(Vozilo vozilo)
+
+        public DetaljiVozilaPage(Vozilo vozilo)
         {
             InitializeComponent();
             BindingContext = model = new DetaljiVozilaViewModel(vozilo);
         }
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             base.OnAppearing();
             model.Init();
+        }
+
+        //private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        //{
+        //    //await Navigation.PushAsync(new DetaljiVozilaSlikePage(null));
+        //}
+
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            await Navigation.PushAsync(new DetaljiVozilaSlikePage((Vozilo)(e.SelectedItem)));
         }
     }
 }

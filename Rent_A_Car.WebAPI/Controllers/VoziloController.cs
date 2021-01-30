@@ -13,8 +13,16 @@ namespace Rent_A_Car.WebAPI.Controllers
     public class VoziloController
         : BaseCRUDController<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>
     {
+        //private readonly IVoziloService _service;
         public VoziloController(ICRUDService<Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest> service) : base(service)
         {
+            //_service = voziloService;
         }
+
+        //[HttpGet("Search/{search}")]
+        //public List<Model.Vozilo> Search(string search)
+        //{
+        //    return _service.Search(search);
+        //}
     }
 }
