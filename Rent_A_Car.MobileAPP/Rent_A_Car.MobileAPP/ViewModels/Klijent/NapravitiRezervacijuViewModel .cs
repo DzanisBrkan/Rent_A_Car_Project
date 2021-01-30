@@ -94,12 +94,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         //    set { SetProperty(ref _PopustId, value); }
         //}
 
-        //string _RacunID = string.Empty;
-        //public string RacunID
-        //{
-        //    get { return _RacunID; }
-        //    set { SetProperty(ref _RacunID, value); }
-        //}
+        string _RacunID = string.Empty;
+        public string RacunID
+        {
+            get { return _RacunID; }
+            set { SetProperty(ref _RacunID, value); }
+        }
 
         //public string _KrajRezervacije { get; set; } = null;
 
@@ -114,6 +114,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
 
         public ObservableCollection<Rezervacija> RezervacijeList { get; set; } = new ObservableCollection<Rezervacija>();
+
+        public ObservableCollection<Ugovor> UgovorList { get; set; } = new ObservableCollection<Ugovor>();
+        public ObservableCollection<Ugovor> UgovorList2 { get; set; } = new ObservableCollection<Ugovor>();
+
+
 
         public ICommand SaveChangesCommand { get; set; }
 
@@ -148,6 +153,25 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             //PopustId = RezervacijeList.First().PopustId.ToString();
             //RacunID = RezervacijeList.First().RacunId.ToString();
 
+            var RezervacijaModel = await _rezervacijeService.GetById<Model.Rezervacija>(APIService.UserID);
+
+            var ListaUgovora= await _UgovorService.GetById<IEnumerable<Ugovor>>(null);
+
+            UgovorList.Clear();
+            foreach (var rezervacije in ListaUgovora)
+            {
+                UgovorList.Add(rezervacije);
+            }
+
+            for (int i = 0; i < UgovorList.Count; i++)
+            {
+                if (UgovorList[i].RacunID == RezervacijaModel.RacunId)
+                {
+                    UgovorList2[i] = UgovorList[i];
+                }
+            }
+
+            RacunID = UgovorList2.Last().RacunID.ToString();
             KrajRezervacije = _KrajRezervacije;
             Status = _Status;
             UkupnaCijena = _UkupnaCijena;

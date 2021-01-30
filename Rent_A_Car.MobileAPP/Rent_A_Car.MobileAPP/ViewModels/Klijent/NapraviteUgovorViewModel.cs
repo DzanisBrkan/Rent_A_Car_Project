@@ -42,8 +42,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
-        string _CijenaAutomobila = string.Empty;
-        public string CijenaAutomobila
+        double _CijenaAutomobila = 0;
+        public double CijenaAutomobila
         {
             get { return _CijenaAutomobila; }
             set { SetProperty(ref _CijenaAutomobila, value); }
@@ -62,6 +62,15 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         {
             get { return _NacinPlacanja; }
             set { SetProperty(ref _NacinPlacanja, value); }
+        }
+
+
+
+        int _VoziloId = 0;
+        public int VoziloId
+        {
+            get { return _VoziloId; }
+            set { SetProperty(ref _VoziloId, value); }
         }
 
 
@@ -89,8 +98,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         public async Task Init()
         {
-           
+                //mls da ovo ne treba  
                 var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
+                var VoziloModel = await _VozilaService.GetById<Model.Vozilo>(VoziloID);
 
 
             // NAJBITNI KONTROLER IKADA NAPISAN
@@ -121,11 +131,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             //UgovorList.Clear();
             //UgovorList.Add(UgovorModel);
 
-                 DatumUgovora = DateTime.Now;
-                 CijenaAutomobila = CijenaAutomobila;
+            DatumUgovora = DateTime.Now;
+                 CijenaAutomobila = (double)VoziloCijena;
                  UkupnaKolicina = UkupnaKolicina;
                  NacinPlacanja = NacinPlacanja;
-
+                 VoziloId = (int)VoziloID;
 
         }
 
@@ -139,7 +149,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
             }
 
-            if (string.IsNullOrWhiteSpace(CijenaAutomobila))
+            if (CijenaAutomobila < 0)
             {
                 await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti cjenu", "Ok");
                 return;
@@ -167,9 +177,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             {
                 DatumUgovora = DateTime.Now,
                 //DatumUgovora = DatumUgovora,
-                CijenaAutomobila = CijenaAutomobila,
+                CijenaAutomobila = CijenaAutomobila.ToString(),
                 UkupnaKolicina = UkupnaKolicina,
                 NacinPlacanjaId = NacinPlacanja,
+                //NacinPlacanja
+                VoziloID = VoziloID.ToString()
+                
 
 
             };

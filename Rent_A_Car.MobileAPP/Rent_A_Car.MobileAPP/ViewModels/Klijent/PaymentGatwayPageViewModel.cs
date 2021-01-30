@@ -30,6 +30,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     {
         //#region Variable
 
+        private readonly APIService _klijentService = new APIService("Klijent");
+
+
         private CreditCardModel _creditCardModel;
         private TokenService Tokenservice;
         private Token stripeToken;
@@ -38,6 +41,14 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         private string _expMonth;
         private string _expYear;
         private string _title;
+
+        private string Ime;
+        private string Prezime;
+        private string BrojTelefona;
+        private string Email;
+        private string Adresa;
+        private string DatumRodjenja;
+
 
         //#endregion Variable
 
@@ -157,8 +168,23 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         //#region Method
 
+        public async Task GetKlijent()
+        {
+            var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
+
+            Ime = KlijentModel.Ime;
+            Prezime = KlijentModel.Prezime;
+            BrojTelefona = KlijentModel.BrojTel;
+            Email = KlijentModel.Email;
+            Adresa = KlijentModel.Adresa;
+            DatumRodjenja = KlijentModel.DatumRodjenja;
+
+        }
+
+
         private string CreateToken()
         {
+
             try
             {
                 StripeConfiguration.SetApiKey(StripeTestApiKey);
@@ -171,13 +197,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                         ExpYear = CreditCardModel.ExpYear,
                         ExpMonth = CreditCardModel.ExpMonth,
                         Cvc = CreditCardModel.Cvc,
-                        Name = "Sonu Sharma",
-                        AddressLine1 = "18",
-                        AddressLine2 = "SpringBoard",
-                        AddressCity = "Gurgoan",
+                        Name = Ime + " " + Prezime,
+                        AddressLine1 = Email,
+                        AddressLine2 = BrojTelefona,
+                        AddressCity = Adresa,
                         AddressZip = "284005",
-                        AddressState = "Haryana",
-                        AddressCountry = "India",
+                        AddressState = "BiH",
+                        AddressCountry = "Bosna i Hercegovina",
                         Currency = "inr",
                     }
                 };

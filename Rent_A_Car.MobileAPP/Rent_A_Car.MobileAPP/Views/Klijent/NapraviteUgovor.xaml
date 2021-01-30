@@ -17,7 +17,7 @@
 
             <!--ovdje treba da se upise cijena autmobila iz vozila-->
             <Label Text="Cijena automobila:"></Label>
-            <Entry Text="{Binding CijenaAutomobila}" ></Entry>
+            <Entry Text="{Binding CijenaAutomobila}" IsReadOnly="True"></Entry>
 
             <Label Text="Ukupna kolicina:"></Label>
             <Entry Text="{Binding UkupnaKolicina}"></Entry>
@@ -32,7 +32,7 @@
             <!--<Button BackgroundColor="Red" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Ponisti"></Button>-->
 
 
-            <Button BackgroundColor="Red" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Plati online" Clicked="Button_Clicked_2" ></Button>
+            <Button BackgroundColor="#2196F3" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Plati online" Clicked="Button_Clicked_2" ></Button>
 
 
         </StackLayout>

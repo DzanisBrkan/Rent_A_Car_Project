@@ -36,5 +36,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             Application.Current.MainPage = new DojamPage();
 
         }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+
+        }
     }
 }
