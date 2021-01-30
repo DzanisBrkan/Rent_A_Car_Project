@@ -30,8 +30,9 @@
             <Label Text="Ocjena:" />
             <Entry Placeholder="5" Text="{Binding Ocjenaa}" ></Entry>
 
-            <Button BackgroundColor="#2196F3" Command="{Binding InitCommand}" Clicked="Button_Clicked" Text="Ostavi utisak"></Button>
+            <Button BackgroundColor="Red" Command="{Binding InitCommand}" Clicked="Button_Clicked" Text="Ostavi utisak"></Button>
 
+            <Button BackgroundColor="#2196F3" Clicked="Button_Clicked_1" Text="Vrati se na Pocetnu"></Button>
 
         </StackLayout>
     </ContentPage.Content>

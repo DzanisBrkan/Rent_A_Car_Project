@@ -23,13 +23,14 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
 
         
 
-        protected override void OnAppearing()
+        protected async override void OnAppearing()
         {
             Submit_Button.IsEnabled = false;
             ErrorLabel_CardNumber.IsVisible = false;
             ErrorLabel_Cvv.IsVisible = false;
             ErrorLabel_Month.IsVisible = false;
             ErrorLabel_Year.IsVisible = false;
+            await model.GetKlijent();
         }
         private void CardNumber_TextChanged(object sender, TextChangedEventArgs e)
         {
@@ -165,6 +166,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             return text;
         }
 
- 
+        private void Home_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MainPage();
+
+        }
     }
 }

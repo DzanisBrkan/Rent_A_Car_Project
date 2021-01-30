@@ -1,4 +1,5 @@
 ﻿using Rent_A_Car.MobileAPP.ViewModels.Klijent;
+using Rent_A_Car.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;

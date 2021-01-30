@@ -28,6 +28,10 @@
                                 <Label Text="Odaberite Kraj rezervacije:" />
                                 <Entry Text="{Binding KrajRezervacije}"></Entry>
 
+                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Izmjeni Termin rezervacije" Clicked="Button_Clicked_2"></Button>
+
+
+
                                 <Label Text="Ukupna Cijena rezervacije iznosi:" />
                                 <Entry Text="{Binding UkupnaCijena}"></Entry>
 
@@ -39,6 +43,8 @@
 
 
                                 <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Pogledajte racun"></Button>
+
+
 
                                 <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak" Clicked="Button_Clicked_1"></Button>
 

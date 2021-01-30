@@ -12,6 +12,7 @@ namespace Rent_A_Car.Model.Requests
         public string CijenaAutomobila { get; set; }
         public string UkupnaKolicina { get; set; }
         public string NacinPlacanjaId { get; set; }
+        public string VoziloID { get; set; }
         //public string Placen { get; set; }
     }
 }

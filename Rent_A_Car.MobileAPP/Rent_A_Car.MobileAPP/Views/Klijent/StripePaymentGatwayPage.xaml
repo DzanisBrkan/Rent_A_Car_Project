@@ -61,7 +61,11 @@
 
             </Grid>
             <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="End" >
-                <Button x:Name="Submit_Button" BorderRadius="0"  Text="Plati" Command="{Binding SubmitCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+                <Button BackgroundColor="Red" x:Name="Submit_Button" BorderRadius="0"  Text="Plati" Command="{Binding SubmitCommand}" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+
+
+                <Button BackgroundColor="#aa0300" x:Name="Home" BorderRadius="0" Clicked="Home_Clicked"  Text="Vrati se na pocetnu stranu" HorizontalOptions="FillAndExpand" VerticalOptions="EndAndExpand"/>
+
             </StackLayout>
         </StackLayout>
     </ContentView>
