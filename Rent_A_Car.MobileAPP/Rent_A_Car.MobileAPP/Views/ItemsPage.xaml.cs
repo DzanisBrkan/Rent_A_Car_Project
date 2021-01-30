@@ -10,6 +10,8 @@ using Xamarin.Forms.Xaml;
 using Rent_A_Car.MobileAPP.Models;
 using Rent_A_Car.MobileAPP.Views;
 using Rent_A_Car.MobileAPP.ViewModels;
+using Rent_A_Car.MobileAPP.Views.Klijent;
+using Rent_A_Car.Model;
 
 namespace Rent_A_Car.MobileAPP.Views
 {
@@ -54,10 +56,9 @@ namespace Rent_A_Car.MobileAPP.Views
             await model.Init();
         }
 
-        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
+            await Navigation.PushAsync(new DetaljiVozilaPage((Vozilo)(e.SelectedItem))); // kada vise puta udjem, app pukne 
         }
-
     }
 }

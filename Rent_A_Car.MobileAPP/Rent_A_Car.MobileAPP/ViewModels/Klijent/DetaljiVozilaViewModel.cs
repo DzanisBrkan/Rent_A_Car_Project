@@ -14,10 +14,19 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         private readonly APIService _vozilaService = new APIService("Vozilo");
         private readonly APIService _tipVozilaService = new APIService("Tip");
+        private Vozilo _voziloDetalji = null;
+
 
         public DetaljiVozilaViewModel()
         {
-            InitCommand = new Command(async () => await Init());
+            _voziloDetalji = null;
+            InitCommand = new Command(() => Init());
+        }
+
+        public DetaljiVozilaViewModel(Vozilo vozilo)
+        {
+            _voziloDetalji = vozilo;
+            InitCommand = new Command(() => Init());
         }
 
         public ObservableCollection<Vozilo> VozilaList { get; set; } = new ObservableCollection<Vozilo>();
@@ -27,15 +36,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         public ICommand InitCommand { get; set; }
 
-        public async Task Init()
+        public void Init()
         {
-            var list = await _vozilaService.Get<IEnumerable<Vozilo>>(null);
 
-            VozilaList.Clear();
-            foreach (var vozilo in list)
-            {
-                VozilaList.Add(vozilo);
-            }
+           VozilaList.Clear();
+          
+           VozilaList.Add(_voziloDetalji);
+            
 
         }
 

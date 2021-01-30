@@ -49,9 +49,9 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
         {
         }
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new DetaljiVozilaSlikePage());
+             Navigation.PushAsync(new DetaljiVozilaSlikePage(null));
         }
     }
 }

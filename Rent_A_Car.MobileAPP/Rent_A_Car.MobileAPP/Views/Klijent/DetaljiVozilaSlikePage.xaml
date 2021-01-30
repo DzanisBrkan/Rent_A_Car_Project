@@ -29,11 +29,31 @@
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
 
-
+              
+                                
                                 <StackLayout >
                                     <Image Margin="0,100,0,70" HeightRequest="450" WidthRequest="600" Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}">
                                     </Image>
                                 </StackLayout>
+                                <!--<Grid >
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="50px"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="50%"></ColumnDefinition>
+                                        <ColumnDefinition Width="50%"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    
+
+                                    <Button Text="Previus" Grid.Row="0" Grid.Column="0">
+                                    </Button>
+
+                                    <Button Text="Next" Grid.Row="0" Grid.Column="1">
+                                    </Button>
+                                </Grid>-->
+
+                         
 
 
                             </StackLayout>
