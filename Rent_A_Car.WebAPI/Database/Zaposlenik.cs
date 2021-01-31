@@ -22,6 +22,5 @@ namespace Rent_A_Car.WebAPI.Database
 
         public virtual Grad Grad { get; set; }
         public virtual KorisnickiNalog KorisnickiNalog { get; set; }
-
     }
 }

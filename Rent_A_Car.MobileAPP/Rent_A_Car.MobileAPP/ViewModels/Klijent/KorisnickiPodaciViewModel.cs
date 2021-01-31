@@ -257,12 +257,10 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 Email = Email,
                 BrojTel = BrojTel,
                 KorisnickoIme = Username,
+                Adresa = Adresa,
+                GradId = Grad,
                 //Password = Username,
-                //PasswordConfirmation = Username,
-                //CityID = CityModel.CityID,
-                //CarBrandID = CarModel.CarBrandID,
-                //CarModelID = CarModel.CarModelID,
-                //RoleID = 2
+                //PasswordConfirmation = Username
             };
             //if (CityModel != null)
             //    request.CityID = CityModel.CityID;

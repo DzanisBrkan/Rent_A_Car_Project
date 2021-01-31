@@ -13,11 +13,10 @@ namespace Rent_A_Car.WebAPI.Database
         }
 
         public int RacunId { get; set; }
-        public DateTime? DatumUgovora { get; set; }
         public double? CijenaAutomobila { get; set; }
         public int? UkupnaKolicina { get; set; }
         public int? NacinPlacanjaId { get; set; }
-        //public bool Placen { get; set; }
+        public DateTime? DatumUgovora { get; set; }
 
         public virtual NacinPlacanja NacinPlacanja { get; set; }
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }

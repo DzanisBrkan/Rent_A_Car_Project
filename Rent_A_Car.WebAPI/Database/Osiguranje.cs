@@ -14,8 +14,7 @@ namespace Rent_A_Car.WebAPI.Database
 
         public int OsiguranjeId { get; set; }
         public string BrojOsiguranja { get; set; }
-        public string TipOsiguranja { get; set; }
-        public double? CijenaPoDanu { get; set; }
+        public string NazivOsiguranja { get; set; }
 
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
     }

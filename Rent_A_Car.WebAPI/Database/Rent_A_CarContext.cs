@@ -28,7 +28,7 @@ namespace Rent_A_Car.WebAPI.Database
         public virtual DbSet<Ocjena> Ocjena { get; set; }
         public virtual DbSet<Osiguranje> Osiguranje { get; set; }
         public virtual DbSet<Popust> Popust { get; set; }
-        public virtual DbSet<Racun> Racun { get; set; }
+        public virtual DbSet<Racun> Racu { get; set; }
         public virtual DbSet<Rezervacija> Rezervacija { get; set; }
         public virtual DbSet<Specifikacija> Specifikacija { get; set; }
         public virtual DbSet<Tip> Tip { get; set; }
@@ -228,11 +228,19 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.OcjenaId).HasColumnName("OcjenaID");
 
+                entity.Property(e => e.Dojam)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.Komentar).HasMaxLength(255);
 
                 entity.Property(e => e.Ocjena1).HasColumnName("Ocjena");
 
                 entity.Property(e => e.RezervacijaId).HasColumnName("RezervacijaID");
+
+                entity.Property(e => e.Zahtjev)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
 
                 entity.HasOne(d => d.Rezervacija)
                     .WithMany(p => p.Ocjenas)
@@ -250,7 +258,7 @@ namespace Rent_A_Car.WebAPI.Database
                     .HasMaxLength(220)
                     .IsUnicode(false);
 
-                entity.Property(e => e.TipOsiguranja)
+                entity.Property(e => e.NazivOsiguranja)
                     .HasMaxLength(220)
                     .IsUnicode(false);
             });
@@ -296,6 +304,10 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.KlijentId).HasColumnName("KlijentID");
 
+                entity.Property(e => e.KrajRezervacije)
+                    .HasMaxLength(55)
+                    .IsUnicode(false);
+
                 entity.Property(e => e.LokacijaId).HasColumnName("LokacijaID");
 
                 entity.Property(e => e.OsiguranjeId).HasColumnName("OsiguranjeID");
@@ -307,10 +319,6 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.Property(e => e.Status).HasMaxLength(55);
 
                 entity.Property(e => e.VoziloId).HasColumnName("VoziloID");
-
-                entity.Property(e => e.KrajRezervacije).HasMaxLength(55);
-
-                entity.Property(e => e.UkupnaCijena).HasMaxLength(55);
 
                 entity.HasOne(d => d.Klijent)
                     .WithMany(p => p.Rezervacijas)
