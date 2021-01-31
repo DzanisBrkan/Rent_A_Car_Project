@@ -31,6 +31,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         //#region Variable
 
         private readonly APIService _klijentService = new APIService("Klijent");
+        private readonly APIService _rezervacijeService = new APIService("Rezervacija");
 
 
         private CreditCardModel _creditCardModel;
@@ -48,6 +49,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         private string Email;
         private string Adresa;
         private string DatumRodjenja;
+        private int UkupnaCijena;
 
 
         //#endregion Variable
@@ -171,6 +173,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public async Task GetKlijent()
         {
             var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
+            var RezervacijaModel = await _rezervacijeService.GetActionResponse<Model.Rezervacija>($"GetRezByUserID/{APIService.UserID}");
+
 
             Ime = KlijentModel.Ime;
             Prezime = KlijentModel.Prezime;
@@ -178,7 +182,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             Email = KlijentModel.Email;
             Adresa = KlijentModel.Adresa;
             DatumRodjenja = KlijentModel.DatumRodjenja;
-
+            UkupnaCijena = RezervacijaModel.UkupnaCijena;
         }
 
 
@@ -225,7 +229,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 StripeConfiguration.SetApiKey(StripeSecreatApiKey);
                 var options = new ChargeCreateOptions
                 {
-                    Amount = (long)float.Parse("20000"),
+                    //Amount = (long)float.Parse("20000"),
+                    Amount = (long)float.Parse((UkupnaCijena * 100).ToString()),
                     Currency = "bam",
                     Description = "Charge for Jon.rosen@example.com",
                     Source = stripeToken.Id,
