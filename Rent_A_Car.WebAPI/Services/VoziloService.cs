@@ -10,7 +10,6 @@ namespace Rent_A_Car.WebAPI.Services
 {
     public class VoziloService 
         : BaseCRUDService<Model.Vozilo, VoziloSearchRequest, Database.Vozilo, VoziloUpsertRequest, VoziloUpsertRequest>
-        //IVoziloService
     {
         public VoziloService(Rent_A_CarContext context, IMapper mapper) : base(context, mapper)
         {
@@ -30,7 +29,6 @@ namespace Rent_A_Car.WebAPI.Services
                 query = query.OrderBy(x => x.Tip);
                 list = query.ToList();
 
-                //return _mapper.Map<List<Model.Vozilo>>(list);
             }
             else if(!string.IsNullOrWhiteSpace(search?.Model))
             {
@@ -39,17 +37,5 @@ namespace Rent_A_Car.WebAPI.Services
             }
                 return _mapper.Map<List<Model.Vozilo>>(list);
         }
-
-
-        //public List<Model.Vozilo> Search(string search)
-        //{
-        //    var list = new List<Vozilo>();
-        //    if (search != null)
-        //    {
-        //        list = _context.Vozilo.Where(x => (x.Model.ToLower().StartsWith(search.ToLower())) || (x.Marka.ToLower().StartsWith(search.ToLower()))).OrderBy(x => x.Model).ToList();
-        //    }
-
-        //    return _mapper.Map<List<Model.Vozilo>>(list);
-        //}
     }
 }

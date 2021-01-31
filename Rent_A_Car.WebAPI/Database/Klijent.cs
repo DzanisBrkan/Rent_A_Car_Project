@@ -23,6 +23,7 @@ namespace Rent_A_Car.WebAPI.Database
         public string LozinkaHash { get; set; }
         public string LozinkaSalt { get; set; }
         public string KorisnickoIme { get; set; }
+        public byte[] SlikaThumb { get; set; }
 
         public virtual Grad Grad { get; set; }
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }

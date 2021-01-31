@@ -11,6 +11,8 @@ namespace Rent_A_Car.WebAPI.Database
         public int? Ocjena1 { get; set; }
         public string Komentar { get; set; }
         public int? RezervacijaId { get; set; }
+        public string Zahtjev { get; set; }
+        public string Dojam { get; set; }
 
         public virtual Rezervacija Rezervacija { get; set; }
     }
