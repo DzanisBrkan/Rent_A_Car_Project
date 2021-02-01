@@ -29,8 +29,8 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            //valjda ako pritisnemo na neki item ovdje 
-            //await Navigation.PushAsync(new UgovorPage());
+            //await Navigation.PushAsync(new LoginPage());
+            //Application.Current.MainPage = new LoginPage();
         }
     }
 }

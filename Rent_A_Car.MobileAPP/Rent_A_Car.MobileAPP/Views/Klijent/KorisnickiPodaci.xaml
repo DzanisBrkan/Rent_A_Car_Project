@@ -77,15 +77,18 @@
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
                         <Label Text="Grad" FontAttributes="Bold"/>
-                        <Entry x:Name="Grad" Text="{Binding Grad}" Placeholder="" />
+                        <!--<Entry x:Name="Grad" Text="{Binding Grad}" Placeholder="" />-->
+                        <Picker ItemsSource="{Binding GradList}" SelectedItem="{Binding SelectedGrad}" ItemDisplayBinding="{Binding Naziv}"></Picker>
                     </StackLayout>
+
+
                     <StackLayout Orientation="Vertical">
                         <Label Text="Password" FontAttributes="Bold"/>
-                        <Entry x:Name="Password" Text="" Placeholder="" IsPassword="True"/>
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Unesite novi password" IsPassword="True"/>
                     </StackLayout>
                     <StackLayout Orientation="Vertical">
                         <Label Text="Potvrda password-a" FontAttributes="Bold"/>
-                        <Entry x:Name="PasswordConfirmation" Text="" Placeholder="" IsPassword="True"/>
+                        <Entry x:Name="PasswordConfirmation" Text="{Binding PasswordConfirmation}" Placeholder="Potvrda passworda mora biti ista kao i password" IsPassword="True"/>
                     </StackLayout>
 
 

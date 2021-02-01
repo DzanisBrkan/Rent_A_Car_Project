@@ -1,4 +1,5 @@
 ﻿using Rent_A_Car.MobileAPP.ViewModels.Klijent;
+using Rent_A_Car.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
     {
         PaymentGatwayPageViewModel model = null;
 
-        public StripePaymentGatwayPage()
+        public StripePaymentGatwayPage(Rezervacija rezervacija)
         {
             InitializeComponent();
-            BindingContext = model = new PaymentGatwayPageViewModel();
+            BindingContext = model = new PaymentGatwayPageViewModel(rezervacija);
         }
 
         

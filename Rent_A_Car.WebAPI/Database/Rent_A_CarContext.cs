@@ -28,7 +28,7 @@ namespace Rent_A_Car.WebAPI.Database
         public virtual DbSet<Ocjena> Ocjena { get; set; }
         public virtual DbSet<Osiguranje> Osiguranje { get; set; }
         public virtual DbSet<Popust> Popust { get; set; }
-        public virtual DbSet<Racun> Racu { get; set; }
+        public virtual DbSet<Racun> Racun { get; set; }
         public virtual DbSet<Rezervacija> Rezervacija { get; set; }
         public virtual DbSet<Specifikacija> Specifikacija { get; set; }
         public virtual DbSet<Tip> Tip { get; set; }
@@ -245,7 +245,7 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.HasOne(d => d.Rezervacija)
                     .WithMany(p => p.Ocjenas)
                     .HasForeignKey(d => d.RezervacijaId)
-                    .HasConstraintName("FK__Ocjena__Rezervac__04E4BC85");
+                    .HasConstraintName("FK__Ocjena__Rezervac__607251E5");
             });
 
             modelBuilder.Entity<Osiguranje>(entity =>
@@ -286,14 +286,23 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.RacunId).HasColumnName("RacunID");
 
-                entity.Property(e => e.DatumUgovora).HasColumnType("datetime");
+                entity.Property(e => e.DatumKraja).HasColumnType("datetime");
+
+                entity.Property(e => e.DatumPocetka).HasColumnType("datetime");
 
                 entity.Property(e => e.NacinPlacanjaId).HasColumnName("NacinPlacanjaID");
+
+                entity.Property(e => e.RezervacijaId).HasColumnName("RezervacijaID");
 
                 entity.HasOne(d => d.NacinPlacanja)
                     .WithMany(p => p.Racuns)
                     .HasForeignKey(d => d.NacinPlacanjaId)
                     .HasConstraintName("FK__Racun__NacinPlac__7A672E12");
+
+                entity.HasOne(d => d.Rezervacija)
+                    .WithMany(p => p.Racuns)
+                    .HasForeignKey(d => d.RezervacijaId)
+                    .HasConstraintName("FK__Racun__Rezervaci__6166761E");
             });
 
             modelBuilder.Entity<Rezervacija>(entity =>
@@ -304,17 +313,15 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.KlijentId).HasColumnName("KlijentID");
 
-                entity.Property(e => e.KrajRezervacije)
-                    .HasMaxLength(55)
-                    .IsUnicode(false);
+                entity.Property(e => e.KrajRezervacije).HasColumnType("datetime");
 
                 entity.Property(e => e.LokacijaId).HasColumnName("LokacijaID");
 
                 entity.Property(e => e.OsiguranjeId).HasColumnName("OsiguranjeID");
 
-                entity.Property(e => e.PopustId).HasColumnName("PopustID");
+                entity.Property(e => e.PocetakRezervacije).HasColumnType("datetime");
 
-                entity.Property(e => e.RacunId).HasColumnName("RacunID");
+                entity.Property(e => e.PopustId).HasColumnName("PopustID");
 
                 entity.Property(e => e.Status).HasMaxLength(55);
 
@@ -339,11 +346,6 @@ namespace Rent_A_Car.WebAPI.Database
                     .WithMany(p => p.Rezervacijas)
                     .HasForeignKey(d => d.PopustId)
                     .HasConstraintName("FK__Rezervaci__Popus__01142BA1");
-
-                entity.HasOne(d => d.Racun)
-                    .WithMany(p => p.Rezervacijas)
-                    .HasForeignKey(d => d.RacunId)
-                    .HasConstraintName("FK__Rezervaci__Racun__02084FDA");
 
                 entity.HasOne(d => d.Vozilo)
                     .WithMany(p => p.Rezervacijas)

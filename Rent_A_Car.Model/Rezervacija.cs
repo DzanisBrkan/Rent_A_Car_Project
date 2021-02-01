@@ -13,7 +13,7 @@ namespace Rent_A_Car.Model
         //public int Kolicina { get; set; }
         public string KrajRezervacije { get; set; }
         public string Status { get; set; }
-        public int UkupnaCijena { get; set; }
+        public double UkupnaCijena { get; set; }
         public int LokacijaId { get; set; }
         public int OsiguranjeId { get; set; }
         public int KlijentId { get; set; }

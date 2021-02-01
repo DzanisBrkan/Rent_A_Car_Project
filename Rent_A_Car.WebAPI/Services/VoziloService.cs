@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace Rent_A_Car.WebAPI.Services
 {
     public class VoziloService 
-        : BaseCRUDService<Model.Vozilo, VoziloSearchRequest, Database.Vozilo, VoziloUpsertRequest, VoziloUpsertRequest>
+       : BaseCRUDService<Model.Vozilo, VoziloSearchRequest, Database.Vozilo, VoziloUpsertRequest, VoziloUpsertRequest>,
+        IVoziloService
     {
         public VoziloService(Rent_A_CarContext context, IMapper mapper) : base(context, mapper)
         {
@@ -36,6 +37,19 @@ namespace Rent_A_Car.WebAPI.Services
                 list = query.ToList();
             }
                 return _mapper.Map<List<Model.Vozilo>>(list);
+        }
+
+        public Model.Vozilo UpdateStatus(int id, VoziloStatusRequest request)
+        {
+            var entity = _context.Vozilo.Find(id);
+            _context.Vozilo.Attach(entity);
+            _context.Vozilo.Update(entity);
+
+            _mapper.Map(request, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Vozilo>(entity);
         }
     }
 }

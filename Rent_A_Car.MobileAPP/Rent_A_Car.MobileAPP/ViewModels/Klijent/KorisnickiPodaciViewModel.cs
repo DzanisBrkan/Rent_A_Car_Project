@@ -1,4 +1,6 @@
 ﻿using Rent_A_Car.MobileAPP.Views;
+using Rent_A_Car.MobileAPP.Views.Klijent;
+using Rent_A_Car.Model;
 using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
@@ -17,17 +19,17 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         string _ime = string.Empty;
 
 
-        private readonly APIService _racunService = new APIService("Racun");
-        private readonly APIService _rezervacijaService = new APIService("Rezervacija");
-
-
         private readonly APIService _klijentService = new APIService("Klijent");
+        private readonly APIService _gradService = new APIService("Grad");
+
 
         public KorisnickiPodaciViewModel()
         {
             InitCommand = new Command(async () => await Init());
             SaveChangesCommand = new Command(async () => await SaveChanges());
         }
+        public ObservableCollection<Model.Klijent> KlijentiList { get; set; } = new ObservableCollection<Model.Klijent>();
+        public ObservableCollection<Grad> GradList { get; set; } = new ObservableCollection<Grad>();
 
 
         string _Ime = string.Empty;
@@ -73,14 +75,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             set { SetProperty(ref _DatumRodjenja, value); }
         }
 
-
         int? _Grad = 0;
         public int? Grad
         {
             get { return _Grad; }
             set { SetProperty(ref _Grad, value); }
         }
-
 
         string _Password = string.Empty;
         public string Password
@@ -90,14 +90,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
-
         string _PasswordConfirmation = string.Empty;
         public string PasswordConfirmation
         {
             get { return _PasswordConfirmation; }
             set { SetProperty(ref _PasswordConfirmation, value); }
         }
-
 
         string _Username = string.Empty;
         public string Username
@@ -107,14 +105,22 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
-        public ObservableCollection<Model.Klijent> KlijentiList { get; set; } = new ObservableCollection<Model.Klijent>();
+        Grad _selectedGrad = null;
+        public Grad SelectedGrad
+        {
+            get { return _selectedGrad; }
+            set
+            {
+                SetProperty(ref _selectedGrad, value);
+                if (value != null)
+                {
+                    InitCommand.Execute(null);
+                }
+            }
+        }
+
+
         public ICommand SaveChangesCommand { get; set; }
-
-
-
-
-
-
 
 
         public ICommand InitCommand { get; set; }
@@ -122,31 +128,35 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public async Task Init()
         {
             var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
-            var RezervacijaModel = await _rezervacijaService.GetById<Model.Rezervacija>(KlijentModel.KlijentId);
+            var gradList = await _gradService.Get<List<Grad>>(null);
 
+            if(GradList.Count == 0)
+            {
+                foreach (var grad in gradList)
+                {
+                    GradList.Add(grad);
+                }
+            }
 
-            var list = await _klijentService.Get<IEnumerable<Model.Klijent>>(null);
+            //GradList.Clear();
 
-
+            if (SelectedGrad != null)
+            {
+                Grad = SelectedGrad.GradId;
+            }
+            else
+            {
+                Grad = KlijentModel.GradId;
+            }
             KlijentiList.Clear();
             KlijentiList.Add(KlijentModel);
-            //KlijentiList.Clear();
-            //foreach (var klijent in list)
-            //{
-            //    KlijentiList.Add(klijent);
-            //}
-
-
             Ime = KlijentModel.Ime;
             Prezime = KlijentModel.Prezime;
             BrojTel = KlijentModel.BrojTel;
             Email = KlijentModel.Email;
             Adresa = KlijentModel.Adresa;
             DatumRodjenja = KlijentModel.DatumRodjenja;
-            Grad = KlijentModel.GradId;
             Username = KlijentModel.KorisnickoIme;
-            //Password = KlijentModel.;
-            //PasswordConfirmation = KlijentModel.;
         }
 
 
@@ -258,9 +268,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 BrojTel = BrojTel,
                 KorisnickoIme = Username,
                 Adresa = Adresa,
-                GradId = Grad,
-                //Password = Username,
-                //PasswordConfirmation = Username
+                GradId =SelectedGrad.GradId,
+                Password = Password,
+                PasswordConfirmation = PasswordConfirmation
             };
             //if (CityModel != null)
             //    request.CityID = CityModel.CityID;
@@ -284,12 +294,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             if (modelUserUpdated != null)
             {
                 await Application.Current.MainPage.DisplayAlert("Uspješno", "Izmijene uspješno napravljenje. Prijavite se ponovo da bi se podaci osvježili.", "OK");
-                await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
             }
         }
-
-
-
-
     }
 }

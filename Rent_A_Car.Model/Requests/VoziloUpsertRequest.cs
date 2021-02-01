@@ -15,9 +15,9 @@ namespace Rent_A_Car.Model.Requests
         public string BrSjedista { get; set; }
         public string BrVrata { get; set; }
         public string ZapreminaPrtljaznika { get; set; }
-        public string Oprema { get; set; }
+
         [Range(0, double.MaxValue)]
-        public float CijenaPoSatu { get; set; }
+        public double? CijenaPoSatu { get; set; }
         [Required(AllowEmptyStrings = false)]
         public bool Zauzeto { get; set; }
 

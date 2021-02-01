@@ -36,13 +36,10 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 if (value != null)
                 {
                     InitCommand.Execute(null);
-                    //DetaljiVozilaCommand.Execute(null);
 
                 }
             }
         }
-
-
 
 
         public ICommand InitCommand { get; set; }
@@ -80,33 +77,25 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
                 }
 
-               
-
-
-                //for (int i = 0; i < VozilaList.Count; i++)
-                //{
-                //    if (VozilaList[i].VoziloID != 0)
-                //    {
-                //        APIService.UserVoziloID = VozilaList[i].VoziloID;
-
-                //    }
-                //}
-
             }
             else
             {
                 var list = await _vozilaService.Get<IEnumerable<Vozilo>>(null);
 
-
+                int brojac = 0;
                 VozilaList.Clear();
                 foreach (var vozilo in list)
                 {
-                    VozilaList.Add(vozilo);
+
+                    if (list.ElementAt(brojac).Zauzeto != true)
+                    {
+                        VozilaList.Add(vozilo);
+                    }
+                    brojac++;
+
                 }
             }
         }
-
-
 
         public ICommand DetaljiVozilaCommand { get; set; }
 
@@ -117,11 +106,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             await _vozilaService.Get<dynamic>(null);
             //Application.Current.MainPage = new DetaljiVozila();
 
-
-
         }
-
-
-
     }
 }

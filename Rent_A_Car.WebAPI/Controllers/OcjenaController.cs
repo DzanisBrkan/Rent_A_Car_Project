@@ -11,7 +11,6 @@ using Rent_A_Car.WebAPI.Services;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
-    [Authorize(Roles = "Zaposlenik")]
     public class OcjenaController
         : BaseCRUDController<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>
     {

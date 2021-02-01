@@ -36,8 +36,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         }
 
-        string _KrajRezervacije = string.Empty;
-        public string KrajRezervacije
+        DateTime? _KrajRezervacije = null;
+        public DateTime? KrajRezervacije
         {
             get { return _KrajRezervacije; }
             set { SetProperty(ref _KrajRezervacije, value); }
@@ -186,7 +186,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             try
             {
 
-                if (string.IsNullOrWhiteSpace(KrajRezervacije))
+                if (KrajRezervacije == null)
                 {
                     await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
                     return;
@@ -224,15 +224,15 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
                 var request = new RezervacijaUpsertRequest()
                 {
-                    KrajRezervacije = KrajRezervacije,
+                    KrajRezervacije = (DateTime)KrajRezervacije,
                     Status = Status,
-                    UkupnaCijena = UkupnaCijena,
+                    //UkupnaCijena = UkupnaCijena,
                     //LokacijaId = _LokacijaId,
                     //OsiguranjeId = _OsiguranjeId,
                     KlijentId = APIService.UserID,
                     //VoziloId = _VoziloId,
                     //PopustId = _PopustId,
-                    RacunId = APIService.UserRacunID
+                    //RacunId = APIService.UserRacunID
                 };
 
 

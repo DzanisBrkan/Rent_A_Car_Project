@@ -62,11 +62,12 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="SEARCHHHH!"
+            <Label Text="Dobrodošli"
                 VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+                HorizontalOptions="CenterAndExpand" 
+                   FontSize="Title"/>
 
-            <SearchBar Placeholder="Search..."
+            <SearchBar Placeholder="Pretražite..."
                        Text="{Binding SearchTerm}"
                        SearchCommand="{Binding SearchTerm}"
                        ></SearchBar>

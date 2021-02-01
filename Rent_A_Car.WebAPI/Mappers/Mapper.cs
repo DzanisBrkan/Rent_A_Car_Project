@@ -25,6 +25,7 @@ namespace Rent_A_Car.WebAPI.Mappers
 
 
             CreateMap<Database.Vozilo, Model.Vozilo>();
+            CreateMap<Database.Vozilo, VoziloStatusRequest>().ReverseMap();
             CreateMap<Database.Kategorija, Model.Kategorija>();
 
             CreateMap<Database.Specifikacija, Model.Specifikacija>();
@@ -34,10 +35,14 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Tip, Model.Tip>();
             CreateMap<Database.Drzava, Model.Drzava>();
             CreateMap<Database.Greska, Model.Greska>();
-            CreateMap<Database.Lokacija, Model.Lokacija>();
             CreateMap<Database.Ocjena, Model.Ocjena>();
             CreateMap<Database.Rezervacija, Model.Rezervacija>();
             CreateMap<Database.Racun, Model.Ugovor>();
+            CreateMap<Database.Osiguranje, Model.Osiguranje>();
+            CreateMap<Database.Popust, Model.Popust>();
+            CreateMap<Database.Lokacija, Model.Lokacija>();
+
+
             //proba dva
 
         }

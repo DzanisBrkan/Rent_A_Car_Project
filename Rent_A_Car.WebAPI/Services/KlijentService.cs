@@ -99,7 +99,7 @@ namespace Rent_A_Car.WebAPI.Services
 
             return _mapper.Map<Model.Klijent>(entity);
         }
-        public Model.Klijent Update(int id, KlijentUpdateRequest request)
+        public Model.Klijent Update(int id, KlijentInsertRequest request)
         {
             var entity = _context.Klijent.Find(id);
             _context.Klijent.Attach(entity);
