@@ -31,7 +31,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public ObservableCollection<Model.Klijent> KlijentiList { get; set; } = new ObservableCollection<Model.Klijent>();
         public ObservableCollection<Grad> GradList { get; set; } = new ObservableCollection<Grad>();
 
-
+         byte[] _SlikaThumb = null;
+        public byte[] SlikaThumb
+        {
+            get { return _SlikaThumb; }
+            set { SetProperty(ref _SlikaThumb, value); }
+        }
         string _Ime = string.Empty;
         public string Ime
         {
@@ -157,6 +162,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             Adresa = KlijentModel.Adresa;
             DatumRodjenja = KlijentModel.DatumRodjenja;
             Username = KlijentModel.KorisnickoIme;
+            SlikaThumb = KlijentModel.SlikaThumb;
         }
 
 

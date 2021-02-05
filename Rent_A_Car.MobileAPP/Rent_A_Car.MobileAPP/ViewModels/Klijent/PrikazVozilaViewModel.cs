@@ -15,6 +15,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     {
         private readonly APIService _vozilaService = new APIService("Vozilo");
         private readonly APIService _tipVozilaService = new APIService("Tip");
+
         public PrikazVozilaViewModel()
         {
             InitCommand = new Command(async () => await Init());

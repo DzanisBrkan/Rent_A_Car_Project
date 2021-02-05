@@ -234,8 +234,6 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.Komentar).HasMaxLength(255);
 
-                entity.Property(e => e.Ocjena1).HasColumnName("Ocjena");
-
                 entity.Property(e => e.RezervacijaId).HasColumnName("RezervacijaID");
 
                 entity.Property(e => e.Zahtjev)
@@ -286,9 +284,7 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.RacunId).HasColumnName("RacunID");
 
-                entity.Property(e => e.DatumKraja).HasColumnType("datetime");
-
-                entity.Property(e => e.DatumPocetka).HasColumnType("datetime");
+                entity.Property(e => e.DatumPlacanja).HasColumnType("datetime");
 
                 entity.Property(e => e.NacinPlacanjaId).HasColumnName("NacinPlacanjaID");
 

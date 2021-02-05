@@ -4,51 +4,87 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
              mc:Ignorable="d"
-             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.RezervacijaVozilaPage">
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.RezervacijaVozilaPage"
+             x:Name="PageInstance">
 
 
     <ContentPage.BindingContext>
-        <viewModel:RezervacijaVozilaViewModel></viewModel:RezervacijaVozilaViewModel>
+        <viewModel:RezervacijaVozilaViewModel x:Name="RezVozVM"></viewModel:RezervacijaVozilaViewModel>
     </ContentPage.BindingContext>
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="#2196F3" FontAttributes="Bold" Text="Moje rezervacije:" FontSize="Title" HorizontalOptions="Center" />
+            <Label TextColor="#c9223e" FontAttributes="Bold" Text="Aktivne rezervacije:" FontSize="Medium" HorizontalOptions="Center" />
 
             <ListView ItemsSource="{Binding _PronadjenaRezervacijaService}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
+                                <!--iz ovog uzimam id-->
+                                <Label Text="{Binding RezervacijaID}" IsVisible="False" x:Name="RezervacijaID"></Label>
 
-                                <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Naziv rezervacije: Model Marka Vozila" FontAttributes="Bold" TextDecorations="Underline" />
+                                    <!--<Label  Text="{Binding Path=BindingContext.RezVozVM.Model, Source={x:Reference Name=RezVozVM}}"  VerticalTextAlignment="Center"/>
+                                    <Label Text="{Binding Path=BindingContext.Marka}" VerticalTextAlignment="Center"/>-->
+                                </StackLayout>
 
-
-                                <Label Text="Odaberite Kraj rezervacije:" />
-                                <Entry Text="{Binding KrajRezervacije}"></Entry>
-
-                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Izmjeni Termin rezervacije" Clicked="Button_Clicked_2"></Button>
-
-
-
-                                <Label Text="Ukupna Cijena rezervacije iznosi:" />
-                                <Entry Text="{Binding UkupnaCijena}"></Entry>
-
-
-                                <Label Text="Unesite status:" />
-                                <Entry Text="{Binding Status}"></Entry>
+                                <!--slika-->
+                                <!--<StackLayout Orientation="Horizontal">
+                                    <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                </StackLayout>-->
 
 
-
-
-                                <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Pogledajte racun"></Button>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Status rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Label Text="{Binding Status}" FontSize="Default"/>
+                                </StackLayout>
 
 
 
-                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak" Clicked="Button_Clicked_1"></Button>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Cijena vozila sa PDV-om iznosi:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Label Text="{Binding UkupnaCijena}" FontSize="Default"/>
+                                </StackLayout>
 
 
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Početak rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <DatePicker Date="{Binding PocetakRezervacije}" Format="dd-MM-yyyy" FontSize="Default" IsEnabled="False"></DatePicker>
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Kraj rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <DatePicker Date="{Binding KrajRezervacije}" Format="dd-MM-yyyy" FontSize="Default" IsEnabled="False"></DatePicker>
+                                </StackLayout>
+
+
+
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Button HorizontalOptions="Start" TextColor="White" WidthRequest="235" BackgroundColor="#2196F3" FontAttributes="Bold" Text="Uredi rezervaciju"  Command="{Binding BindingContext.UrediCommand, Source={x:Reference PageInstance} }" CommandParameter="{Binding Text, Source={x:Reference RezervacijaID}}"></Button>
+                                    <Button HorizontalOptions="End" TextColor="White" WidthRequest="235" BackgroundColor="#32a852" FontAttributes="Bold" Text="Plati rezervaciju"  Command="{Binding BindingContext.PlatiCommand, Source={x:Reference PageInstance} }" CommandParameter="{Binding Text, Source={x:Reference RezervacijaID}}"></Button>
+                                </StackLayout>
+                                <StackLayout Orientation="Vertical">
+                                    <Button HorizontalOptions="Center" WidthRequest="300" TextColor="White" BackgroundColor="#D4AF37" FontAttributes="Bold" Text="Ostavi utisak" Command="{Binding BindingContext.OcijeniCommand, Source={x:Reference PageInstance} }" CommandParameter="{Binding Text, Source={x:Reference RezervacijaID}}"></Button>
+                                    <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#e31212" FontAttributes="Bold" Text="Otkaži rezervaciju" Command="{Binding BindingContext.OtkaziCommand, Source={x:Reference PageInstance} }" CommandParameter="{Binding Text, Source={x:Reference RezervacijaID}}"></Button>
+                                </StackLayout>
+                                
+                                <Label />
+                                    <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />        
+                                <Label />
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>

@@ -175,13 +175,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
             var request = new UgovorUpsertRequest()
             {
-                DatumUgovora = DateTime.Now,
+                //DatumUgovora = DateTime.Now,
                 //DatumUgovora = DatumUgovora,
-                CijenaAutomobila = CijenaAutomobila.ToString(),
-                UkupnaKolicina = UkupnaKolicina,
-                NacinPlacanjaId = NacinPlacanja,
+                //CijenaAutomobila = CijenaAutomobila.ToString(),
+                //UkupnaKolicina = UkupnaKolicina,
+                //NacinPlacanjaId = NacinPlacanja,
                 //NacinPlacanja
-                VoziloID = VoziloID.ToString()
+                //VoziloID = VoziloID.ToString()
                 
 
 

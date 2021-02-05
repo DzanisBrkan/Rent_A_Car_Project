@@ -13,28 +13,28 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="#2196F3" FontAttributes="Bold" Text="Moji ugovori:" FontSize="Title" HorizontalOptions="Center" />
+            <Label TextColor="#c9223e" FontAttributes="Bold" Text="Neplaćeni računi:" FontSize="Medium" HorizontalOptions="Center" />
 
-            <ListView ItemsSource="{Binding RezervacijaList}">
+            <ListView ItemsSource="{Binding _PronadjeniUgovorService}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
 
-                                <Label Text=" " VerticalOptions="Center" HorizontalOptions="Center" />
+                                <Label Text="Račun nije izdat:" VerticalOptions="Center" HorizontalOptions="Center" />
 
-
-                                <Label Text="Datum kreiranja ugovora:" />
-                                <Entry Text="{Binding Datum}"></Entry>
 
                                 <Label Text="Ukupna cijena:" />
                                 <Entry Text="{Binding UkupnaCijena}"></Entry>
 
-                                <Label Text="Ukupna kolicina:" />
-                                <Entry Text="{Binding UkupnaKolicina}"></Entry>
+                                <Label Text="Način placanja:" />
+                                <Entry Text="{Binding NacinPlacanja}"></Entry>
 
-                                <Label Text="Placen:" />
-                                <Entry Text="{Binding Placen}"></Entry>
+                                <Label Text="Datum plaćanja:" />
+                                <Entry Text="{Binding DatumPlacanja}"></Entry>
+
+                                <Label Text="Ukupan broj dana:" />
+                                <Entry Text="{Binding UkupanBrojDana}"></Entry>
 
 
                                 <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Pogledajte vas dojam!"></Button>

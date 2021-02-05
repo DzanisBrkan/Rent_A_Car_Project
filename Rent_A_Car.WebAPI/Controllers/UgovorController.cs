@@ -15,8 +15,22 @@ namespace Rent_A_Car.WebAPI.Controllers
     public class UgovorController
         : BaseCRUDController<Model.Ugovor, UgovorSearchRequest, UgovorUpsertRequest, UgovorUpsertRequest>
     {
-        public UgovorController(ICRUDService<Ugovor, UgovorSearchRequest, UgovorUpsertRequest, UgovorUpsertRequest> service) : base(service)
+        private readonly IUgovorService _service;
+        public UgovorController(ICRUDService<Ugovor, UgovorSearchRequest, UgovorUpsertRequest, UgovorUpsertRequest> service, IUgovorService rac_service) : base(service)
         {
+            _service = rac_service;
+        }
+
+        [HttpGet("GetRacByRezID/{id}")]
+        public Model.Ugovor GetRacunByRezervacijaID(int id)
+        {
+            return _service.GetRacunByRezervacijaID(id);
+        }
+
+        [HttpPut("UpdateStatus/{id}")]
+        public Model.Ugovor UpdateStatus(int id, UgovorStatusRequest request)
+        {
+            return _service.UpdateStatus(id, request);
         }
     }
 }

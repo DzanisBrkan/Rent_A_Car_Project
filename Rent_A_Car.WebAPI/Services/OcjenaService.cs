@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Rent_A_Car.Model.Requests;
 using Rent_A_Car.WebAPI.Database;
+using Rent_A_Car.WebAPI.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,8 @@ using System.Threading.Tasks;
 namespace Rent_A_Car.WebAPI.Services
 {
     public class OcjenaServices
-     : BaseCRUDService<Model.Ocjena, OcjenaSearchRequest, Database.Ocjena, OcjenaUpsertRequest, OcjenaUpsertRequest>
+     : BaseCRUDService<Model.Ocjena, OcjenaSearchRequest, Database.Ocjena, OcjenaUpsertRequest, OcjenaUpsertRequest>,
+        IOcjenaService
     {
         public OcjenaServices(Rent_A_CarContext context, IMapper mapper) : base(context, mapper)
         {
@@ -26,6 +28,17 @@ namespace Rent_A_Car.WebAPI.Services
             var list = query.ToList();
 
             return _mapper.Map<List<Model.Ocjena>>(list);
+        }
+
+        public Model.Ocjena GetOcjenaByRezervacijaID(int id)
+        {
+            var query = _context.Ocjena.FirstOrDefault(x => x.RezervacijaId == id);
+
+            if (query != null)
+            {
+                return _mapper.Map<Model.Ocjena>(query);
+            }
+            return null;
         }
     }
 }

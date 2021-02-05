@@ -19,8 +19,8 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
         public NapraviRezervacijuPage(Vozilo vozilo = null)
         {
             InitializeComponent();
-
             BindingContext = VM = new NapraviRezervacijuViewModel(vozilo);
+
         }
 
         protected async override void OnAppearing()
@@ -30,14 +30,14 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
 
         }
 
-        private void Button_Clicked(object sender, EventArgs e)
+        private  void Button_Clicked_1(object sender, EventArgs e)
         {
-            //Application.Current.MainPage = new StripePaymentGatwayPage();
+            Application.Current.MainPage = new MainPage();
         }
 
-        private async void Button_Clicked_1(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new PrikazVozila());
+            Application.Current.MainPage = new MainPage();
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Rent_A_Car.MobileAPP.ViewModels.Klijent;
+using Rent_A_Car.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,20 +27,13 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             await model.Init();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new UgovorPage());
-        }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-            Application.Current.MainPage = new DojamPage();
 
-        }
 
-        private void Button_Clicked_2(object sender, EventArgs e)
-        {
+        //private void Button_Clicked_2(object sender, EventArgs e)
+        //{
+        //    Application.Current.MainPage = new KreirajRacunPage();
+        //}
 
-        }
     }
 }

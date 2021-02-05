@@ -16,6 +16,12 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
     {
         private DetaljiVozilaViewModel model = null;
 
+        //public DetaljiVozilaPage()
+        //{
+        //    InitializeComponent();
+        //    BindingContext = model = new DetaljiVozilaViewModel();
+        //}
+
         public DetaljiVozilaPage(Vozilo vozilo)
         {
             InitializeComponent();
@@ -28,14 +34,14 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             model.Init();
         }
 
-        //private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        //{
-        //    //await Navigation.PushAsync(new DetaljiVozilaSlikePage(null));
-        //}
-
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             await Navigation.PushAsync(new DetaljiVozilaSlikePage((Vozilo)(e.SelectedItem)));
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await model.Specifikacije();
         }
     }
 }

@@ -7,12 +7,11 @@ namespace Rent_A_Car.Model.Requests
 {
     public class OcjenaUpsertRequest
     {
-        [Required(AllowEmptyStrings = false)]
         public int? Ocjena1 { get; set; }
         public string Komentar { get; set; }
-        public int? RezervacijaId { get; set; }
         public string Zahtjev { get; set; }
         public string Dojam { get; set; }
+        public int? RezervacijaId { get; set; }
 
     }
 }

@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 
 namespace Rent_A_Car.WebAPI.Services
 {
-    public interface IRezervacijaServicecs
+    public interface IUgovorService
     {
-        Model.Rezervacija GetRezervacijaByUserID(int id);
+        Model.Ugovor GetRacunByRezervacijaID(int id);
 
-        Rezervacija UpdateStatus(int id, RezervacijaStatusRequest request);
+        Ugovor UpdateStatus(int id, UgovorStatusRequest request);
+
     }
 }
