@@ -14,8 +14,16 @@ namespace Rent_A_Car.WebAPI.Controllers
     public class OcjenaController
         : BaseCRUDController<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>
     {
-        public OcjenaController(ICRUDService<Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest> service) : base(service)
+        private readonly IOcjenaService _service;
+        public OcjenaController(ICRUDService<Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest> service, IOcjenaService ocj_service) : base(service)
         {
+            _service = ocj_service;
+        }
+
+        [HttpGet("GetOcjByRezID/{id}")]
+        public Model.Ocjena GetOcjenaByRezervacijaID(int id)
+        {
+            return _service.GetOcjenaByRezervacijaID(id);
         }
     }
 }

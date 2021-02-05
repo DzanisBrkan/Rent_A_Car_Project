@@ -81,9 +81,12 @@ namespace Rent_A_Car.WebAPI
 
             services.AddScoped<IVoziloService, VoziloService>();
             services.AddScoped<ICRUDService<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>, VoziloService>();
-            
+
+            services.AddScoped<IUgovorService,UgovorService>();
+            services.AddScoped<ICRUDService<Model.Ugovor, UgovorSearchRequest, UgovorUpsertRequest, UgovorUpsertRequest>, UgovorService>();
+
+            services.AddScoped<IOcjenaService, OcjenaServices>();
             services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaServices>();
-            services.AddScoped<ICRUDService<Model.Ugovor, UgovorSearchRequest, UgovorUpsertRequest, UgovorUpsertRequest>, UgovorServices>();
             services.AddScoped<ICRUDService<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>, GradServices>();
 
 
@@ -97,6 +100,7 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IService<Model.Lokacija, object>, BaseService<Model.Lokacija, object, Lokacija>>();
             services.AddScoped<IService<Model.Osiguranje, object>, BaseService<Model.Osiguranje, object, Osiguranje>>();
             services.AddScoped<IService<Model.Popust, object>, BaseService<Model.Popust, object, Popust>>();
+            services.AddScoped<IService<Model.NacinPlacanja, object>, BaseService<Model.NacinPlacanja, object, NacinPlacanja>>();
 
 
 

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.KreirajRacunPage"
+             x:Name="PageInstance">
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Padding="5" VerticalOptions="CenterAndExpand">
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+            </StackLayout>
+            <StackLayout Orientation="Vertical" VerticalOptions="Center">
+                <Label Text="Račun rezervacije:" FontAttributes="Bold"  FontSize="Caption" HorizontalOptions="CenterAndExpand"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Rezervacija:" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label Text="{Binding nazivRezervacije}"  HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Datum plaćanja:" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <DatePicker Date="{Binding datumPlacanja}" Format="dd-MM-yyyy" IsEnabled="False" ></DatePicker>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Ukupan broj dana:" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label  Text="{Binding ukupanBrojDana}" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Ukupna cijena:" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label  Text="{Binding ukupnaCijena}" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+
+
+
+            <Label Text="Odaberite način plaćanja:" FontAttributes="Bold"></Label>
+            <Picker ItemsSource="{Binding NacinPlacanja}" SelectedItem="{Binding SelectedNacinPlacanja}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+
+
+            <Label Text="{Binding RezervacijaID}" IsVisible="False" x:Name="RezervacijaID"></Label>
+
+
+            <Button BackgroundColor="#2196F3" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Plati" Clicked="Button_Clicked_1"  Command="{Binding PlatiCommand}"></Button>
+            <Button BackgroundColor="Red" Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Otkaži"></Button>
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

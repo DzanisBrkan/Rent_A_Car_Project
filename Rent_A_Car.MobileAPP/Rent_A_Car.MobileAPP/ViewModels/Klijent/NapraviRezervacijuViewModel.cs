@@ -15,13 +15,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     {
         private readonly APIService _rezervacijaService = new APIService("Rezervacija");
         private readonly APIService _klijentService = new APIService("Klijent");
-        //private readonly APIService _UgovorService = new APIService("Ugovor");
         private readonly APIService _VozilaService = new APIService("Vozilo");
         private readonly APIService _lokacijaService = new APIService("Lokacija");
         private readonly APIService _osiguranjeService = new APIService("Osiguranje");
         private readonly APIService _popustService = new APIService("Popust");
-
-
+        private readonly APIService _racunService = new APIService("Ugovor");
+        private readonly APIService _ocjenaService = new APIService("Ocjena");
 
 
         public Vozilo _vozilo = null;
@@ -196,7 +195,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 return;
             }
 
-
+            //dodavanje nove rezervacije
             var request = new RezervacijaUpsertRequest()
             {
                 Status = "U toku",
@@ -209,28 +208,38 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 KrajRezervacije = krajRezervacije,
                 PocetakRezervacije = pocetakRezervacije
             };
+            var rezervacijaResponse = await _rezervacijaService.Insert<Model.Rezervacija>(request);
 
-            if(_vozilo != null)
+            //dodavanje novog racuna
+            int hrsDiff = (int)(krajRezervacije - pocetakRezervacije).Hours;
+            int dayDiff = (int)(krajRezervacije - pocetakRezervacije).TotalDays;
+
+            var requestRacun = new UgovorUpsertRequest()
             {
-                //treba novi api za status
+                UkupnaCijena = _UkupnaCijena * hrsDiff,
+                NacinPlacanjaId = 1,
+                DatumPlacanja = null,
+                RezervacijaId = rezervacijaResponse.RezervacijaID,
+                UkupanBrojDana = dayDiff,
+                Izdano = false
+            };
+            var modelracun = await _racunService.Insert<Model.Ugovor>(requestRacun);
 
+
+            //status vozila na zauzeto
+            if (_vozilo != null)
+            {
                 var requestVozilo = new VoziloStatusRequest()
                 {
                     Zauzeto = true
                 };
-
                 var modelUserUpdated = await _VozilaService.PutActionResponse<Model.Vozilo>("UpdateStatus", _vozilo.VoziloID, requestVozilo);
             }
                      
-            
-            var model = await _rezervacijaService.Insert<Model.Rezervacija>(request);
-
-            if (model != null)
+            if (rezervacijaResponse != null)
             {
-
-                await Application.Current.MainPage.DisplayAlert("Notifikacija", "Rezervacija uspješno kreirana!.", "Ok");
-                await Application.Current.MainPage.Navigation.PushModalAsync(new StripePaymentGatwayPage(model));
-
+                await Application.Current.MainPage.DisplayAlert("Notifikacija", "Rezervacija uspješno kreirana!", "Ok");
+               
             }
 
         }

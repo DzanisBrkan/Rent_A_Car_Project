@@ -165,16 +165,16 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
             for (int i = 0; i < UgovorList.Count; i++)
             {
-                if (UgovorList[i].RacunID == RezervacijaModel.RacunId)
-                {
-                    UgovorList2[i] = UgovorList[i];
-                }
+                //if (UgovorList[i].RacunID == RezervacijaModel.RacunId)
+                //{
+                //    UgovorList2[i] = UgovorList[i];
+                //}
             }
 
-            RacunID = UgovorList2.Last().RacunID.ToString();
-            KrajRezervacije = _KrajRezervacije;
-            Status = _Status;
-            UkupnaCijena = _UkupnaCijena;
+            //RacunID = UgovorList2.Last().RacunID.ToString();
+            //KrajRezervacije = _KrajRezervacije;
+            //Status = _Status;
+            //UkupnaCijena = _UkupnaCijena;
 
         }
 

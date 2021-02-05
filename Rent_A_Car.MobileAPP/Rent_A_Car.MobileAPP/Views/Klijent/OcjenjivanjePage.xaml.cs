@@ -11,24 +11,30 @@ using Xamarin.Forms.Xaml;
 namespace Rent_A_Car.MobileAPP.Views.Klijent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UgovorPage : ContentPage
+    public partial class OcjenjivanjePage : ContentPage
     {
-        UgovorViewModel model = null;
-        public UgovorPage()
+        OcjenjivanjeViewModel model = null;
+        public OcjenjivanjePage(string obj)
         {
             InitializeComponent();
-            BindingContext = model = new UgovorViewModel();
+            BindingContext = model = new OcjenjivanjeViewModel(obj);
         }
+
         protected async override void OnAppearing()
         {
             base.OnAppearing();
             await model.Init();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new OcijenivanjeIKomentarisanje());
+            Application.Current.MainPage = new MainPage();
+        }
 
+        private async void Button_Clicked_1(object sender, EventArgs e)
+        {
+            await model.Ocjeni();
+            Application.Current.MainPage = new MainPage();
         }
     }
 }

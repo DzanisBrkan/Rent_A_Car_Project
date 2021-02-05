@@ -40,27 +40,26 @@ namespace Rent_A_Car.MobileAPP.Views
 
                     //--------------------------------------------------------------------------------
 
+                    //Vodi na kategorije vozila
                     case (int)MenuItemType.Vozila:
                         MenuPages.Add(id, new NavigationPage(new PrikazVozila()));
                         break;
 
-                    //case (int)MenuItemType.MojiUgovori:
-                    //    MenuPages.Add(id, new NavigationPage(new UgovorPage()));
+                    case (int)MenuItemType.MojiUgovori:
+                        MenuPages.Add(id, new NavigationPage(new UgovorPage()));
+                        break;
+
+
+
+                    //case (int)MenuItemType.MojiKomentarIOcjene:
+                    //    MenuPages.Add(id, new NavigationPage(new OcijenivanjeIKomentarisanje()));
                     //    break;
-
-                    case (int)MenuItemType.RezervacijaVozila:
-                        MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));
-                        break;
-
-
-                    case (int)MenuItemType.MojiKomentarIOcjene:
-                        MenuPages.Add(id, new NavigationPage(new OcijenivanjeIKomentarisanje()));
-                        break;
 
                     //case (int)MenuItemType.OcijeniIKomentarisi:
                     //    MenuPages.Add(id, new NavigationPage(new DojamPage()));
                     //    break;
 
+                    //Vodi na MOJE REZERVACIJE
                     case (int)MenuItemType.MojeRezervacije:
                         MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));
                         break;

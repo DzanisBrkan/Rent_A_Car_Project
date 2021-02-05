@@ -41,6 +41,7 @@
                                 </StackLayout>
 
                                 <StackLayout Orientation="Vertical">
+
                                     <Label HorizontalTextAlignment="Center" Text="{Binding Model}"
                                        LineBreakMode="NoWrap"
                                        Style="{DynamicResource ListItemTextStyle}"
@@ -68,7 +69,12 @@
                                     <Entry HorizontalTextAlignment="Center" Text="{Binding CijenaPoSatu}" IsReadOnly="True"/>
 
 
-
+                                    <StackLayout Orientation="Vertical">
+                                        <Button VerticalOptions="Center" BackgroundColor="#32a852" 
+                                                FontAttributes="Bold" Text="Prikaži specifikacije"
+                                                Clicked="Button_Clicked" 
+                                               ></Button>
+                                    </StackLayout>
 
                                 </StackLayout>
                             </StackLayout>

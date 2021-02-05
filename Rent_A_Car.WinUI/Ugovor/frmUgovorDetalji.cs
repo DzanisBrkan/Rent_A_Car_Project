@@ -31,9 +31,9 @@ namespace Rent_A_Car.WinUI.Ugovor
             {
                 var ugovor = await _services.GetById<Model.Ugovor>(_id);
 
-                txtDatum.Text = ugovor.DatumUgovora;
-                txtUkupnaCijena.Text = ugovor.CijenaAutomobila;
-                txtUkupnaKolicina.Text = ugovor.UkupnaKolicina.ToString();
+                //txtDatum.Text = ugovor.DatumUgovora;
+                //txtUkupnaCijena.Text = ugovor.CijenaAutomobila;
+                //txtUkupnaKolicina.Text = ugovor.UkupnaKolicina.ToString();
                
             }
         }

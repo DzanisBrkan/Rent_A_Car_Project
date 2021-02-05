@@ -27,5 +27,11 @@ namespace Rent_A_Car.WebAPI.Controllers
             return _service.GetRezervacijaByUserID(id);
         }
 
+        [HttpPut("UpdateStatus/{id}")]
+        public Model.Rezervacija UpdateStatus(int id, RezervacijaStatusRequest request)
+        {
+            return _service.UpdateStatus(id, request);
+        }
+
     }
 }

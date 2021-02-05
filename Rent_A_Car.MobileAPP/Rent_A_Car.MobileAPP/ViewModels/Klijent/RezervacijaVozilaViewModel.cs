@@ -1,4 +1,6 @@
-﻿using Rent_A_Car.MobileAPP.Views;
+﻿using GalaSoft.MvvmLight.Command;
+using Rent_A_Car.MobileAPP.Views;
+using Rent_A_Car.MobileAPP.Views.Klijent;
 using Rent_A_Car.Model;
 using Rent_A_Car.Model.Requests;
 using System;
@@ -16,50 +18,58 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     {
         private readonly APIService _rezervacijaService = new APIService("Rezervacija");
         private readonly APIService _klijentService = new APIService("Klijent");
-
         private readonly APIService _UgovorService = new APIService("Ugovor");
+        private readonly APIService _voziloService = new APIService("Vozilo");
 
 
 
         public RezervacijaVozilaViewModel()
         {
             InitCommand = new Command(async () => await Init());
-            SaveChangesCommand = new Command(async () => await SaveChanges());
+            //SaveChangesCommand = new Command(async () => await SaveChanges());
+            //OtkaziCommand = new Command(async (sender) => await Otkazi(sender));
 
+            //Naruci = new RelayCommand(async () => await ZakljuciNarudzbu(), () => GotoviProizvodiList.Count > 0);
+
+            OtkaziCommand = new RelayCommand<string>(async (sender) => await Otkazi(sender));
+            UrediCommand = new RelayCommand<string>(async (sender) => await Uredi(sender));
+            PlatiCommand = new RelayCommand<string>(async (sender) => await Plati(sender));
+            OcijeniCommand = new RelayCommand<string>(async (sender) => await Ocijeni(sender));
         }
 
-
-        DateTime? _KrajRezervacije = null;
-        public DateTime? KrajRezervacije
-        {
-            get { return _KrajRezervacije; }
-            set { SetProperty(ref _KrajRezervacije, value); }
-        }
-
-
-        string _Status = string.Empty;
-        public string Status
-        {
-            get { return _Status; }
-            set { SetProperty(ref _Status, value); }
-        }
-
-
-        string _UkupnaCijena = string.Empty;
-        public string UkupnaCijena
-        {
-            get { return _UkupnaCijena; }
-            set { SetProperty(ref _UkupnaCijena, value); }
-        }
-
-
-
+       
 
 
         public ObservableCollection<Rezervacija> RezervacijeList { get; set; } = new ObservableCollection<Rezervacija>();
         public ObservableCollection<Rezervacija> _PronadjenaRezervacijaService { get; set; } = new ObservableCollection<Rezervacija>();
+        public Rezervacija PronadjenaRezervacija { get; set; } = new Rezervacija();
 
-        public ICommand SaveChangesCommand { get; set; }
+        double UkupnaCijena = 0;
+
+        string _Model = string.Empty;
+        public string Model
+        {
+            get { return _Model; }
+            set
+            { SetProperty(ref _Model, value); }
+        }
+
+        string _Marka = string.Empty;
+        public string Marka
+        {
+            get { return _Marka; }
+            set
+            { SetProperty(ref _Marka, value); }
+        }
+
+        public byte[] _SlikaThumb = null;
+        public byte[] SlikaThumb
+        {
+            get { return _SlikaThumb; }
+            set
+            { SetProperty(ref _SlikaThumb, value); }
+        }
+
 
         public ICommand InitCommand { get; set; }
 
@@ -70,14 +80,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
             }
 
-            //ovdje bi trebo napraviti request ili nesto da poredi iz REZERVACIJE id klijenta
-            //var RezervacijaModel = await _rezervacijaService.GetById<Model.Rezervacija>(KlijentModel.KlijentId);
-
-            //RezervacijeList.Clear();
-            //RezervacijeList.Add(RezervacijaModel);
 
             var list = await _rezervacijaService.Get<IEnumerable<Rezervacija>>(null);
 
+
+            //rezervacije-----------------------------------------------------------
             RezervacijeList.Clear();
             _PronadjenaRezervacijaService.Clear();
             foreach (var rezervacije in list)
@@ -85,101 +92,66 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 RezervacijeList.Add(rezervacije);
             }
 
-
             for (int i = 0; i < RezervacijeList.Count; i++)
             {
-                if (RezervacijeList[i].KlijentId == APIService.UserID)
+                if (RezervacijeList[i].KlijentId == APIService.UserID && RezervacijeList[i].Status == "U toku")
                 {
                     _PronadjenaRezervacijaService.Add(RezervacijeList[i]);
+                    var vozilo = await _voziloService.GetById<Vozilo>(RezervacijeList[i].VoziloId);
                 }
             }
-            //radi ovog puca
-            //APIService.UserRacunID = _PronadjenaRezervacijaService.First().RacunId;
-
 
         }
 
 
+        public RelayCommand<string> OtkaziCommand { get; set; }
 
-        public async Task SaveChanges()
+        public async Task Otkazi(object sender)
         {
 
+            var rezervacija = await _rezervacijaService.GetById<Model.Rezervacija>(sender);
+            var vozilo = await _voziloService.GetById<Model.Vozilo>(rezervacija.VoziloId);
 
-
-            try
+            if (rezervacija != null)
             {
-
-                if (KrajRezervacije == null)
+                var requestRezervacija = new RezervacijaStatusRequest()
                 {
-                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
-                    return;
-
-
-                }
-
-
-
-                if (string.IsNullOrWhiteSpace(Status))
-                {
-                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
-                    return;
-
-
-                }
-
-                if (string.IsNullOrWhiteSpace(UkupnaCijena))
-                {
-                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
-                    return;
-
-
-                }
-
-
-
-                //i ovdje unijeti
-
-                var RezervacijaModel = await _rezervacijaService.GetActionResponse<Model.Rezervacija>($"GetRezByUserID/{APIService.UserID}");
-
-                //get last Racun(ugvoor)
-                var UgovorModel = await _UgovorService.GetById<Model.Ugovor>(RezervacijaModel.RacunId);
-                APIService.UserRacunID = RezervacijaModel.RacunId;
-
-                var request = new RezervacijaUpsertRequest()
-                {
-                    KrajRezervacije = (DateTime)KrajRezervacije,
-                    Status = Status,
-                    //UkupnaCijena = UkupnaCijena,
-                    //LokacijaId = _LokacijaId,
-                    //OsiguranjeId = _OsiguranjeId,
-                    KlijentId = APIService.UserID,
-                    //VoziloId = _VoziloId,
-                    //PopustId = _PopustId,
-                    //RacunId = APIService.UserRacunID
+                    Status = "Otkazano"
                 };
 
-
-
-                var modelRezervacija = await _rezervacijaService.Update<Model.Rezervacija>(RezervacijaModel.RezervacijaID,request);
-
-
-                if (modelRezervacija != null)
+                //status vozila na false
+                if (vozilo != null)
                 {
-                    //if (modelRezervacija.Status.ToString() != "Faulted")
-                    //{
-                    await Application.Current.MainPage.DisplayAlert("Notifikacija", "Uspješno ste napravili rezervaicuju.", "Ok");
-                    await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
-                    //}
-                    //await Application.Current.MainPage.DisplayAlert("Error.", "Doslo je do greske.", "Ok");
+                    var requestVozilo = new VoziloStatusRequest()
+                    {
+                        Zauzeto = false
+                    };
+                    var voziloStatusUpdated = await _voziloService.PutActionResponse<Model.Vozilo>("UpdateStatus", vozilo.VoziloID, requestVozilo);
                 }
 
-
+                    var modelUserUpdated = await _rezervacijaService.PutActionResponse<Model.Rezervacija>("UpdateStatus", rezervacija.RezervacijaID, requestRezervacija);
+                await Application.Current.MainPage.DisplayAlert("Notifikacija", "Rezervacija otkazana!", "Ok");
             }
-            catch (Exception ex)
-            {
+        }
 
-                throw;
-            }
+        public RelayCommand<string> UrediCommand { get; set; }
+        public async Task Uredi(string sender)
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new UrediRezervacijuPage(sender));
+        }
+
+        public RelayCommand<string> PlatiCommand { get; set; }
+        public async Task Plati(string sender)
+        {
+            //Application.Current.MainPage = new KreirajRacunPage(sender);
+            await Application.Current.MainPage.Navigation.PushModalAsync(new KreirajRacunPage(sender));
+        }
+       
+        public RelayCommand<string> OcijeniCommand { get; set; }
+        public async Task Ocijeni(string sender)
+        {
+            //Application.Current.MainPage = new OcijenivanjeIKomentarisanje(sender);
+            Application.Current.MainPage = new OcjenjivanjePage(sender);
         }
     }
 }

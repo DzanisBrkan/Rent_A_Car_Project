@@ -14,6 +14,8 @@
     <PackageReference Include="Acr.UserDialogs" Version="7.1.0.475" />
     <PackageReference Include="Flurl" Version="2.8.1" />
     <PackageReference Include="Flurl.Http" Version="2.4.1" />
+    <PackageReference Include="MagicGradients" Version="1.2.0" />
+    <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Stripe.net" Version="39.33.0" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />  
@@ -52,6 +54,9 @@
     <EmbeddedResource Update="Views\Klijent\KorisnickiPodaci.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Klijent\KreirajRacunPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Klijent\LoginPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -64,7 +69,7 @@
     <EmbeddedResource Update="Views\Klijent\NapraviteUgovor.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Klijent\OcijenivanjeIKomentarisanje.xaml">
+    <EmbeddedResource Update="Views\Klijent\OcjenjivanjePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Klijent\PrikazVozila.xaml">
@@ -76,10 +81,16 @@
     <EmbeddedResource Update="Views\Klijent\RezervacijaVozilaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Update="Views\Klijent\SpecifikacijaVozilaPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\Klijent\StripePaymentGatwayPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Klijent\UgovorPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Klijent\UrediRezervacijuPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

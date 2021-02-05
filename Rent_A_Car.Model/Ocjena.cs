@@ -9,9 +9,8 @@ namespace Rent_A_Car.Model
         public int OcjenaId { get; set; }
         public int? Ocjena1 { get; set; }
         public string Komentar { get; set; }
-        public int? RezervacijaId { get; set; }
         public string Zahtjev { get; set; }
         public string Dojam { get; set; }
-
+        public int? RezervacijaId { get; set; }
     }
 }

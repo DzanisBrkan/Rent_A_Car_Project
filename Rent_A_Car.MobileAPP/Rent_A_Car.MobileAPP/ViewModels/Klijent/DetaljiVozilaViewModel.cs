@@ -1,4 +1,6 @@
-﻿using Rent_A_Car.Model;
+﻿using GalaSoft.MvvmLight.Command;
+using Rent_A_Car.MobileAPP.Views.Klijent;
+using Rent_A_Car.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -27,10 +29,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         {
             _voziloDetalji = vozilo;
             InitCommand = new Command(() => Init());
+            SpecifikacijeCommand = new Command(async () => await Specifikacije());
+
         }
 
+
         public ObservableCollection<Vozilo> VozilaList { get; set; } = new ObservableCollection<Vozilo>();
-        public ObservableCollection<Tip> TipVozila { get; set; } = new ObservableCollection<Tip>();
+        //public ObservableCollection<Tip> TipVozila { get; set; } = new ObservableCollection<Tip>();
 
 
 
@@ -42,9 +47,14 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
            VozilaList.Clear();
           
            VozilaList.Add(_voziloDetalji);
-            
-
+           
         }
 
+
+        public ICommand SpecifikacijeCommand { private set; get; }
+        public async Task Specifikacije()
+        {
+            await Application.Current.MainPage.Navigation.PushModalAsync(new SpecifikacijaVozilaPage(_voziloDetalji.VoziloID));
+        }
     }
 }

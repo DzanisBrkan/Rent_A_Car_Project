@@ -33,6 +33,7 @@ namespace Rent_A_Car.WebAPI.Services
             _context.Set<TDatabase>().Update(entity);
 
             _mapper.Map(request, entity);
+            _context.SaveChanges();
 
             return _mapper.Map<TModel>(entity);
         }

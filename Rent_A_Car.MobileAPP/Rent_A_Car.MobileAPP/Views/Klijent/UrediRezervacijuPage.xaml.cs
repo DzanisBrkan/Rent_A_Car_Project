@@ -1,4 +1,5 @@
 ﻿using Rent_A_Car.MobileAPP.ViewModels.Klijent;
+using Rent_A_Car.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,24 +12,25 @@ using Xamarin.Forms.Xaml;
 namespace Rent_A_Car.MobileAPP.Views.Klijent
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class UgovorPage : ContentPage
+    public partial class UrediRezervacijuPage : ContentPage
     {
-        UgovorViewModel model = null;
-        public UgovorPage()
+        private UrediRezervacijuViewModel VM;
+        public UrediRezervacijuPage(string obj)
         {
             InitializeComponent();
-            BindingContext = model = new UgovorViewModel();
+            BindingContext = VM = new UrediRezervacijuViewModel(obj);
         }
+
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            await model.Init();
+            await VM.Init();
+
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
-            //await Navigation.PushAsync(new OcijenivanjeIKomentarisanje());
-
+            Application.Current.MainPage = new MainPage();
         }
     }
 }
