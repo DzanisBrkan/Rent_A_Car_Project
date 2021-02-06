@@ -22,9 +22,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
       
         double _pdv = 1.17;
-        public string _rezervacijaId = string.Empty;
+        public Rezervacija _rezervacija = null;
 
-        public UrediRezervacijuViewModel(string rezervacijaid)
+        public UrediRezervacijuViewModel(Rezervacija rezervacija)
         {
 
             //SaveChangesCommand = new Command(async () => await SaveChanges());
@@ -32,7 +32,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             //SaveCommand = new Command(async () => await SaveChanges());
             //NazadCommand = new Command(async () => await Nazad());
 
-            _rezervacijaId = rezervacijaid;
+            _rezervacija = rezervacija;
         }
 
         public int _RezervacijaId = 0;
@@ -100,7 +100,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         public async Task Init()
         {
-            var rezervacija = await _rezervacijaService.GetById<Rezervacija>(_rezervacijaId);
+            var rezervacija = await _rezervacijaService.GetById<Rezervacija>(_rezervacija.RezervacijaID);
             var vozilo = await _vozilaService.GetById<Vozilo>(rezervacija.VoziloId);
 
             if (lokacijaList.Count == 0)
@@ -130,7 +130,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 }
             }
 
-            RezervacijaId = int.Parse(_rezervacijaId);
+            RezervacijaId = rezervacija.RezervacijaID;
             Model = vozilo.Model;
             Marka = vozilo.Marka;
         }

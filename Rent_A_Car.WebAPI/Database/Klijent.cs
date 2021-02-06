@@ -9,6 +9,7 @@ namespace Rent_A_Car.WebAPI.Database
     {
         public Klijent()
         {
+            Ocjenas = new HashSet<Ocjena>();
             Rezervacijas = new HashSet<Rezervacija>();
         }
 
@@ -26,6 +27,7 @@ namespace Rent_A_Car.WebAPI.Database
         public byte[] SlikaThumb { get; set; }
 
         public virtual Grad Grad { get; set; }
+        public virtual ICollection<Ocjena> Ocjenas { get; set; }
         public virtual ICollection<Rezervacija> Rezervacijas { get; set; }
     }
 }

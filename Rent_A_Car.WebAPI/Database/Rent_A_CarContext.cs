@@ -228,22 +228,29 @@ namespace Rent_A_Car.WebAPI.Database
 
                 entity.Property(e => e.OcjenaId).HasColumnName("OcjenaID");
 
-                entity.Property(e => e.Dojam)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
+                entity.Property(e => e.KlijentId).HasColumnName("KlijentID");
 
                 entity.Property(e => e.Komentar).HasMaxLength(255);
 
                 entity.Property(e => e.RezervacijaId).HasColumnName("RezervacijaID");
 
-                entity.Property(e => e.Zahtjev)
-                    .HasMaxLength(250)
-                    .IsUnicode(false);
+                entity.Property(e => e.VoziloId).HasColumnName("VoziloID");
+
+                entity.HasOne(d => d.Klijent)
+                    .WithMany(p => p.Ocjenas)
+                    .HasForeignKey(d => d.KlijentId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__Ocjena__KlijentI__7FEAFD3E");
 
                 entity.HasOne(d => d.Rezervacija)
                     .WithMany(p => p.Ocjenas)
                     .HasForeignKey(d => d.RezervacijaId)
-                    .HasConstraintName("FK__Ocjena__Rezervac__607251E5");
+                    .HasConstraintName("FK__Ocjena__Rezervac__7E02B4CC");
+
+                entity.HasOne(d => d.Vozilo)
+                    .WithMany(p => p.Ocjenas)
+                    .HasForeignKey(d => d.VoziloId)
+                    .HasConstraintName("FK__Ocjena__VoziloID__7EF6D905");
             });
 
             modelBuilder.Entity<Osiguranje>(entity =>
@@ -312,6 +319,8 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.Property(e => e.KrajRezervacije).HasColumnType("datetime");
 
                 entity.Property(e => e.LokacijaId).HasColumnName("LokacijaID");
+
+                entity.Property(e => e.Naziv).HasMaxLength(250);
 
                 entity.Property(e => e.OsiguranjeId).HasColumnName("OsiguranjeID");
 

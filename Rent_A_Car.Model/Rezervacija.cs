@@ -21,6 +21,7 @@ namespace Rent_A_Car.Model
         public int RacunId { get; set; }
         public DateTime? PocetakRezervacije { get; set; }
         public DateTime? KrajRezervacije { get; set; }
+        public string Naziv { get; set; }
 
     }
 }

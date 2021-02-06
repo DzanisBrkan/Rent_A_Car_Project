@@ -13,7 +13,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     public class OcjenjivanjeViewModel : BaseViewModel
     {
         private readonly APIService _klijentService = new APIService("Klijent");
-
         private readonly APIService _komentariIOcijeneService = new APIService("Ocjena");
         private readonly APIService _rezervacijaService = new APIService("Rezervacija");
 
@@ -34,8 +33,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         }
 
 
-        int? _Ocjena = 0;
-        public int? Ocjena
+        int _Ocjena = 0;
+        public int Ocjena
         {
             get { return _Ocjena; }
             set
@@ -50,22 +49,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             { SetProperty(ref _Komentar, value); }
         }
 
-        string _Zahtjev = string.Empty;
-        public string Zahtjev
-        {
-            get { return _Zahtjev; }
-            set
-            { SetProperty(ref _Zahtjev, value); }
-        }
 
-
-        string _Dojam = string.Empty;
-        public string Dojam
-        {
-            get { return _Dojam; }
-            set
-            { SetProperty(ref _Dojam, value); }
-        }
 
         public bool IsUpdate = false;
         public int ocjenaID = 0;
@@ -86,25 +70,24 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 ocjenaID = ocjena.OcjenaId;
                 Ocjena = ocjena.Ocjena1;
                 Komentar = ocjena.Komentar;
-                Zahtjev = ocjena.Zahtjev;
-                Dojam = ocjena.Dojam;
             }
             
         }
 
         public ICommand OcjeniCommand { get; set; }
         public async Task Ocjeni()
-        {            
+        {
+            var rezervacija = await _rezervacijaService.GetById<Model.Rezervacija>(int.Parse(_rezervacijaId));
 
             if (IsUpdate == true)
             {
                 var requestOcjena = new OcjenaUpsertRequest()
                 {
                     Ocjena1 = Ocjena,
-                    Dojam = Dojam,
                     Komentar = Komentar,
-                    Zahtjev = Zahtjev,
-                    RezervacijaId = int.Parse(_rezervacijaId)
+                    RezervacijaId = int.Parse(_rezervacijaId),
+                    VoziloId = rezervacija.VoziloId,
+                    KlijentId = rezervacija.KlijentId
                 };
                 var modelOcjena = await _komentariIOcijeneService.Update<Model.Ocjena>(ocjenaID, requestOcjena);
                 if (modelOcjena != null)
@@ -118,10 +101,10 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 var requestOcjena = new OcijenaInsertRequest()
                 {
                     Ocjena1 = Ocjena,
-                    Dojam = Dojam,
                     Komentar = Komentar,
-                    Zahtjev = Zahtjev,
-                    RezervacijaId = int.Parse(_rezervacijaId)
+                    RezervacijaId = int.Parse(_rezervacijaId),
+                    VoziloId = rezervacija.VoziloId,
+                    KlijentId = rezervacija.KlijentId
                 };
                 var modelOcjena = await _komentariIOcijeneService.Insert<Model.Ocjena>(requestOcjena);
                 if (modelOcjena != null)

@@ -206,7 +206,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 VoziloId = _vozilo.VoziloID,
                 PopustId = selectedPopust.PopustId,
                 KrajRezervacije = krajRezervacije,
-                PocetakRezervacije = pocetakRezervacije
+                PocetakRezervacije = pocetakRezervacije,
+                Naziv = "Rezerviranje" + " " + _vozilo.Model + " " + _vozilo.Marka
             };
             var rezervacijaResponse = await _rezervacijaService.Insert<Model.Rezervacija>(request);
 

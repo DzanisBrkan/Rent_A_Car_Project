@@ -16,6 +16,7 @@
     <PackageReference Include="Flurl.Http" Version="2.4.1" />
     <PackageReference Include="MagicGradients" Version="1.2.0" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <PackageReference Include="RatingConception" Version="1.4.0" />
     <PackageReference Include="Stripe.net" Version="39.33.0" />
     <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="4.5.0.495" />  
@@ -91,6 +92,9 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\Klijent\UrediRezervacijuPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Klijent\ZavrsenaRezervacijaPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

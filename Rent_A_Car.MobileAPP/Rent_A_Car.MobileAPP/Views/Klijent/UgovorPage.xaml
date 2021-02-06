@@ -21,7 +21,7 @@
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
 
-                                <Label Text="Račun nije izdat:" VerticalOptions="Center" HorizontalOptions="Center" />
+                                <!--<Label Text="Račun nije izdat:" VerticalOptions="Center" HorizontalOptions="Center" />-->
 
 
                                 <Label Text="Ukupna cijena:" />

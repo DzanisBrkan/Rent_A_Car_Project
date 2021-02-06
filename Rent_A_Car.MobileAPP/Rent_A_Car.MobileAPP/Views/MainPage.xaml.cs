@@ -59,11 +59,13 @@ namespace Rent_A_Car.MobileAPP.Views
                     //    MenuPages.Add(id, new NavigationPage(new DojamPage()));
                     //    break;
 
-                    //Vodi na MOJE REZERVACIJE
                     case (int)MenuItemType.MojeRezervacije:
                         MenuPages.Add(id, new NavigationPage(new RezervacijaVozilaPage()));
                         break;
 
+                    case (int)MenuItemType.ZavrseneRezervacije:
+                        MenuPages.Add(id, new NavigationPage(new ZavrsenaRezervacijaPage()));
+                        break;
 
                     case (int)MenuItemType.PostavkeProfila:
                         MenuPages.Add(id, new NavigationPage(new KorisnickiPodaci()));

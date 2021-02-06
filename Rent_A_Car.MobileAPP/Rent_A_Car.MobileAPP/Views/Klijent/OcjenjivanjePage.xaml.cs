@@ -1,4 +1,5 @@
-﻿using Rent_A_Car.MobileAPP.ViewModels.Klijent;
+﻿using LaavorRatingConception;
+using Rent_A_Car.MobileAPP.ViewModels.Klijent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,5 +37,19 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             await model.Ocjeni();
             Application.Current.MainPage = new MainPage();
         }
+
+        private void ratingStar_Voted(object sender, EventArgs e)
+        {
+            RatingConception rating = (RatingConception)sender;
+            int index = rating.IndexVoted;
+            int value = rating.Value;
+
+            index_star.Text = index.ToString();
+            value_star.Text = value.ToString();
+
+            rating.InitialValue = 1;
+            model.Ocjena = value;
+        }
+
     }
 }

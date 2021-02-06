@@ -15,7 +15,8 @@ namespace Rent_A_Car.MobileAPP.Models
         OcijeniIKomentarisi,
         MojeRezervacije,
         PostavkeProfila,
-        Odjava
+        Odjava,
+        ZavrseneRezervacije
     }
     public class HomeMenuItem
     {
