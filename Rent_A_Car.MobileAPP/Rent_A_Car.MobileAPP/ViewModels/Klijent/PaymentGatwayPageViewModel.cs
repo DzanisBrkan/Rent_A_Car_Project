@@ -1,4 +1,6 @@
 ﻿using Acr.UserDialogs;
+using Rent_A_Car.MobileAPP.Views;
+using Rent_A_Car.Model;
 using Rent_A_Car.Model.PaymentGatway;
 using Stripe;
 using System;
@@ -50,7 +52,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         private string Email;
         private string Adresa;
         private string DatumRodjenja;
-        private int UkupnaCijena;
+        private double UkupnaCijena;
 
 
         //#endregion Variable
@@ -102,9 +104,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         //#region Constructor
 
-        public PaymentGatwayPageViewModel()
+        public Rezervacija _rezervacija = null;
+        public PaymentGatwayPageViewModel(Rezervacija rezervacija)
         {
             CreditCardModel = new CreditCardModel();
+            _rezervacija = rezervacija;
             Title = "Card Details";
             SubmitCommand = new Command(async () => await DelegateCommand());
         }
@@ -155,6 +159,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                     Console.Write("Payment Gateway" + "Payment Successful ");
 
                     UserDialogs.Instance.HideLoading();
+                    UserDialogs.Instance.Alert("Uplata uspješno izvršena!","Notifikacija","Ok");
+                    await Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+
                 }
                 else
                 {
@@ -174,7 +181,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public async Task GetKlijent()
         {
             var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
-            var RezervacijaModel = await _rezervacijeService.Get<List<Model.Rezervacija>>(null);
+
+            //var RezervacijaModel = await _rezervacijeService.Get<List<Model.Rezervacija>>(null);
+
+            //ne treba jer smo primili gore
+            //var RezervacijaModel = await _rezervacijeService.GetActionResponse($"GetRezByUserID/{APIService.UserID}");
+
 
 
             Ime = KlijentModel.Ime;
@@ -183,7 +195,10 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             Email = KlijentModel.Email;
             Adresa = KlijentModel.Adresa;
             DatumRodjenja = KlijentModel.DatumRodjenja;
-            UkupnaCijena = RezervacijaModel.Last().UkupnaCijena;
+
+            
+
+            UkupnaCijena = _rezervacija.UkupnaCijena;
         }
 
 
@@ -231,7 +246,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 var options = new ChargeCreateOptions
                 {
                     //Amount = (long)float.Parse("20000"),
-                    Amount = (long)float.Parse((UkupnaCijena * 100).ToString()),
+                    Amount = ((int)(UkupnaCijena * 100)),
                     Currency = "bam",
                     Description = "Charge for Jon.rosen@example.com",
                     Source = stripeToken.Id,

@@ -31,22 +31,8 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
         {
             //APIService.UserVoziloID;
             /* APIService.UserVoziloID =((Vozilo)e.SelectedItem).VoziloID;*/
-            await Navigation.PushAsync(new NapraviteUgovor(((Vozilo)e.SelectedItem).VoziloID, ((Vozilo)e.SelectedItem).CijenaPoSatu)); // kada vise puta udjem, app pukne 
+            await Navigation.PushAsync(new NapraviRezervacijuPage((Vozilo)e.SelectedItem)); // kada vise puta udjem, app pukne 
             //Application.Current.MainPage = new NapraviteUgovor();
-        }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            //await Navigation.PushAsync(new DetaljiVozila());
-        }
-
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
-        {
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)

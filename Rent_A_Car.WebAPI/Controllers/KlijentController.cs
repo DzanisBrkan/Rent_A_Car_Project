@@ -44,7 +44,7 @@ namespace Rent_A_Car.WebAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public Model.Klijent Update(int id, KlijentUpdateRequest request)
+        public Model.Klijent Update(int id, KlijentInsertRequest request)
         {
             return _service.Update(id, request);
         }

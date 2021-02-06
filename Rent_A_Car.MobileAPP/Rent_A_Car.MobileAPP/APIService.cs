@@ -49,7 +49,6 @@ namespace Rent_A_Car.MobileAPP
                     url += await search.ToQueryString();
                 }
 
-                //implementacija autentifikacije
                 return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
             }
             catch (FlurlHttpException ex)
@@ -78,14 +77,6 @@ namespace Rent_A_Car.MobileAPP
         public async Task<T> GetActionResponse<T>(string action, object search = null)
         {
             var url = $"{_apiUrl}/{_route}/{action}";
-
-            //if (search is string)
-            //{
-            //    url += "/";
-            //    url += search;
-            //    return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
-
-            //}
 
             if (search != null)
             {
@@ -125,6 +116,34 @@ namespace Rent_A_Car.MobileAPP
 
         }
 
+
+
+        public async Task<T> PutActionResponse<T>(string action, int id, object request)
+        {
+            var url = $"{_apiUrl}/{_route}/{action}/{id}";
+
+            try
+            {
+                if (Username == null && Password == null)
+                {
+                    return await url.PostJsonAsync(request).ReceiveJson<T>();
+                }
+                return await url.WithBasicAuth(Username, Password).PutJsonAsync(request).ReceiveJson<T>();
+            }
+            catch (FlurlHttpException ex)
+            {
+                var errors = await ex.GetResponseJsonAsync<Dictionary<string, object>>();
+                var stringBuilder = new StringBuilder();
+
+                foreach (var error in errors)
+                {
+                    stringBuilder.AppendLine($"{error.Key}, ${string.Join(",", error.Value)}");
+                }
+                await Application.Current.MainPage.DisplayAlert("Greška", stringBuilder.ToString(), "OK");
+                return default(T);
+            }
+
+        }
 
 
         // INSERT PREMA SERVERU -----------------------

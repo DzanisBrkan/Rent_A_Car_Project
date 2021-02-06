@@ -5,11 +5,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Rent_A_Car.WebAPI.RecommendationSystem.Recommander;
 
 namespace Rent_A_Car.WebAPI.Services
 {
     public class VoziloService 
-        : BaseCRUDService<Model.Vozilo, VoziloSearchRequest, Database.Vozilo, VoziloUpsertRequest, VoziloUpsertRequest>
+       : BaseCRUDService<Model.Vozilo, VoziloSearchRequest, Database.Vozilo, VoziloUpsertRequest, VoziloUpsertRequest>,
+        IVoziloService
     {
         public VoziloService(Rent_A_CarContext context, IMapper mapper) : base(context, mapper)
         {
@@ -36,6 +38,39 @@ namespace Rent_A_Car.WebAPI.Services
                 list = query.ToList();
             }
                 return _mapper.Map<List<Model.Vozilo>>(list);
+        }
+
+        public List<Model.Vozilo> Preporuka(int id)
+        {
+            RecommenderSystem rc = new RecommenderSystem();
+
+            List<Model.Vozilo> vozila = new List<Model.Vozilo>();
+            List<int> p = rc.GetRecomended(id).Select(x => x.Key).ToList();
+            foreach (var voziloId in p)
+                if (!_context.Vozilo.Find(voziloId).Zauzeto==false)
+                {
+                    p.Remove(voziloId);
+                }
+                else
+                {
+                    var vozilo = _context.Vozilo.Find(voziloId);
+                    vozila.Add(_mapper.Map<Model.Vozilo>(vozilo));
+                }
+
+            return vozila;
+        }
+
+        public Model.Vozilo UpdateStatus(int id, VoziloStatusRequest request)
+        {
+            var entity = _context.Vozilo.Find(id);
+            _context.Vozilo.Attach(entity);
+            _context.Vozilo.Update(entity);
+
+            _mapper.Map(request, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Vozilo>(entity);
         }
     }
 }

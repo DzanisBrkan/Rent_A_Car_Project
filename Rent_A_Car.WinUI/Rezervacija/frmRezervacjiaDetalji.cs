@@ -44,7 +44,8 @@ namespace Rent_A_Car.WinUI.Rezervacija
 
                     var vozilo = await _servicesVozilo.GetById<Model.Vozilo>(rezervacija.VoziloId);
 
-                    txtPocetak.Text = rezervacija.KrajRezervacije.ToString();
+
+                    //txtPocetak.Text = rezervacija.KrajRezervacije;
                     txtStatus.Text = rezervacija.Status;
                     txtCijena.Text = rezervacija.UkupnaCijena.ToString();
                     txtModel.Text = vozilo.Model;

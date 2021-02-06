@@ -27,7 +27,7 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new OcijenivanjeIKomentarisanje());
+            //await Navigation.PushAsync(new OcijenivanjeIKomentarisanje());
 
         }
     }

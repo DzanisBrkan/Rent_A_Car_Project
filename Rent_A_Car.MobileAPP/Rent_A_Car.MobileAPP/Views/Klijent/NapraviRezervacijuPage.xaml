@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.NapraviRezervacijuPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="5" VerticalOptions="CenterAndExpand">
+            <Label Text="Kreiraj rezervaciju:" FontAttributes="Bold"  FontSize="Title" HorizontalOptions="CenterAndExpand"></Label>
+
+            <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Model vozila:" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label  Text="{Binding Model}" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Marka vozila:" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label Text="{Binding Marka}" VerticalTextAlignment="Center"></Label>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Cijena vozila ukljucujuci PDV:" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label Text="{Binding UkupnaCijena}"  HorizontalTextAlignment="Center"></Label>
+                <Label Text="KM" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+
+            <Label Text="Izaberite datum pocetka rezervacije" FontAttributes="Bold"></Label>
+            <DatePicker Date="{Binding pocetakRezervacije}" Format="dd-MM-yyyy" ></DatePicker>
+
+            <Label Text="Izaberite datum završavanja rezervacije" FontAttributes="Bold"></Label>
+            <DatePicker Date="{Binding krajRezervacije}" Format="dd-MM-yyyy" ></DatePicker>
+            
+            
+            <!--<Entry Text="{Binding KrajRezervacije}"></Entry>-->
+
+            <!--OVO CE MI TREBATI ZA ZAPOSLENIKA (PREDEFINISANA DROPDOWN LISTA-->
+            <!--<Label Text="Status"></Label>
+            <Picker  SelectedItem="{Binding selectedStatus}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>U toku</x:String>
+                        <x:String>Zavrseno</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>-->
+
+
+
+            <Label Text="Odaberite lokaciju:" FontAttributes="Bold"></Label>
+            <Picker ItemsSource="{Binding lokacijaList}" SelectedItem="{Binding selectedLokacija}" ItemDisplayBinding="{Binding Naziv}"></Picker>
+
+            <Label Text="Odaberite osiguranje" FontAttributes="Bold"></Label>
+            <Picker ItemsSource="{Binding osiguranjeList}" SelectedItem="{Binding selectedOsiguranje}" ItemDisplayBinding="{Binding NazivOsiguranja}"></Picker>
+
+            <Label Text="Odaberite popust:" FontAttributes="Bold"></Label>
+            <Picker ItemsSource="{Binding popustList}" SelectedItem="{Binding selectedPopust}" ItemDisplayBinding="{Binding NazivPopusta}"></Picker>
+
+
+
+            <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Kreiraj rezervaciju" Command="{Binding SaveCommand}"></Button>
+            <Button BackgroundColor="Red" Clicked="Button_Clicked_1" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Nazad"></Button>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

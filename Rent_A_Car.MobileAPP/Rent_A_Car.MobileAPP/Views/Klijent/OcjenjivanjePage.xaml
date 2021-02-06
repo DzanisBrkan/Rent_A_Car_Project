@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             xmlns:Iv="clr-namespace:LaavorRatingConception;assembly=RatingConception"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.OcjenjivanjePage">
+
+    <ContentPage.BindingContext>
+        <viewModel:OcjenjivanjeViewModel></viewModel:OcjenjivanjeViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+
+
+
+                
+                            <StackLayout Padding="10" Orientation="Vertical">
+
+                                
+
+
+
+                                <StackLayout Padding="15" VerticalOptions="CenterAndExpand">
+
+                                    <Label TextColor="#aa0300" Text="Ostavi feedback:" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" />
+                                    <Label />
+                                    <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+                                    <Label />
+
+                                   
+
+
+                                      <StackLayout>
+                                        <Label  TextColor="#c9223e"  FontSize="Title" Text="Ocijeni i ostavi komentar:" VerticalOptions="Center" HorizontalOptions="Center" />
+
+                                        <StackLayout>
+                                            <Label  TextColor="#c9223e" Text="Ocjena:" />
+                                            <Label IsVisible="False" x:Name="index_star" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+                                            <Label IsVisible="False" x:Name="value_star" VerticalOptions="CenterAndExpand" HorizontalOptions="Center"/>
+
+                                            <!--<Entry Text="{Binding Ocjena}"></Entry>-->
+
+                                                <Iv:RatingConception ItemsNumber="5" DrawType="Star"
+                                                                 ImageWidth="35" ImageHeight="35" DesignType="Standard" ColorUI="YellowLight"
+                                                                InitialValue="1"
+                                                                x:Name="ratingStar"
+                                                                Margin="0,15,0,15" Voted="ratingStar_Voted"/>
+
+                                        </StackLayout>
+
+                                        <StackLayout>
+                                            <Label  TextColor="#c9223e" Text="Komentar:" />
+                                            <Entry Text="{Binding Komentar}" HeightRequest="150"></Entry>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Vertical">
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Button HorizontalOptions="Start" TextColor="White" WidthRequest="235" 
+                                            BackgroundColor="#2196F3" FontAttributes="Bold" Text="Ocjeni"  
+                                           Clicked="Button_Clicked_1"></Button>
+                                    
+                                    <Button HorizontalOptions="End" TextColor="White" WidthRequest="235"  BackgroundColor="Red" FontAttributes="Bold" Text="Otkaži" Clicked="Button_Clicked"></Button>
+                                </StackLayout>
+
+                            </StackLayout>
+     
+
+
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

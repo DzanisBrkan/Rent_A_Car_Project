@@ -15,6 +15,7 @@ namespace Rent_A_Car.Model
         public string DatumRodjenja { get; set; }
         public int? GradId { get; set; }
         public string KorisnickoIme { get; set; }
+        public byte[] SlikaThumb { get; set; }
 
     }
 }

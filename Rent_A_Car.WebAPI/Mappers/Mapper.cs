@@ -14,11 +14,18 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Klijent, Model.Klijent>();
             CreateMap<Database.Klijent, KlijentInsertRequest>().ReverseMap();
             CreateMap<Database.Klijent, KlijentUpdateRequest>().ReverseMap();
+
             CreateMap<Database.Ocjena, OcjenaUpsertRequest>().ReverseMap();
+            CreateMap<Database.Ocjena, OcijenaInsertRequest>().ReverseMap();
 
+            CreateMap<Database.Ocjena, Model.Ocjena>();
 
+            CreateMap<Database.Rezervacija, Model.Rezervacija>();
             CreateMap<Database.Rezervacija, RezervacijaUpsertRequest>().ReverseMap();
+            CreateMap<Database.Rezervacija, RezervacijaStatusRequest>().ReverseMap();
+
             CreateMap<Database.Racun, UgovorUpsertRequest>().ReverseMap();
+            CreateMap<Database.Racun, UgovorStatusRequest>().ReverseMap();
 
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
             CreateMap<Database.Zaposlenik, ZaposlenikInsertRequest>().ReverseMap();
@@ -27,19 +34,23 @@ namespace Rent_A_Car.WebAPI.Mappers
 
 
             CreateMap<Database.Vozilo, Model.Vozilo>();
+            CreateMap<Database.Vozilo, VoziloStatusRequest>().ReverseMap();
             CreateMap<Database.Kategorija, Model.Kategorija>();
 
             CreateMap<Database.Specifikacija, Model.Specifikacija>();
             CreateMap<Database.Grad, Model.Grad>();
 
+            CreateMap<Database.Greska, Model.Greska>();
             CreateMap<Database.KorisnickiNalog, Model.KorisnickiNalog>();
             CreateMap<Database.Tip, Model.Tip>();
             CreateMap<Database.Drzava, Model.Drzava>();
-            CreateMap<Database.Greska, Model.Greska>();
-            CreateMap<Database.Lokacija, Model.Lokacija>();
-            CreateMap<Database.Ocjena, Model.Ocjena>();
-            CreateMap<Database.Rezervacija, Model.Rezervacija>();
             CreateMap<Database.Racun, Model.Ugovor>();
+            CreateMap<Database.Osiguranje, Model.Osiguranje>();
+            CreateMap<Database.Popust, Model.Popust>();
+            CreateMap<Database.Lokacija, Model.Lokacija>();
+            CreateMap<Database.NacinPlacanja, Model.NacinPlacanja>();
+
+
             //proba dva
 
         }

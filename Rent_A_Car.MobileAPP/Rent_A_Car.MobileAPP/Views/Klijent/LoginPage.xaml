@@ -21,15 +21,22 @@
             <Image Source="banner_small.png" Margin="0,100,0,70" HeightRequest="300" WidthRequest="650"/>
 
 
-            <Label Text="Username:" />
-            <Entry x:Name="Username" Text="{Binding Username}" Placeholder = "Username" ClearButtonVisibility="WhileEditing"></Entry>
-
-            <Label Text="Password:" />
-            <Entry x:Name="Password" Text="{Binding Password}" Placeholder = "Password" IsPassword="true"></Entry>
-
-
-            <Button BackgroundColor="#aa0300" Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Text="Login"></Button>
-            <Label IsVisible="{Binding IsBusy}" Text="Working..."></Label>
+            <StackLayout HorizontalOptions="Center">
+                <Label HorizontalOptions="Center" FontAttributes="Bold" TextColor="#aa0300" Text="Username:" />
+                <Entry VerticalOptions="Center" WidthRequest="400" TextColor="#aa0300" x:Name="Username" Text="{Binding Username}" Placeholder = "Username" ClearButtonVisibility="WhileEditing"></Entry>
+            </StackLayout>
+            
+            <StackLayout HorizontalOptions="Center">
+                <Label HorizontalOptions="Center" FontAttributes="Bold" TextColor="#aa0300" Text="Password:" />
+                <Entry VerticalOptions="Center" WidthRequest="400" TextColor="#aa0300" x:Name="Password"  Text="{Binding Password}" Placeholder = "Password" IsPassword="true"></Entry>
+            </StackLayout>
+            
+            
+            <StackLayout HorizontalOptions="Center">
+                <Button VerticalOptions="Center" WidthRequest="400" FontAttributes="Bold" TextColor="White" BackgroundColor="#aa0300" Command="{Binding LoginCommand}" HorizontalOptions="FillAndExpand" Text="Login"></Button>
+                <Label HorizontalOptions="Center" IsVisible="{Binding IsBusy}" TextColor="#aa0300" Text="Working..."></Label>
+            </StackLayout>
+           
 
             <Label TextColor="#aa0300" HorizontalTextAlignment="Center" HorizontalOptions="FillAndExpand" Text="Registruj se" Margin="0,5,0,0">
                 <Label.GestureRecognizers>

@@ -47,7 +47,7 @@ namespace Rent_A_Car.WinUI.OcijenaIKomentar
 
                     txtOcjena.Text = ocjena.Ocjena1.ToString();
                     txtKomentar.Text = ocjena.Komentar;
-                    txtDatumRacuna.Text = Racun.DatumUgovora.ToString();
+                    //txtDatumRacuna.Text = Racun.DatumUgovora.ToString();
                     txtModel.Text = vozilo.Model;
                     txtMarkaa.Text = vozilo.Marka.ToString();
                     txtCijena.Text = rezervacija.UkupnaCijena.ToString();

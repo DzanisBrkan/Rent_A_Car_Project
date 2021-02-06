@@ -1,4 +1,5 @@
-﻿using Rent_A_Car.Model.Requests;
+﻿using Rent_A_Car.Model;
+using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,5 +10,7 @@ namespace Rent_A_Car.WebAPI.Services
     public interface IRezervacijaServicecs
     {
         Model.Rezervacija GetRezervacijaByUserID(int id);
+
+        Rezervacija UpdateStatus(int id, RezervacijaStatusRequest request);
     }
 }

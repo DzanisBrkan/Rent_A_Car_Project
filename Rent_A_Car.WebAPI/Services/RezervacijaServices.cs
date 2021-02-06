@@ -32,5 +32,19 @@ namespace Rent_A_Car.WebAPI.Services
             }
             throw new UserException("Rezervacija nije pronadjena");
         }
+
+
+        public Model.Rezervacija UpdateStatus(int id, RezervacijaStatusRequest request)
+        {
+            var entity = _context.Rezervacija.Find(id);
+            _context.Rezervacija.Attach(entity);
+            _context.Rezervacija.Update(entity);
+
+            _mapper.Map(request, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Rezervacija>(entity);
+        }
     }
 }

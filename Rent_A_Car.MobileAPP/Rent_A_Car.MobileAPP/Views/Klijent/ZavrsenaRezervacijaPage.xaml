@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.ZavrsenaRezervacijaPage"
+             x:Name="PageInstance">
+
+
+    <ContentPage.BindingContext>
+        <viewModel:ZavrsenaRezervacijaViewModel x:Name="RezVozVM"></viewModel:ZavrsenaRezervacijaViewModel>
+    </ContentPage.BindingContext>
+
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ImageConverter x:Key="imgConv"></local:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label TextColor="#c9223e" FontAttributes="Bold" Text="Završene rezervacije:" FontSize="Medium" HorizontalOptions="Center" />
+
+            <ListView ItemsSource="{Binding _PronadjenaRezervacijaService}" >
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell >
+                            <StackLayout Padding="10" Orientation="Vertical">
+                                <!--iz ovog uzimam id-->
+                                <Label Text="{Binding RezervacijaID}" IsVisible="False" x:Name="RezervacijaID"></Label>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Naziv rezervacije:" FontAttributes="Bold" TextDecorations="Underline" />
+                                    <Label Text="{Binding Naziv}" FontSize="Default"/>
+                                </StackLayout>
+
+                                <!--slika-->
+                                <!--<StackLayout Orientation="Horizontal">
+                                    <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                </StackLayout>-->
+
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Status rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Label Text="{Binding Status}" FontSize="Default"/>
+                                </StackLayout>
+
+
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Cijena vozila sa PDV-om iznosi:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Label Text="{Binding UkupnaCijena}" FontSize="Default"/>
+                                </StackLayout>
+
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Početak rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <DatePicker Date="{Binding PocetakRezervacije}" Format="dd-MM-yyyy" FontSize="Default" IsEnabled="False"></DatePicker>
+
+                                </StackLayout>
+
+                                <StackLayout Orientation="Horizontal">
+                                    <Label TextColor="#c9223e" Text="Kraj rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <DatePicker Date="{Binding KrajRezervacije}" Format="dd-MM-yyyy" FontSize="Default" IsEnabled="False"></DatePicker>
+                                </StackLayout>
+
+
+
+
+                                <StackLayout Orientation="Vertical">
+                                    <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#D4AF37" FontAttributes="Bold" Text="Ocjeni"  Command="{Binding BindingContext.OcjeniCommand, Source={x:Reference PageInstance} }" CommandParameter="{Binding Text, Source={x:Reference RezervacijaID}}"></Button>
+
+                                    <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#e31212" FontAttributes="Bold" Text="Nazad" Clicked="Button_Clicked"></Button>
+                                </StackLayout>
+
+                                <Label />
+                                <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+                                <Label />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

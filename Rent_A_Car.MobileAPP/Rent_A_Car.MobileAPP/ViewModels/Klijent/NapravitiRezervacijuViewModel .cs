@@ -36,8 +36,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         }
 
-        public DateTime _KrajRezervacije;
-        public DateTime KrajRezervacije
+
+        //public DateTime _KrajRezervacije;
+        //public DateTime KrajRezervacije
+
+        DateTime? _KrajRezervacije = null;
+        public DateTime? KrajRezervacije
+
         {
             get { return _KrajRezervacije; }
             set { SetProperty(ref _KrajRezervacije, value); }
@@ -160,6 +165,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             var ListaUgovora = await _UgovorService.GetById<Ugovor>(APIService.UserRacunID);
             //var VozilModel = await _vozilaService.GetById<Vozilo>(APIService.UserVoziloID);
 
+
             //UgovorList.Clear();
             //foreach (var rezervacije in ListaUgovora)
             //{
@@ -176,19 +182,33 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
 
 
-            RacunID = ListaUgovora.RacunID.ToString();
-            KrajRezervacije = _KrajRezervacije;
-            Status = _Status;
+           // RacunID = ListaUgovora.RacunID.ToString();
+           //// KrajRezervacije = _KrajRezervacije;
+           // Status = _Status;
 
-            //var DatetimeNow = DateTime.Now;
-            //var daniUMjesecu = DateTime.DaysInMonth(DateTime.Now.Month ,DateTime.Now.Month);
-            //char[] unjetiDani = KrajRezervacije.Take(2).ToArray();
-            //var unjetiDaniInt = Int32.Parse(unjetiDani.ToString()); 
-            //var ukupnaCijena = VozilModel.CijenaPoSatu * (daniUMjesecu-unjetiDaniInt);
+            //kom var DatetimeNow = DateTime.Now;
+            //kom var daniUMjesecu = DateTime.DaysInMonth(DateTime.Now.Month ,DateTime.Now.Month);
+            //kom  char[] unjetiDani = KrajRezervacije.Take(2).ToArray();
+            //kom var unjetiDaniInt = Int32.Parse(unjetiDani.ToString()); 
+            //kom var ukupnaCijena = VozilModel.CijenaPoSatu * (daniUMjesecu-unjetiDaniInt);
 
 
 
-            UkupnaCijena = _UkupnaCijena;
+            //UkupnaCijena = _UkupnaCijena;
+
+            for (int i = 0; i < UgovorList.Count; i++)
+            {
+                //if (UgovorList[i].RacunID == RezervacijaModel.RacunId)
+                //{
+                //    UgovorList2[i] = UgovorList[i];
+                //}
+            }
+
+            //RacunID = UgovorList2.Last().RacunID.ToString();
+            //KrajRezervacije = _KrajRezervacije;
+            //Status = _Status;
+            //UkupnaCijena = _UkupnaCijena;
+
 
         }
 
@@ -200,7 +220,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             try
             {
 
-                if (KrajRezervacije != null)
+
+              //  if (KrajRezervacije != null)
+
+                if (KrajRezervacije == null)
+
                 {
                     if (KrajRezervacije.Month < DateTime.Now.Month)
                     {
@@ -270,15 +294,19 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
                 var request = new RezervacijaUpsertRequest()
                 {
-                    KrajRezervacije = KrajRezervacije,
+                    KrajRezervacije = (DateTime)KrajRezervacije,
                     Status = Status,
-                    UkupnaCijena = ukupnaCijena.ToString(),
+
+                    //UkupnaCijena = ukupnaCijena.ToString(),
+
+                    //UkupnaCijena = UkupnaCijena,
+
                     //LokacijaId = _LokacijaId,
                     //OsiguranjeId = _OsiguranjeId,
                     KlijentId = APIService.UserID,
                     //VoziloId = _VoziloId,
                     //PopustId = _PopustId,
-                    RacunId = APIService.UserRacunID
+                    //RacunId = APIService.UserRacunID
                 };
 
 
