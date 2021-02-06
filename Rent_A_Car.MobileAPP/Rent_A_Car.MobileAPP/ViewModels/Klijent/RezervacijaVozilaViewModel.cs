@@ -40,6 +40,14 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
        
 
 
+        public DateTime _KrajRezervacije;
+        public DateTime KrajRezervacije
+        {
+            get { return _KrajRezervacije; }
+            set { SetProperty(ref _KrajRezervacije, value); }
+        }
+
+
         public ObservableCollection<Rezervacija> RezervacijeList { get; set; } = new ObservableCollection<Rezervacija>();
         public ObservableCollection<Rezervacija> _PronadjenaRezervacijaService { get; set; } = new ObservableCollection<Rezervacija>();
         public Rezervacija PronadjenaRezervacija { get; set; } = new Rezervacija();
@@ -109,11 +117,23 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public async Task Otkazi(object sender)
         {
 
+
+            //kom mora se uzet rezervacija koja se odabere
+            //kom var RezervacijaModel = await _rezervacijaService.GetActionResponse<Model.Rezervacija>($"GetRezByUserID/{APIService.UserID}");
+
+
+           // _KrajRezervacije = KrajRezervacije;
+          //  _Status = Status;
+            //_UkupnaCijena = UkupnaCijena;
+
+
             var rezervacija = await _rezervacijaService.GetById<Model.Rezervacija>(sender);
             var vozilo = await _voziloService.GetById<Model.Vozilo>(rezervacija.VoziloId);
 
+
             if (rezervacija != null)
             {
+
                 var requestRezervacija = new RezervacijaStatusRequest()
                 {
                     Status = "Otkazano"

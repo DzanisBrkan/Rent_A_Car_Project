@@ -32,5 +32,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             //await Navigation.PushAsync(new LoginPage());
             //Application.Current.MainPage = new LoginPage();
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MainPage();
+        }
     }
 }

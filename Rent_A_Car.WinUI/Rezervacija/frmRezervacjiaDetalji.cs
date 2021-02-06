@@ -44,6 +44,7 @@ namespace Rent_A_Car.WinUI.Rezervacija
 
                     var vozilo = await _servicesVozilo.GetById<Model.Vozilo>(rezervacija.VoziloId);
 
+
                     //txtPocetak.Text = rezervacija.KrajRezervacije;
                     txtStatus.Text = rezervacija.Status;
                     txtCijena.Text = rezervacija.UkupnaCijena.ToString();
@@ -58,6 +59,7 @@ namespace Rent_A_Car.WinUI.Rezervacija
                     {
                         checkBoxZauzeto.Checked = false;
                     }
+                    txtPocetak.Select();
                 }
             }
             catch (Exception ex)

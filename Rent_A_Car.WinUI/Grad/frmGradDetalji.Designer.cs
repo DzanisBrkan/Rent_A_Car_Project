@@ -50,7 +50,7 @@
             this.btnSnimi.Location = new System.Drawing.Point(177, 181);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(138, 57);
-            this.btnSnimi.TabIndex = 104;
+            this.btnSnimi.TabIndex = 2;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
             this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
@@ -79,7 +79,7 @@
             this.txtNaziv.Location = new System.Drawing.Point(149, 88);
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(265, 20);
-            this.txtNaziv.TabIndex = 93;
+            this.txtNaziv.TabIndex = 0;
             this.txtNaziv.Validating += new System.ComponentModel.CancelEventHandler(this.txtNaziv_Validating);
             // 
             // PostanskiBroj
@@ -96,7 +96,7 @@
             this.txtPostanskiBroj.Location = new System.Drawing.Point(149, 127);
             this.txtPostanskiBroj.Name = "txtPostanskiBroj";
             this.txtPostanskiBroj.Size = new System.Drawing.Size(265, 20);
-            this.txtPostanskiBroj.TabIndex = 85;
+            this.txtPostanskiBroj.TabIndex = 1;
             this.txtPostanskiBroj.Validating += new System.ComponentModel.CancelEventHandler(this.txtPostanskiBroj_Validating);
             // 
             // btnExit
@@ -108,7 +108,7 @@
             this.btnExit.Location = new System.Drawing.Point(441, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 106;
+            this.btnExit.TabIndex = 3;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

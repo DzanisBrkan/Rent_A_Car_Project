@@ -49,5 +49,12 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             //Application.Current.MainPage = new StripePaymentGatwayPage();
 
         }
+
+        private void Button_Clicked_3(object sender, EventArgs e)
+        {
+            //Application.Current.MainPage = new MainPage();
+
+
+        }
     }
 }

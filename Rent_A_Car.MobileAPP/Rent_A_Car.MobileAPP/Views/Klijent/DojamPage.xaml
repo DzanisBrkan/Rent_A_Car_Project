@@ -20,15 +20,18 @@
                 HorizontalOptions="Center" 
                   />
 
-
-
-
-
-            <Label Text="Komentar:" />
+            <Label Text="Ostavite komentar:" />
             <Entry Placeholder="Odlicno" Text="{Binding Komentarr}" ></Entry>
 
-            <Label Text="Ocjena:" />
+            <Label Text="Unesite Ocjena:" />
             <Entry Placeholder="5" Text="{Binding Ocjenaa}" ></Entry>
+
+            <Label Text="Ostavite dojam:" />
+            <Entry Placeholder="Text" Text="{Binding Dojam}" ></Entry>
+
+            <Label Text="Ostavite vas utisak:" />
+            <Entry Placeholder="Text" Text="{Binding Utisak}" ></Entry>
+
 
             <Button BackgroundColor="Red" Command="{Binding InitCommand}" Clicked="Button_Clicked" Text="Ostavi utisak"></Button>
 

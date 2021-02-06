@@ -300,7 +300,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             if (modelUserUpdated != null)
             {
                 await Application.Current.MainPage.DisplayAlert("Uspješno", "Izmijene uspješno napravljenje. Prijavite se ponovo da bi se podaci osvježili.", "OK");
+
+                //await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+
                 await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
+
             }
         }
     }

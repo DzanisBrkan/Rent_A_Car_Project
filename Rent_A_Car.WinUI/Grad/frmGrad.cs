@@ -23,7 +23,7 @@ namespace Rent_A_Car.WinUI.Grad
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
+        } 
 
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {

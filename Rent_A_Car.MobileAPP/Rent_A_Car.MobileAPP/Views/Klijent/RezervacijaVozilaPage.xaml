@@ -34,6 +34,7 @@
                                 <!--iz ovog uzimam id-->
                                 <Label Text="{Binding RezervacijaID}" IsVisible="False" x:Name="RezervacijaID"></Label>
 
+
                                 <StackLayout Orientation="Horizontal">
                                     <Label TextColor="#c9223e" Text="Naziv rezervacije:" FontAttributes="Bold" TextDecorations="Underline" />
                                     <Label Text="{Binding Naziv}" FontSize="Default"/>
@@ -45,11 +46,11 @@
                                 </StackLayout>-->
 
 
+
                                 <StackLayout Orientation="Horizontal">
                                     <Label TextColor="#c9223e" Text="Status rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
                                     <Label Text="{Binding Status}" FontSize="Default"/>
                                 </StackLayout>
-
 
 
                                 <StackLayout Orientation="Horizontal">

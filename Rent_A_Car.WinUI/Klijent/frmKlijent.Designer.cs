@@ -51,7 +51,7 @@
             this.groupBox1.Controls.Add(this.dgvKlijent);
             this.groupBox1.Location = new System.Drawing.Point(12, 117);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 321);
+            this.groupBox1.Size = new System.Drawing.Size(755, 321);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klijenti";
@@ -75,7 +75,7 @@
             this.dgvKlijent.Name = "dgvKlijent";
             this.dgvKlijent.ReadOnly = true;
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijent.Size = new System.Drawing.Size(770, 302);
+            this.dgvKlijent.Size = new System.Drawing.Size(749, 302);
             this.dgvKlijent.TabIndex = 0;
             this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
@@ -141,7 +141,7 @@
             this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(678, 64);
+            this.btnPrikazi.Location = new System.Drawing.Point(657, 60);
             this.btnPrikazi.Name = "btnPrikazi";
             this.btnPrikazi.Size = new System.Drawing.Size(107, 29);
             this.btnPrikazi.TabIndex = 1;
@@ -162,7 +162,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(738, 12);
+            this.btnExit.Location = new System.Drawing.Point(720, 3);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
             this.btnExit.TabIndex = 12;
@@ -173,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(783, 450);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnPrikazi);

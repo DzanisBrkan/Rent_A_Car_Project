@@ -16,7 +16,7 @@ namespace Rent_A_Car.WinUI.Vozilo
         private readonly APIService _apiService = new APIService("Vozilo");
         public frmPregledVozilo()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private async void btnPrikazi_Click(object sender, EventArgs e)

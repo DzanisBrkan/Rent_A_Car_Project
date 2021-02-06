@@ -21,10 +21,10 @@ namespace Rent_A_Car.WebAPI.Database
         public int? KlijentId { get; set; }
         public int? VoziloId { get; set; }
         public int? PopustId { get; set; }
+
         public DateTime? PocetakRezervacije { get; set; }
         public DateTime? KrajRezervacije { get; set; }
         public string Naziv { get; set; }
-
         public virtual Klijent Klijent { get; set; }
         public virtual Lokacija Lokacija { get; set; }
         public virtual Osiguranje Osiguranje { get; set; }

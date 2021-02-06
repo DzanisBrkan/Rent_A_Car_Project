@@ -20,6 +20,7 @@ namespace Rent_A_Car.MobileAPP.Views
 
             menuItems = new List<HomeMenuItem>
             {
+
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Pretraga vozila" },
                 new HomeMenuItem {Id = MenuItemType.Vozila, Title="Pregled kategorija vozila" },
                 new HomeMenuItem {Id = MenuItemType.MojiUgovori, Title="Aktivni računi" },

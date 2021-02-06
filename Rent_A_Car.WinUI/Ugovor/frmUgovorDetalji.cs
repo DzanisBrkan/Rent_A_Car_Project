@@ -36,6 +36,8 @@ namespace Rent_A_Car.WinUI.Ugovor
                 //txtUkupnaKolicina.Text = ugovor.UkupnaKolicina.ToString();
                
             }
+            txtDatum.Select();
+
         }
     }
 }
