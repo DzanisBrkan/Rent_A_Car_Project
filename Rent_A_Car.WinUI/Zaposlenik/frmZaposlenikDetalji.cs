@@ -58,6 +58,7 @@ namespace Rent_A_Car.WinUI.Zaposlenik
                     //txtGrad.Text = zaposlenik.KorisnickiNalog.TipKorisnickogNaloga;
                     txtKorisnickoIme.Text = zaposlenik.KorisnickoIme;
                 }
+                txtKorisnickoIme.Select();
             }
             catch (Exception ex)
             {

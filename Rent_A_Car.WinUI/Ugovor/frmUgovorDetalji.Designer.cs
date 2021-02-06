@@ -63,7 +63,7 @@
             this.txtDatum.Location = new System.Drawing.Point(136, 100);
             this.txtDatum.Name = "txtDatum";
             this.txtDatum.Size = new System.Drawing.Size(265, 20);
-            this.txtDatum.TabIndex = 93;
+            this.txtDatum.TabIndex = 0;
             // 
             // UkupnaKolicina
             // 
@@ -79,7 +79,7 @@
             this.txtUkupnaKolicina.Location = new System.Drawing.Point(136, 177);
             this.txtUkupnaKolicina.Name = "txtUkupnaKolicina";
             this.txtUkupnaKolicina.Size = new System.Drawing.Size(265, 20);
-            this.txtUkupnaKolicina.TabIndex = 87;
+            this.txtUkupnaKolicina.TabIndex = 2;
             // 
             // UkupnaCijena
             // 
@@ -95,7 +95,7 @@
             this.txtUkupnaCijena.Location = new System.Drawing.Point(136, 139);
             this.txtUkupnaCijena.Name = "txtUkupnaCijena";
             this.txtUkupnaCijena.Size = new System.Drawing.Size(265, 20);
-            this.txtUkupnaCijena.TabIndex = 85;
+            this.txtUkupnaCijena.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -106,7 +106,7 @@
             this.btnExit.Location = new System.Drawing.Point(410, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 107;
+            this.btnExit.TabIndex = 3;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

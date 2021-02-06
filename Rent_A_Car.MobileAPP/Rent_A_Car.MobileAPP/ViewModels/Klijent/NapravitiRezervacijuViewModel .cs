@@ -36,8 +36,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         }
 
-        string _KrajRezervacije = string.Empty;
-        public string KrajRezervacije
+        public DateTime _KrajRezervacije;
+        public DateTime KrajRezervacije
         {
             get { return _KrajRezervacije; }
             set { SetProperty(ref _KrajRezervacije, value); }
@@ -153,27 +153,41 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             //PopustId = RezervacijeList.First().PopustId.ToString();
             //RacunID = RezervacijeList.First().RacunId.ToString();
 
-            var RezervacijaModel = await _rezervacijeService.GetById<Model.Rezervacija>(APIService.UserID);
+            //var RezervacijaModel = await _rezervacijeService.GetById<Model.Rezervacija>(APIService.UserID);
 
-            var ListaUgovora= await _UgovorService.GetById<IEnumerable<Ugovor>>(null);
+            var RezervacijaModel = await _rezervacijaService.GetActionResponse<Model.Rezervacija>($"GetRezByUserID/{APIService.UserID}");
 
-            UgovorList.Clear();
-            foreach (var rezervacije in ListaUgovora)
-            {
-                UgovorList.Add(rezervacije);
-            }
+            var ListaUgovora = await _UgovorService.GetById<Ugovor>(APIService.UserRacunID);
+            //var VozilModel = await _vozilaService.GetById<Vozilo>(APIService.UserVoziloID);
 
-            for (int i = 0; i < UgovorList.Count; i++)
-            {
-                if (UgovorList[i].RacunID == RezervacijaModel.RacunId)
-                {
-                    UgovorList2[i] = UgovorList[i];
-                }
-            }
+            //UgovorList.Clear();
+            //foreach (var rezervacije in ListaUgovora)
+            //{
+            //    UgovorList.Add(rezervacije);
+            //}
 
-            RacunID = UgovorList2.Last().RacunID.ToString();
+            //for (int i = 0; i < UgovorList.Count; i++)
+            //{
+            //    if (UgovorList[i].RacunID == ListaUgovora.RacunID)
+            //    {
+            //        UgovorList2[i] = UgovorList[i];
+            //    }
+            //}
+
+
+
+            RacunID = ListaUgovora.RacunID.ToString();
             KrajRezervacije = _KrajRezervacije;
             Status = _Status;
+
+            //var DatetimeNow = DateTime.Now;
+            //var daniUMjesecu = DateTime.DaysInMonth(DateTime.Now.Month ,DateTime.Now.Month);
+            //char[] unjetiDani = KrajRezervacije.Take(2).ToArray();
+            //var unjetiDaniInt = Int32.Parse(unjetiDani.ToString()); 
+            //var ukupnaCijena = VozilModel.CijenaPoSatu * (daniUMjesecu-unjetiDaniInt);
+
+
+
             UkupnaCijena = _UkupnaCijena;
 
         }
@@ -186,10 +200,14 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             try
             {
 
-                if (string.IsNullOrWhiteSpace(KrajRezervacije))
+                if (KrajRezervacije != null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
-                    return;
+                    if (KrajRezervacije.Month < DateTime.Now.Month)
+                    {
+                        await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ispravan datum", "Ok");
+                        //return;
+                    }
+                  
 
 
                 }
@@ -198,19 +216,19 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
                 if (string.IsNullOrWhiteSpace(Status))
                 {
-                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
+                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti status", "Ok");
                     return;
 
 
                 }
 
-                if (string.IsNullOrWhiteSpace(UkupnaCijena))
-                {
-                    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
-                    return;
+                //if (string.IsNullOrWhiteSpace(UkupnaCijena))
+                //{
+                //    await Application.Current.MainPage.DisplayAlert("Greška", "Morate unijeti ocjenu", "Ok");
+                //    return;
 
 
-                }
+                //}
 
 
 
@@ -222,11 +240,39 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 var UgovorModel = await _UgovorService.GetById<Model.Ugovor>(RezervacijaModel.RacunId);
                 APIService.UserRacunID = RezervacijaModel.RacunId;
 
+
+
+                var VozilModel = await _vozilaService.GetById<Vozilo>(APIService.UserVoziloID);
+                //var ugovorModel = await _UgovorService.GetById<Ugovor>(APIService.UserRacunID);
+
+
+                var DatumUgovora = DateTime.Now.Day;
+
+                var KrajDatumaUgovora = KrajRezervacije.Day;
+
+                int DaniRezervacije = 0;
+                int ukupnaCijena = 0;
+
+                //if (KrajRezervacije.Month >= DateTime.Now.Month)
+                //{
+                    if (KrajDatumaUgovora < DatumUgovora)
+                    {
+                        DatumUgovora = 0;
+                    }
+                    DaniRezervacije = KrajDatumaUgovora - DatumUgovora;
+                    ukupnaCijena = (int)VozilModel.CijenaPoSatu * DaniRezervacije;
+                //}
+
+
+              
+
+
+
                 var request = new RezervacijaUpsertRequest()
                 {
                     KrajRezervacije = KrajRezervacije,
                     Status = Status,
-                    UkupnaCijena = UkupnaCijena,
+                    UkupnaCijena = ukupnaCijena.ToString(),
                     //LokacijaId = _LokacijaId,
                     //OsiguranjeId = _OsiguranjeId,
                     KlijentId = APIService.UserID,
@@ -244,8 +290,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 {
                     //if (modelRezervacija.Status.ToString() != "Faulted")
                     //{
-                        await Application.Current.MainPage.DisplayAlert("Notifikacija", "Uspješno ste napravili rezervaicuju.", "Ok");
-                        await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                        await Application.Current.MainPage.DisplayAlert("Notifikacija", "Uspješno ste napravili rezervaicuju. Cijena iznosi:" + ukupnaCijena.ToString() + "KM", "Ok");
+                        //await Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
                     //}
                     //await Application.Current.MainPage.DisplayAlert("Error.", "Doslo je do greske.", "Ok");
                 }

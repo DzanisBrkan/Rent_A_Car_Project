@@ -71,7 +71,7 @@
             this.txtPocetak.Location = new System.Drawing.Point(143, 84);
             this.txtPocetak.Name = "txtPocetak";
             this.txtPocetak.Size = new System.Drawing.Size(265, 20);
-            this.txtPocetak.TabIndex = 93;
+            this.txtPocetak.TabIndex = 0;
             // 
             // Cijena
             // 
@@ -87,7 +87,7 @@
             this.txtCijena.Location = new System.Drawing.Point(143, 166);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(265, 20);
-            this.txtCijena.TabIndex = 91;
+            this.txtCijena.TabIndex = 2;
             // 
             // Status
             // 
@@ -103,7 +103,7 @@
             this.txtStatus.Location = new System.Drawing.Point(143, 124);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(265, 20);
-            this.txtStatus.TabIndex = 89;
+            this.txtStatus.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -114,7 +114,7 @@
             this.btnExit.Location = new System.Drawing.Point(414, 6);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 106;
+            this.btnExit.TabIndex = 7;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -132,7 +132,7 @@
             this.txtModel.Location = new System.Drawing.Point(143, 202);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(265, 20);
-            this.txtModel.TabIndex = 107;
+            this.txtModel.TabIndex = 3;
             // 
             // labelMarka
             // 
@@ -148,7 +148,7 @@
             this.txtMarka.Location = new System.Drawing.Point(143, 239);
             this.txtMarka.Name = "txtMarka";
             this.txtMarka.Size = new System.Drawing.Size(265, 20);
-            this.txtMarka.TabIndex = 109;
+            this.txtMarka.TabIndex = 4;
             // 
             // labelCijenaPoSatu
             // 
@@ -164,7 +164,7 @@
             this.txtCijenaPoSatu.Location = new System.Drawing.Point(143, 273);
             this.txtCijenaPoSatu.Name = "txtCijenaPoSatu";
             this.txtCijenaPoSatu.Size = new System.Drawing.Size(265, 20);
-            this.txtCijenaPoSatu.TabIndex = 111;
+            this.txtCijenaPoSatu.TabIndex = 5;
             // 
             // Zauzetolabela
             // 
@@ -181,7 +181,7 @@
             this.checkBoxZauzeto.Location = new System.Drawing.Point(244, 311);
             this.checkBoxZauzeto.Name = "checkBoxZauzeto";
             this.checkBoxZauzeto.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxZauzeto.TabIndex = 114;
+            this.checkBoxZauzeto.TabIndex = 6;
             this.checkBoxZauzeto.UseVisualStyleBackColor = true;
             // 
             // frmRezervacjiaDetalji

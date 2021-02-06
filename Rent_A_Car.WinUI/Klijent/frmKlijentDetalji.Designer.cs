@@ -55,7 +55,7 @@
             this.txtIme.Location = new System.Drawing.Point(169, 173);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(265, 20);
-            this.txtIme.TabIndex = 0;
+            this.txtIme.TabIndex = 1;
             this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
             // 
             // Ime
@@ -64,7 +64,7 @@
             this.Ime.Location = new System.Drawing.Point(71, 176);
             this.Ime.Name = "Ime";
             this.Ime.Size = new System.Drawing.Size(24, 13);
-            this.Ime.TabIndex = 1;
+            this.Ime.TabIndex = 9;
             this.Ime.Text = "Ime";
             // 
             // Prezime
@@ -73,7 +73,7 @@
             this.Prezime.Location = new System.Drawing.Point(71, 214);
             this.Prezime.Name = "Prezime";
             this.Prezime.Size = new System.Drawing.Size(44, 13);
-            this.Prezime.TabIndex = 3;
+            this.Prezime.TabIndex = 10;
             this.Prezime.Text = "Prezime";
             // 
             // txtPrezime
@@ -90,7 +90,7 @@
             this.Email.Location = new System.Drawing.Point(71, 257);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(32, 13);
-            this.Email.TabIndex = 5;
+            this.Email.TabIndex = 11;
             this.Email.Text = "Email";
             // 
             // txtEmail
@@ -98,7 +98,7 @@
             this.txtEmail.Location = new System.Drawing.Point(169, 254);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(265, 20);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 3;
             this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // Telefon
@@ -107,7 +107,7 @@
             this.Telefon.Location = new System.Drawing.Point(71, 299);
             this.Telefon.Name = "Telefon";
             this.Telefon.Size = new System.Drawing.Size(43, 13);
-            this.Telefon.TabIndex = 7;
+            this.Telefon.TabIndex = 12;
             this.Telefon.Text = "Telefon";
             // 
             // txtTelefon
@@ -115,7 +115,7 @@
             this.txtTelefon.Location = new System.Drawing.Point(169, 296);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(265, 20);
-            this.txtTelefon.TabIndex = 6;
+            this.txtTelefon.TabIndex = 4;
             this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // KorisnickoIme
@@ -124,7 +124,7 @@
             this.KorisnickoIme.Location = new System.Drawing.Point(71, 137);
             this.KorisnickoIme.Name = "KorisnickoIme";
             this.KorisnickoIme.Size = new System.Drawing.Size(75, 13);
-            this.KorisnickoIme.TabIndex = 9;
+            this.KorisnickoIme.TabIndex = 8;
             this.KorisnickoIme.Text = "Korisničko ime";
             // 
             // txtKorisnickoIme
@@ -132,7 +132,7 @@
             this.txtKorisnickoIme.Location = new System.Drawing.Point(169, 134);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(265, 20);
-            this.txtKorisnickoIme.TabIndex = 8;
+            this.txtKorisnickoIme.TabIndex = 0;
             this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
             // 
             // Adresa
@@ -141,7 +141,7 @@
             this.Adresa.Location = new System.Drawing.Point(71, 342);
             this.Adresa.Name = "Adresa";
             this.Adresa.Size = new System.Drawing.Size(40, 13);
-            this.Adresa.TabIndex = 11;
+            this.Adresa.TabIndex = 13;
             this.Adresa.Text = "Adresa";
             // 
             // txtAdresa
@@ -149,7 +149,7 @@
             this.txtAdresa.Location = new System.Drawing.Point(169, 339);
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(265, 20);
-            this.txtAdresa.TabIndex = 10;
+            this.txtAdresa.TabIndex = 5;
             this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // DatumRodjenja
@@ -158,7 +158,7 @@
             this.DatumRodjenja.Location = new System.Drawing.Point(71, 391);
             this.DatumRodjenja.Name = "DatumRodjenja";
             this.DatumRodjenja.Size = new System.Drawing.Size(77, 13);
-            this.DatumRodjenja.TabIndex = 13;
+            this.DatumRodjenja.TabIndex = 14;
             this.DatumRodjenja.Text = "Datum rođenja";
             // 
             // txtDatumRodjenja
@@ -166,7 +166,7 @@
             this.txtDatumRodjenja.Location = new System.Drawing.Point(169, 388);
             this.txtDatumRodjenja.Name = "txtDatumRodjenja";
             this.txtDatumRodjenja.Size = new System.Drawing.Size(265, 20);
-            this.txtDatumRodjenja.TabIndex = 12;
+            this.txtDatumRodjenja.TabIndex = 6;
             this.txtDatumRodjenja.Validating += new System.ComponentModel.CancelEventHandler(this.txtDatumRodjenja_Validating);
             // 
             // errorProvider
@@ -180,7 +180,7 @@
             this.lbNaslov.Location = new System.Drawing.Point(114, 55);
             this.lbNaslov.Name = "lbNaslov";
             this.lbNaslov.Size = new System.Drawing.Size(232, 39);
-            this.lbNaslov.TabIndex = 41;
+            this.lbNaslov.TabIndex = 7;
             this.lbNaslov.Text = "Detalji klijenta";
             // 
             // btnExit
@@ -192,7 +192,7 @@
             this.btnExit.Location = new System.Drawing.Point(447, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 85;
+            this.btnExit.TabIndex = 15;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

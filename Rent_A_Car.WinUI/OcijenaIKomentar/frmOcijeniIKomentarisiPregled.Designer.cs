@@ -44,9 +44,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvKlijent);
-            this.groupBox1.Location = new System.Drawing.Point(12, 70);
+            this.groupBox1.Location = new System.Drawing.Point(12, 95);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(704, 321);
+            this.groupBox1.Size = new System.Drawing.Size(248, 321);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ocijene i komentari";
@@ -65,7 +65,7 @@
             this.dgvKlijent.Name = "dgvKlijent";
             this.dgvKlijent.ReadOnly = true;
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijent.Size = new System.Drawing.Size(698, 302);
+            this.dgvKlijent.Size = new System.Drawing.Size(242, 302);
             this.dgvKlijent.TabIndex = 0;
             this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
@@ -97,7 +97,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(669, 12);
+            this.btnExit.Location = new System.Drawing.Point(213, 4);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
             this.btnExit.TabIndex = 12;
@@ -106,9 +106,10 @@
             // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(15, 44);
+            this.txtPretraga.Location = new System.Drawing.Point(15, 52);
+            this.txtPretraga.Multiline = true;
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(420, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(168, 28);
             this.txtPretraga.TabIndex = 14;
             // 
             // btnPrikazi
@@ -116,9 +117,9 @@
             this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(507, 36);
+            this.btnPrikazi.Location = new System.Drawing.Point(189, 52);
             this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(107, 28);
+            this.btnPrikazi.Size = new System.Drawing.Size(71, 28);
             this.btnPrikazi.TabIndex = 13;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
@@ -128,7 +129,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 403);
+            this.ClientSize = new System.Drawing.Size(289, 428);
             this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnExit);

@@ -26,18 +26,18 @@
 
 
                                 <Label Text="Odaberite Kraj rezervacije:" />
-                                <Entry Text="{Binding KrajRezervacije}"></Entry>
+                                <Entry Text="{Binding KrajRezervacije}" x:Name="_KrajRezervacije" ></Entry>
 
-                                <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Izmjeni Termin rezervacije" Clicked="Button_Clicked_2"></Button>
+                                <Button BackgroundColor="#2196F3" Command="{Binding SaveChangesCommand}" Text="Izmjeni Termin rezervacije" Clicked="Button_Clicked_2"></Button>
 
 
 
                                 <Label Text="Ukupna Cijena rezervacije iznosi:" />
-                                <Entry Text="{Binding UkupnaCijena}"></Entry>
+                                <Entry Text="{Binding UkupnaCijena}" x:Name="_UkupnaCijena" IsReadOnly="True"></Entry>
 
 
                                 <Label Text="Unesite status:" />
-                                <Entry Text="{Binding Status}"></Entry>
+                                <Entry Text="{Binding Status}" x:Name="_Status" IsReadOnly="True"></Entry>
 
 
 
@@ -47,6 +47,9 @@
 
 
                                 <Button BackgroundColor="#2196F3" Command="{Binding LoginCommand}" Text="Ostavi utisak" Clicked="Button_Clicked_1"></Button>
+
+
+                                <Button BackgroundColor="#2196F3" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Plati online" Clicked="Button_Clicked_3" ></Button>
 
 
                             </StackLayout>

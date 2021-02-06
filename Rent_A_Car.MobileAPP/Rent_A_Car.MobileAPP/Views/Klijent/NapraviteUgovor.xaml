@@ -32,7 +32,7 @@
             <!--<Button BackgroundColor="Red" Clicked="Button_Clicked" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Ponisti"></Button>-->
 
 
-            <Button BackgroundColor="#2196F3" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Plati online" Clicked="Button_Clicked_2" ></Button>
+            <!--<Button BackgroundColor="#2196F3" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Plati online" Clicked="Button_Clicked_2" ></Button>-->
 
 
         </StackLayout>

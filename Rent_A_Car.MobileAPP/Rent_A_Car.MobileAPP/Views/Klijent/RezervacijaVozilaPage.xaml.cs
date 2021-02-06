@@ -37,8 +37,14 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
 
         }
 
-        private void Button_Clicked_2(object sender, EventArgs e)
+        private async void Button_Clicked_2(object sender, EventArgs e)
         {
+            await model.SaveChanges();
+        }
+
+        private void Button_Clicked_3(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new StripePaymentGatwayPage();
 
         }
     }

@@ -32,5 +32,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             //valjda ako pritisnemo na neki item ovdje 
             //await Navigation.PushAsync(new UgovorPage());
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MainPage();
+        }
     }
 }

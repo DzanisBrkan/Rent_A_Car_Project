@@ -101,7 +101,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 //mls da ovo ne treba  
                 var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
                 var VoziloModel = await _VozilaService.GetById<Model.Vozilo>(VoziloID);
-
+                APIService.UserVoziloID = (int)VoziloID;
 
             // NAJBITNI KONTROLER IKADA NAPISAN
 
@@ -196,8 +196,10 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             {
                 //if (modelDojam.Status.ToString() != "Faulted")
                 //{
+                APIService.UserRacunID = modelDojam.RacunID;
                     await Application.Current.MainPage.DisplayAlert("Notifikacija", "Uspješno ste kreirali ugovor.", "Ok");
                     await Application.Current.MainPage.Navigation.PushModalAsync(new NapraviRezervaciju());
+                // provjeri ovdje radi li poslije ovoga APLIKACIJA  
                 //}
                 //await Application.Current.MainPage.DisplayAlert("Error.", "Doslo je do greske.", "Ok");
             }

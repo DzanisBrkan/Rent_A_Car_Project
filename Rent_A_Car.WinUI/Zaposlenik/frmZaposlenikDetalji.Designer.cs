@@ -72,7 +72,7 @@
             this.txtPasswordPotvrda.Name = "txtPasswordPotvrda";
             this.txtPasswordPotvrda.PasswordChar = '*';
             this.txtPasswordPotvrda.Size = new System.Drawing.Size(168, 20);
-            this.txtPasswordPotvrda.TabIndex = 59;
+            this.txtPasswordPotvrda.TabIndex = 10;
             // 
             // Potvrda
             // 
@@ -98,7 +98,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(168, 20);
-            this.txtPassword.TabIndex = 56;
+            this.txtPassword.TabIndex = 9;
             // 
             // DatumRodjenja
             // 
@@ -114,7 +114,7 @@
             this.txtDatumRodjenja.Location = new System.Drawing.Point(168, 333);
             this.txtDatumRodjenja.Name = "txtDatumRodjenja";
             this.txtDatumRodjenja.Size = new System.Drawing.Size(265, 20);
-            this.txtDatumRodjenja.TabIndex = 54;
+            this.txtDatumRodjenja.TabIndex = 6;
             // 
             // Adresa
             // 
@@ -131,7 +131,7 @@
             this.txtSpol.Location = new System.Drawing.Point(168, 284);
             this.txtSpol.Name = "txtSpol";
             this.txtSpol.Size = new System.Drawing.Size(265, 20);
-            this.txtSpol.TabIndex = 52;
+            this.txtSpol.TabIndex = 5;
             // 
             // KorisnickoIme
             // 
@@ -147,7 +147,7 @@
             this.txtKorisnickoIme.Location = new System.Drawing.Point(168, 79);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(265, 20);
-            this.txtKorisnickoIme.TabIndex = 50;
+            this.txtKorisnickoIme.TabIndex = 0;
             // 
             // Telefon
             // 
@@ -163,7 +163,7 @@
             this.txtTelefon.Location = new System.Drawing.Point(168, 241);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(265, 20);
-            this.txtTelefon.TabIndex = 48;
+            this.txtTelefon.TabIndex = 4;
             // 
             // Email
             // 
@@ -179,7 +179,7 @@
             this.txtEmail.Location = new System.Drawing.Point(168, 199);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(265, 20);
-            this.txtEmail.TabIndex = 46;
+            this.txtEmail.TabIndex = 3;
             // 
             // Prezime
             // 
@@ -195,7 +195,7 @@
             this.txtPrezime.Location = new System.Drawing.Point(168, 156);
             this.txtPrezime.Name = "txtPrezime";
             this.txtPrezime.Size = new System.Drawing.Size(265, 20);
-            this.txtPrezime.TabIndex = 44;
+            this.txtPrezime.TabIndex = 2;
             // 
             // Ime
             // 
@@ -211,7 +211,7 @@
             this.txtIme.Location = new System.Drawing.Point(168, 118);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(265, 20);
-            this.txtIme.TabIndex = 42;
+            this.txtIme.TabIndex = 1;
             // 
             // btnSnimi
             // 
@@ -222,7 +222,7 @@
             this.btnSnimi.Location = new System.Drawing.Point(168, 572);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(154, 38);
-            this.btnSnimi.TabIndex = 83;
+            this.btnSnimi.TabIndex = 11;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
             this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
@@ -236,7 +236,7 @@
             this.btnExit.Location = new System.Drawing.Point(467, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 85;
+            this.btnExit.TabIndex = 12;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -254,7 +254,7 @@
             this.txtGrad.Location = new System.Drawing.Point(168, 384);
             this.txtGrad.Name = "txtGrad";
             this.txtGrad.Size = new System.Drawing.Size(265, 20);
-            this.txtGrad.TabIndex = 86;
+            this.txtGrad.TabIndex = 7;
             // 
             // cmbKorisnickiNalog
             // 
@@ -262,7 +262,7 @@
             this.cmbKorisnickiNalog.Location = new System.Drawing.Point(168, 440);
             this.cmbKorisnickiNalog.Name = "cmbKorisnickiNalog";
             this.cmbKorisnickiNalog.Size = new System.Drawing.Size(265, 21);
-            this.cmbKorisnickiNalog.TabIndex = 89;
+            this.cmbKorisnickiNalog.TabIndex = 8;
             // 
             // label3
             // 

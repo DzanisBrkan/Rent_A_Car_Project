@@ -12,7 +12,7 @@ namespace Rent_A_Car.Model.Requests
         //public string VrijemeRezervacije { get; set; }
         //public string Kolicina { get; set; }
 
-        public string KrajRezervacije { get; set; }
+        public DateTime KrajRezervacije { get; set; }
 
         public string Status { get; set; }
         public string UkupnaCijena { get; set; }

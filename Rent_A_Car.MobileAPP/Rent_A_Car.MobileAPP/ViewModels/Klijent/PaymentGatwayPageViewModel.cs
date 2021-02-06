@@ -3,6 +3,7 @@ using Rent_A_Car.Model.PaymentGatway;
 using Stripe;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -173,7 +174,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public async Task GetKlijent()
         {
             var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
-            var RezervacijaModel = await _rezervacijeService.GetActionResponse<Model.Rezervacija>($"GetRezByUserID/{APIService.UserID}");
+            var RezervacijaModel = await _rezervacijeService.Get<List<Model.Rezervacija>>(null);
 
 
             Ime = KlijentModel.Ime;
@@ -182,7 +183,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             Email = KlijentModel.Email;
             Adresa = KlijentModel.Adresa;
             DatumRodjenja = KlijentModel.DatumRodjenja;
-            UkupnaCijena = RezervacijaModel.UkupnaCijena;
+            UkupnaCijena = RezervacijaModel.Last().UkupnaCijena;
         }
 
 

@@ -35,12 +35,14 @@ namespace Rent_A_Car.WinUI.Grad
                 txtNaziv.Text = grad.Naziv;
                 txtPostanskiBroj.Text = grad.PostanskiBr;
             }
+            txtNaziv.Select();
+
         }
 
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
             try
-            {
+            { 
                 if (this.ValidateChildren())// sprijeciti korisnika da klikne dugme snimi bez ikakvih validacija
                 {
                     var request = new GradUpsertRequest()

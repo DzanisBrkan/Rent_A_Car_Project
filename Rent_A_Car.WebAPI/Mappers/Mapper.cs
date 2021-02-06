@@ -23,6 +23,8 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
             CreateMap<Database.Zaposlenik, ZaposlenikInsertRequest>().ReverseMap();
 
+            //CreateMap<Database.Grad, GradUpsertRequest>().ReverseMap();
+
 
             CreateMap<Database.Vozilo, Model.Vozilo>();
             CreateMap<Database.Kategorija, Model.Kategorija>();

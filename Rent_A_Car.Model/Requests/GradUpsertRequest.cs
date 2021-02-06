@@ -11,6 +11,6 @@ namespace Rent_A_Car.Model.Requests
         [Required(AllowEmptyStrings = false)]
         public string Naziv { get; set; }
         public string PostanskiBr { get; set; }
-        public int? DrzavaId { get; set; }
+        //public int? DrzavaId { get; set; }
     }
 }

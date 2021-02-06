@@ -65,6 +65,8 @@ namespace Rent_A_Car.WinUI.Klijent
                 txtTelefon.Text = klijent.BrojTel;
                 txtDatumRodjenja.Text = klijent.DatumRodjenja;
             }
+            txtKorisnickoIme.Select();
+
         }
 
         private void txtKorisnickoIme_Validating(object sender, CancelEventArgs e)
