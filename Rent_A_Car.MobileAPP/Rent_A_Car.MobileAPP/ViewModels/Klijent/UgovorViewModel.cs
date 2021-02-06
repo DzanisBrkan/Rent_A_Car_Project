@@ -33,34 +33,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public async Task Init()
         {
 
-            //if (APIService.UserRacunID != 0)
-            //{
-            //    var Racun = await _UgovorService.GetById<Model.Ugovor>(APIService.UserRacunID);
-            //}
-
-            //kom//ovdje bi trebo napraviti request ili nesto da poredi iz REZERVACIJE id klijenta
-            //kom//var RezervacijaModel = await _rezervacijaService.GetById<Model.Rezervacija>(KlijentModel.KlijentId);
-            //kom//RezervacijeList.Clear();
-            //kom//RezervacijeList.Add(RezervacijaModel);
-
-            //var list = await _UgovorService.Get<IEnumerable<Ugovor>>(null);
-
-            //UgovorList.Clear();
-            //RezervacijaList.Clear();
-            //foreach (var ugovor in list)
-            //{
-            //    UgovorList.Add(ugovor);
-            //}
-
-
-            //kom//trebam provjerit da li je APIService.UserUgovorID prazan 
-            //for (int i = 0; i < UgovorList.Count; i++)
-            //{
-            //    kom//if (UgovorList[i].RacunID == APIService.UserRacunID)
-            //    kom//{
-            //    kom//    RezervacijaList.Add(UgovorList[i]);
-            //    kom//}
-            //}
+            
             if(APIService.UserID != 0)
             {
                 var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);

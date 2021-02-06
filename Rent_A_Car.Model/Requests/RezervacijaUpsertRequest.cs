@@ -23,5 +23,6 @@ namespace Rent_A_Car.Model.Requests
         public int? PopustId { get; set; }
         public DateTime KrajRezervacije { get; set; }
         public DateTime PocetakRezervacije { get; set; }
+        public string Naziv { get; set; }
     }
 }

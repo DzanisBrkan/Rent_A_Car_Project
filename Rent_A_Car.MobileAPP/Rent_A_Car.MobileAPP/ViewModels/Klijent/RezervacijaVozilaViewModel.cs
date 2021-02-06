@@ -32,9 +32,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             //Naruci = new RelayCommand(async () => await ZakljuciNarudzbu(), () => GotoviProizvodiList.Count > 0);
 
             OtkaziCommand = new RelayCommand<string>(async (sender) => await Otkazi(sender));
-            UrediCommand = new RelayCommand<string>(async (sender) => await Uredi(sender));
+            //UrediCommand = new RelayCommand<string>(async (sender) => await Uredi(sender));
             PlatiCommand = new RelayCommand<string>(async (sender) => await Plati(sender));
-            OcijeniCommand = new RelayCommand<string>(async (sender) => await Ocijeni(sender));
+            //OcijeniCommand = new RelayCommand<string>(async (sender) => await Ocijeni(sender));
         }
 
        
@@ -134,11 +134,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             }
         }
 
-        public RelayCommand<string> UrediCommand { get; set; }
-        public async Task Uredi(string sender)
-        {
-            await Application.Current.MainPage.Navigation.PushModalAsync(new UrediRezervacijuPage(sender));
-        }
+        //public RelayCommand<string> UrediCommand { get; set; }
+        //public async Task Uredi(string sender)
+        //{
+        //    await Application.Current.MainPage.Navigation.PushModalAsync(new UrediRezervacijuPage(sender));
+        //}
 
         public RelayCommand<string> PlatiCommand { get; set; }
         public async Task Plati(string sender)
@@ -147,11 +147,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             await Application.Current.MainPage.Navigation.PushModalAsync(new KreirajRacunPage(sender));
         }
        
-        public RelayCommand<string> OcijeniCommand { get; set; }
-        public async Task Ocijeni(string sender)
-        {
-            //Application.Current.MainPage = new OcijenivanjeIKomentarisanje(sender);
-            Application.Current.MainPage = new OcjenjivanjePage(sender);
-        }
+        //public RelayCommand<string> OcijeniCommand { get; set; }
+        //public async Task Ocijeni(string sender)
+        //{
+        //    //Application.Current.MainPage = new OcijenivanjeIKomentarisanje(sender);
+        //    Application.Current.MainPage = new OcjenjivanjePage(sender);
+        //}
     }
 }

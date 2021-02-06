@@ -27,13 +27,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             await model.Init();
         }
 
+        private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Application.Current.MainPage = new UrediRezervacijuPage((Rezervacija)e.SelectedItem);
 
-
-
-        //private void Button_Clicked_2(object sender, EventArgs e)
-        //{
-        //    Application.Current.MainPage = new KreirajRacunPage();
-        //}
-
+        }
     }
 }

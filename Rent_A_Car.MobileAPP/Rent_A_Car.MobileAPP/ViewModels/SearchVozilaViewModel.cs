@@ -13,6 +13,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
 {
     public class SearchVozilaViewModel : BaseViewModel
     {
+
         //servis
         private readonly APIService _voziloService = new APIService("Vozilo");
         private readonly APIService _specifikacijaService = new APIService("Specifikacija");
@@ -21,16 +22,14 @@ namespace Rent_A_Car.MobileAPP.ViewModels
         public SearchVozilaViewModel()
         {
             InitCommad = new Command(async () => await Init());
+            RecommendedCommand = new Command(async () => await Recommended());
         }
         public ObservableCollection<Model.Vozilo> VoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
+        public ObservableCollection<Model.Vozilo> RecommendedVoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
 
-        //public IEnumerable<Vozilo> Vozila { get; set; }
 
-        //komanda koja ucitava proizvode
+
         public ICommand InitCommad { get; set; }
-
- 
-
 
 
         public string _searchTerm = string.Empty;
@@ -44,6 +43,25 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                     InitCommad.Execute(null);
             }
         }
+
+        public bool _SearchVisible = true;
+        public bool SearchVisible
+        {
+            get { return _SearchVisible; }
+            set { 
+                SetProperty(ref _SearchVisible, value);
+                RecommendedVisible = !_SearchVisible;
+            }
+        }
+
+
+        public bool _RecommendedVisible = false;
+        public bool RecommendedVisible
+        {
+            get { return _RecommendedVisible; }
+            set { SetProperty(ref _RecommendedVisible, value); }
+        }
+
 
 
         public async Task Init()
@@ -69,6 +87,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
 
                 var vozila = await _voziloService.Get<IEnumerable<Model.Vozilo>>(request);
 
+
                 foreach (var vozilo in vozila)
                 {
                     VoziloList.Add(vozilo);
@@ -76,5 +95,22 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                 }
             }
         }
+
+        public ICommand RecommendedCommand { get; set; }
+        public async Task Recommended()
+        {
+            if(RecommendedVoziloList.Count == 0)
+            {
+                //var recVozila = await _voziloService.GetActionResponse<IEnumerable<Model.Vozilo>>($"Preporuka/{APIService.UserID}");
+
+
+                //foreach (var vozilo in recVozila)
+                //{
+                //    RecommendedVoziloList.Add(vozilo);
+                //}
+            }
+
+        }
+
     }
 }

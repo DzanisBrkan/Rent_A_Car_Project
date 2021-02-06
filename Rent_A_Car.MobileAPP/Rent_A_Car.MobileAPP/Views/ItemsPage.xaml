@@ -34,14 +34,21 @@
                 FontSize="Title"/>
 
             </StackLayout>
+            <StackLayout Orientation="Horizontal" VerticalOptions="Fill">
+                <Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="#4c4cff" TextColor="White" Text="Pretraga vozila" Clicked="Button_Clicked"></Button>
+                <!--<Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="Green" TextColor="White" Text="Preporučena vozila" Clicked="Button_Clicked" IsVisible="False"></Button>-->
+            </StackLayout>
+            
+            
             <SearchBar TextColor="#aa0300" PlaceholderColor="#aa0300"
                            Placeholder="Pretražite..."
                        Text="{Binding SearchTerm}"
                        SearchCommand="{Binding SearchTerm}"
+                       IsVisible="{Binding SearchVisible}"
             ></SearchBar>
 
 
-            <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True">
+            <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding SearchVisible}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -86,6 +93,57 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+
+
+
+            <ListView ItemsSource="{Binding RecommendedVoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding RecommendedVisible}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout>
+
+                                <StackLayout Padding="10" Orientation="Horizontal">
+                                    <StackLayout>
+                                        <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Vertical">
+                                        <Label TextColor="#aa0300" Text="{Binding Model}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="13"/>
+
+                                        <Label TextColor="#aa0300" Text="{Binding Marka}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="16"/>
+
+                                        <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+
+
+                                        <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                        <Label TextColor="#aa0300" Text="KM"/>
+
+
+                                    </StackLayout>
+                                </StackLayout>
+                                <Label />
+                                <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
+                                <Label />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+
+
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

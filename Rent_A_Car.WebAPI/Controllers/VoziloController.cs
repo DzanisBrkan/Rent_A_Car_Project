@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Rent_A_Car.Model;
 using Rent_A_Car.Model.Requests;
 using Rent_A_Car.WebAPI.Services;
+using static Rent_A_Car.WebAPI.RecommendationSystem.Recommander;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
@@ -25,6 +26,14 @@ namespace Rent_A_Car.WebAPI.Controllers
         public Model.Vozilo UpdateStatus(int id, VoziloStatusRequest request)
         {
             return _service.UpdateStatus(id, request);
+        }
+
+        // GET: api/GotoviProizvod/Preporuka/{userId}
+        //[Route("api/GotoviProizvod/Preporuka/{userId}")]
+        [HttpGet("Preporuka/{id}")]
+        public List<Model.Vozilo> Preporuka(int id)
+        {
+            return _service.Preporuka(id);
         }
 
     }

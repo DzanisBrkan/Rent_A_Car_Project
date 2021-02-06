@@ -63,6 +63,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 search.TipId = SelectedTipVozila.TipId;
 
                 var list = await _vozilaService.Get<IEnumerable<Vozilo>>(search);
+
                 //Promiojenjeno VoziloServices
 
                 int brojac = 0;
