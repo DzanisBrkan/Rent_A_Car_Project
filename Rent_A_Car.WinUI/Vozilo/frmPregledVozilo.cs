@@ -36,5 +36,12 @@ namespace Rent_A_Car.WinUI.Vozilo
         {
             this.Close();
         }
+
+        private void btnKalendar_Click(object sender, EventArgs e)
+        {
+            KalendarVozila frm = new KalendarVozila();
+            //frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

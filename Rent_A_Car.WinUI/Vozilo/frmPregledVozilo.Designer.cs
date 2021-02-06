@@ -43,6 +43,7 @@
             this.BrojVrata = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ZapreminaPrtljaznika = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CijenaPoSatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnKalendar = new System.Windows.Forms.Button();
             this.groupBoxVozila.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -62,9 +63,10 @@
             // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(15, 69);
+            this.txtPretraga.Location = new System.Drawing.Point(15, 46);
+            this.txtPretraga.Multiline = true;
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(596, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(477, 43);
             this.txtPretraga.TabIndex = 15;
             // 
             // btnPrikazi
@@ -72,9 +74,9 @@
             this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
             this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(668, 69);
+            this.btnPrikazi.Location = new System.Drawing.Point(523, 46);
             this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(117, 23);
+            this.btnPrikazi.Size = new System.Drawing.Size(65, 46);
             this.btnPrikazi.TabIndex = 14;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
@@ -177,11 +179,25 @@
             this.CijenaPoSatu.Name = "CijenaPoSatu";
             this.CijenaPoSatu.ReadOnly = true;
             // 
+            // btnKalendar
+            // 
+            this.btnKalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnKalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnKalendar.ForeColor = System.Drawing.Color.White;
+            this.btnKalendar.Location = new System.Drawing.Point(610, 46);
+            this.btnKalendar.Name = "btnKalendar";
+            this.btnKalendar.Size = new System.Drawing.Size(65, 46);
+            this.btnKalendar.TabIndex = 17;
+            this.btnKalendar.Text = "Kalendar";
+            this.btnKalendar.UseVisualStyleBackColor = false;
+            this.btnKalendar.Click += new System.EventHandler(this.btnKalendar_Click);
+            // 
             // frmPregledVozilo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnKalendar);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnPrikazi);
@@ -213,5 +229,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn BrojVrata;
         private System.Windows.Forms.DataGridViewTextBoxColumn ZapreminaPrtljaznika;
         private System.Windows.Forms.DataGridViewTextBoxColumn CijenaPoSatu;
+        private System.Windows.Forms.Button btnKalendar;
     }
 }

@@ -136,5 +136,10 @@ namespace Rent_A_Car.WinUI
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
