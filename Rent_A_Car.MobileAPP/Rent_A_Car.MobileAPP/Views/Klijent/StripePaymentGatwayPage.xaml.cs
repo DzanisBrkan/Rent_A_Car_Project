@@ -172,5 +172,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             Application.Current.MainPage = new MainPage();
 
         }
+
+        private void Submit_Button_Clicked(object sender, EventArgs e)
+        {
+            Submit_Button.IsVisible = false;
+        }
     }
 }

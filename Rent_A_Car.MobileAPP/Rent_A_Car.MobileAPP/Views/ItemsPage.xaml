@@ -35,7 +35,7 @@
 
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="Fill">
-                <Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="#4c4cff" TextColor="White" Text="Pretraga vozila" Clicked="Button_Clicked"></Button>
+                <Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="#ca223e" TextColor="White" Text="Preporučena vozila" Clicked="Button_Clicked"></Button>
                 <!--<Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="Green" TextColor="White" Text="Preporučena vozila" Clicked="Button_Clicked" IsVisible="False"></Button>-->
             </StackLayout>
             
@@ -48,100 +48,150 @@
             ></SearchBar>
 
 
-            <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding SearchVisible}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
+            <StackLayout>
+                <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding SearchVisible}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
                                 
-                                <StackLayout Padding="10" Orientation="Horizontal">
-                                    <StackLayout>
-                                        <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
-                                    </StackLayout>
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <StackLayout>
+                                            <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                        </StackLayout>
 
-                                    <StackLayout Orientation="Vertical">
-                                        <Label TextColor="#aa0300" Text="{Binding Model}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemTextStyle}"
-                                       FontSize="13"/>
+                                        <StackLayout Orientation="Vertical">
+                                            <Label TextColor="#aa0300" Text="{Binding Model}"
+                                           LineBreakMode="NoWrap" VerticalOptions="Center"
+                                           Style="{DynamicResource ListItemTextStyle}"
+                                           FontSize="13"/>
 
-                                        <Label TextColor="#aa0300" Text="{Binding Marka}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="16"/>
+                                            <Label TextColor="#aa0300" Text="{Binding Marka}"
+                                           LineBreakMode="NoWrap" VerticalOptions="Center"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="16"/>
 
-                                        <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13"/>
+                                            <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
+                                           LineBreakMode="NoWrap" VerticalOptions="Center"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13"/>
 
 
-                                        <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13"/>
-                                        <Label TextColor="#aa0300" Text="KM"/>
+                                            <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
+                                           LineBreakMode="NoWrap" VerticalOptions="Center"
+                                           Style="{DynamicResource ListItemDetailTextStyle}"
+                                           FontSize="13"/>
+                                            <Label TextColor="#aa0300" Text="KM"/>
 
                        
+                                        </StackLayout>
                                     </StackLayout>
+                                    <Label />
+                                    <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
+                                    <Label />
                                 </StackLayout>
-                                <Label />
-                                <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
-                                <Label />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
 
+            <StackLayout>
+                <ListView ItemsSource="{Binding RecommendedVoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding RecommendedVisible}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <!--<StackLayout>
+                                        <Label TextColor="#aa0300" Text="Preporučena vozila:" LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemTextStyle}"/>
+                                    </StackLayout>-->
 
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <StackLayout>
+                                            <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                        </StackLayout>
 
-            <ListView ItemsSource="{Binding RecommendedVoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding RecommendedVisible}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
-
-                                <StackLayout Padding="10" Orientation="Horizontal">
-                                    <StackLayout>
-                                        <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
-                                    </StackLayout>
-
-                                    <StackLayout Orientation="Vertical">
-                                        <Label TextColor="#aa0300" Text="{Binding Model}"
+                                        <StackLayout Orientation="Vertical">
+                                            <Label TextColor="{Binding Color}" Text="{Binding Model}"
                                        LineBreakMode="NoWrap" VerticalOptions="Center"
                                        Style="{DynamicResource ListItemTextStyle}"
                                        FontSize="13"/>
 
-                                        <Label TextColor="#aa0300" Text="{Binding Marka}"
+                                            <Label TextColor="#aa0300" Text="{Binding Marka}"
                                        LineBreakMode="NoWrap" VerticalOptions="Center"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="16"/>
 
-                                        <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
+                                            <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
                                        LineBreakMode="NoWrap" VerticalOptions="Center"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13"/>
 
 
-                                        <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
+                                            <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
                                        LineBreakMode="NoWrap" VerticalOptions="Center"
                                        Style="{DynamicResource ListItemDetailTextStyle}"
                                        FontSize="13"/>
-                                        <Label TextColor="#aa0300" Text="KM"/>
+                                            <Label TextColor="#aa0300" Text="KM"/>
 
 
+                                        </StackLayout>
                                     </StackLayout>
+                                    <Label />
+                                    <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
+                                    <Label />
                                 </StackLayout>
-                                <Label />
-                                <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
-                                <Label />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--<ListView ItemsSource="{Binding others}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding RecommendedVisible}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
 
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <StackLayout>
+                                            <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                        </StackLayout>
+
+                                        <StackLayout Orientation="Vertical">
+                                            <Label TextColor="#aa0300" Text="{Binding Model}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemTextStyle}"
+                                       FontSize="13"/>
+
+                                            <Label TextColor="#aa0300" Text="{Binding Marka}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="16"/>
+
+                                            <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+
+
+                                            <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
+                                       LineBreakMode="NoWrap" VerticalOptions="Center"
+                                       Style="{DynamicResource ListItemDetailTextStyle}"
+                                       FontSize="13"/>
+                                            <Label TextColor="#aa0300" Text="KM"/>
+
+
+                                        </StackLayout>
+                                    </StackLayout>
+                                    <Label />
+                                    <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
+                                    <Label />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>-->
+            </StackLayout>
 
 
         </StackLayout>

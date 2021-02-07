@@ -28,13 +28,17 @@ namespace Rent_A_Car.WebAPI.Controllers
             return _service.UpdateStatus(id, request);
         }
 
-        // GET: api/GotoviProizvod/Preporuka/{userId}
-        //[Route("api/GotoviProizvod/Preporuka/{userId}")]
+        // GET: sistem preporuke
         [HttpGet("Preporuka/{id}")]
         public List<Model.Vozilo> Preporuka(int id)
         {
             return _service.Preporuka(id);
         }
 
+        [HttpDelete]
+        public Model.Vozilo Delete(int id)
+        {
+            return _service.Delete(id);
+        }
     }
 }

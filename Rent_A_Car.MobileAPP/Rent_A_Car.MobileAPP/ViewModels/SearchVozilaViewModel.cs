@@ -14,7 +14,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
     public class SearchVozilaViewModel : BaseViewModel
     {
 
-        //servis
+        private readonly APIService _RecommenderService = new APIService("Recommender");
         private readonly APIService _voziloService = new APIService("Vozilo");
         private readonly APIService _specifikacijaService = new APIService("Specifikacija");
 
@@ -25,7 +25,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             RecommendedCommand = new Command(async () => await Recommended());
         }
         public ObservableCollection<Model.Vozilo> VoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
-        public ObservableCollection<Model.Vozilo> RecommendedVoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
 
 
 
@@ -96,18 +95,28 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             }
         }
 
+
+        //public ObservableCollection<Model.Vozilo> recommendList { get; set; } = new ObservableCollection<Model.Vozilo>();
+        public ObservableCollection<Model.Vozilo> RecommendedVoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
+
+        public ObservableCollection<Model.Vozilo> others { get; set; } = new ObservableCollection<Model.Vozilo>();
         public ICommand RecommendedCommand { get; set; }
         public async Task Recommended()
         {
-            if(RecommendedVoziloList.Count == 0)
+            
+            var RecommenderModel = await _RecommenderService.Get<Model.RecommenderModel>(new UserRecommendationRequest() { UserID = APIService.UserID });
+
+            RecommendedVoziloList.Clear();
+            foreach (var x in RecommenderModel.listToRecommend)
             {
-                //var recVozila = await _voziloService.GetActionResponse<IEnumerable<Model.Vozilo>>($"Preporuka/{APIService.UserID}");
-
-
-                //foreach (var vozilo in recVozila)
-                //{
-                //    RecommendedVoziloList.Add(vozilo);
-                //}
+                x.Color = "#EEE8AA";
+                RecommendedVoziloList.Add(x);
+            }
+            others.Clear();
+            foreach (var x in RecommenderModel.others)
+            {
+                //others.Add(x);
+                RecommendedVoziloList.Add(x);
             }
 
         }

@@ -41,5 +41,7 @@ namespace Rent_A_Car.Model.Requests
         public string KorisnickoIme { get; set; }
 
         public int? KorisnickiNalogId { get; set; }
+        public bool? Aktivan { get; set; }
+
     }
 }

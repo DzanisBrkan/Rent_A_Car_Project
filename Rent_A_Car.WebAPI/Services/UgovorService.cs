@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using Rent_A_Car.Model.Requests;
 using Rent_A_Car.WebAPI.Database;
 using Rent_A_Car.WebAPI.Exceptions;
@@ -19,12 +20,11 @@ namespace Rent_A_Car.WebAPI.Services
 
         public Model.Ugovor GetRacunByRezervacijaID(int id)
         {
-            var query = _context.Racun.FirstOrDefault(x => x.RezervacijaId == id);
+            var query = _context.Racun.Include(x => x.Rezervacija).Where(x => x.RezervacijaId == id).FirstOrDefault();
 
             if (query != null)
             {
                 return _mapper.Map<Model.Ugovor>(query);
-
             }
             throw new UserException("Racun nije pronađen");
         }

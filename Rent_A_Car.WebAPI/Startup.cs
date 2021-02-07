@@ -75,21 +75,16 @@ namespace Rent_A_Car.WebAPI
      
             services.AddScoped<IZaposlenikService,ZaposlenikService>();
             services.AddScoped<IKlijentService, KlijentService>();
-
             services.AddScoped<IRezervacijaServicecs, RezervacijaServices>();
             services.AddScoped<ICRUDService<Model.Rezervacija, RezervacijaSearchRequest, RezervacijaUpsertRequest, RezervacijaUpsertRequest>,RezervacijaServices>();
-
             services.AddScoped<IVoziloService, VoziloService>();
             services.AddScoped<ICRUDService<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>, VoziloService>();
-
             services.AddScoped<IUgovorService,UgovorService>();
             services.AddScoped<ICRUDService<Model.Ugovor, UgovorSearchRequest, UgovorUpsertRequest, UgovorUpsertRequest>, UgovorService>();
-
             services.AddScoped<IOcjenaService, OcjenaServices>();
             services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaServices>();
+            services.AddScoped<IGradService, GradService>();
             services.AddScoped<ICRUDService<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>, GradServices>();
-
-
             services.AddScoped<IService<Model.KorisnickiNalog, object>, BaseService<Model.KorisnickiNalog, object, KorisnickiNalog>>();
             //////services.AddScoped<IService<Model.Grad, object>, BaseService<Model.Grad, object, Grad>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
@@ -101,7 +96,7 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IService<Model.Osiguranje, object>, BaseService<Model.Osiguranje, object, Osiguranje>>();
             services.AddScoped<IService<Model.Popust, object>, BaseService<Model.Popust, object, Popust>>();
             services.AddScoped<IService<Model.NacinPlacanja, object>, BaseService<Model.NacinPlacanja, object, NacinPlacanja>>();
-
+            services.AddScoped<IRecommenderService, RecommenderService>();
 
 
             var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";

@@ -118,13 +118,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public ICommand PlatiCommand { get; set; }
         public async Task Plati()
         {
-            //treba novi ugovorInsertRequest()
             var request = new UgovorStatusRequest()
             {
-                /*UkupnaCijena = 1, *///ne treba mijenjat
-                /*RezervacijaId = 27,*/ // ne treba mijenjat
-               /* UkupanBrojDana = 2,*/ //ne treba mijenjat
-
+              
                 NacinPlacanjaId = SelectedNacinPlacanja.NacinPlacanjaId, //iz pickera
                 DatumPlacanja = DateTime.Now,
                 Izdano = true
@@ -159,15 +155,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             {
                 var rezervacijaModel = await _rezervacijaService.GetById<Rezervacija>(_rezervacijaId);
                 await Application.Current.MainPage.Navigation.PushModalAsync(new StripePaymentGatwayPage(rezervacijaModel));
-                await Application.Current.MainPage.DisplayAlert("Notifikacija", "Uplata uspješna!", "Ok");
-
             }
         }
 
-        //public ICommand NazadCommand { get; set; }
-        //public async Task Nazad()
-        //{
-        //    await Application.Current.MainPage.Navigation.PushModalAsync(new RezervacijaVozilaPage());
-        //}
+
     }
 }

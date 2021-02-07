@@ -10,7 +10,7 @@ namespace Rent_A_Car.WebAPI.Services
     public interface IVoziloService
     {
         Vozilo UpdateStatus(int id, VoziloStatusRequest request);
-
         List<Model.Vozilo> Preporuka(int id);
+        Model.Vozilo Delete(int id);
     }
 }

@@ -37,13 +37,13 @@ namespace Rent_A_Car.MobileAPP.Views
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            var item = e.SelectedItem as Model.Vozilo;
             await Navigation.PushAsync(new DetaljiVozilaPage((Vozilo)(e.SelectedItem))); // kada vise puta udjem, app pukne 
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
             model.SearchVisible = !model.SearchVisible;
-            //IsVisible = !IsVisible;
             await model.Recommended();
         }
     }

@@ -96,12 +96,6 @@ namespace Rent_A_Car.WebAPI.Services
             _context.Zaposlenik.Add(entity);
             _context.SaveChanges();
 
-            //_context.Zaposlenik.Add(new Database.Zaposlenik()
-            //{
-            //    KorisnickiNalogId = entity.KorisnickiNalogId
-            //});
-            //_context.SaveChanges();
-
             return _mapper.Map<Model.Zaposlenik>(entity);
         }
         public Model.Zaposlenik Update(int id, ZaposlenikInsertRequest request)
@@ -120,6 +114,19 @@ namespace Rent_A_Car.WebAPI.Services
                 entity.LozinkaSalt = GenerateSalt();
                 entity.LozinkaHash = GenerateHash(entity.LozinkaSalt, request.Password);
             }
+
+            _mapper.Map(request, entity);
+
+            _context.SaveChanges();
+
+            return _mapper.Map<Model.Zaposlenik>(entity);
+        }
+
+        public Model.Zaposlenik UpdateStatus(int id, ZaposlenikStatusRequest request)
+        {
+            var entity = _context.Zaposlenik.Find(id);
+            _context.Zaposlenik.Attach(entity);
+            _context.Zaposlenik.Update(entity);
 
             _mapper.Map(request, entity);
 
