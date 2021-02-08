@@ -103,6 +103,12 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IService<Model.NacinPlacanja, object>, BaseService<Model.NacinPlacanja, object, NacinPlacanja>>();
 
 
+            //mls da ide ovaj prvi
+            //services.AddScoped<ICRUDService<Model.Lociranje, LociranjeSearchRequest, LociranjeUpsertRequest, LociranjeUpsertRequest>, LociranjeService>();
+            services.AddScoped<IService<Model.Lociranje, object>, BaseService<Model.Lociranje, object, Lociranje>>();
+
+
+
 
             var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<Rent_A_CarContext>(options => options.UseSqlServer(connection));

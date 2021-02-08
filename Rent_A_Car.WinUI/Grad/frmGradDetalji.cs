@@ -15,7 +15,7 @@ namespace Rent_A_Car.WinUI.Grad
     {
         private readonly APIService _service = new APIService("Grad");
         private int? _id = null;
-        public frmGradDetalji(int? gradId = null)
+        public frmGradDetalji(int? gradId = null) 
         {
             InitializeComponent();
             _id = gradId;

@@ -29,7 +29,7 @@ namespace Rent_A_Car.WinUI.Grad
         {
             var search = new GradSearchRequest()
             {
-                Naziv = txtPretraga.Text
+                Naziv = txtPretraga.Text 
             };
             var result = await _apiService.Get<List<Model.Grad>>(search);
 

@@ -33,10 +33,10 @@
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
-            this.btnExit = new System.Windows.Forms.Button();
             this.GradId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PostanskiBroj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnExit = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
@@ -44,19 +44,20 @@
             // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(12, 61);
+            this.txtPretraga.Location = new System.Drawing.Point(12, 72);
+            this.txtPretraga.Multiline = true;
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(453, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(98, 39);
             this.txtPretraga.TabIndex = 8;
             // 
             // btnPrikazi
             // 
-            this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
             this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(490, 59);
+            this.btnPrikazi.Location = new System.Drawing.Point(116, 72);
             this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(117, 23);
+            this.btnPrikazi.Size = new System.Drawing.Size(61, 39);
             this.btnPrikazi.TabIndex = 7;
             this.btnPrikazi.Text = "Prikazi";
             this.btnPrikazi.UseVisualStyleBackColor = false;
@@ -65,9 +66,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvKlijent);
-            this.groupBox1.Location = new System.Drawing.Point(9, 104);
+            this.groupBox1.Location = new System.Drawing.Point(9, 117);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(776, 321);
+            this.groupBox1.Size = new System.Drawing.Size(241, 321);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zaposlenici";
@@ -86,22 +87,9 @@
             this.dgvKlijent.Name = "dgvKlijent";
             this.dgvKlijent.ReadOnly = true;
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijent.Size = new System.Drawing.Size(770, 302);
+            this.dgvKlijent.Size = new System.Drawing.Size(235, 302);
             this.dgvKlijent.TabIndex = 0;
             this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
-            // 
-            // btnExit
-            // 
-            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExit.ForeColor = System.Drawing.Color.White;
-            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(735, -1);
-            this.btnExit.Name = "btnExit";
-            this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 12;
-            this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // GradId
             // 
@@ -125,14 +113,27 @@
             this.PostanskiBroj.Name = "PostanskiBroj";
             this.PostanskiBroj.ReadOnly = true;
             // 
+            // btnExit
+            // 
+            this.btnExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExit.ForeColor = System.Drawing.Color.White;
+            this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
+            this.btnExit.Location = new System.Drawing.Point(204, 12);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(47, 42);
+            this.btnExit.TabIndex = 12;
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(665, 59);
+            this.button1.Location = new System.Drawing.Point(183, 72);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 23);
+            this.button1.Size = new System.Drawing.Size(67, 39);
             this.button1.TabIndex = 13;
             this.button1.Text = "Dodaj Grad";
             this.button1.UseVisualStyleBackColor = false;
@@ -142,7 +143,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(263, 450);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtPretraga);
