@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:viewModels="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.LocirajVozilaPage">
+    <ContentPage.BindingContext>
+        <viewModels:VoznjeDetaljiViewModel></viewModels:VoznjeDetaljiViewModel>
+    </ContentPage.BindingContext>
+    <ContentPage.Content>
+        <StackLayout Padding="10" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+            <Label x:Name="Title" Padding="10,10,30,10" FontSize="24" FontAttributes="Bold" Text="Zahtjev za lociranje poslao: "
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="10">
+                <Label  FontAttributes="Bold" FontSize="Medium" Text="{Binding Lociranje.Klijent.Ime}"></Label>
+
+                <Label  FontAttributes="Bold" FontSize="Medium" Text="{Binding Lociranje.Klijent.Prezime} "></Label>
+                <Label  FontAttributes="Bold" FontSize="Medium" Text="{Binding Lociranje.Zaposlenik.Ime} "></Label>
+                <Label  FontAttributes="Bold" FontSize="Medium" Text="{Binding Lociranje.Zaposlenik.Prezime} "></Label>
+            </StackLayout>
+
+            <Button Text="Prihvati" BackgroundColor="#2196F3" x:Name="Prihvati" TextColor="White" FontAttributes="Bold" Clicked="Button_Clicked"></Button>
+            <Button Text="Odbij" x:Name="Odbij" BackgroundColor="#2196F3" TextColor="White" FontAttributes="Bold" Clicked="Button_Clicked_1"></Button>
+            <Label HorizontalOptions="CenterAndExpand" TextColor="CornflowerBlue" FontSize="Medium" FontAttributes="Bold" VerticalOptions="CenterAndExpand" x:Name="Poruka"></Label>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

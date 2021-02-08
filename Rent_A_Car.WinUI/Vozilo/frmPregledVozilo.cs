@@ -54,7 +54,18 @@ namespace Rent_A_Car.WinUI.Vozilo
 
         private void btnLocirajVozilo_Click(object sender, EventArgs e)
         {
-            frmLocirajVoziloPrikaz frm = new frmLocirajVoziloPrikaz();
+            //var id = dgvKlijent.SelectedRows[0].Cells[0].Value;
+
+            //frmLocirajVozilo frm = new frmLocirajVozilo(int.Parse(id.ToString()));
+            ////frm.MdiParent = this;
+            //frm.Show();
+        }
+
+        private void dgvKlijent_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            var id = dgvKlijent.SelectedRows[0].Cells[0].Value;
+
+            frmLocirajVozilo frm = new frmLocirajVozilo(int.Parse(id.ToString()));
             //frm.MdiParent = this;
             frm.Show();
         }
