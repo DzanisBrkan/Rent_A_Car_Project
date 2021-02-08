@@ -33,13 +33,12 @@
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
-            this.RezervacijaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VrijemePocetkaRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.VrijemeRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Kolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExit = new System.Windows.Forms.Button();
+            this.RezervacijaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PocetakRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KrajRezervacije = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Naziv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -70,7 +69,7 @@
             this.groupBox1.Controls.Add(this.dgvKlijent);
             this.groupBox1.Location = new System.Drawing.Point(9, 118);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(543, 321);
+            this.groupBox1.Size = new System.Drawing.Size(545, 321);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Rezervacije";
@@ -82,62 +81,18 @@
             this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RezervacijaID,
-            this.VrijemePocetkaRezervacije,
-            this.VrijemeRezervacije,
-            this.Kolicina,
-            this.Status,
-            this.Cijena});
+            this.UkupnaCijena,
+            this.PocetakRezervacije,
+            this.KrajRezervacije,
+            this.Naziv});
             this.dgvKlijent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvKlijent.Location = new System.Drawing.Point(3, 16);
             this.dgvKlijent.Name = "dgvKlijent";
             this.dgvKlijent.ReadOnly = true;
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijent.Size = new System.Drawing.Size(537, 302);
+            this.dgvKlijent.Size = new System.Drawing.Size(539, 302);
             this.dgvKlijent.TabIndex = 0;
             this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
-            // 
-            // RezervacijaID
-            // 
-            this.RezervacijaID.DataPropertyName = "RezervacijaID";
-            this.RezervacijaID.HeaderText = "RezervacijaID";
-            this.RezervacijaID.Name = "RezervacijaID";
-            this.RezervacijaID.ReadOnly = true;
-            this.RezervacijaID.Visible = false;
-            // 
-            // VrijemePocetkaRezervacije
-            // 
-            this.VrijemePocetkaRezervacije.DataPropertyName = "VrijemePocetka";
-            this.VrijemePocetkaRezervacije.HeaderText = "Vrijeme Pocetka Rezervacije ";
-            this.VrijemePocetkaRezervacije.Name = "VrijemePocetkaRezervacije";
-            this.VrijemePocetkaRezervacije.ReadOnly = true;
-            // 
-            // VrijemeRezervacije
-            // 
-            this.VrijemeRezervacije.DataPropertyName = "VrijemeRezervacije";
-            this.VrijemeRezervacije.HeaderText = "Vrijeme Rezervacije ";
-            this.VrijemeRezervacije.Name = "VrijemeRezervacije";
-            this.VrijemeRezervacije.ReadOnly = true;
-            // 
-            // Kolicina
-            // 
-            this.Kolicina.DataPropertyName = "Kolicina";
-            this.Kolicina.HeaderText = "Kolicina";
-            this.Kolicina.Name = "Kolicina";
-            this.Kolicina.ReadOnly = true;
-            // 
-            // Status
-            // 
-            this.Status.DataPropertyName = "Status";
-            this.Status.HeaderText = "Status";
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            // 
-            // Cijena
-            // 
-            this.Cijena.DataPropertyName = "Cijena";
-            this.Cijena.HeaderText = "Cijena";
-            this.Cijena.Name = "Cijena";
-            this.Cijena.ReadOnly = true;
             // 
             // btnExit
             // 
@@ -151,6 +106,48 @@
             this.btnExit.TabIndex = 12;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // RezervacijaID
+            // 
+            this.RezervacijaID.DataPropertyName = "RezervacijaID";
+            this.RezervacijaID.HeaderText = "RezervacijaID";
+            this.RezervacijaID.Name = "RezervacijaID";
+            this.RezervacijaID.ReadOnly = true;
+            this.RezervacijaID.Visible = false;
+            this.RezervacijaID.Width = 90;
+            // 
+            // UkupnaCijena
+            // 
+            this.UkupnaCijena.DataPropertyName = "UkupnaCijena";
+            this.UkupnaCijena.HeaderText = "UkupnaCijena";
+            this.UkupnaCijena.MinimumWidth = 7;
+            this.UkupnaCijena.Name = "UkupnaCijena";
+            this.UkupnaCijena.ReadOnly = true;
+            this.UkupnaCijena.Width = 110;
+            // 
+            // PocetakRezervacije
+            // 
+            this.PocetakRezervacije.DataPropertyName = "PocetakRezervacije";
+            this.PocetakRezervacije.HeaderText = "PocetakRezervacije";
+            this.PocetakRezervacije.Name = "PocetakRezervacije";
+            this.PocetakRezervacije.ReadOnly = true;
+            this.PocetakRezervacije.Width = 150;
+            // 
+            // KrajRezervacije
+            // 
+            this.KrajRezervacije.DataPropertyName = "KrajRezervacije";
+            this.KrajRezervacije.HeaderText = "KrajRezervacije";
+            this.KrajRezervacije.Name = "KrajRezervacije";
+            this.KrajRezervacije.ReadOnly = true;
+            this.KrajRezervacije.Width = 140;
+            // 
+            // Naziv
+            // 
+            this.Naziv.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Naziv.DataPropertyName = "Naziv";
+            this.Naziv.HeaderText = "Naziv";
+            this.Naziv.Name = "Naziv";
+            this.Naziv.ReadOnly = true;
             // 
             // frmRezervacija
             // 
@@ -180,10 +177,9 @@
         private System.Windows.Forms.DataGridView dgvKlijent;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridViewTextBoxColumn RezervacijaID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VrijemePocetkaRezervacije;
-        private System.Windows.Forms.DataGridViewTextBoxColumn VrijemeRezervacije;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Kolicina;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Status;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cijena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaCijena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PocetakRezervacije;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KrajRezervacije;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Naziv;
     }
 }

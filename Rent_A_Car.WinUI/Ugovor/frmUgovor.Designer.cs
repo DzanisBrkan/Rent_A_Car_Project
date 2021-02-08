@@ -33,12 +33,12 @@
             this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvUgovor = new System.Windows.Forms.DataGridView();
-            this.UgovorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DatumUgovora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CijenaAutomobila = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UkupnaKolicina = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Placanje = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnExit = new System.Windows.Forms.Button();
+            this.UgovorId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UkupnaCijena = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DatumPlacanja = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UkupanBrojDana = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Izdano = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUgovor)).BeginInit();
             this.SuspendLayout();
@@ -81,10 +81,10 @@
             this.dgvUgovor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUgovor.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UgovorId,
-            this.DatumUgovora,
-            this.CijenaAutomobila,
-            this.UkupnaKolicina,
-            this.Placanje});
+            this.UkupnaCijena,
+            this.DatumPlacanja,
+            this.UkupanBrojDana,
+            this.Izdano});
             this.dgvUgovor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgvUgovor.Location = new System.Drawing.Point(3, 16);
             this.dgvUgovor.Name = "dgvUgovor";
@@ -93,42 +93,6 @@
             this.dgvUgovor.Size = new System.Drawing.Size(440, 302);
             this.dgvUgovor.TabIndex = 0;
             this.dgvUgovor.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvUgovor_MouseDoubleClick);
-            // 
-            // UgovorId
-            // 
-            this.UgovorId.DataPropertyName = "RacunID";
-            this.UgovorId.HeaderText = "UgovorId";
-            this.UgovorId.Name = "UgovorId";
-            this.UgovorId.ReadOnly = true;
-            this.UgovorId.Visible = false;
-            // 
-            // DatumUgovora
-            // 
-            this.DatumUgovora.DataPropertyName = "DatumUgovora";
-            this.DatumUgovora.HeaderText = "Datum Ugovora";
-            this.DatumUgovora.Name = "DatumUgovora";
-            this.DatumUgovora.ReadOnly = true;
-            // 
-            // CijenaAutomobila
-            // 
-            this.CijenaAutomobila.DataPropertyName = "CijenaAutomobila";
-            this.CijenaAutomobila.HeaderText = "Cijena Automobila";
-            this.CijenaAutomobila.Name = "CijenaAutomobila";
-            this.CijenaAutomobila.ReadOnly = true;
-            // 
-            // UkupnaKolicina
-            // 
-            this.UkupnaKolicina.DataPropertyName = "UkupnaKolicina";
-            this.UkupnaKolicina.HeaderText = "UkupnaKolicina";
-            this.UkupnaKolicina.Name = "UkupnaKolicina";
-            this.UkupnaKolicina.ReadOnly = true;
-            // 
-            // Placanje
-            // 
-            this.Placanje.DataPropertyName = "NacinPlacanjaId";
-            this.Placanje.HeaderText = "Placanje";
-            this.Placanje.Name = "Placanje";
-            this.Placanje.ReadOnly = true;
             // 
             // btnExit
             // 
@@ -142,6 +106,42 @@
             this.btnExit.TabIndex = 12;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // UgovorId
+            // 
+            this.UgovorId.DataPropertyName = "RacunID";
+            this.UgovorId.HeaderText = "UgovorId";
+            this.UgovorId.Name = "UgovorId";
+            this.UgovorId.ReadOnly = true;
+            this.UgovorId.Visible = false;
+            // 
+            // UkupnaCijena
+            // 
+            this.UkupnaCijena.DataPropertyName = "UkupnaCijena";
+            this.UkupnaCijena.HeaderText = "UkupnaCijena";
+            this.UkupnaCijena.Name = "UkupnaCijena";
+            this.UkupnaCijena.ReadOnly = true;
+            // 
+            // DatumPlacanja
+            // 
+            this.DatumPlacanja.DataPropertyName = "DatumPlacanja";
+            this.DatumPlacanja.HeaderText = "DatumPlacanja";
+            this.DatumPlacanja.Name = "DatumPlacanja";
+            this.DatumPlacanja.ReadOnly = true;
+            // 
+            // UkupanBrojDana
+            // 
+            this.UkupanBrojDana.DataPropertyName = "UkupanBrojDana";
+            this.UkupanBrojDana.HeaderText = "UkupanBrojDana";
+            this.UkupanBrojDana.Name = "UkupanBrojDana";
+            this.UkupanBrojDana.ReadOnly = true;
+            // 
+            // Izdano
+            // 
+            this.Izdano.DataPropertyName = "Izdano";
+            this.Izdano.HeaderText = "Izdano";
+            this.Izdano.Name = "Izdano";
+            this.Izdano.ReadOnly = true;
             // 
             // frmUgovor
             // 
@@ -171,9 +171,9 @@
         private System.Windows.Forms.DataGridView dgvUgovor;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.DataGridViewTextBoxColumn UgovorId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DatumUgovora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CijenaAutomobila;
-        private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaKolicina;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Placanje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UkupnaCijena;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DatumPlacanja;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UkupanBrojDana;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Izdano;
     }
 }
