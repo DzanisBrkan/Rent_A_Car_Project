@@ -31,7 +31,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
         public NapraviRezervacijuViewModel(Vozilo vozilo)
         {
-            //SaveChangesCommand = new Command(async () => await SaveChanges());
             _vozilo = vozilo;
             InitCommand = new Command(async () => await Init());
             SaveCommand = new Command(async () => await SaveChanges());

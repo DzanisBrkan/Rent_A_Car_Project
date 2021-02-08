@@ -21,7 +21,7 @@ namespace Rent_A_Car.Model
         public int? TipId { get; set; }
         public byte[] SlikaThumb { get; set; }
         public float PositiveDifferent { get; set; } = 0;
-        public string Color = string.Empty;
+        public string Color { get; set; }
 
     }
 }

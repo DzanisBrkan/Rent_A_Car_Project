@@ -27,10 +27,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels
         public ObservableCollection<Model.Vozilo> VoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
 
 
-
-        public ICommand InitCommad { get; set; }
-
-
         public string _searchTerm = string.Empty;
         public string SearchTerm
         {
@@ -42,7 +38,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                     InitCommad.Execute(null);
             }
         }
-
         public bool _SearchVisible = true;
         public bool SearchVisible
         {
@@ -52,8 +47,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                 RecommendedVisible = !_SearchVisible;
             }
         }
-
-
         public bool _RecommendedVisible = false;
         public bool RecommendedVisible
         {
@@ -63,6 +56,17 @@ namespace Rent_A_Car.MobileAPP.ViewModels
 
 
 
+        string _ButtonTextPreporuceno = "Preporučena vozila";
+        public string ButtonTextPreporuceno
+        {
+            get { return _ButtonTextPreporuceno; }
+            set
+            {
+                SetProperty(ref _ButtonTextPreporuceno, value);
+            }
+        }
+
+        public ICommand InitCommad { get; set; }
         public async Task Init()
         {
             var list = await _voziloService.Get<IEnumerable<Model.Vozilo>>(null);
@@ -90,15 +94,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                 foreach (var vozilo in vozila)
                 {
                     VoziloList.Add(vozilo);
-                   
                 }
             }
         }
 
 
-        //public ObservableCollection<Model.Vozilo> recommendList { get; set; } = new ObservableCollection<Model.Vozilo>();
         public ObservableCollection<Model.Vozilo> RecommendedVoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
-
         public ObservableCollection<Model.Vozilo> others { get; set; } = new ObservableCollection<Model.Vozilo>();
         public ICommand RecommendedCommand { get; set; }
         public async Task Recommended()
@@ -109,13 +110,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             RecommendedVoziloList.Clear();
             foreach (var x in RecommenderModel.listToRecommend)
             {
+                //vozila koja su recomended su osjencena zlatnom (primjer olx izdvojena vozila)
                 x.Color = "#EEE8AA";
                 RecommendedVoziloList.Add(x);
             }
             others.Clear();
             foreach (var x in RecommenderModel.others)
             {
-                //others.Add(x);
                 RecommendedVoziloList.Add(x);
             }
 

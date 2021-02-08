@@ -54,7 +54,9 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.NacinPlacanja, Model.NacinPlacanja>();
 
 
-            //proba dva
+            CreateMap<Database.DojmoviZahtjevi, Model.DojmoviZahtjevi>();
+            CreateMap<Database.DojmoviZahtjevi, DojmoviZahtjeviUpsertRequest>().ReverseMap();
+
 
         }
     }

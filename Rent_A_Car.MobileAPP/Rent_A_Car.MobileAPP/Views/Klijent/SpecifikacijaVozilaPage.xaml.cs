@@ -29,10 +29,11 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             model.Init();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+
+        private void Button_Clicked_1(object sender, EventArgs e)
         {
-            //ne vraca fino pukne treba vratiti vozilo
-            Application.Current.MainPage = new DetaljiVozilaPage(null);
+            Application.Current.MainPage = new MainPage();
+
         }
     }
 }

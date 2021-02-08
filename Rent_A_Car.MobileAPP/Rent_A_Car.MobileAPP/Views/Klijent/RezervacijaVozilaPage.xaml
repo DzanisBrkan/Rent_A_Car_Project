@@ -31,7 +31,7 @@
                     <DataTemplate>
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
-                                <!--iz ovog uzimam id-->
+                                <!--iz ovog se uzima id-->
                                 <Label Text="{Binding RezervacijaID}" IsVisible="False" x:Name="RezervacijaID"></Label>
 
                                 <StackLayout Orientation="Horizontal">

@@ -17,6 +17,7 @@ namespace Rent_A_Car.WebAPI.Database
         {
         }
 
+        public virtual DbSet<DojmoviZahtjevi> DojmoviZahtjevi { get; set; }
         public virtual DbSet<Drzava> Drzava { get; set; }
         public virtual DbSet<Grad> Grad { get; set; }
         public virtual DbSet<Greska> Greska { get; set; }
@@ -47,6 +48,39 @@ namespace Rent_A_Car.WebAPI.Database
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Bosnian_Latin_100_BIN");
+
+            modelBuilder.Entity<DojmoviZahtjevi>(entity =>
+            {
+                entity.ToTable("DojmoviZahtjevi");
+
+                entity.Property(e => e.DojmoviZahtjeviId).HasColumnName("DojmoviZahtjeviID");
+
+                entity.Property(e => e.Dojam)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.KlijentId).HasColumnName("KlijentID");
+
+                entity.Property(e => e.KlijentKorisnickoIme)
+                    .HasMaxLength(150)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.NazivZahtjeva)
+                    .HasMaxLength(250)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.RezervacijaId).HasColumnName("RezervacijaID");
+
+                entity.HasOne(d => d.Klijent)
+                    .WithMany(p => p.DojmoviZahtjevis)
+                    .HasForeignKey(d => d.KlijentId)
+                    .HasConstraintName("FK__DojmoviZa__Klije__02C769E9");
+
+                entity.HasOne(d => d.Rezervacija)
+                    .WithMany(p => p.DojmoviZahtjevis)
+                    .HasForeignKey(d => d.RezervacijaId)
+                    .HasConstraintName("FK__DojmoviZa__Rezer__05A3D694");
+            });
 
             modelBuilder.Entity<Drzava>(entity =>
             {

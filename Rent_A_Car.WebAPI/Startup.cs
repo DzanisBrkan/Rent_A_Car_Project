@@ -86,7 +86,6 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IGradService, GradService>();
             services.AddScoped<ICRUDService<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>, GradServices>();
             services.AddScoped<IService<Model.KorisnickiNalog, object>, BaseService<Model.KorisnickiNalog, object, KorisnickiNalog>>();
-            //////services.AddScoped<IService<Model.Grad, object>, BaseService<Model.Grad, object, Grad>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
             services.AddScoped<IService<Model.Specifikacija, object>, BaseService<Model.Specifikacija, object, Specifikacija>>();
             services.AddScoped<IService<Model.Tip, object>, BaseService<Model.Tip, object, Tip>>();
@@ -96,6 +95,7 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IService<Model.Osiguranje, object>, BaseService<Model.Osiguranje, object, Osiguranje>>();
             services.AddScoped<IService<Model.Popust, object>, BaseService<Model.Popust, object, Popust>>();
             services.AddScoped<IService<Model.NacinPlacanja, object>, BaseService<Model.NacinPlacanja, object, NacinPlacanja>>();
+            services.AddScoped<ICRUDService<Model.DojmoviZahtjevi, DojmoviZahtjeviSearchRequest, DojmoviZahtjeviUpsertRequest, DojmoviZahtjeviUpsertRequest>, DojmoviZahtjeviServices>();
             services.AddScoped<IRecommenderService, RecommenderService>();
 
 

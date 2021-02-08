@@ -23,33 +23,58 @@
 
 
 
-                                <StackLayout VerticalOptions="Center" Orientation="Vertical">
-                                    <Label FontAttributes="Bold" Text="Ukupna cijena:" />
-                                    <Label TextColor="#2196F3" Text="{Binding UkupnaCijena}"></Label>
-                                    <Label TextColor="#2196F3" Text="KM"></Label>
-                                </StackLayout>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" FontAttributes="Bold" FontSize="15" Text="Ukupna cijena:"  HorizontalTextAlignment="Center"/>
+                                            <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding UkupnaCijena}" FontSize="14"  HorizontalTextAlignment="Start"></Label>
+                                            <Label Grid.Column="2" TextColor="#aa0300" Text="KM"  FontSize="14" HorizontalTextAlignment="Start"></Label>
+                                        </Grid>
+                                    </StackLayout>
 
 
-                                <StackLayout VerticalOptions="Center" Orientation="Vertical">
-                                    <Label FontAttributes="Bold" Text="Način placanja:" />
-                                    <Label TextColor="#2196F3" Text="{Binding NacinPlacanja}"></Label>
-                                </StackLayout>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" FontAttributes="Bold" FontSize="15"  Text="Način placanja:"  HorizontalTextAlignment="Center"/>
+                                            <Label Grid.Column="1" TextColor="#aa0300" FontSize="14" HorizontalTextAlignment="Start" Text="Kartično"></Label>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" FontAttributes="Bold" FontSize="15"  Text="Ukupan broj dana:"  HorizontalTextAlignment="Center"/>
+                                            <Label Grid.Column="1" TextColor="#aa0300" FontSize="14" HorizontalTextAlignment="Start" Text="{Binding UkupanBrojDana}"></Label>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <StackLayout>
+                                       <Label  FontAttributes="Bold" FontSize="15" Text="Datum plaćanja:"  HorizontalTextAlignment="Start"/>
+                                       <DatePicker TextColor="#aa0300" FontSize="14" Date="{Binding DatumPlacanja.StringFormat}" IsEnabled="False"></DatePicker>
+                                    </StackLayout>
 
 
-                                <StackLayout VerticalOptions="Center" Orientation="Vertical">
-                                    <Label Text="Datum plaćanja:" />
-                                    <Entry Text="{Binding DatumPlacanja}"></Entry>
+
+                                    <StackLayout Orientation="Vertical">
+                                        <Button FontAttributes="Bold" TextColor="White" BackgroundColor="#4BB543" Clicked="Button_Clicked" Text="Ostavi zahtjev/dojam" ></Button>
+                                    </StackLayout>
                                 </StackLayout>
                                 
-
-                                <Label Text="Ukupan broj dana:" />
-                                <Entry Text="{Binding UkupanBrojDana}"></Entry>
-
-
-                                <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Ostavi zahtjev/dojam"></Button>
-
-
-
 
 
                             </StackLayout>
