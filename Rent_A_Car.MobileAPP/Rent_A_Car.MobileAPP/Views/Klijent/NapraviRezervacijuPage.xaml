@@ -29,8 +29,8 @@
                 <Label Text="{Binding Marka}" VerticalTextAlignment="Center"></Label>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Cijena vozila ukljucujuci PDV:" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
-                <Label Text="{Binding UkupnaCijena}"  HorizontalTextAlignment="Center"></Label>
+                <Label Text="Ukupna cijena vozila po satu:" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label Text="{Binding ukupnaCijena}"  HorizontalTextAlignment="Center"></Label>
                 <Label Text="KM" HorizontalTextAlignment="Center"></Label>
             </StackLayout>
 
@@ -41,18 +41,6 @@
             <DatePicker Date="{Binding krajRezervacije}" Format="dd-MM-yyyy" ></DatePicker>
             
             
-            <!--<Entry Text="{Binding KrajRezervacije}"></Entry>-->
-
-            <!--OVO CE MI TREBATI ZA ZAPOSLENIKA (PREDEFINISANA DROPDOWN LISTA-->
-            <!--<Label Text="Status"></Label>
-            <Picker  SelectedItem="{Binding selectedStatus}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>U toku</x:String>
-                        <x:String>Zavrseno</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>-->
 
 
 

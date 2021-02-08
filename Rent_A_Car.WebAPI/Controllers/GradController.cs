@@ -13,19 +13,22 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Rent_A_Car.WebAPI.Controllers
 {
-    //Grad mora biti crud jer ce ih unositi i mijenjati admin
     [Authorize]
     public class GradController
         : BaseCRUDController<Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>
-
     {
-        //public GradController(IService<Grad, object> service) : base(service)
-        //{
-        //}
-  
-        public GradController(ICRUDService<Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest> service) : base(service)
+        private readonly IGradService _service;
+        public GradController(ICRUDService<Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest> service, IGradService gradService) : base(service)
         {
+            _service = gradService;
         }
+        [HttpDelete]
+        public Model.Grad Delete(int id)
+        {
+            return _service.Delete(id);
+        }
+
+
     }
 }
 

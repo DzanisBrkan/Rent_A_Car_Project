@@ -159,8 +159,8 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
                     UserDialogs.Instance.HideLoading();
                     UserDialogs.Instance.Alert("Uplata uspješno izvršena!","Notifikacija","Ok");
-                    await Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
-
+                    //Xamarin.Forms.Application.Current.MainPage.Navigation.PushModalAsync(new MainPage());
+                    
                 }
                 else
                 {

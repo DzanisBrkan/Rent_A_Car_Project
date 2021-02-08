@@ -13,7 +13,7 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label TextColor="#c9223e" FontAttributes="Bold" Text="Neplaćeni računi:" FontSize="Medium" HorizontalOptions="Center" />
+            <Label TextColor="#c9223e" FontAttributes="Bold" Text="Izdati računi:" FontSize="Medium" HorizontalOptions="Center" />
 
             <ListView ItemsSource="{Binding _PronadjeniUgovorService}">
                 <ListView.ItemTemplate>
@@ -21,26 +21,60 @@
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
 
-                                <!--<Label Text="Račun nije izdat:" VerticalOptions="Center" HorizontalOptions="Center" />-->
 
 
-                                <Label Text="Ukupna cijena:" />
-                                <Entry Text="{Binding UkupnaCijena}"></Entry>
+                                <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
 
-                                <Label Text="Način placanja:" />
-                                <Entry Text="{Binding NacinPlacanja}"></Entry>
-
-                                <Label Text="Datum plaćanja:" />
-                                <Entry Text="{Binding DatumPlacanja}"></Entry>
-
-                                <Label Text="Ukupan broj dana:" />
-                                <Entry Text="{Binding UkupanBrojDana}"></Entry>
+                                            <Label Grid.Column="0" FontAttributes="Bold" FontSize="15" Text="Ukupna cijena:"  HorizontalTextAlignment="Center"/>
+                                            <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding UkupnaCijena}" FontSize="14"  HorizontalTextAlignment="Start"></Label>
+                                            <Label Grid.Column="2" TextColor="#aa0300" Text="KM"  FontSize="14" HorizontalTextAlignment="Start"></Label>
+                                        </Grid>
+                                    </StackLayout>
 
 
-                                <Button BackgroundColor="#2196F3" Clicked="Button_Clicked" Text="Pogledajte vas dojam!"></Button>
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" FontAttributes="Bold" FontSize="15"  Text="Način placanja:"  HorizontalTextAlignment="Center"/>
+                                            <Label Grid.Column="1" TextColor="#aa0300" FontSize="14" HorizontalTextAlignment="Start" Text="Kartično"></Label>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <StackLayout>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                            </Grid.ColumnDefinitions>
+
+                                            <Label Grid.Column="0" FontAttributes="Bold" FontSize="15"  Text="Ukupan broj dana:"  HorizontalTextAlignment="Center"/>
+                                            <Label Grid.Column="1" TextColor="#aa0300" FontSize="14" HorizontalTextAlignment="Start" Text="{Binding UkupanBrojDana}"></Label>
+                                        </Grid>
+                                    </StackLayout>
+
+                                    <StackLayout>
+                                       <Label  FontAttributes="Bold" FontSize="15" Text="Datum plaćanja:"  HorizontalTextAlignment="Start"/>
+                                       <DatePicker TextColor="#aa0300" FontSize="14" Date="{Binding DatumPlacanja.StringFormat}" IsEnabled="False"></DatePicker>
+                                    </StackLayout>
 
 
 
+                                    <StackLayout Orientation="Vertical">
+                                        <Button FontAttributes="Bold" TextColor="White" BackgroundColor="#4BB543" Clicked="Button_Clicked" Text="Ostavi zahtjev/dojam" ></Button>
+                                    </StackLayout>
+                                </StackLayout>
+                                
 
 
                             </StackLayout>

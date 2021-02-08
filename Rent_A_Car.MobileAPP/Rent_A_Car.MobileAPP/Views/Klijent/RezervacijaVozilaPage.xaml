@@ -31,44 +31,39 @@
                     <DataTemplate>
                         <ViewCell >
                             <StackLayout Padding="10" Orientation="Vertical">
-                                <!--iz ovog uzimam id-->
+                                <!--iz ovog se uzima id-->
                                 <Label Text="{Binding RezervacijaID}" IsVisible="False" x:Name="RezervacijaID"></Label>
 
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="#c9223e" Text="Naziv rezervacije:" FontAttributes="Bold" TextDecorations="Underline" />
+                                    <Label Text="Naziv rezervacije:" FontAttributes="Bold" TextDecorations="Underline" />
                                     <Label Text="{Binding Naziv}" FontSize="Default"/>
                                 </StackLayout>
 
-                                <!--slika-->
-                                <!--<StackLayout Orientation="Horizontal">
-                                    <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
-                                </StackLayout>-->
-
 
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="#c9223e" Text="Status rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
-                                    <Label Text="{Binding Status}" FontSize="Default"/>
+                                    <Label Text="Status rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Label Text="{Binding Status}"  FontAttributes="Bold" FontSize="Default" TextColor="Green"/>
                                 </StackLayout>
 
 
 
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="#c9223e" Text="Cijena vozila sa PDV-om iznosi:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <Label  Text="Cijena vozila sa PDV-om iznosi:" FontAttributes="Bold" TextDecorations="Underline"/>
                                     <Label Text="{Binding UkupnaCijena}" FontSize="Default"/>
+                                    <Label FontSize="Default" Text="KM"></Label>
                                 </StackLayout>
 
 
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="#c9223e" Text="Početak rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
-                                    <DatePicker Date="{Binding PocetakRezervacije}" Format="dd-MM-yyyy" FontSize="Default" IsEnabled="False"></DatePicker>
+                                    <Label Text="Početak rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <DatePicker Date="{Binding PocetakRezervacije}"  FontSize="Default" IsEnabled="False" ></DatePicker>
 
                                 </StackLayout>
 
                                 <StackLayout Orientation="Horizontal">
-                                    <Label TextColor="#c9223e" Text="Kraj rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
-                                    <DatePicker Date="{Binding KrajRezervacije}" Format="dd-MM-yyyy" FontSize="Default" IsEnabled="False"></DatePicker>
+                                    <Label Text="Kraj rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
+                                    <DatePicker Date="{Binding KrajRezervacije}" FontSize="Default" IsEnabled="False"></DatePicker>
                                 </StackLayout>
-
 
 
 

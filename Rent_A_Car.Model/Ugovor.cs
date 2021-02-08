@@ -15,5 +15,6 @@ namespace Rent_A_Car.Model
         public double? UkupanBrojDana { get; set; }
         public bool? Izdano { get; set; }
         //public int Placen { get; set; } 
+        public virtual NacinPlacanja NacinPlacanja { get; set; }
     }
 }

@@ -26,20 +26,16 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
         public Vozilo _vozilo = null;
         string _Model = string.Empty;
         string _Marka = string.Empty;
-        double? _UkupnaCijena = 0;
         public byte[] _SlikaThumb = null;
-        double _pdv = 1.17;
 
 
         public NapraviRezervacijuViewModel(Vozilo vozilo)
         {
-            //SaveChangesCommand = new Command(async () => await SaveChanges());
             _vozilo = vozilo;
             InitCommand = new Command(async () => await Init());
             SaveCommand = new Command(async () => await SaveChanges());
             Model = vozilo.Model;
             Marka = vozilo.Marka;
-            _UkupnaCijena = vozilo.CijenaPoSatu * _pdv;
             _SlikaThumb = vozilo.SlikaThumb;
         }
 
@@ -62,12 +58,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             {SetProperty(ref _Marka, value);}
         }
 
-        //preimenuj na cijena po satu
-        public double? UkupnaCijena
-        {
-            get { return _UkupnaCijena; }
-            set { SetProperty(ref _UkupnaCijena, value); }
-        }
+       
 
         string _selectedStatus = string.Empty;
         public string selectedStatus
@@ -126,15 +117,18 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             set { SetProperty(ref _PocetakRezervacije, value); }
         }
 
-
-        public ICommand InitCommand { get; set; }
-        public ICommand SaveCommand { get; set; }
-
+        double? _ukupnaCijena = 0;
+        public double? ukupnaCijena
+        {
+            get { return _ukupnaCijena; }
+            set { SetProperty(ref _ukupnaCijena, value); }
+        }
 
         public ObservableCollection<Lokacija> lokacijaList { get; set; } = new ObservableCollection<Lokacija>();
         public ObservableCollection<Osiguranje> osiguranjeList { get; set; } = new ObservableCollection<Osiguranje>();
         public ObservableCollection<Popust> popustList { get; set; } = new ObservableCollection<Popust>();
  
+        public ICommand InitCommand { get; set; }
         public async Task Init()
         {
 
@@ -165,8 +159,10 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                 }
             }
 
+            ukupnaCijena = _vozilo.CijenaPoSatu * 1.17;
         }
 
+        public ICommand SaveCommand { get; set; }
         public async Task SaveChanges()
         {
             var KlijentModel = await _klijentService.GetById<Model.Klijent>(APIService.UserID);
@@ -196,10 +192,13 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             }
 
             //dodavanje nove rezervacije
+            int hrsDiff = (krajRezervacije - pocetakRezervacije).Hours;
+            int dayDiff = (int)(krajRezervacije - pocetakRezervacije).TotalDays;
+
             var request = new RezervacijaUpsertRequest()
             {
                 Status = "U toku",
-                UkupnaCijena = _UkupnaCijena,
+                UkupnaCijena = _vozilo.CijenaPoSatu * 1.17 * hrsDiff,
                 LokacijaId = selectedLokacija.LokacijaId,
                 OsiguranjeId = selectedOsiguranje.OsiguranjeId,
                 KlijentId = KlijentModel.KlijentId,
@@ -212,12 +211,11 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             var rezervacijaResponse = await _rezervacijaService.Insert<Model.Rezervacija>(request);
 
             //dodavanje novog racuna
-            int hrsDiff = (int)(krajRezervacije - pocetakRezervacije).Hours;
-            int dayDiff = (int)(krajRezervacije - pocetakRezervacije).TotalDays;
+            
 
             var requestRacun = new UgovorUpsertRequest()
             {
-                UkupnaCijena = _UkupnaCijena * hrsDiff,
+                UkupnaCijena = rezervacijaResponse.UkupnaCijena,
                 NacinPlacanjaId = 1,
                 DatumPlacanja = null,
                 RezervacijaId = rezervacijaResponse.RezervacijaID,

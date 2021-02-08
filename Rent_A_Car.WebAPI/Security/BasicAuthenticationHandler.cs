@@ -69,7 +69,7 @@ namespace Rent_A_Car.WebAPI.Security
 
             if (zaposlenik == null && klijent == null)
                 return AuthenticateResult.Fail("Invalid Username or Password");
-            if(zaposlenik != null)
+            if(zaposlenik != null && zaposlenik.Aktivan == true)
             {
                 var claimsZaposlenik = new List<Claim> {
                 new Claim(ClaimTypes.NameIdentifier, zaposlenik.KorisnickoIme),

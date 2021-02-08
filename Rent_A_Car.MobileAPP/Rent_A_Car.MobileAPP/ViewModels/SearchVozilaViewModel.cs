@@ -14,7 +14,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels
     public class SearchVozilaViewModel : BaseViewModel
     {
 
-        //servis
+        private readonly APIService _RecommenderService = new APIService("Recommender");
         private readonly APIService _voziloService = new APIService("Vozilo");
         private readonly APIService _specifikacijaService = new APIService("Specifikacija");
 
@@ -25,11 +25,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels
             RecommendedCommand = new Command(async () => await Recommended());
         }
         public ObservableCollection<Model.Vozilo> VoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
-        public ObservableCollection<Model.Vozilo> RecommendedVoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
-
-
-
-        public ICommand InitCommad { get; set; }
 
 
         public string _searchTerm = string.Empty;
@@ -43,7 +38,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                     InitCommad.Execute(null);
             }
         }
-
         public bool _SearchVisible = true;
         public bool SearchVisible
         {
@@ -53,8 +47,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                 RecommendedVisible = !_SearchVisible;
             }
         }
-
-
         public bool _RecommendedVisible = false;
         public bool RecommendedVisible
         {
@@ -64,6 +56,17 @@ namespace Rent_A_Car.MobileAPP.ViewModels
 
 
 
+        string _ButtonTextPreporuceno = "Preporučena vozila";
+        public string ButtonTextPreporuceno
+        {
+            get { return _ButtonTextPreporuceno; }
+            set
+            {
+                SetProperty(ref _ButtonTextPreporuceno, value);
+            }
+        }
+
+        public ICommand InitCommad { get; set; }
         public async Task Init()
         {
             var list = await _voziloService.Get<IEnumerable<Model.Vozilo>>(null);
@@ -91,23 +94,30 @@ namespace Rent_A_Car.MobileAPP.ViewModels
                 foreach (var vozilo in vozila)
                 {
                     VoziloList.Add(vozilo);
-                   
                 }
             }
         }
 
+
+        public ObservableCollection<Model.Vozilo> RecommendedVoziloList { get; set; } = new ObservableCollection<Model.Vozilo>();
+        public ObservableCollection<Model.Vozilo> others { get; set; } = new ObservableCollection<Model.Vozilo>();
         public ICommand RecommendedCommand { get; set; }
         public async Task Recommended()
         {
-            if(RecommendedVoziloList.Count == 0)
+            
+            var RecommenderModel = await _RecommenderService.Get<Model.RecommenderModel>(new UserRecommendationRequest() { UserID = APIService.UserID });
+
+            RecommendedVoziloList.Clear();
+            foreach (var x in RecommenderModel.listToRecommend)
             {
-                //var recVozila = await _voziloService.GetActionResponse<IEnumerable<Model.Vozilo>>($"Preporuka/{APIService.UserID}");
-
-
-                //foreach (var vozilo in recVozila)
-                //{
-                //    RecommendedVoziloList.Add(vozilo);
-                //}
+                //vozila koja su recomended su osjencena zlatnom (primjer olx izdvojena vozila)
+                x.Color = "#EEE8AA";
+                RecommendedVoziloList.Add(x);
+            }
+            others.Clear();
+            foreach (var x in RecommenderModel.others)
+            {
+                RecommendedVoziloList.Add(x);
             }
 
         }

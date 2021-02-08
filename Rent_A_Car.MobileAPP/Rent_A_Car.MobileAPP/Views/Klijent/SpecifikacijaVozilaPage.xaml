@@ -17,7 +17,6 @@
 
 
 
-            <!--<ListView ItemsSource="{Binding VozilaList}" ItemSelected="ListView_ItemSelected">-->
             <ListView ItemsSource="{Binding SpecifikacijaList}" >
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -63,8 +62,9 @@
                                     <Label HorizontalTextAlignment="Center" Text="Vrsta mjenjača:" FontAttributes="Bold"/>
                                     <Entry HorizontalTextAlignment="Center" Text="{Binding Mjenjac}" IsReadOnly="True"/>
 
+                              
                                     <StackLayout Orientation="Vertical">
-                                        <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#aa0300" FontAttributes="Bold" Text="Nazad" Clicked="Button_Clicked"></Button>
+                                        <Button VerticalOptions="Center" TextColor="White" BackgroundColor="Red" FontAttributes="Bold" Text="Nazad na početnu" Clicked="Button_Clicked_1"></Button>
                                     </StackLayout>
 
                                 </StackLayout>

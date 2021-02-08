@@ -38,11 +38,6 @@
                                     <Label Text="{Binding Naziv}" FontSize="Default"/>
                                 </StackLayout>
 
-                                <!--slika-->
-                                <!--<StackLayout Orientation="Horizontal">
-                                    <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
-                                </StackLayout>-->
-
 
                                 <StackLayout Orientation="Horizontal">
                                     <Label TextColor="#c9223e" Text="Status rezervacije:" FontAttributes="Bold" TextDecorations="Underline"/>
@@ -72,9 +67,7 @@
 
 
                                 <StackLayout Orientation="Vertical">
-                                    <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#D4AF37" FontAttributes="Bold" Text="Ocjeni"  Command="{Binding BindingContext.OcjeniCommand, Source={x:Reference PageInstance} }" CommandParameter="{Binding Text, Source={x:Reference RezervacijaID}}"></Button>
-
-                                    <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#e31212" FontAttributes="Bold" Text="Nazad" Clicked="Button_Clicked"></Button>
+                                    <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#4BB543" FontAttributes="Bold" Text="Ocjeni"  Command="{Binding BindingContext.OcjeniCommand, Source={x:Reference PageInstance} }" CommandParameter="{Binding Text, Source={x:Reference RezervacijaID}}"></Button>
                                 </StackLayout>
 
                                 <Label />

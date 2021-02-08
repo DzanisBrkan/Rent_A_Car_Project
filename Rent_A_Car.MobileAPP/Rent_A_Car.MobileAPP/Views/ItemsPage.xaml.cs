@@ -37,13 +37,19 @@ namespace Rent_A_Car.MobileAPP.Views
 
         private async void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            await Navigation.PushAsync(new DetaljiVozilaPage((Vozilo)(e.SelectedItem))); // kada vise puta udjem, app pukne 
+            var item = e.SelectedItem as Model.Vozilo;
+            await Navigation.PushAsync(new DetaljiVozilaPage((Vozilo)(e.SelectedItem))); 
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
+            if (model.ButtonTextPreporuceno == "Preporučena vozila")
+            {
+                model.ButtonTextPreporuceno = "Pretražite vozila";
+            }
+            else
+                model.ButtonTextPreporuceno = "Preporučena vozila";
             model.SearchVisible = !model.SearchVisible;
-            //IsVisible = !IsVisible;
             await model.Recommended();
         }
     }
