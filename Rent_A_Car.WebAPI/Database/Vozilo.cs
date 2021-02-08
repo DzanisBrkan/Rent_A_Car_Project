@@ -28,6 +28,9 @@ namespace Rent_A_Car.WebAPI.Database
         public int? TipId { get; set; }
         public byte[] SlikaThumb { get; set; }
 
+        public double? Longitude { get; set; }
+        public double? Langitude { get; set; }
+
         public virtual Kategorija Kategorija { get; set; }
         public virtual Lokacija Lokacija { get; set; }
         public virtual Specifikacija Specifikacija { get; set; }

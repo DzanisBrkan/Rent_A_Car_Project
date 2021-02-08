@@ -6,10 +6,19 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Xamarin.Forms.Maps;
+
+using GMap.NET;
+using GMap.NET.MapProviders;
+using GMap.NET.WindowsForms;
+using GMap.NET.WindowsForms.Markers;
+
+
 
 namespace Rent_A_Car.WinUI
 {
@@ -19,9 +28,12 @@ namespace Rent_A_Car.WinUI
         private readonly APIService _apiService = new APIService("Rezervacija");
         private readonly APIService _apiServiceVozilo = new APIService("Vozilo");
         private readonly APIService _lociranjaServices = new APIService("Lociranje");
-        public frmLocirajVozilo()
+        private int? _id = null;
+        public frmLocirajVozilo(int? voziloId = null)
         {
             InitializeComponent();
+            _id = voziloId;
+
         }
 
         //public Model.Voznje Voznja { get; set; }
@@ -123,83 +135,133 @@ namespace Rent_A_Car.WinUI
 
         private async void btnVozila_Click(object sender, EventArgs e)
         {
-            //await model.InitDodajZahtjev();
-            MessageBox.Show("Zahtjev za lokacijom poslat!");
-            //map.IsVisible = false;
-            //labela.Text = "Vozač jos uvijek nije prihvatio zahtjev!";
-            //Lociraj.IsVisible = false;
+
+            var vozilo = await _apiServiceVozilo.GetById<Model.Vozilo>(_id);
+
+            //MessageBox.Show("Zahtjev za lokacijom poslat!");
+
+            //if (this.ValidateChildren())// sprijeciti korisnika da klikne dugme snimi bez ikakvih validacija
+            //{
+            //    var requestt = new LociranjeUpsertRequest()
+            //    {
+            //        KlijentId = lociranje.KlijentId,
+            //        ZaposlenikId = null,
+            //        Lat = vozilo.Langitude.ToString(),
+            //        Lng = vozilo.Longitude.ToString(),
+            //        Odogovoreno = false,
+            //        Prihvaceno = false,
+            //        VoziloId = (int)lociranje.VoziloId
+            //    };
 
 
+            //await _lociranjaServices.Insert<Model.Lociranje>(requestt);
+            //MessageBox.Show("Zahtjev za lociranjem je poslat!");
 
 
-            //public async Task InitDodajZahtjev()
-            var request = new LociranjeUpsertRequest()
-            {
-                //KlijentId = APIService.LogovaniKlijent.KlijentId,
-                ZaposlenikId = null,
-                Lat = "string",
-                Lng = "string",
-                Odogovoreno = false,
-                Prihvaceno = false,
-                //VoziloId = Voznja.VoznjaId
+            //}
+
+            //=-=================================== video=================================================
+
+            map.DragButton = MouseButtons.Left;
+            map.MapProvider = GMapProviders.GoogleMap;
+
+            //double laat = Convert.ToDouble(txtKlijent.Text);
+            //double lon = Convert.ToDouble(txtVozilo.Text);
+
+            double laat = (double)vozilo.Langitude;
+            double lon = (double)vozilo.Longitude;
 
 
-            };
+            map.Position = new PointLatLng(laat, lon);
 
+            map.MinZoom = 1;
+            map.MaxZoom = 100;
+            map.Zoom = 10;
 
-
-            await _lociranjaServices.Insert<Model.Lociranje>(request);
-            MessageBox.Show("Zahtjev za lociranjem je poslat!");
-
+            //=-=================================== video=================================================
 
 
             //public void Lociranje()
 
 
-            //if (Model.Lociranje == null)
-            //{
-            //    map.IsVisible = false;
-            //    labela.Text = "Želite locirati vozača?";
-            //    Lociraj.IsVisible = true;
-            //}
-            //else if (model.Lociranje.Odogovoreno == true && model.Lociranje.Prihvaceno == true && model.Lociranje.KlijentId != null)
-            //{
-            //    double lat = 0;
-            //    double longt = 0;
-
-            //    Lociraj.IsVisible = true;
-            //    lat = /*Convert.ToDouble(loc.Lat);*/double.Parse(model.Lociranje.Lat.Replace(',', '.'), CultureInfo.InvariantCulture);
-            //    longt = /*Convert.ToDouble(loc.Lng);*/double.Parse(model.Lociranje.Lng.Replace(',', '.'), CultureInfo.InvariantCulture);
-
-            //    Pin lokacija = new Pin()
+            //    if (lociranje == null)
             //    {
+            //        //map.IsVisible = false;
+            //        labela.Text = "Želite locirati vozača?";
+            //        //Lociraj.IsVisible = true;
+            //    }
+            //    else if (lociranje.Odogovoreno == true && lociranje.Prihvaceno == true && lociranje.KlijentId != null)
+            //    {
+            //        double lat = 0;
+            //        double longt = 0;
 
-            //        Position = new Position(lat, longt),
-            //        Label = "Lokacija vozača",
-            //        Type = PinType.Generic
-            //    };
+            //        //Lociraj.IsVisible = true;
+            //        lat = /*Convert.ToDouble(loc.Lat);*/double.Parse(lociranje.Lat.Replace(',', '.'), CultureInfo.InvariantCulture);
+            //        longt = /*Convert.ToDouble(loc.Lng);*/double.Parse(lociranje.Lng.Replace(',', '.'), CultureInfo.InvariantCulture);
 
-            //    map.Pins.Add(lokacija);
+            //        Pin lokacija = new Pin()
+            //        {
 
-            //    Position pozicija = new Position(lat, longt);
-            //    map.MoveToRegion(new MapSpan(pozicija, 0.1, 0.1));
+            //            Position = new Position(lat, longt),
+            //            Label = "Lokacija vozača",
+            //            Type = PinType.Generic
+            //        };
+
+            //        map.Pins.Add(lokacija);
+
+            //        Position pozicija = new Position(lat, longt);
+            //        map.MoveToRegion(new MapSpan(pozicija, 0.1, 0.1));
+            //    }
+            //    else if (lociranje.Odogovoreno == true && lociranje.Prihvaceno == false && lociranje.KlijentId != null)
+            //    {
+            //        //map.IsVisible = false;
+            //        //Lociraj.IsVisible = true;
+            //        MessageBox.Show("Vaš posljednji zahtjev je odbijen!\n \nKlikni na lociraj za ponovno slanje");
+            //        MessageBox.Show("Vozač je odbio vas zadnji posalni zahtjev!");
+            //    }
+            //    else if (lociranje.Odogovoreno == false && lociranje.Prihvaceno == false && lociranje.KlijentId != null)
+            //    {
+            //        //map.IsVisible = false;
+            //        labela.Text = "Vozač jos uvijek nije prihvatio zahtjev!";
+            //        //Lociraj.IsVisible = false;
+            //        MessageBox.Show("Na poslani zahtjev jos nije odgovoreno!");
+            //    }
+
+
             //}
-            //else if (model.Lociranje.Odogovoreno == true && model.Lociranje.Prihvaceno == false && model.Lociranje.KlijentId != null)
-            //{
-            //    map.IsVisible = false;
-            //    Lociraj.IsVisible = true;
-            //    labela.Text = "Vaš posljednji zahtjev je odbijen!\n \nKlikni na lociraj za ponovno slanje";
-            //    Application.Current.MainPage.DisplayAlert("Obavjest!", "Vozač je odbio vas zadnji posalni zahtjev!", "OK");
-            //}
-            //else if (model.Lociranje.Odogovoreno == false && model.Lociranje.Prihvaceno == false && model.Lociranje.KlijentId != null)
-            //{
-            //    map.IsVisible = false;
-            //    labela.Text = "Vozač jos uvijek nije prihvatio zahtjev!";
-            //    Lociraj.IsVisible = false;
-            //    Application.Current.MainPage.DisplayAlert("Obavjest!", "Na poslani zahtjev jos nije odgovoreno!", "OK");
-            //}
 
 
+        }
+
+        private async void frmLocirajVozilo_Load(object sender, EventArgs e)
+        {
+            var vozilo = await _apiServiceVozilo.GetById<Model.Vozilo>(_id);
+
+
+            if (vozilo.Longitude == null && vozilo.Langitude == null)
+            {
+                MessageBox.Show("GPS nije u servisu!");
+            }
+            else
+            {
+
+                map.DragButton = MouseButtons.Left;
+                map.MapProvider = GMapProviders.GoogleMap;
+
+                //double laat = Convert.ToDouble(txtKlijent.Text);
+                //double lon = Convert.ToDouble(txtVozilo.Text);
+
+                double laat = (double)vozilo.Langitude;
+                double lon = (double)vozilo.Longitude;
+
+
+                map.Position = new PointLatLng(laat, lon);
+
+                map.MinZoom = 1;
+                map.MaxZoom = 100;
+                map.Zoom = 10;
+
+            }
         }
     }
 }
