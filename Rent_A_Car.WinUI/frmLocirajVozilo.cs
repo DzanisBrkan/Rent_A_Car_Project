@@ -15,7 +15,7 @@ namespace Rent_A_Car.WinUI
 {
     public partial class frmLocirajVozilo : Form
     {
-
+        //komitanje
         private readonly APIService _apiService = new APIService("Rezervacija");
         private readonly APIService _apiServiceVozilo = new APIService("Vozilo");
         private readonly APIService _lociranjaServices = new APIService("Lociranje");
