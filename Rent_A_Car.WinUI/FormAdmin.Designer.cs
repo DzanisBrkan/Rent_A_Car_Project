@@ -31,26 +31,26 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAdmin));
             this.LeftPanel = new System.Windows.Forms.Panel();
+            this.Username = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnInfo = new System.Windows.Forms.Button();
+            this.lbDobrodosli = new System.Windows.Forms.Label();
+            this.btnOdjava = new System.Windows.Forms.Button();
+            this.btnOpcije = new System.Windows.Forms.Button();
+            this.btnHome = new System.Windows.Forms.Button();
             this.brnOcjeneIKomentari = new System.Windows.Forms.Button();
             this.btnRezervacije = new System.Windows.Forms.Button();
             this.brnUgovori = new System.Windows.Forms.Button();
-            this.btnInfo = new System.Windows.Forms.Button();
-            this.btnOdjava = new System.Windows.Forms.Button();
             this.btnVozila = new System.Windows.Forms.Button();
             this.btnKlijenti = new System.Windows.Forms.Button();
-            this.btnOpcije = new System.Windows.Forms.Button();
             this.brnGrad = new System.Windows.Forms.Button();
             this.btnKategorije = new System.Windows.Forms.Button();
             this.btnZaposlenici = new System.Windows.Forms.Button();
-            this.btnHome = new System.Windows.Forms.Button();
-            this.lbDobrodosli = new System.Windows.Forms.Label();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.Username = new System.Windows.Forms.Label();
             this.LeftPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +72,17 @@
             this.LeftPanel.Size = new System.Drawing.Size(213, 679);
             this.LeftPanel.TabIndex = 0;
             // 
+            // Username
+            // 
+            this.Username.AutoSize = true;
+            this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Username.ForeColor = System.Drawing.Color.White;
+            this.Username.Location = new System.Drawing.Point(16, 287);
+            this.Username.Name = "Username";
+            this.Username.Size = new System.Drawing.Size(150, 33);
+            this.Username.TabIndex = 28;
+            this.Username.Text = "Username";
+            // 
             // panel2
             // 
             this.panel2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel2.BackgroundImage")));
@@ -89,6 +100,75 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(52, 69);
             this.panel1.TabIndex = 10;
+            // 
+            // btnInfo
+            // 
+            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInfo.ForeColor = System.Drawing.Color.White;
+            this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
+            this.btnInfo.Location = new System.Drawing.Point(80, 624);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(48, 43);
+            this.btnInfo.TabIndex = 8;
+            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            // 
+            // lbDobrodosli
+            // 
+            this.lbDobrodosli.AutoSize = true;
+            this.lbDobrodosli.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDobrodosli.ForeColor = System.Drawing.Color.White;
+            this.lbDobrodosli.Location = new System.Drawing.Point(25, 244);
+            this.lbDobrodosli.Name = "lbDobrodosli";
+            this.lbDobrodosli.Size = new System.Drawing.Size(171, 33);
+            this.lbDobrodosli.TabIndex = 27;
+            this.lbDobrodosli.Text = "Dobrodošli, ";
+            // 
+            // btnOdjava
+            // 
+            this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOdjava.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOdjava.ForeColor = System.Drawing.Color.White;
+            this.btnOdjava.Image = ((System.Drawing.Image)(resources.GetObject("btnOdjava.Image")));
+            this.btnOdjava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOdjava.Location = new System.Drawing.Point(31, 493);
+            this.btnOdjava.Name = "btnOdjava";
+            this.btnOdjava.Size = new System.Drawing.Size(156, 49);
+            this.btnOdjava.TabIndex = 4;
+            this.btnOdjava.Text = "Odjava";
+            this.btnOdjava.UseVisualStyleBackColor = true;
+            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
+            // 
+            // btnOpcije
+            // 
+            this.btnOpcije.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpcije.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOpcije.ForeColor = System.Drawing.Color.White;
+            this.btnOpcije.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcije.Image")));
+            this.btnOpcije.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOpcije.Location = new System.Drawing.Point(31, 438);
+            this.btnOpcije.Name = "btnOpcije";
+            this.btnOpcije.Size = new System.Drawing.Size(156, 49);
+            this.btnOpcije.TabIndex = 4;
+            this.btnOpcije.Text = "Opcije";
+            this.btnOpcije.UseVisualStyleBackColor = true;
+            this.btnOpcije.Click += new System.EventHandler(this.btnOpcije_Click);
+            // 
+            // btnHome
+            // 
+            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnHome.ForeColor = System.Drawing.Color.White;
+            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
+            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHome.Location = new System.Drawing.Point(31, 383);
+            this.btnHome.Name = "btnHome";
+            this.btnHome.Size = new System.Drawing.Size(156, 49);
+            this.btnHome.TabIndex = 0;
+            this.btnHome.Text = "Home";
+            this.btnHome.UseVisualStyleBackColor = true;
+            this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
             // 
             // brnOcjeneIKomentari
             // 
@@ -138,34 +218,6 @@
             this.brnUgovori.UseVisualStyleBackColor = true;
             this.brnUgovori.Click += new System.EventHandler(this.brnUgovori_Click);
             // 
-            // btnInfo
-            // 
-            this.btnInfo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnInfo.ForeColor = System.Drawing.Color.White;
-            this.btnInfo.Image = ((System.Drawing.Image)(resources.GetObject("btnInfo.Image")));
-            this.btnInfo.Location = new System.Drawing.Point(80, 624);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(48, 43);
-            this.btnInfo.TabIndex = 8;
-            this.btnInfo.UseVisualStyleBackColor = true;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
-            // 
-            // btnOdjava
-            // 
-            this.btnOdjava.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOdjava.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOdjava.ForeColor = System.Drawing.Color.White;
-            this.btnOdjava.Image = ((System.Drawing.Image)(resources.GetObject("btnOdjava.Image")));
-            this.btnOdjava.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOdjava.Location = new System.Drawing.Point(31, 493);
-            this.btnOdjava.Name = "btnOdjava";
-            this.btnOdjava.Size = new System.Drawing.Size(156, 49);
-            this.btnOdjava.TabIndex = 4;
-            this.btnOdjava.Text = "Odjava";
-            this.btnOdjava.UseVisualStyleBackColor = true;
-            this.btnOdjava.Click += new System.EventHandler(this.btnOdjava_Click);
-            // 
             // btnVozila
             // 
             this.btnVozila.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -197,21 +249,6 @@
             this.btnKlijenti.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnKlijenti.UseVisualStyleBackColor = true;
             this.btnKlijenti.Click += new System.EventHandler(this.btnKlijenti_Click);
-            // 
-            // btnOpcije
-            // 
-            this.btnOpcije.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpcije.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOpcije.ForeColor = System.Drawing.Color.White;
-            this.btnOpcije.Image = ((System.Drawing.Image)(resources.GetObject("btnOpcije.Image")));
-            this.btnOpcije.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOpcije.Location = new System.Drawing.Point(31, 438);
-            this.btnOpcije.Name = "btnOpcije";
-            this.btnOpcije.Size = new System.Drawing.Size(156, 49);
-            this.btnOpcije.TabIndex = 4;
-            this.btnOpcije.Text = "Opcije";
-            this.btnOpcije.UseVisualStyleBackColor = true;
-            this.btnOpcije.Click += new System.EventHandler(this.btnOpcije_Click);
             // 
             // brnGrad
             // 
@@ -260,31 +297,6 @@
             this.btnZaposlenici.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnZaposlenici.UseVisualStyleBackColor = true;
             this.btnZaposlenici.Click += new System.EventHandler(this.btnZaposlenici_Click);
-            // 
-            // btnHome
-            // 
-            this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnHome.ForeColor = System.Drawing.Color.White;
-            this.btnHome.Image = ((System.Drawing.Image)(resources.GetObject("btnHome.Image")));
-            this.btnHome.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHome.Location = new System.Drawing.Point(31, 383);
-            this.btnHome.Name = "btnHome";
-            this.btnHome.Size = new System.Drawing.Size(156, 49);
-            this.btnHome.TabIndex = 0;
-            this.btnHome.Text = "Home";
-            this.btnHome.UseVisualStyleBackColor = true;
-            // 
-            // lbDobrodosli
-            // 
-            this.lbDobrodosli.AutoSize = true;
-            this.lbDobrodosli.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDobrodosli.ForeColor = System.Drawing.Color.White;
-            this.lbDobrodosli.Location = new System.Drawing.Point(25, 244);
-            this.lbDobrodosli.Name = "lbDobrodosli";
-            this.lbDobrodosli.Size = new System.Drawing.Size(171, 33);
-            this.lbDobrodosli.TabIndex = 27;
-            this.lbDobrodosli.Text = "Dobrodošli, ";
             // 
             // btnMinimize
             // 
@@ -336,17 +348,6 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
-            // 
-            // Username
-            // 
-            this.Username.AutoSize = true;
-            this.Username.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Username.ForeColor = System.Drawing.Color.White;
-            this.Username.Location = new System.Drawing.Point(16, 287);
-            this.Username.Name = "Username";
-            this.Username.Size = new System.Drawing.Size(150, 33);
-            this.Username.TabIndex = 28;
-            this.Username.Text = "Username";
             // 
             // FormAdmin
             // 
