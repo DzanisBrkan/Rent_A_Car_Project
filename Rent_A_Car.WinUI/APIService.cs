@@ -112,5 +112,26 @@ namespace Rent_A_Car.WinUI
                 return default(T);
             }
         }
+
+
+        public async Task<T> GetActionResponse<T>(string action, object search = null)
+        {
+            //var url = $"{_apiUrl}/{_route}/{action}";
+
+            var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
+
+
+            if (search != null)
+            {
+                url += "?";
+                url += await search.ToQueryString();
+            }
+
+            return await url.WithBasicAuth(Username, Password).GetJsonAsync<T>();
+        }
+
+
+
+
     }
 }

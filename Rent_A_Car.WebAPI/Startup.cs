@@ -103,17 +103,11 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IService<Model.Lociranje, object>, BaseService<Model.Lociranje, object, Lociranje>>();
 
 
-
-
             //var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
-            //var connection = Configuration.GetConnectionString("Rent_A_Car");
-
-            //var connection = Configuration.GetConnectionString("RentACar");
-            //services.AddDbContext<Rent_A_CarContext>(options => options.UseSqlServer(connection));
 
 
             services.AddDbContext<Rent_A_CarContext>(options =>
-               options.UseSqlServer(Configuration.GetConnectionString("RentACar")));
+               options.UseSqlServer(Configuration.GetConnectionString("Rent_A_Car")));
 
         }
 

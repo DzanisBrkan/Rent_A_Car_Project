@@ -29,36 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLocirajVozilo));
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnVozila = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.splitter1 = new System.Windows.Forms.Splitter();
+            this.map = new GMap.NET.WindowsForms.GMapControl();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(103, 54);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(198, 31);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Locirajte Vozilo";
-            // 
-            // btnVozila
-            // 
-            this.btnVozila.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnVozila.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVozila.ForeColor = System.Drawing.Color.White;
-            this.btnVozila.Image = ((System.Drawing.Image)(resources.GetObject("btnVozila.Image")));
-            this.btnVozila.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVozila.Location = new System.Drawing.Point(109, 114);
-            this.btnVozila.Name = "btnVozila";
-            this.btnVozila.Size = new System.Drawing.Size(192, 49);
-            this.btnVozila.TabIndex = 14;
-            this.btnVozila.Text = "    Lociranje";
-            this.btnVozila.UseVisualStyleBackColor = true;
-            this.btnVozila.Click += new System.EventHandler(this.btnVozila_Click);
             // 
             // btnExit
             // 
@@ -66,35 +40,68 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(360, 12);
+            this.btnExit.Location = new System.Drawing.Point(942, 11);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
             this.btnExit.TabIndex = 15;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(0, 0);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(922, 618);
+            this.splitter1.TabIndex = 99;
+            this.splitter1.TabStop = false;
+            // 
+            // map
+            // 
+            this.map.Bearing = 0F;
+            this.map.CanDragMap = true;
+            this.map.EmptyTileColor = System.Drawing.Color.Navy;
+            this.map.GrayScaleMode = false;
+            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.LevelsKeepInMemory = 5;
+            this.map.Location = new System.Drawing.Point(21, 12);
+            this.map.MarkersEnabled = true;
+            this.map.MaxZoom = 2;
+            this.map.MinZoom = 2;
+            this.map.MouseWheelZoomEnabled = true;
+            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.map.Name = "map";
+            this.map.NegativeMode = false;
+            this.map.PolygonsEnabled = true;
+            this.map.RetryLoadTile = 0;
+            this.map.RoutesEnabled = true;
+            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
+            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.map.ShowTileGridLines = false;
+            this.map.Size = new System.Drawing.Size(885, 594);
+            this.map.TabIndex = 100;
+            this.map.Zoom = 0D;
+            // 
             // frmLocirajVozilo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.ClientSize = new System.Drawing.Size(419, 190);
+            this.ClientSize = new System.Drawing.Size(998, 618);
+            this.Controls.Add(this.map);
+            this.Controls.Add(this.splitter1);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.btnVozila);
-            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmLocirajVozilo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmLocirajVozilo";
+            this.Load += new System.EventHandler(this.frmLocirajVozilo_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnVozila;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Splitter splitter1;
+        private GMap.NET.WindowsForms.GMapControl map;
     }
 }

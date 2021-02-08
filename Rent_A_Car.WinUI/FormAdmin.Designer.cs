@@ -168,7 +168,9 @@
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
+
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
+
             // 
             // brnOcjeneIKomentari
             // 

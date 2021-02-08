@@ -44,7 +44,6 @@
             this.ZapreminaPrtljaznika = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CijenaPoSatu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnKalendar = new System.Windows.Forms.Button();
-            this.btnLocirajVozilo = new System.Windows.Forms.Button();
             this.groupBoxVozila.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
@@ -115,6 +114,7 @@
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvKlijent.Size = new System.Drawing.Size(829, 302);
             this.dgvKlijent.TabIndex = 0;
+            this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
             // VoziloID
             // 
@@ -185,7 +185,7 @@
             this.btnKalendar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
             this.btnKalendar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnKalendar.ForeColor = System.Drawing.Color.White;
-            this.btnKalendar.Location = new System.Drawing.Point(634, 73);
+            this.btnKalendar.Location = new System.Drawing.Point(717, 73);
             this.btnKalendar.Name = "btnKalendar";
             this.btnKalendar.Size = new System.Drawing.Size(65, 46);
             this.btnKalendar.TabIndex = 17;
@@ -193,25 +193,11 @@
             this.btnKalendar.UseVisualStyleBackColor = false;
             this.btnKalendar.Click += new System.EventHandler(this.btnKalendar_Click);
             // 
-            // btnLocirajVozilo
-            // 
-            this.btnLocirajVozilo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.btnLocirajVozilo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLocirajVozilo.ForeColor = System.Drawing.Color.White;
-            this.btnLocirajVozilo.Location = new System.Drawing.Point(717, 73);
-            this.btnLocirajVozilo.Name = "btnLocirajVozilo";
-            this.btnLocirajVozilo.Size = new System.Drawing.Size(65, 46);
-            this.btnLocirajVozilo.TabIndex = 18;
-            this.btnLocirajVozilo.Text = "Lociranja";
-            this.btnLocirajVozilo.UseVisualStyleBackColor = false;
-            this.btnLocirajVozilo.Click += new System.EventHandler(this.btnLocirajVozilo_Click);
-            // 
             // frmPregledVozilo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(853, 450);
-            this.Controls.Add(this.btnLocirajVozilo);
             this.Controls.Add(this.btnKalendar);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.txtPretraga);
@@ -245,6 +231,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ZapreminaPrtljaznika;
         private System.Windows.Forms.DataGridViewTextBoxColumn CijenaPoSatu;
         private System.Windows.Forms.Button btnKalendar;
-        private System.Windows.Forms.Button btnLocirajVozilo;
     }
 }
