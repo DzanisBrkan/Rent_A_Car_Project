@@ -50,5 +50,11 @@ namespace Rent_A_Car.WebAPI.Controllers
         {
             return _service.Update(id, request);
         }
+
+        [HttpPut("UpdateStatus/{id}")]
+        public Model.Zaposlenik UpdateStatus(int id, ZaposlenikStatusRequest request)
+        {
+            return _service.UpdateStatus(id, request);
+        }
     }
 }

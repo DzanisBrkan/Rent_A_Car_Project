@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModel="clr-namespace:Rent_A_Car.MobileAPP.ViewModels.Klijent"
+             xmlns:controls="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
+             xmlns:converters="clr-namespace:Rent_A_Car.MobileAPP.Converters"
+             mc:Ignorable="d"
+             x:Class="Rent_A_Car.MobileAPP.Views.Klijent.DojamZahtjevPage">
+
+    <ContentPage.BindingContext>
+        <viewModel:DojamZahtjevViewModel></viewModel:DojamZahtjevViewModel>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:ImageConverter x:Key="imgConv"></converters:ImageConverter>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label TextColor="#c9223e" FontAttributes="Bold" Text="Dojmovi i zahtjevi:" FontSize="Medium" HorizontalOptions="Center" />
+
+
+            <StackLayout>
+                <ListView ItemsSource="{Binding _PronadjeniDojmoviZahtjevi}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell >
+                                <StackLayout Padding="50" Orientation="Vertical">
+                                    <StackLayout>
+                                        <Label TextColor="#aa0300" Text="Vaši prethodni dojmovi i zahtjevi:" FontSize="Medium" VerticalOptions="Center" HorizontalOptions="Center" />
+                                        <Label />
+                                        <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+                                        <Label />
+
+                                        <StackLayout>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Grid.Column="0" FontAttributes="Bold" FontSize="16"  Text="SLIKA:"  HorizontalTextAlignment="Center"/>
+                                                <Label Grid.Column="1" TextColor="#aa0300" FontSize="16" HorizontalTextAlignment="Start" Text="{Binding KlijentKorisnickoIme}"></Label>
+                                            </Grid>
+                                        </StackLayout>
+
+                                        <StackLayout>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Grid.Column="0" FontAttributes="Bold" FontSize="16"  Text="Naziv zahtjeva:"  HorizontalTextAlignment="Center"/>
+                                                <Label Grid.Column="1" TextColor="#aa0300" FontSize="15" HorizontalTextAlignment="Start" Text="{Binding NazivZahtjeva}"></Label>
+                                            </Grid>
+                                        </StackLayout>
+
+                                        <StackLayout>
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Grid.Column="0" FontAttributes="Bold" FontSize="16"  Text="Vaš dojam:"  HorizontalTextAlignment="Center"/>
+                                                <Label Grid.Column="1" TextColor="#aa0300" FontSize="15" HorizontalTextAlignment="Start" Text="{Binding Dojam}"></Label>
+                                            </Grid>
+                                        </StackLayout>
+
+                                    </StackLayout>
+
+                                    <Label />
+                                    <BoxView HeightRequest="1" BackgroundColor="Black" HorizontalOptions="FillAndExpand" />
+                                    <Label />
+
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+
+            <StackLayout>
+                     <StackLayout Padding="50" Orientation="Vertical">
+                 <StackLayout>
+                     <StackLayout VerticalOptions="Center" Orientation="Vertical">
+                         <StackLayout>
+                             <Grid>
+                                 <Grid.ColumnDefinitions>
+                                     <ColumnDefinition Width="*"></ColumnDefinition>
+                                     <ColumnDefinition Width="*"></ColumnDefinition>
+                                 </Grid.ColumnDefinitions>
+
+                                 <StackLayout Grid.Column="1">
+                                     <controls:CircleImage WidthRequest="150" HeightRequest="50"  Source="{Binding KlijentSlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                 </StackLayout>
+                                 <Label  Grid.Column="1"  TextColor="#2196F3" FontSize="16" FontAttributes="Bold" Text="{Binding KlijentKorisnickoIme}"></Label>
+                             </Grid>
+                         </StackLayout>
+
+                         <StackLayout VerticalOptions="Center" Orientation="Vertical">
+                             <Label FontAttributes="Bold" Text="Navedite naziv zahtjeva:" />
+                                <Entry Placeholder="Unesite zahtjev..." Text="{Binding EntryZahtjev}"></Entry>
+                         </StackLayout>
+
+                         <StackLayout VerticalOptions="Center" Orientation="Vertical">
+                             <Label FontAttributes="Bold" Text="Ostavite vaš dojam:" />
+                             <Editor Placeholder="Unesite dojam..." HeightRequest="100" Text="{Binding EntryDojam}"/>
+
+                         </StackLayout>
+
+                         <StackLayout>
+                             <Button VerticalOptions="Center" TextColor="White" BackgroundColor="#4BB543" FontAttributes="Bold" Text="Ostavi zahtjev/dojam" Clicked="Button_Clicked_1"></Button>
+                             <Button VerticalOptions="Center" TextColor="White" BackgroundColor="Red" FontAttributes="Bold" Text="Nazad" Clicked="Button_Clicked"></Button>
+                         </StackLayout>
+
+                     </StackLayout>
+                 </StackLayout>
+             </StackLayout>
+            </StackLayout>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

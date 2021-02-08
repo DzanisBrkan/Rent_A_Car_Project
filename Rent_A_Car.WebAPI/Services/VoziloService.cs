@@ -72,5 +72,18 @@ namespace Rent_A_Car.WebAPI.Services
 
             return _mapper.Map<Model.Vozilo>(entity);
         }
+
+
+        public Model.Vozilo Delete(int id)
+        {
+            var entity = _context.Vozilo.Find(id);
+            if (entity == null)
+            {
+                throw new Exception("Vozilo ne postoji u bazi!!!");
+            }
+            _context.Vozilo.Remove(entity);
+            _context.SaveChanges();
+            return _mapper.Map<Model.Vozilo>(entity);
+        }
     }
 }

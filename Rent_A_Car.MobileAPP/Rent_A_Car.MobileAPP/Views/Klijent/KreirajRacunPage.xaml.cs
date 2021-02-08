@@ -31,9 +31,5 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
             Application.Current.MainPage = new MainPage();
         }
 
-        private void Button_Clicked_1(object sender, EventArgs e)
-        {
-            Application.Current.MainPage = new MainPage();
-        }
     }
 }

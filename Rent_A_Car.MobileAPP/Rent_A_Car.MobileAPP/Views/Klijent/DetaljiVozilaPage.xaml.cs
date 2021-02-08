@@ -43,5 +43,10 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
         {
             await model.Specifikacije();
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            Application.Current.MainPage = new MainPage();
+        }
     }
 }

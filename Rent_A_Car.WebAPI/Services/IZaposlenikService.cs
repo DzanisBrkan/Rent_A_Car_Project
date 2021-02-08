@@ -1,4 +1,5 @@
-﻿using Rent_A_Car.Model.Requests;
+﻿using Rent_A_Car.Model;
+using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace Rent_A_Car.WebAPI.Services
         Model.Zaposlenik Update(int id, ZaposlenikInsertRequest request);
 
         Model.Zaposlenik Authenticiraj(string username, string pass);
+
+        Zaposlenik UpdateStatus(int id, ZaposlenikStatusRequest request);
     }
 }

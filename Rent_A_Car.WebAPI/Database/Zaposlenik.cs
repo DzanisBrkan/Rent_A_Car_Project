@@ -19,6 +19,7 @@ namespace Rent_A_Car.WebAPI.Database
         public string LozinkaSalt { get; set; }
         public string KorisnickoIme { get; set; }
         public int? KorisnickiNalogId { get; set; }
+        public bool? Aktivan { get; set; }
 
         public virtual Grad Grad { get; set; }
         public virtual KorisnickiNalog KorisnickiNalog { get; set; }

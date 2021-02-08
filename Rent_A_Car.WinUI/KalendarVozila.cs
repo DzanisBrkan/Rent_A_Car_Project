@@ -27,10 +27,10 @@ namespace Rent_A_Car.WinUI
             this.Close();
         }
 
-        private void axCalendar1_OnDayClick(object sender, AxCALENDARLib._DCalendarEvents_OnDayClickEvent e)
-        {
+        //private void axCalendar1_OnDayClick(object sender, AxCALENDARLib._DCalendarEvents_OnDayClickEvent e)
+        //{
 
-        }
+        //}
 
 
         public ObservableCollection<Model.Rezervacija> RezervacijaList { get; set; } = new ObservableCollection<Model.Rezervacija>();

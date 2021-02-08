@@ -20,9 +20,10 @@ namespace Rent_A_Car.Model
         public int? LokacijaId { get; set; }
         public int? TipId { get; set; }
         public byte[] SlikaThumb { get; set; }
-
-
         public double? Longitude { get; set; }
         public double? Langitude { get; set; }
+        public float PositiveDifferent { get; set; } = 0;
+        public string Color { get; set; }
+
     }
 }

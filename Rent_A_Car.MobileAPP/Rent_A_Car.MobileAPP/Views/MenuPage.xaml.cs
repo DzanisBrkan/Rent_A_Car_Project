@@ -22,7 +22,7 @@ namespace Rent_A_Car.MobileAPP.Views
             {
                 new HomeMenuItem {Id = MenuItemType.Browse, Title="Pretraga vozila" },
                 new HomeMenuItem {Id = MenuItemType.Vozila, Title="Pregled kategorija vozila" },
-                new HomeMenuItem {Id = MenuItemType.MojiUgovori, Title="Aktivni računi" },
+                new HomeMenuItem {Id = MenuItemType.MojiUgovori, Title="Izdati računi" },
                 new HomeMenuItem {Id = MenuItemType.MojeRezervacije, Title="Aktivne rezervacije" },
                 new HomeMenuItem {Id=MenuItemType.ZavrseneRezervacije, Title="Završene rezervacije"},
                 //new HomeMenuItem {Id = MenuItemType.MojiKomentarIOcjene, Title="Moji komentari i ocijene" },

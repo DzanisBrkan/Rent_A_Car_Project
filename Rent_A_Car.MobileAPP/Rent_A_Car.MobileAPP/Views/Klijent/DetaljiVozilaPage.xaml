@@ -32,11 +32,6 @@
 
                                 <StackLayout >
                                     <Image Margin="0,100,0,70" HeightRequest="150" WidthRequest="200" Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}">
-
-                                        <!--<Image.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
-                                        </Image.GestureRecognizers>-->
-
                                     </Image>
                                 </StackLayout>
 
@@ -70,10 +65,8 @@
 
 
                                     <StackLayout Orientation="Vertical">
-                                        <Button VerticalOptions="Center" BackgroundColor="#32a852" 
-                                                FontAttributes="Bold" Text="Prikaži specifikacije"
-                                                Clicked="Button_Clicked" 
-                                               ></Button>
+                                        <Button VerticalOptions="Center" BackgroundColor="#4BB543"  TextColor="White" FontAttributes="Bold" Text="Prikaži specifikacije" Clicked="Button_Clicked"></Button>
+                                        <Button VerticalOptions="Center" TextColor="White" BackgroundColor="Red" FontAttributes="Bold" Text="Nazad na početnu" Clicked="Button_Clicked_1"></Button>
                                     </StackLayout>
 
                                 </StackLayout>

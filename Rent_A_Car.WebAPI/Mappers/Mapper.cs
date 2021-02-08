@@ -24,35 +24,42 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Rezervacija, RezervacijaUpsertRequest>().ReverseMap();
             CreateMap<Database.Rezervacija, RezervacijaStatusRequest>().ReverseMap();
 
+            CreateMap<Database.Racun, Model.Ugovor>();
             CreateMap<Database.Racun, UgovorUpsertRequest>().ReverseMap();
             CreateMap<Database.Racun, UgovorStatusRequest>().ReverseMap();
 
             CreateMap<Database.Zaposlenik, Model.Zaposlenik>();
             CreateMap<Database.Zaposlenik, ZaposlenikInsertRequest>().ReverseMap();
+            CreateMap<Database.Zaposlenik, ZaposlenikStatusRequest>().ReverseMap();
 
             CreateMap<Database.Lociranje, LociranjeUpsertRequest>().ReverseMap();
 
 
 
             CreateMap<Database.Vozilo, Model.Vozilo>();
+            CreateMap<Database.Vozilo, VoziloUpsertRequest>().ReverseMap();
             CreateMap<Database.Vozilo, VoziloStatusRequest>().ReverseMap();
+
             CreateMap<Database.Kategorija, Model.Kategorija>();
 
             CreateMap<Database.Specifikacija, Model.Specifikacija>();
             CreateMap<Database.Grad, Model.Grad>();
+            CreateMap<Database.Grad, GradUpsertRequest>().ReverseMap();
+
 
             CreateMap<Database.Greska, Model.Greska>();
             CreateMap<Database.KorisnickiNalog, Model.KorisnickiNalog>();
             CreateMap<Database.Tip, Model.Tip>();
             CreateMap<Database.Drzava, Model.Drzava>();
-            CreateMap<Database.Racun, Model.Ugovor>();
             CreateMap<Database.Osiguranje, Model.Osiguranje>();
             CreateMap<Database.Popust, Model.Popust>();
             CreateMap<Database.Lokacija, Model.Lokacija>();
             CreateMap<Database.NacinPlacanja, Model.NacinPlacanja>();
 
 
-            //proba dva
+            CreateMap<Database.DojmoviZahtjevi, Model.DojmoviZahtjevi>();
+            CreateMap<Database.DojmoviZahtjevi, DojmoviZahtjeviUpsertRequest>().ReverseMap();
+
 
         }
     }

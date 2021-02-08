@@ -25,6 +25,7 @@ namespace Rent_A_Car.Model.Requests
         public int? SpecifikacijaId { get; set; }
         public int? LokacijaId { get; set; }
         public int? TipId { get; set; }
+        [Required(AllowEmptyStrings = true)]
         public byte[] SlikaThumb { get; set; }
 
 

@@ -31,8 +31,8 @@
                 <Label Text="{Binding Marka}" VerticalTextAlignment="Center"></Label>
             </StackLayout>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Cijena vozila ukljucujuci PDV:" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
-                <Label Text="{Binding UkupnaCijena}"  HorizontalTextAlignment="Center"></Label>
+                <Label Text="Ukupna cijena rezervacije ukljucujuci PDV:" HorizontalTextAlignment="Center" FontAttributes="Bold"></Label>
+                <Label Text="{Binding ukupnaCijena}"  HorizontalTextAlignment="Center"></Label>
                 <Label Text="KM" HorizontalTextAlignment="Center"></Label>
             </StackLayout>
 
@@ -41,20 +41,6 @@
 
             <Label Text="Izaberite datum završavanja rezervacije" FontAttributes="Bold"></Label>
             <DatePicker Date="{Binding krajRezervacije}" Format="dd-MM-yyyy" ></DatePicker>
-
-
-            <!--<Entry Text="{Binding KrajRezervacije}"></Entry>-->
-
-            <!--OVO CE MI TREBATI ZA ZAPOSLENIKA (PREDEFINISANA DROPDOWN LISTA-->
-            <!--<Label Text="Status"></Label>
-            <Picker  SelectedItem="{Binding selectedStatus}">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>U toku</x:String>
-                        <x:String>Zavrseno</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>-->
 
 
 
@@ -69,7 +55,7 @@
 
 
 
-            <Button BackgroundColor="#2196F3" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Spremi" Command="{Binding SaveCommand}"></Button>
+            <Button BackgroundColor="#2196F3" Clicked="Button_Clicked_1" BorderColor="Transparent" HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Spremi" Command="{Binding SaveCommand}"></Button>
             <Button BackgroundColor="Red" Clicked="Button_Clicked"  HorizontalOptions="FillAndExpand" Font="Bold,17" Text="Otkaži"></Button>
 
 

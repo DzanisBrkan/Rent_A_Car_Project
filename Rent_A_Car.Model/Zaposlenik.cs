@@ -18,6 +18,7 @@ namespace Rent_A_Car.Model
         public string LozinkaSalt { get; set; }
         public string KorisnickoIme { get; set; }
         public int? KorisnickiNalogId { get; set; }
+        public bool? Aktivan { get; set; }
 
         public virtual KorisnickiNalog KorisnickiNalog { get; set; }
 

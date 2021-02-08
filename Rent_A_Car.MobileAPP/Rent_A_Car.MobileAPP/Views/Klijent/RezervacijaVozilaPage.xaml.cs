@@ -30,7 +30,6 @@ namespace Rent_A_Car.MobileAPP.Views.Klijent
         private void ListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Application.Current.MainPage = new UrediRezervacijuPage((Rezervacija)e.SelectedItem);
-
         }
     }
 }

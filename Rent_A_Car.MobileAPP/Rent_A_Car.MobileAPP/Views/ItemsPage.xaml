@@ -35,8 +35,7 @@
 
             </StackLayout>
             <StackLayout Orientation="Horizontal" VerticalOptions="Fill">
-                <Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="#4c4cff" TextColor="White" Text="Pretraga vozila" Clicked="Button_Clicked"></Button>
-                <!--<Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="Green" TextColor="White" Text="Preporučena vozila" Clicked="Button_Clicked" IsVisible="False"></Button>-->
+                <Button HorizontalOptions="FillAndExpand" Font="Bold,17" BackgroundColor="#ca223e" TextColor="White" Text="{Binding ButtonTextPreporuceno}" Clicked="Button_Clicked"></Button>
             </StackLayout>
             
             
@@ -48,100 +47,138 @@
             ></SearchBar>
 
 
-            <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding SearchVisible}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
+            <StackLayout>
+                <ListView ItemsSource="{Binding VoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True" IsVisible="{Binding SearchVisible}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
                                 
-                                <StackLayout Padding="10" Orientation="Horizontal">
-                                    <StackLayout>
-                                        <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                    <StackLayout Padding="10" Orientation="Horizontal" HorizontalOptions="Start">
+                                        <StackLayout>
+                                            <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                        </StackLayout>
+                                        
+                                        <!--//-->
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Text="Cijena po satu:"  FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                                    <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding CijenaPoSatu}" LineBreakMode="NoWrap" HorizontalTextAlignment="Start"
+                                                      Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14"/>
+                                                    <Label Grid.Column="2" Text="KM"  FontSize="14" HorizontalTextAlignment="Start"/>
+                                                </Grid>
+                                            </StackLayout>
+
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Text="Model:"  FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                                    <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding Model}" LineBreakMode="NoWrap" HorizontalTextAlignment="Start"
+                                                      Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14"/>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Text="Marka:"  FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                                    <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding Marka}" LineBreakMode="NoWrap" HorizontalTextAlignment="Start"
+                                                      Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14"/>
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
+                                        <!--//-->
                                     </StackLayout>
-
-                                    <StackLayout Orientation="Vertical">
-                                        <Label TextColor="#aa0300" Text="{Binding Model}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemTextStyle}"
-                                       FontSize="13"/>
-
-                                        <Label TextColor="#aa0300" Text="{Binding Marka}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="16"/>
-
-                                        <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13"/>
-
-
-                                        <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13"/>
-                                        <Label TextColor="#aa0300" Text="KM"/>
-
-                       
-                                    </StackLayout>
+                                    <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
                                 </StackLayout>
-                                <Label />
-                                <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
-                                <Label />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
 
+            <StackLayout>
+                <ListView ItemsSource="{Binding RecommendedVoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding RecommendedVisible}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout BackgroundColor="{Binding Color}">
+                            
 
+                                    <StackLayout Padding="10" Orientation="Horizontal">
+                                        <StackLayout>
+                                            <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                        </StackLayout>
 
-            <ListView ItemsSource="{Binding RecommendedVoziloList}" ItemSelected="ListView_ItemSelected" IsPullToRefreshEnabled="True"   IsVisible="{Binding RecommendedVisible}">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout>
+                                        <StackLayout Orientation="Vertical" HorizontalOptions="End">
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
 
-                                <StackLayout Padding="10" Orientation="Horizontal">
-                                    <StackLayout>
-                                        <controls:CircleImage WidthRequest="150" HeightRequest="150"  Source="{Binding SlikaThumb, Converter={StaticResource imgConv}}"></controls:CircleImage>
+                                                    <Label Grid.Column="0" Text="Cijena po satu:"  FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                                    <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding CijenaPoSatu}" LineBreakMode="NoWrap" HorizontalTextAlignment="Start"
+                                                      Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14"/>
+                                                    <Label Grid.Column="2" Text="KM"  FontSize="14" HorizontalTextAlignment="Start"/>
+                                                </Grid>
+                                            </StackLayout>
+
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Text="Model:"  FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                                    <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding Model}" LineBreakMode="NoWrap" HorizontalTextAlignment="Start"
+                                                      Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14"/>
+                                                </Grid>
+                                            </StackLayout>
+                                            <StackLayout>
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Text="Marka:"  FontSize="15" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
+                                                    <Label Grid.Column="1" TextColor="#aa0300" Text="{Binding Marka}" LineBreakMode="NoWrap" HorizontalTextAlignment="Start"
+                                                      Style="{DynamicResource ListItemDetailTextStyle}" FontSize="14"/>
+                                                </Grid>
+                                            </StackLayout>
+
+                                        </StackLayout>
                                     </StackLayout>
-
-                                    <StackLayout Orientation="Vertical">
-                                        <Label TextColor="#aa0300" Text="{Binding Model}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemTextStyle}"
-                                       FontSize="13"/>
-
-                                        <Label TextColor="#aa0300" Text="{Binding Marka}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="16"/>
-
-                                        <Label TextColor="#aa0300" Text="{Binding RegistracijskiBroj}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13"/>
-
-
-                                        <Label TextColor="#aa0300" Text="{Binding CijenaPoSatu}"
-                                       LineBreakMode="NoWrap" VerticalOptions="Center"
-                                       Style="{DynamicResource ListItemDetailTextStyle}"
-                                       FontSize="13"/>
-                                        <Label TextColor="#aa0300" Text="KM"/>
-
-
-                                    </StackLayout>
+                                    <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
                                 </StackLayout>
-                                <Label />
-                                <BoxView HeightRequest="5" BackgroundColor="#ca223e" HorizontalOptions="FillAndExpand" />
-                                <Label />
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
 
 
         </StackLayout>
