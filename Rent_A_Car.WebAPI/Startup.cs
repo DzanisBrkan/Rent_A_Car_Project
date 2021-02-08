@@ -105,8 +105,16 @@ namespace Rent_A_Car.WebAPI
 
 
 
-            var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
-            services.AddDbContext<Rent_A_CarContext>(options => options.UseSqlServer(connection));
+            //var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
+            //var connection = Configuration.GetConnectionString("Rent_A_Car");
+
+            //var connection = Configuration.GetConnectionString("RentACar");
+            //services.AddDbContext<Rent_A_CarContext>(options => options.UseSqlServer(connection));
+
+
+            services.AddDbContext<Rent_A_CarContext>(options =>
+               options.UseSqlServer(Configuration.GetConnectionString("RentACar")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
