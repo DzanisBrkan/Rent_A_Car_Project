@@ -103,10 +103,12 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IService<Model.Lociranje, object>, BaseService<Model.Lociranje, object, Lociranje>>();
 
 
+            //var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
 
 
             services.AddDbContext<Rent_A_CarContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("Rent_A_Car")));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
