@@ -114,7 +114,7 @@ namespace Rent_A_Car.WinUI
 
         private void btnMinimize_Click(object sender, EventArgs e)
         {
-
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnInfo_Click(object sender, EventArgs e)
@@ -136,6 +136,7 @@ namespace Rent_A_Car.WinUI
             frmLogin frm = new frmLogin();
             frm.MdiParent = this;
             frm.Show();
+            this.Close();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -199,6 +200,11 @@ namespace Rent_A_Car.WinUI
                 brnGrad.Visible = true;
 
             }
+        }
+
+        private void btnHome_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
