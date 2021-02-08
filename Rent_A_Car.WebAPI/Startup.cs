@@ -98,6 +98,12 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<ICRUDService<Model.DojmoviZahtjevi, DojmoviZahtjeviSearchRequest, DojmoviZahtjeviUpsertRequest, DojmoviZahtjeviUpsertRequest>, DojmoviZahtjeviServices>();
             services.AddScoped<IRecommenderService, RecommenderService>();
 
+            //mls da ide ovaj prvi
+            //services.AddScoped<ICRUDService<Model.Lociranje, LociranjeSearchRequest, LociranjeUpsertRequest, LociranjeUpsertRequest>, LociranjeService>();
+            services.AddScoped<IService<Model.Lociranje, object>, BaseService<Model.Lociranje, object, Lociranje>>();
+
+
+
 
             var connection = @"Server=.;Database=Rent_A_Car;Trusted_Connection=True;ConnectRetryCount=0";
             services.AddDbContext<Rent_A_CarContext>(options => options.UseSqlServer(connection));

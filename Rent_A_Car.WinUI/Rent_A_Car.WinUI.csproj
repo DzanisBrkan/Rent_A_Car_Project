@@ -111,6 +111,24 @@
     <Compile Include="frmIndex.Designer.cs">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLocirajVozilo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocirajVozilo.Designer.cs">
+      <DependentUpon>frmLocirajVozilo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocirajVoziloDetalji.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocirajVoziloDetalji.Designer.cs">
+      <DependentUpon>frmLocirajVoziloDetalji.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLocirajVoziloPrikaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLocirajVoziloPrikaz.Designer.cs">
+      <DependentUpon>frmLocirajVoziloPrikaz.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVozila.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -266,6 +284,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocirajVozilo.resx">
+      <DependentUpon>frmLocirajVozilo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocirajVoziloDetalji.resx">
+      <DependentUpon>frmLocirajVoziloDetalji.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLocirajVoziloPrikaz.resx">
+      <DependentUpon>frmLocirajVoziloPrikaz.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

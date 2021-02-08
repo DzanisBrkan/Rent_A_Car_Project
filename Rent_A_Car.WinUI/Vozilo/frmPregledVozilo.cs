@@ -16,7 +16,7 @@ namespace Rent_A_Car.WinUI.Vozilo
         private readonly APIService _apiService = new APIService("Vozilo");
         public frmPregledVozilo()
         {
-            InitializeComponent();
+            InitializeComponent(); 
         }
 
         private async void btnPrikazi_Click(object sender, EventArgs e)
@@ -40,6 +40,21 @@ namespace Rent_A_Car.WinUI.Vozilo
         private void btnKalendar_Click(object sender, EventArgs e)
         {
             KalendarVozila frm = new KalendarVozila();
+            //frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void btnLociraj_Click(object sender, EventArgs e)
+        {
+
+            //frmLocirajVoziloPrikaz frm = new frmLocirajVoziloPrikaz();
+            ////frm.MdiParent = this;
+            //frm.Show();
+        }
+
+        private void btnLocirajVozilo_Click(object sender, EventArgs e)
+        {
+            frmLocirajVoziloPrikaz frm = new frmLocirajVoziloPrikaz();
             //frm.MdiParent = this;
             frm.Show();
         }

@@ -32,6 +32,9 @@ namespace Rent_A_Car.WebAPI.Mappers
             CreateMap<Database.Zaposlenik, ZaposlenikInsertRequest>().ReverseMap();
             CreateMap<Database.Zaposlenik, ZaposlenikStatusRequest>().ReverseMap();
 
+            CreateMap<Database.Lociranje, LociranjeUpsertRequest>().ReverseMap();
+
+
 
             CreateMap<Database.Vozilo, Model.Vozilo>();
             CreateMap<Database.Vozilo, VoziloUpsertRequest>().ReverseMap();
