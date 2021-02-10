@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Rent_A_Car.WebAPI.Database;
 
 namespace Rent_A_Car.WebAPI.Migrations
 {
     [DbContext(typeof(Rent_A_CarContext))]
-    partial class Rent_A_CarContextModelSnapshot : ModelSnapshot
+    [Migration("20210210173917_Data5")]
+    partial class Data5
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
