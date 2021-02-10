@@ -28,7 +28,7 @@ namespace Rent_A_Car.MobileAPP
         private string _apiUrl = "http://localhost:5000/api";
 #endif
 #if RELEASE
-       private string _apiUrl = "https://mywebsite.com/api";
+       private string _apiUrl = "http://localhost:5000";
 #endif
         public APIService(string route)
         {
