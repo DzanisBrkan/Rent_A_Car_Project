@@ -61,7 +61,6 @@ namespace Rent_A_Car.MobileAPP
             }
         }
 
-        //GET BY ID PREMA SERVERU -----------------------
         public async Task<T> GetById<T>(object id)
         {
 
