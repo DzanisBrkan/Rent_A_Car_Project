@@ -1,14 +1,17 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base 
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+WORKDIR /app
+EXPOSE 5050
+ENV ASPNETCORE_URLS=http://+:5050
 
-WORKDIR /app 
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build 
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+WORKDIR /src
+COPY . .
 
-WORKDIR /src 
-COPY . . 
-FROM build AS publish 
+
+FROM build AS publish
 RUN dotnet publish "Rent_A_Car.WebAPI" -c Release -o /app
- FROM base AS final 
-WORKDIR /app 
-COPY --from=publish /app . 
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
 
 ENTRYPOINT ["dotnet", "Rent_A_Car.WebAPI.dll"]

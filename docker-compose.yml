@@ -13,7 +13,7 @@ services:
     networks:
       - rentacarnet
 
-  rentacar-api:
+  rent_a_car-api:
     restart: unless-stopped
     build:
       context: .

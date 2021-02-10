@@ -9,7 +9,7 @@ services:
     ports:
         - "1433:1433"
 
-  rentacar-api:
+  rent_a_car-api:
       build: ../
       depends_on:
         - ms-sql-server
