@@ -109,8 +109,8 @@ namespace Rent_A_Car.WebAPI.Database
                 GradId = 100,
                 DatumRodjenja = "15.10.1990",
                 KorisnickoIme = "klijent",
-                LozinkaSalt = "\"gbrOIgNN3NfmBlliRjdvkw==\"",
-                LozinkaHash = "\"rRgbSGAvmgoMEsECiAKedw1fOLY =\"",
+                LozinkaSalt = @"UrWoVwQWEwkUA+lIs/m9EQ==",
+                LozinkaHash = @"LISFb7tfnN6k/YTxsnHjR3sGtQ0=",
                 SlikaThumb = GenerirajSliku(imgUserFromSQL)
             });
             //modelBuilder.Entity<Klijent>().HasData(new WebAPI.Database.Klijent()
@@ -210,23 +210,23 @@ namespace Rent_A_Car.WebAPI.Database
             modelBuilder.Entity<Popust>().HasData(new WebAPI.Database.Popust()
             {
                 PopustId = 100,
-                NazivPopusta = "100",
+                NazivPopusta = "Bez popusta",
                 DatumIsteka = DateTime.Now,
-                Postotak = 15
+                Postotak = 0
             });
             modelBuilder.Entity<Popust>().HasData(new WebAPI.Database.Popust()
             {
                 PopustId = 101,
-                NazivPopusta = "101",
+                NazivPopusta = "Bonus",
                 DatumIsteka = DateTime.Now,
                 Postotak = 20
             });
             modelBuilder.Entity<Popust>().HasData(new WebAPI.Database.Popust()
             {
                 PopustId = 102,
-                NazivPopusta = "102",
+                NazivPopusta = "Nagradna igra",
                 DatumIsteka = DateTime.Now,
-                Postotak = 0
+                Postotak = 15
             });
 
             //SPECIFIKACIJA
