@@ -24,6 +24,7 @@ namespace Rent_A_Car.WebAPI.Database
         public virtual DbSet<Kategorija> Kategorija { get; set; }
         public virtual DbSet<Klijent> Klijent { get; set; }
         public virtual DbSet<KorisnickiNalog> KorisnickiNalog { get; set; }
+        public virtual DbSet<Lociranje> Lociranje { get; set; }
         public virtual DbSet<Lokacija> Lokacija { get; set; }
         public virtual DbSet<NacinPlacanja> NacinPlacanja { get; set; }
         public virtual DbSet<Ocjena> Ocjena { get; set; }
@@ -219,6 +220,34 @@ namespace Rent_A_Car.WebAPI.Database
                 entity.Property(e => e.TipKorisnickogNaloga)
                     .HasMaxLength(50)
                     .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Lociranje>(entity =>
+            {
+                entity.ToTable("Lociranje");
+
+                entity.Property(e => e.Lat)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Lng)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Klijent)
+                    .WithMany(p => p.Lociranjes)
+                    .HasForeignKey(d => d.KlijentId)
+                    .HasConstraintName("FK__Lociranje__Klije__09746778");
+
+                entity.HasOne(d => d.Vozilo)
+                    .WithMany(p => p.Lociranjes)
+                    .HasForeignKey(d => d.VoziloId)
+                    .HasConstraintName("FK__Lociranje__Vozil__0880433F");
+
+                entity.HasOne(d => d.Zaposlenik)
+                    .WithMany(p => p.Lociranjes)
+                    .HasForeignKey(d => d.ZaposlenikId)
+                    .HasConstraintName("FK__Lociranje__Zapos__0A688BB1");
             });
 
             modelBuilder.Entity<Lokacija>(entity =>

@@ -18,11 +18,12 @@ services:
     build:
       context: .
     environment:
-      - ConnectionStrings:Rent_A_Car=Server=rentacar-sql,1433;Database=RentacarDocker1;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+      - ConnectionStrings:Rent_A_Car=Server=rentacar-sql,1433;Database=Rent_A_CarDocker;User=sa;Password=QWElkj132!;ConnectRetryCount=0
     ports:
       - 5000:80
     networks:
-      - rentacarnet
+      - rentacarnet      
+
     links:
       - rentacar-sql
     depends_on:
@@ -30,4 +31,5 @@ services:
       
 networks:
   rentacarnet:
-    driver: bridge      
+    driver: bridge  
+
