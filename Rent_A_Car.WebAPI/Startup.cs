@@ -109,6 +109,7 @@ namespace Rent_A_Car.WebAPI
             services.AddDbContext<Rent_A_CarContext>(options =>
                options.UseSqlServer(Configuration.GetConnectionString("Rent_A_Car")));
 
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
