@@ -23,6 +23,7 @@ namespace Rent_A_Car.WinUI
     {
         private readonly APIService _servicesZaposlenik = new APIService("Zaposlenik");
         private readonly APIService _servicesKlijent = new APIService("Klijent");
+        private readonly APIService _serviceKorisnickiNalog = new APIService("KorisnickiNalog");
         private int? _id = null;
         public FormAdmin(int? UgovorId = null)
         {
@@ -163,12 +164,12 @@ namespace Rent_A_Car.WinUI
 
             if (LogovaniAdmin != null)
             {
-                if (ZaposleniktModel.KorisnickiNalog.KorisnickiNalogId == 1)
+                if (ZaposleniktModel.KorisnickiNalog.TipKorisnickogNaloga == "Administrator")
                 {
                     LogovaniAdmin = true;
                     Username.Text = ZaposleniktModel.KorisnickoIme;
                 }
-                else if (ZaposleniktModel.KorisnickiNalog.KorisnickiNalogId == 2)
+                else if (ZaposleniktModel.KorisnickiNalog.TipKorisnickogNaloga == "Zaposlenik")
                 {
                     LogovaniZaposlenik = true;
                     Username.Text = ZaposleniktModel.KorisnickoIme;
