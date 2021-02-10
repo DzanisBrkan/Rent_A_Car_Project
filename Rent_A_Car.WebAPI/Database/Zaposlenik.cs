@@ -7,6 +7,11 @@ namespace Rent_A_Car.WebAPI.Database
 {
     public partial class Zaposlenik
     {
+        public Zaposlenik()
+        {
+            Lociranjes = new HashSet<Lociranje>();
+        }
+
         public int ZaposlenikId { get; set; }
         public string Ime { get; set; }
         public string Prezime { get; set; }
@@ -23,5 +28,6 @@ namespace Rent_A_Car.WebAPI.Database
 
         public virtual Grad Grad { get; set; }
         public virtual KorisnickiNalog KorisnickiNalog { get; set; }
+        public virtual ICollection<Lociranje> Lociranjes { get; set; }
     }
 }

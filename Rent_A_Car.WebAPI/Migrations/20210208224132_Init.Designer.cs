@@ -10,8 +10,8 @@ using Rent_A_Car.WebAPI.Database;
 namespace Rent_A_Car.WebAPI.Migrations
 {
     [DbContext(typeof(Rent_A_CarContext))]
-    [Migration("20210207155113_Migracija01")]
-    partial class Migracija01
+    [Migration("20210208224132_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,15 +52,15 @@ namespace Rent_A_Car.WebAPI.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(250)");
 
-                    b.Property<int?>("VoziloId")
+                    b.Property<int?>("RezervacijaId")
                         .HasColumnType("int")
-                        .HasColumnName("VoziloID");
+                        .HasColumnName("RezervacijaID");
 
                     b.HasKey("DojmoviZahtjeviId");
 
                     b.HasIndex("KlijentId");
 
-                    b.HasIndex("VoziloId");
+                    b.HasIndex("RezervacijaId");
 
                     b.ToTable("DojmoviZahtjevi");
                 });
@@ -600,9 +600,15 @@ namespace Rent_A_Car.WebAPI.Migrations
                         .HasColumnType("int")
                         .HasColumnName("KategorijaID");
 
+                    b.Property<double?>("Langitude")
+                        .HasColumnType("float");
+
                     b.Property<int?>("LokacijaId")
                         .HasColumnType("int")
                         .HasColumnName("LokacijaID");
+
+                    b.Property<double?>("Longitude")
+                        .HasColumnType("float");
 
                     b.Property<string>("Marka")
                         .HasMaxLength(50)
@@ -728,14 +734,14 @@ namespace Rent_A_Car.WebAPI.Migrations
                         .HasForeignKey("KlijentId")
                         .HasConstraintName("FK__DojmoviZa__Klije__02C769E9");
 
-                    b.HasOne("Rent_A_Car.WebAPI.Database.Vozilo", "Vozilo")
+                    b.HasOne("Rent_A_Car.WebAPI.Database.Rezervacija", "Rezervacija")
                         .WithMany("DojmoviZahtjevis")
-                        .HasForeignKey("VoziloId")
-                        .HasConstraintName("FK__DojmoviZa__Vozil__03BB8E22");
+                        .HasForeignKey("RezervacijaId")
+                        .HasConstraintName("FK__DojmoviZa__Rezer__05A3D694");
 
                     b.Navigation("Klijent");
 
-                    b.Navigation("Vozilo");
+                    b.Navigation("Rezervacija");
                 });
 
             modelBuilder.Entity("Rent_A_Car.WebAPI.Database.Grad", b =>
@@ -953,6 +959,8 @@ namespace Rent_A_Car.WebAPI.Migrations
 
             modelBuilder.Entity("Rent_A_Car.WebAPI.Database.Rezervacija", b =>
                 {
+                    b.Navigation("DojmoviZahtjevis");
+
                     b.Navigation("Ocjenas");
 
                     b.Navigation("Racuns");
@@ -970,8 +978,6 @@ namespace Rent_A_Car.WebAPI.Migrations
 
             modelBuilder.Entity("Rent_A_Car.WebAPI.Database.Vozilo", b =>
                 {
-                    b.Navigation("DojmoviZahtjevis");
-
                     b.Navigation("Ocjenas");
 
                     b.Navigation("Rezervacijas");
