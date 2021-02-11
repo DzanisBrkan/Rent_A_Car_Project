@@ -1,22 +1,33 @@
 version: '3'
 services:
-  ms-sql-server:
+#mssql docker
+  rentacar-sql:
     image: mcr.microsoft.com/mssql/server:2017-latest-ubuntu
+    restart: unless-stopped
     environment:
-      ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "Pa55w0rd2020"
-      MSSQL_PID: Express
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=QWElkj132!
+      - MSSQL_PID=Developer
     ports:
-        - "1433:1433"
+      - 1401:1433
+    networks:
+      - rentacarnet
 
-  rent_a_car-api:
-      build: ../
-      depends_on:
-        - ms-sql-server
-      volumes:
-        - './Data/Images/Products:/app/Data/Images/Products'
-        - './Data/ServiceAttachments:/app/Data/ServiceAttachments'
-      environment:
-        - ConnectionStrings:Rent_A_Car=Server=ms-sql-server,1433;Database=IB150097;User=sa;Password=Pa55w0rd2020;MultipleActiveResultSets=true;ConnectRetryCount=200;TrustServerCertificate=true;
-      ports: 
-        - "8080:80"
+  rentacar-api:
+    restart: unless-stopped
+    build:
+      context: .
+    environment:
+      - ConnectionStrings:Rent_A_Car=Server=rentacar-sql,1433;Database=Rent_A_CarDocker;User=sa;Password=QWElkj132!;ConnectRetryCount=0
+    ports:
+      - 5000:5050
+    networks:
+      - rentacarnet
+    links:
+      - rentacar-sql
+    depends_on:
+      - rentacar-sql
+      
+networks:
+  rentacarnet:
+    driver: bridge
