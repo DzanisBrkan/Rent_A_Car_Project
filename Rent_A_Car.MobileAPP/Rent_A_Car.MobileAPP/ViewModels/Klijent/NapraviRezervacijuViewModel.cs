@@ -216,7 +216,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             var requestRacun = new UgovorUpsertRequest()
             {
                 UkupnaCijena = rezervacijaResponse.UkupnaCijena,
-                NacinPlacanjaId = 1,
+                NacinPlacanjaId = selectedLokacija.LokacijaId,
                 DatumPlacanja = null,
                 RezervacijaId = rezervacijaResponse.RezervacijaID,
                 UkupanBrojDana = dayDiff,

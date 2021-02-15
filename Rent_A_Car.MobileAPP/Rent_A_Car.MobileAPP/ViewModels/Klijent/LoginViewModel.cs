@@ -79,57 +79,17 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
                     if (Username == obj[i].KorisnickoIme)
                     {
                         APIService.UserID = obj[i].KlijentId;
-
                     }
                 }
-
-
-
-
-                //e sad treba li ovo iznad ovoga ili ovako ispod ne znam
-                await serviceKlijenti.Get<dynamic>(null);
-
-                //var klijent = await serviceKlijenti.GetActionResponse<Model.Klijent>("me", search);
-                //APIService.LogovaniKlijent = klijent;
-
-
 
                 Application.Current.MainPage = new MainPage();
 
             }
             catch (Exception ex)
             {
-                //radi ovog puca
                 //throw;
             }
 
-
-
-
         }
-
-        //async Task Login()
-        //{
-        //    IsBusy = true;
-
-        //    //odavde isto kao u win formi login
-
-        //    APIService.Username = Username;
-        //    APIService.Password = Password;
-
-        //    try
-        //    {
-        //        await serviceKlijenti.Get<dynamic>(null);
-        //        Application.Current.MainPage = new MainPage();
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        //
-        //        throw;
-        //    }
-
-
-        //}
     }
 }
