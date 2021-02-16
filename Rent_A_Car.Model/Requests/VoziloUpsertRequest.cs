@@ -27,7 +27,8 @@ namespace Rent_A_Car.Model.Requests
         public int? TipId { get; set; }
         [Required(AllowEmptyStrings = true)]
         public byte[] SlikaThumb { get; set; }
-
+        public double? Langitude { get; set; }
+        public double? Longitude { get; set; }
 
     }
 }

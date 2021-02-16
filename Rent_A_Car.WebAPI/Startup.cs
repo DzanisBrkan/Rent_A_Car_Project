@@ -76,6 +76,8 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<IZaposlenikService,ZaposlenikService>();
             services.AddScoped<IKlijentService, KlijentService>();
             services.AddScoped<IRezervacijaServicecs, RezervacijaServices>();
+            
+            services.AddScoped<ICRUDService<Model.Specifikacija, SpecifikacijaSearchRequest, SpecifikacijaUpsertRequest, SpecifikacijaUpsertRequest>, SpecifikacijaServices>();
             services.AddScoped<ICRUDService<Model.Rezervacija, RezervacijaSearchRequest, RezervacijaUpsertRequest, RezervacijaUpsertRequest>,RezervacijaServices>();
             services.AddScoped<IVoziloService, VoziloService>();
             services.AddScoped<ICRUDService<Model.Vozilo, VoziloSearchRequest, VoziloUpsertRequest, VoziloUpsertRequest>, VoziloService>();
@@ -85,9 +87,9 @@ namespace Rent_A_Car.WebAPI
             services.AddScoped<ICRUDService<Model.Ocjena, OcjenaSearchRequest, OcjenaUpsertRequest, OcjenaUpsertRequest>, OcjenaServices>();
             services.AddScoped<IGradService, GradService>();
             services.AddScoped<ICRUDService<Model.Grad, GradSearchRequest, GradUpsertRequest, GradUpsertRequest>, GradServices>();
+           
             services.AddScoped<IService<Model.KorisnickiNalog, object>, BaseService<Model.KorisnickiNalog, object, KorisnickiNalog>>();
             services.AddScoped<IService<Model.Kategorija, object>, BaseService<Model.Kategorija, object, Kategorija>>();
-            services.AddScoped<IService<Model.Specifikacija, object>, BaseService<Model.Specifikacija, object, Specifikacija>>();
             services.AddScoped<IService<Model.Tip, object>, BaseService<Model.Tip, object, Tip>>();
             services.AddScoped<IService<Model.Drzava, object>, BaseService<Model.Drzava, object, Drzava>>();
             services.AddScoped<IService<Model.Greska, object>, BaseService<Model.Greska, object, Greska>>();

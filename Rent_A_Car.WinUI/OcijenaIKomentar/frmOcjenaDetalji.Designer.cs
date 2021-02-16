@@ -39,18 +39,14 @@
             this.txtOcjena = new System.Windows.Forms.TextBox();
             this.Markalabel = new System.Windows.Forms.Label();
             this.txtMarkaa = new System.Windows.Forms.TextBox();
-            this.LabelDatumRacuna = new System.Windows.Forms.Label();
-            this.txtDatumRacuna = new System.Windows.Forms.TextBox();
             this.Komentarlabel = new System.Windows.Forms.Label();
             this.txtKomentar = new System.Windows.Forms.TextBox();
-            this.labelStatus = new System.Windows.Forms.Label();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // CijenaLable
             // 
             this.CijenaLable.AutoSize = true;
-            this.CijenaLable.Location = new System.Drawing.Point(30, 288);
+            this.CijenaLable.Location = new System.Drawing.Point(34, 281);
             this.CijenaLable.Name = "CijenaLable";
             this.CijenaLable.Size = new System.Drawing.Size(90, 13);
             this.CijenaLable.TabIndex = 130;
@@ -58,15 +54,15 @@
             // 
             // txtCijena
             // 
-            this.txtCijena.Location = new System.Drawing.Point(136, 285);
+            this.txtCijena.Location = new System.Drawing.Point(140, 278);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(265, 20);
-            this.txtCijena.TabIndex = 129;
+            this.txtCijena.TabIndex = 4;
             // 
             // labelModel
             // 
             this.labelModel.AutoSize = true;
-            this.labelModel.Location = new System.Drawing.Point(38, 251);
+            this.labelModel.Location = new System.Drawing.Point(42, 244);
             this.labelModel.Name = "labelModel";
             this.labelModel.Size = new System.Drawing.Size(36, 13);
             this.labelModel.TabIndex = 128;
@@ -74,10 +70,10 @@
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(136, 248);
+            this.txtModel.Location = new System.Drawing.Point(140, 241);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(265, 20);
-            this.txtModel.TabIndex = 127;
+            this.txtModel.TabIndex = 3;
             // 
             // btnExit
             // 
@@ -88,7 +84,7 @@
             this.btnExit.Location = new System.Drawing.Point(376, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 126;
+            this.btnExit.TabIndex = 5;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -96,16 +92,16 @@
             // 
             this.DojamLabel.AutoSize = true;
             this.DojamLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DojamLabel.Location = new System.Drawing.Point(43, 15);
+            this.DojamLabel.Location = new System.Drawing.Point(30, 15);
             this.DojamLabel.Name = "DojamLabel";
-            this.DojamLabel.Size = new System.Drawing.Size(310, 39);
+            this.DojamLabel.Size = new System.Drawing.Size(307, 39);
             this.DojamLabel.TabIndex = 125;
-            this.DojamLabel.Text = "Dojam Rezervacije";
+            this.DojamLabel.Text = "Ocjene i komentari";
             // 
             // Ocjenalabel
             // 
             this.Ocjenalabel.AutoSize = true;
-            this.Ocjenalabel.Location = new System.Drawing.Point(38, 96);
+            this.Ocjenalabel.Location = new System.Drawing.Point(42, 130);
             this.Ocjenalabel.Name = "Ocjenalabel";
             this.Ocjenalabel.Size = new System.Drawing.Size(41, 13);
             this.Ocjenalabel.TabIndex = 124;
@@ -113,15 +109,15 @@
             // 
             // txtOcjena
             // 
-            this.txtOcjena.Location = new System.Drawing.Point(136, 93);
+            this.txtOcjena.Location = new System.Drawing.Point(140, 127);
             this.txtOcjena.Name = "txtOcjena";
             this.txtOcjena.Size = new System.Drawing.Size(265, 20);
-            this.txtOcjena.TabIndex = 123;
+            this.txtOcjena.TabIndex = 0;
             // 
             // Markalabel
             // 
             this.Markalabel.AutoSize = true;
-            this.Markalabel.Location = new System.Drawing.Point(38, 215);
+            this.Markalabel.Location = new System.Drawing.Point(42, 208);
             this.Markalabel.Name = "Markalabel";
             this.Markalabel.Size = new System.Drawing.Size(37, 13);
             this.Markalabel.TabIndex = 122;
@@ -129,31 +125,15 @@
             // 
             // txtMarkaa
             // 
-            this.txtMarkaa.Location = new System.Drawing.Point(136, 212);
+            this.txtMarkaa.Location = new System.Drawing.Point(140, 205);
             this.txtMarkaa.Name = "txtMarkaa";
             this.txtMarkaa.Size = new System.Drawing.Size(265, 20);
-            this.txtMarkaa.TabIndex = 121;
-            // 
-            // LabelDatumRacuna
-            // 
-            this.LabelDatumRacuna.AutoSize = true;
-            this.LabelDatumRacuna.Location = new System.Drawing.Point(30, 173);
-            this.LabelDatumRacuna.Name = "LabelDatumRacuna";
-            this.LabelDatumRacuna.Size = new System.Drawing.Size(80, 13);
-            this.LabelDatumRacuna.TabIndex = 118;
-            this.LabelDatumRacuna.Text = "Datum ugovora";
-            // 
-            // txtDatumRacuna
-            // 
-            this.txtDatumRacuna.Location = new System.Drawing.Point(136, 170);
-            this.txtDatumRacuna.Name = "txtDatumRacuna";
-            this.txtDatumRacuna.Size = new System.Drawing.Size(265, 20);
-            this.txtDatumRacuna.TabIndex = 117;
+            this.txtMarkaa.TabIndex = 2;
             // 
             // Komentarlabel
             // 
             this.Komentarlabel.AutoSize = true;
-            this.Komentarlabel.Location = new System.Drawing.Point(30, 135);
+            this.Komentarlabel.Location = new System.Drawing.Point(34, 169);
             this.Komentarlabel.Name = "Komentarlabel";
             this.Komentarlabel.Size = new System.Drawing.Size(52, 13);
             this.Komentarlabel.TabIndex = 116;
@@ -161,34 +141,16 @@
             // 
             // txtKomentar
             // 
-            this.txtKomentar.Location = new System.Drawing.Point(136, 132);
+            this.txtKomentar.Location = new System.Drawing.Point(140, 166);
             this.txtKomentar.Name = "txtKomentar";
             this.txtKomentar.Size = new System.Drawing.Size(265, 20);
-            this.txtKomentar.TabIndex = 115;
-            // 
-            // labelStatus
-            // 
-            this.labelStatus.AutoSize = true;
-            this.labelStatus.Location = new System.Drawing.Point(38, 326);
-            this.labelStatus.Name = "labelStatus";
-            this.labelStatus.Size = new System.Drawing.Size(37, 13);
-            this.labelStatus.TabIndex = 136;
-            this.labelStatus.Text = "Status";
-            // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(136, 323);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(265, 20);
-            this.txtStatus.TabIndex = 135;
+            this.txtKomentar.TabIndex = 1;
             // 
             // frmOcjenaDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 392);
-            this.Controls.Add(this.labelStatus);
-            this.Controls.Add(this.txtStatus);
+            this.ClientSize = new System.Drawing.Size(439, 343);
             this.Controls.Add(this.CijenaLable);
             this.Controls.Add(this.txtCijena);
             this.Controls.Add(this.labelModel);
@@ -199,8 +161,6 @@
             this.Controls.Add(this.txtOcjena);
             this.Controls.Add(this.Markalabel);
             this.Controls.Add(this.txtMarkaa);
-            this.Controls.Add(this.LabelDatumRacuna);
-            this.Controls.Add(this.txtDatumRacuna);
             this.Controls.Add(this.Komentarlabel);
             this.Controls.Add(this.txtKomentar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -224,11 +184,7 @@
         private System.Windows.Forms.TextBox txtOcjena;
         private System.Windows.Forms.Label Markalabel;
         private System.Windows.Forms.TextBox txtMarkaa;
-        private System.Windows.Forms.Label LabelDatumRacuna;
-        private System.Windows.Forms.TextBox txtDatumRacuna;
         private System.Windows.Forms.Label Komentarlabel;
         private System.Windows.Forms.TextBox txtKomentar;
-        private System.Windows.Forms.Label labelStatus;
-        private System.Windows.Forms.TextBox txtStatus;
     }
 }

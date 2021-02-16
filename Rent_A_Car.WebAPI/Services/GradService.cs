@@ -16,6 +16,7 @@ namespace Rent_A_Car.WebAPI.Services
         {
         }
 
+
         public Model.Grad Delete(int id)
         {
             var entity = _context.Grad.Find(id);

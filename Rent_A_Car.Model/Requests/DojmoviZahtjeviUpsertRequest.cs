@@ -15,5 +15,7 @@ namespace Rent_A_Car.Model.Requests
         public string NazivZahtjeva { get; set; }
         public string Dojam { get; set; }
         public int? RezervacijaId { get; set; }
+        public string Odgovor { get; set; }
+        public int? ZaposlenikId { get; set; }
     }
 }

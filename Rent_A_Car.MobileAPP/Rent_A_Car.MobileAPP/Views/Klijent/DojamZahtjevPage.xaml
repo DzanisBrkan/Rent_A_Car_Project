@@ -44,7 +44,7 @@
                                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                                 </Grid.ColumnDefinitions>
 
-                                                <Label Grid.Column="0" FontAttributes="Bold" FontSize="16"  Text="SLIKA:"  HorizontalTextAlignment="Center"/>
+                                                <Label Grid.Column="0" FontAttributes="Bold" FontSize="16"  Text="Klijent:"  HorizontalTextAlignment="Center"/>
                                                 <Label Grid.Column="1" TextColor="#aa0300" FontSize="16" HorizontalTextAlignment="Start" Text="{Binding KlijentKorisnickoIme}"></Label>
                                             </Grid>
                                         </StackLayout>
@@ -70,6 +70,18 @@
 
                                                 <Label Grid.Column="0" FontAttributes="Bold" FontSize="16"  Text="Vaš dojam:"  HorizontalTextAlignment="Center"/>
                                                 <Label Grid.Column="1" TextColor="#aa0300" FontSize="15" HorizontalTextAlignment="Start" Text="{Binding Dojam}"></Label>
+                                            </Grid>
+                                        </StackLayout>
+
+                                        <StackLayout BackgroundColor="Bisque" IsVisible="{Binding visible}">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                    <ColumnDefinition Width="*"></ColumnDefinition>
+                                                </Grid.ColumnDefinitions>
+
+                                                <Label Grid.Column="0" FontAttributes="Bold" FontSize="16"  Text="Odgovor:"  HorizontalTextAlignment="Center"/>
+                                                <Label Grid.Column="1" TextColor="#aa0300" FontSize="15" HorizontalTextAlignment="Start" Text="{Binding Odgovor}"></Label>
                                             </Grid>
                                         </StackLayout>
 

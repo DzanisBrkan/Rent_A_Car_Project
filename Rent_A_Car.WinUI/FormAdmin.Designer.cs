@@ -51,6 +51,7 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.LeftPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.SuspendLayout();
@@ -168,9 +169,7 @@
             this.btnHome.TabIndex = 0;
             this.btnHome.Text = "Home";
             this.btnHome.UseVisualStyleBackColor = true;
-
             this.btnHome.Click += new System.EventHandler(this.btnHome_Click);
-
             // 
             // brnOcjeneIKomentari
             // 
@@ -179,7 +178,7 @@
             this.brnOcjeneIKomentari.ForeColor = System.Drawing.Color.White;
             this.brnOcjeneIKomentari.Image = ((System.Drawing.Image)(resources.GetObject("brnOcjeneIKomentari.Image")));
             this.brnOcjeneIKomentari.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.brnOcjeneIKomentari.Location = new System.Drawing.Point(642, 86);
+            this.brnOcjeneIKomentari.Location = new System.Drawing.Point(574, 90);
             this.brnOcjeneIKomentari.Name = "brnOcjeneIKomentari";
             this.brnOcjeneIKomentari.Size = new System.Drawing.Size(112, 49);
             this.brnOcjeneIKomentari.TabIndex = 28;
@@ -195,7 +194,7 @@
             this.btnRezervacije.ForeColor = System.Drawing.Color.White;
             this.btnRezervacije.Image = ((System.Drawing.Image)(resources.GetObject("btnRezervacije.Image")));
             this.btnRezervacije.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRezervacije.Location = new System.Drawing.Point(218, 86);
+            this.btnRezervacije.Location = new System.Drawing.Point(150, 90);
             this.btnRezervacije.Name = "btnRezervacije";
             this.btnRezervacije.Size = new System.Drawing.Size(165, 49);
             this.btnRezervacije.TabIndex = 15;
@@ -211,7 +210,7 @@
             this.brnUgovori.ForeColor = System.Drawing.Color.White;
             this.brnUgovori.Image = ((System.Drawing.Image)(resources.GetObject("brnUgovori.Image")));
             this.brnUgovori.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.brnUgovori.Location = new System.Drawing.Point(88, 86);
+            this.brnUgovori.Location = new System.Drawing.Point(20, 90);
             this.brnUgovori.Name = "brnUgovori";
             this.brnUgovori.Size = new System.Drawing.Size(124, 49);
             this.brnUgovori.TabIndex = 14;
@@ -227,7 +226,7 @@
             this.btnVozila.ForeColor = System.Drawing.Color.White;
             this.btnVozila.Image = ((System.Drawing.Image)(resources.GetObject("btnVozila.Image")));
             this.btnVozila.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnVozila.Location = new System.Drawing.Point(515, 86);
+            this.btnVozila.Location = new System.Drawing.Point(447, 90);
             this.btnVozila.Name = "btnVozila";
             this.btnVozila.Size = new System.Drawing.Size(121, 49);
             this.btnVozila.TabIndex = 13;
@@ -243,7 +242,7 @@
             this.btnKlijenti.ForeColor = System.Drawing.Color.White;
             this.btnKlijenti.Image = ((System.Drawing.Image)(resources.GetObject("btnKlijenti.Image")));
             this.btnKlijenti.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnKlijenti.Location = new System.Drawing.Point(389, 86);
+            this.btnKlijenti.Location = new System.Drawing.Point(321, 90);
             this.btnKlijenti.Name = "btnKlijenti";
             this.btnKlijenti.Size = new System.Drawing.Size(120, 49);
             this.btnKlijenti.TabIndex = 12;
@@ -329,6 +328,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
+            this.panel3.Controls.Add(this.button1);
             this.panel3.Controls.Add(this.btnExit);
             this.panel3.Controls.Add(this.btnMinimize);
             this.panel3.Controls.Add(this.brnOcjeneIKomentari);
@@ -350,6 +350,22 @@
             // 
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // button1
+            // 
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(692, 90);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 49);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "FAQ";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FormAdmin
             // 
@@ -398,6 +414,7 @@
         private System.Windows.Forms.Button brnOcjeneIKomentari;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Username;
+        private System.Windows.Forms.Button button1;
     }
 }
 

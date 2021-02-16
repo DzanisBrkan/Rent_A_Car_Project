@@ -106,29 +106,26 @@ namespace Rent_A_Car.WebAPI.Database
                 BrojTel = "061/123-321",
                 Email = "klijent@gmail.com",
                 Adresa = "Sjeverni logor bb",
-                GradId = 100,
                 DatumRodjenja = "15.10.1990",
                 KorisnickoIme = "klijent",
                 LozinkaSalt = @"UrWoVwQWEwkUA+lIs/m9EQ==",
                 LozinkaHash = @"LISFb7tfnN6k/YTxsnHjR3sGtQ0=",
                 SlikaThumb = GenerirajSliku(imgUserFromSQL)
             });
-            //modelBuilder.Entity<Klijent>().HasData(new WebAPI.Database.Klijent()
-            //{
-            //    KlijentId = 101,
-            //    Ime = "Klijent2",
-            //    Prezime = "Klijent2",
-            //    BrojTel = "061/123-321",
-            //    Email = "klijent@gmail.com",
-            //    Adresa = "Sjeverni logor bb",
-            //    GradId = 100,
-            //    DatumRodjenja = "15.10.1990",
-            //    KorisnickoIme = "klijent2",
-            //    LozinkaSalt = "TJT1hXpabDs4H6unLfOpZw==",
-            //    LozinkaHash = "633p39KPUkdJTx9ciSYtoRNRLJA=",
-            //    SlikaThumb = GenerirajSliku(imgUserFromSQL)
-            //});
-
+            modelBuilder.Entity<Klijent>().HasData(new WebAPI.Database.Klijent()
+            {
+                KlijentId = 101,
+                Ime = "Klijent2",
+                Prezime = "Klijent2",
+                BrojTel = "061/123-321",
+                Email = "klijent@gmail.com",
+                Adresa = "Sjeverni logor bb",
+                DatumRodjenja = "15.10.1990",
+                KorisnickoIme = "klijent2",
+                LozinkaSalt = @"UrWoVwQWEwkUA+lIs/m9EQ==",
+                LozinkaHash = @"LISFb7tfnN6k/YTxsnHjR3sGtQ0=",
+                SlikaThumb = GenerirajSliku(imgUserFromSQL)
+            });
 
 
             //KORISNICKI NALOG
@@ -482,7 +479,20 @@ namespace Rent_A_Car.WebAPI.Database
                 KlijentSlikaThumb = GenerirajSliku(imgUserFromSQL),
                 NazivZahtjeva = "Sjedalica za djecu",
                 Dojam = "Dodavanje sjedalice za djecu u vozila",
-                RezervacijaId = 100
+                RezervacijaId = 100,
+                Odgovor = "Dodano!",
+                ZaposlenikId = 100
+            });
+            //RACUN
+            modelBuilder.Entity<Racun>().HasData(new WebAPI.Database.Racun()
+            {
+                RacunId = 100,
+                UkupnaCijena = 100,
+                UkupanBrojDana = 10,
+                DatumPlacanja = DateTime.Now,
+                NacinPlacanjaId = 100,
+                RezervacijaId = 100,
+                Izdano = true
             });
         }
     }

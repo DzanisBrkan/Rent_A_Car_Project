@@ -1,9 +1,12 @@
-﻿using Rent_A_Car.Model.Requests;
+﻿using GMap.NET.MapProviders;
+using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -43,13 +46,7 @@ namespace Rent_A_Car.WinUI.Vozilo
         }
         private async Task LoadSpecifikacija()
         {
-            var result = await _specifikacijaService.Get<List<Model.Specifikacija>>(null);
-            result.Insert(0, new Model.Specifikacija());
-            cmbSpecifikacija.DisplayMember = "EuroNorma";
-            cmbSpecifikacija.ValueMember = "SpecifikacijaId";
-            cmbSpecifikacija.DataSource = result;
         }
-
         private async Task LoadTipVozila()
         {
             var result = await _tipVozila.Get<List<Model.Tip>>(null);
@@ -76,45 +73,173 @@ namespace Rent_A_Car.WinUI.Vozilo
                 KategorijaId = kategorijaId
             });
 
-            VoziloGrid.DataSource = result;
+            //VoziloGrid.DataSource = result;
         }
+
+        //public static void getLocation()
+        //{
+        //    double x0 = 43.322802;
+        //    double y0 = 17.813955;
+        //    Random random = new Random();
+
+        //    // Convert radius from meters to degrees
+        //    double radiusInDegrees = 500 / 111000f;
+
+        //    double u = random.NextDouble();
+        //    double v = random.NextDouble();
+        //    double w = radiusInDegrees * Math.Sqrt(u);
+        //    double t = 2 * Math.PI * v;
+        //    double x = w * Math.Cos(t);
+        //    double y = w * Math.Sin(t);
+
+        //    // Adjust the x-coordinate for the shrinking of the east-west distances
+        //    //double new_x = x / Math.Cos(Math.ToRadians(y0));
+        //    var rad = (Math.PI / 180) * y0;
+        //    double new_x = x / Math.Cos(rad);
+
+        //    double foundLongitude = new_x + x0;
+        //    double foundLatitude = y + y0;
+        //    //System.out.println("Longitude: " + foundLongitude + "  Latitude: " + foundLatitude);
+        //}
+
 
         VoziloUpsertRequest request = new VoziloUpsertRequest();
         private async void btnSacuvaj_Click(object sender, EventArgs e)
         {
 
-            var idObj = cmbKategorija.SelectedValue;
+            double x0 = 43.322802;
+            double y0 = 17.813955;
+            Random random = new Random();
 
-            if(int.TryParse(idObj.ToString(), out int kategorijaId))
+            // Convert radius from meters to degrees
+            double radiusInDegrees = 500 / 111000f;
+
+            double u = random.NextDouble();
+            double v = random.NextDouble();
+            double w = radiusInDegrees * Math.Sqrt(u);
+            double t = 2 * Math.PI * v;
+            double x = w * Math.Cos(t);
+            double y = w * Math.Sin(t);
+
+            // Adjust the x-coordinate for the shrinking of the east-west distances
+            //double new_x = x / Math.Cos(Math.ToRadians(y0));
+            var rad = (Math.PI / 180) * y0;
+            double new_x = x / Math.Cos(rad);
+
+            double foundLongitude = new_x + x0;
+            double foundLatitude = y + y0;
+
+            try
             {
-                request.KategorijaId = kategorijaId;
-            }
-            request.RegistracijskiBroj = txtRegistracijskiBroj.Text;
-            request.Model = txtModel.Text;
-            request.BrSjedista = txtBrojVrata.Text;
-            request.BrSjedista = txtBrojVrata.Text;
-            //request.CijenaPoSatu = txtCijenaPoSatu.Text;
-            request.Zauzeto = cbIznajmljeno.Checked;
+                //var vozilo = await _voziloService.GetById<Model.Vozilo>(null);
 
-            await _voziloService.Insert<Model.Vozilo>(request);
+
+                if (this.ValidateChildren())// sprijeciti korisnika da klikne dugme snimi bez ikakvih validacija
+                {
+                    var _kategorijaId = 0;
+                    var _tipId = 0;
+
+
+                    if (cmbKategorija.Text == "A1")
+                    {
+                        _kategorijaId = 100;
+                    }
+                    else if(cmbKategorija.Text == "A")
+                    {
+                        _kategorijaId = 101;
+                    }
+                    else if(cmbKategorija.Text == "B")
+                    {
+                        _kategorijaId = 102;
+                    }
+
+                    if(cmbTip.Text == "Hečbek")
+                    {
+                        _tipId = 100;
+                    }
+                    else if(cmbTip.Text == "Limuzina")
+                    {
+                        _tipId = 101;
+                    }
+                    else if (cmbTip.Text == "Karavan")
+                    {
+                        _tipId = 102;
+                    }
+                    else if (cmbTip.Text == "Skuter")
+                    {
+                        _tipId = 103;
+                    }
+                    else if (cmbTip.Text == "Motor")
+                    {
+                        _tipId = 104;
+                    }
+
+                    //unos specifikacije
+                    var specRequest = new SpecifikacijaUpsertRequest()
+                    {
+                        Gorivo = txtGorivo.Text,
+                        EuroNorma = txtEuroNorma.Text,
+                        Kubikaza = txtKubikaza.Text,
+                        Konjaza = txtKonjaza.Text,
+                        Kilowataza = txtKilowataza.Text,
+                        Pogon = txtPogon.Text,
+                        Potrosnja = txtPotrosnja.Text,
+                        Godiste = txtPotrosnja.Text,
+                        Mjenjac = txtMjenjac.Text
+                    };
+                    var specifikacija = await _specifikacijaService.Insert<Model.Specifikacija>(specRequest);
+
+                    //unos vozila
+                    var request = new VoziloUpsertRequest()
+                    {
+                        RegistracijskiBroj = txtRegistracijskiBroj.Text,
+                        Model = txtModel.Text,
+                        Marka = txtMarka.Text,
+                        BrSjedista = txtBrSjedista.Text,
+                        BrVrata = txtBrojVrata.Text,
+                        ZapreminaPrtljaznika = txtZprPrtljaznika.Text,
+                        CijenaPoSatu = Convert.ToDouble(txtCijenaPoSatu.Text),
+                        SlikaThumb = file2,
+                        Zauzeto = false,
+                        LokacijaId = 100,
+                        Langitude = foundLongitude,
+                        Longitude = foundLatitude,
+                        KategorijaId = _kategorijaId,
+                        TipId = _tipId,
+                        SpecifikacijaId = specifikacija.SpecifikacijaId
+                    };
+
+                    
+                        await _voziloService.Insert<Model.Vozilo>(request);
+
+                    MessageBox.Show("Uspjesno ste dodali vozilo i njegovu specifikaciju!");
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show("Doslo je do greske!");
+            }
+            this.Close();
         }
 
         private void textBox7_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void label11_Click(object sender, EventArgs e)
         {
 
         }
-
         private void textBox6_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }
@@ -131,13 +256,37 @@ namespace Rent_A_Car.WinUI.Vozilo
                 txtSlikaInput.Text = fileName;
                 Image image = Image.FromFile(fileName);
                 pictureBox.Image = image;
-                //radi
             }
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+
+       
+        public byte[] file2 = null;
+        private void btnDodaj_Click_1(object sender, EventArgs e)
+        {
+            //var result = openFileDialog1.ShowDialog();
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.Filter = "jpg files(*.jpg)|*.jpg";
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                
+                 file2 = Encoding.ASCII.GetBytes(openFileDialog1.FileName);
+                request.SlikaThumb = file2;
+                txtSlikaInput.Text = openFileDialog1.FileName;
+                Image image = Image.FromFile(openFileDialog1.FileName);
+                pictureBox.Image = image;
+
+                MemoryStream ms = new MemoryStream();
+                image.Save(ms, ImageFormat.Jpeg);
+                file2 = ms.ToArray();
+            }
+
         }
     }
 }

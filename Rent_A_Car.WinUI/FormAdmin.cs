@@ -156,6 +156,7 @@ namespace Rent_A_Car.WinUI
             btnZaposlenici.Visible = false;
             btnKategorije.Visible = false;
             brnGrad.Visible = false;
+            button1.Visible = false;
 
             var ZaposleniktModel = await _servicesZaposlenik.GetById<Model.Zaposlenik>(_id);
 
@@ -178,23 +179,17 @@ namespace Rent_A_Car.WinUI
 
             if (LogovaniZaposlenik)
             {
-                //btnKlijenti.Enabled = false;
-                //brnOcjeneIKomentari.Enabled = false;
-                //btnRezervacije.Enabled = false;
-                //btnVozila.Enabled = false;
 
                 btnKlijenti.Visible = true;
                 brnOcjeneIKomentari.Visible = true;
                 btnRezervacije.Visible = true;
                 btnVozila.Visible = true;
                 brnUgovori.Visible = true;
+                button1.Visible = true;
             }
 
             if (LogovaniAdmin)
             {
-                //btnZaposlenici.Enabled = false;
-                //btnKategorije.Enabled = false;
-                //brnGrad.Enabled = false;
 
                 btnZaposlenici.Visible = true;
                 btnKategorije.Visible = true;
@@ -206,6 +201,14 @@ namespace Rent_A_Car.WinUI
         private void btnHome_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            frmOcijenaIKomentar frm = new frmOcijenaIKomentar();
+            //frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

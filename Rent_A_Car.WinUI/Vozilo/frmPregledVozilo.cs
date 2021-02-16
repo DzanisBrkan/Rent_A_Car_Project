@@ -23,7 +23,8 @@ namespace Rent_A_Car.WinUI.Vozilo
         {
             var search = new VoziloSearchRequest()
             {
-                Model = txtPretraga.Text
+                Model = txtPretraga.Text,
+                Marka = txtPretraga.Text
             };
             var result = await _apiService.Get<List<Model.Vozilo>>(search);
 
@@ -39,35 +40,39 @@ namespace Rent_A_Car.WinUI.Vozilo
 
         private void btnKalendar_Click(object sender, EventArgs e)
         {
-            KalendarVozila frm = new KalendarVozila();
+            frmVozilaKalendarFINAL frm = new frmVozilaKalendarFINAL();
             //frm.MdiParent = this;
             frm.Show();
         }
 
         private void btnLociraj_Click(object sender, EventArgs e)
         {
-
-            //frmLocirajVoziloPrikaz frm = new frmLocirajVoziloPrikaz();
-            ////frm.MdiParent = this;
-            //frm.Show();
         }
 
         private void btnLocirajVozilo_Click(object sender, EventArgs e)
         {
-            //var id = dgvKlijent.SelectedRows[0].Cells[0].Value;
-
-            //frmLocirajVozilo frm = new frmLocirajVozilo(int.Parse(id.ToString()));
-            ////frm.MdiParent = this;
-            //frm.Show();
+          
         }
 
         private void dgvKlijent_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             var id = dgvKlijent.SelectedRows[0].Cells[0].Value;
 
-            frmLocirajVozilo frm = new frmLocirajVozilo(int.Parse(id.ToString()));
+            frmVoziloDetalji frm = new frmVoziloDetalji(int.Parse(id.ToString()));
             //frm.MdiParent = this;
             frm.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            frmVozilo frm = new frmVozilo();
+            //frm.MdiParent = this;
+            frm.Show();
+        }
+
+        //private void button2_Click(object sender, EventArgs e)
+        //{
+        //}
     }
 }

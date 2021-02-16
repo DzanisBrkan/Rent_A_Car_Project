@@ -44,20 +44,32 @@ namespace Rent_A_Car.WinUI.Rezervacija
 
                     var vozilo = await _servicesVozilo.GetById<Model.Vozilo>(rezervacija.VoziloId);
 
-                    //txtPocetak.Text = rezervacija.KrajRezervacije;
+                    txtPocetak.Text = rezervacija.PocetakRezervacije.ToString();
+                    txtPocetak.ReadOnly = true;
+                    textKraj.Text = rezervacija.KrajRezervacije.ToString();
+                    textKraj.ReadOnly = true;
+
                     txtStatus.Text = rezervacija.Status;
-                    txtCijena.Text = rezervacija.UkupnaCijena.ToString();
+                    txtStatus.ReadOnly = true;
+
+                    //txtCijena.Text = rezervacija.UkupnaCijena.ToString();
                     txtModel.Text = vozilo.Model;
+                    txtModel.ReadOnly = true;
+
                     txtMarka.Text = vozilo.Marka;
-                    txtModel.Text = vozilo.Model;
-                    if (vozilo.Zauzeto == true)
-                    {
-                        checkBoxZauzeto.Checked = true;
-                    }
-                    else
-                    {
-                        checkBoxZauzeto.Checked = false;
-                    }
+                    txtMarka.ReadOnly = true;
+
+                    txtCijena.Text = vozilo.CijenaPoSatu.ToString();
+                    txtModel.ReadOnly = true;
+
+                    //if (vozilo.Zauzeto == true)
+                    //{
+                    //    checkBoxZauzeto.Checked = true;
+                    //}
+                    //else
+                    //{
+                    //    checkBoxZauzeto.Checked = false;
+                    //}
                 }
             }
             catch (Exception ex)
