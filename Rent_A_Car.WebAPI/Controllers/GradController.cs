@@ -22,6 +22,7 @@ namespace Rent_A_Car.WebAPI.Controllers
         {
             _service = gradService;
         }
+
         [HttpDelete]
         public Model.Grad Delete(int id)
         {

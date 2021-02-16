@@ -44,7 +44,6 @@ namespace Rent_A_Car.WebAPI.Controllers
             return _service.Insert(request);
         }
 
-        [Authorize(Roles = "Administrator")]
         [HttpPut("{id}")]
         public Model.Zaposlenik Update(int id, ZaposlenikInsertRequest request)
         {

@@ -63,10 +63,10 @@
             // 
             // txtOznaka
             // 
-            this.txtOznaka.Location = new System.Drawing.Point(152, 83);
+            this.txtOznaka.Location = new System.Drawing.Point(152, 79);
             this.txtOznaka.Name = "txtOznaka";
             this.txtOznaka.Size = new System.Drawing.Size(265, 20);
-            this.txtOznaka.TabIndex = 93;
+            this.txtOznaka.TabIndex = 0;
             // 
             // MinimalnaDob
             // 
@@ -82,7 +82,7 @@
             this.txtMinDob.Location = new System.Drawing.Point(152, 203);
             this.txtMinDob.Name = "txtMinDob";
             this.txtMinDob.Size = new System.Drawing.Size(265, 20);
-            this.txtMinDob.TabIndex = 89;
+            this.txtMinDob.TabIndex = 3;
             // 
             // Opis
             // 
@@ -98,7 +98,7 @@
             this.txtOpis.Location = new System.Drawing.Point(152, 160);
             this.txtOpis.Name = "txtOpis";
             this.txtOpis.Size = new System.Drawing.Size(265, 20);
-            this.txtOpis.TabIndex = 87;
+            this.txtOpis.TabIndex = 2;
             // 
             // Naziv
             // 
@@ -114,7 +114,7 @@
             this.txtNaziv.Location = new System.Drawing.Point(152, 122);
             this.txtNaziv.Name = "txtNaziv";
             this.txtNaziv.Size = new System.Drawing.Size(265, 20);
-            this.txtNaziv.TabIndex = 85;
+            this.txtNaziv.TabIndex = 1;
             // 
             // btnExit
             // 
@@ -125,7 +125,7 @@
             this.btnExit.Location = new System.Drawing.Point(425, 9);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 106;
+            this.btnExit.TabIndex = 4;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

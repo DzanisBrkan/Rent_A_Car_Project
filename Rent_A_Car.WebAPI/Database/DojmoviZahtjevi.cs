@@ -14,8 +14,11 @@ namespace Rent_A_Car.WebAPI.Database
         public string NazivZahtjeva { get; set; }
         public string Dojam { get; set; }
         public int? RezervacijaId { get; set; }
+        public string Odgovor { get; set; }
+        public int? ZaposlenikId { get; set; }
 
         public virtual Klijent Klijent { get; set; }
         public virtual Rezervacija Rezervacija { get; set; }
+        public virtual Zaposlenik Zaposlenik { get; set; }
     }
 }

@@ -3,6 +3,7 @@ using Rent_A_Car.MobileAPP.Views.Klijent;
 using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -15,10 +16,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
     class RegistracijaViewModel : BaseViewModel
     {
         private readonly APIService _serviceKlijenti = new APIService("Klijent");
-        private readonly APIService _serviceGradovi = new APIService("Gradovi");
-
-        //private readonly APIService _usersService = new APIService("Klijent");
-
 
         public RegistracijaViewModel()
         {
@@ -33,16 +30,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             get { return _isButtonEnabled; }
             set { SetProperty(ref _isButtonEnabled, value); }
         }
-
-        //public ObservableCollection<Model.Gradovi> Gradovi { get; set; } = new ObservableCollection<Gradovi>();
-        //private Model.Gradovi _grad;
-
-
-        //public Model.Gradovi Grad
-        //{
-        //    get { return _grad; }
-        //    set { SetProperty(ref _grad, value); }
-        //}
 
         public string _Ime { get; set; } = null;
         public string _Prezime { get; set; } = null;
@@ -63,13 +50,9 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             set { SetProperty(ref _klijent, value); }
         }
 
+
         public async Task Init()
         {
-            //    var listGradovi = await _serviceGradovi.Get<List<Model.Gradovi>>(null);
-            //    foreach (var grad in listGradovi)
-            //    {
-            //        Gradovi.Add(grad);
-            //    }
         }
 
 
@@ -86,16 +69,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
 
             try
             {
-                //if (CityModel == null)
-                //{
-                //    await Application.Current.MainPage.DisplayAlert("Greška", "Odaberi grad!", "Ok");
-                //    return;
-                //}
-                //if (CarModel == null)
-                //{
-                //    await Application.Current.MainPage.DisplayAlert("Greška", "Odaberi model automobila!", "Ok");
-                //    return;
-                //}
 
                 if (_Password != _PasswordConfirmation)
                 {

@@ -41,10 +41,8 @@
             this.txtModel = new System.Windows.Forms.TextBox();
             this.labelMarka = new System.Windows.Forms.Label();
             this.txtMarka = new System.Windows.Forms.TextBox();
-            this.labelCijenaPoSatu = new System.Windows.Forms.Label();
-            this.txtCijenaPoSatu = new System.Windows.Forms.TextBox();
-            this.Zauzetolabela = new System.Windows.Forms.Label();
-            this.checkBoxZauzeto = new System.Windows.Forms.CheckBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textKraj = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Rezervacija
@@ -60,23 +58,23 @@
             // KrajRezervacije
             // 
             this.KrajRezervacije.AutoSize = true;
-            this.KrajRezervacije.Location = new System.Drawing.Point(45, 87);
+            this.KrajRezervacije.Location = new System.Drawing.Point(37, 87);
             this.KrajRezervacije.Name = "KrajRezervacije";
-            this.KrajRezervacije.Size = new System.Drawing.Size(84, 13);
+            this.KrajRezervacije.Size = new System.Drawing.Size(106, 13);
             this.KrajRezervacije.TabIndex = 94;
-            this.KrajRezervacije.Text = "Kraj Rezervacije";
+            this.KrajRezervacije.Text = "Pocetak Rezervacije";
             // 
             // txtPocetak
             // 
             this.txtPocetak.Location = new System.Drawing.Point(143, 84);
             this.txtPocetak.Name = "txtPocetak";
             this.txtPocetak.Size = new System.Drawing.Size(265, 20);
-            this.txtPocetak.TabIndex = 93;
+            this.txtPocetak.TabIndex = 0;
             // 
             // Cijena
             // 
             this.Cijena.AutoSize = true;
-            this.Cijena.Location = new System.Drawing.Point(45, 169);
+            this.Cijena.Location = new System.Drawing.Point(45, 197);
             this.Cijena.Name = "Cijena";
             this.Cijena.Size = new System.Drawing.Size(36, 13);
             this.Cijena.TabIndex = 92;
@@ -84,15 +82,15 @@
             // 
             // txtCijena
             // 
-            this.txtCijena.Location = new System.Drawing.Point(143, 166);
+            this.txtCijena.Location = new System.Drawing.Point(143, 194);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.Size = new System.Drawing.Size(265, 20);
-            this.txtCijena.TabIndex = 91;
+            this.txtCijena.TabIndex = 3;
             // 
             // Status
             // 
             this.Status.AutoSize = true;
-            this.Status.Location = new System.Drawing.Point(45, 127);
+            this.Status.Location = new System.Drawing.Point(45, 155);
             this.Status.Name = "Status";
             this.Status.Size = new System.Drawing.Size(37, 13);
             this.Status.TabIndex = 90;
@@ -100,10 +98,10 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(143, 124);
+            this.txtStatus.Location = new System.Drawing.Point(143, 152);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(265, 20);
-            this.txtStatus.TabIndex = 89;
+            this.txtStatus.TabIndex = 2;
             // 
             // btnExit
             // 
@@ -114,14 +112,14 @@
             this.btnExit.Location = new System.Drawing.Point(414, 6);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 106;
+            this.btnExit.TabIndex = 6;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // labelModel
             // 
             this.labelModel.AutoSize = true;
-            this.labelModel.Location = new System.Drawing.Point(45, 205);
+            this.labelModel.Location = new System.Drawing.Point(45, 233);
             this.labelModel.Name = "labelModel";
             this.labelModel.Size = new System.Drawing.Size(36, 13);
             this.labelModel.TabIndex = 108;
@@ -129,15 +127,15 @@
             // 
             // txtModel
             // 
-            this.txtModel.Location = new System.Drawing.Point(143, 202);
+            this.txtModel.Location = new System.Drawing.Point(143, 230);
             this.txtModel.Name = "txtModel";
             this.txtModel.Size = new System.Drawing.Size(265, 20);
-            this.txtModel.TabIndex = 107;
+            this.txtModel.TabIndex = 4;
             // 
             // labelMarka
             // 
             this.labelMarka.AutoSize = true;
-            this.labelMarka.Location = new System.Drawing.Point(45, 242);
+            this.labelMarka.Location = new System.Drawing.Point(45, 270);
             this.labelMarka.Name = "labelMarka";
             this.labelMarka.Size = new System.Drawing.Size(37, 13);
             this.labelMarka.TabIndex = 110;
@@ -145,54 +143,34 @@
             // 
             // txtMarka
             // 
-            this.txtMarka.Location = new System.Drawing.Point(143, 239);
+            this.txtMarka.Location = new System.Drawing.Point(143, 267);
             this.txtMarka.Name = "txtMarka";
             this.txtMarka.Size = new System.Drawing.Size(265, 20);
-            this.txtMarka.TabIndex = 109;
+            this.txtMarka.TabIndex = 5;
             // 
-            // labelCijenaPoSatu
+            // label1
             // 
-            this.labelCijenaPoSatu.AutoSize = true;
-            this.labelCijenaPoSatu.Location = new System.Drawing.Point(37, 280);
-            this.labelCijenaPoSatu.Name = "labelCijenaPoSatu";
-            this.labelCijenaPoSatu.Size = new System.Drawing.Size(77, 13);
-            this.labelCijenaPoSatu.TabIndex = 112;
-            this.labelCijenaPoSatu.Text = "Cijena Po Satu";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(45, 122);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(84, 13);
+            this.label1.TabIndex = 115;
+            this.label1.Text = "Kraj Rezervacije";
             // 
-            // txtCijenaPoSatu
+            // textKraj
             // 
-            this.txtCijenaPoSatu.Location = new System.Drawing.Point(143, 273);
-            this.txtCijenaPoSatu.Name = "txtCijenaPoSatu";
-            this.txtCijenaPoSatu.Size = new System.Drawing.Size(265, 20);
-            this.txtCijenaPoSatu.TabIndex = 111;
-            // 
-            // Zauzetolabela
-            // 
-            this.Zauzetolabela.AutoSize = true;
-            this.Zauzetolabela.Location = new System.Drawing.Point(45, 311);
-            this.Zauzetolabela.Name = "Zauzetolabela";
-            this.Zauzetolabela.Size = new System.Drawing.Size(46, 13);
-            this.Zauzetolabela.TabIndex = 113;
-            this.Zauzetolabela.Text = "Zauzeto";
-            // 
-            // checkBoxZauzeto
-            // 
-            this.checkBoxZauzeto.AutoSize = true;
-            this.checkBoxZauzeto.Location = new System.Drawing.Point(244, 311);
-            this.checkBoxZauzeto.Name = "checkBoxZauzeto";
-            this.checkBoxZauzeto.Size = new System.Drawing.Size(15, 14);
-            this.checkBoxZauzeto.TabIndex = 114;
-            this.checkBoxZauzeto.UseVisualStyleBackColor = true;
+            this.textKraj.Location = new System.Drawing.Point(143, 119);
+            this.textKraj.Name = "textKraj";
+            this.textKraj.Size = new System.Drawing.Size(265, 20);
+            this.textKraj.TabIndex = 1;
             // 
             // frmRezervacjiaDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 354);
-            this.Controls.Add(this.checkBoxZauzeto);
-            this.Controls.Add(this.Zauzetolabela);
-            this.Controls.Add(this.labelCijenaPoSatu);
-            this.Controls.Add(this.txtCijenaPoSatu);
+            this.ClientSize = new System.Drawing.Size(473, 344);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textKraj);
             this.Controls.Add(this.labelMarka);
             this.Controls.Add(this.txtMarka);
             this.Controls.Add(this.labelModel);
@@ -228,9 +206,7 @@
         private System.Windows.Forms.TextBox txtModel;
         private System.Windows.Forms.Label labelMarka;
         private System.Windows.Forms.TextBox txtMarka;
-        private System.Windows.Forms.Label labelCijenaPoSatu;
-        private System.Windows.Forms.TextBox txtCijenaPoSatu;
-        private System.Windows.Forms.Label Zauzetolabela;
-        private System.Windows.Forms.CheckBox checkBoxZauzeto;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textKraj;
     }
 }

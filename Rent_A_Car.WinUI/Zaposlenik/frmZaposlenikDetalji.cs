@@ -1,6 +1,7 @@
 ﻿using Rent_A_Car.Model.Requests;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -15,6 +16,7 @@ namespace Rent_A_Car.WinUI.Zaposlenik
     {
 
         private readonly APIService _service = new APIService("Zaposlenik");
+        private readonly APIService _servicegrad = new APIService("Grad");
         private readonly APIService _korisnickiNalogService = new APIService("KorisnickiNalog");
         private int? _id = null;
 
@@ -40,23 +42,24 @@ namespace Rent_A_Car.WinUI.Zaposlenik
         {
             try
             {
-                await LoadKorisnickiNalog();
-                //var nalog = await _korisnickiNalogService.Get<List<Model.KorisnickiNalog>>(null);
-                //clbRole.DisplayMember = "TipKorisnickogNaloga";
-                //clbRole.DataSource = nalog;
                 if (_id.HasValue)
                 {
                     var zaposlenik = await _service.GetById<Model.Zaposlenik>(_id);
+                    var grad = await _servicegrad.GetById<Model.Grad>(zaposlenik.GradId);
 
                     txtIme.Text = zaposlenik.Ime;
                     txtPrezime.Text = zaposlenik.Prezime;
                     txtEmail.Text = zaposlenik.Email;
-                    txtTelefon.Text = zaposlenik.KontaktBr;
+                    txtTelefonn.Text = zaposlenik.KontaktBr;
                     txtDatumRodjenja.Text = zaposlenik.DatumRodjenja;
                     txtSpol.Text = zaposlenik.Spol;
-                    //txtGrad.Text = zaposlenik.GradId.ToString();
-                    //txtGrad.Text = zaposlenik.KorisnickiNalog.TipKorisnickogNaloga;
+                    if (zaposlenik.KorisnickiNalogId == 100)
+                        cmbKorisnickiNalog.Text = "Administrator";
+                    if (zaposlenik.KorisnickiNalogId == 101)
+                        cmbKorisnickiNalog.Text = "Zaposlenik";
+                    txtGrad.Text = grad.Naziv;
                     txtKorisnickoIme.Text = zaposlenik.KorisnickoIme;
+                    Aktivan.Checked = (bool)zaposlenik.Aktivan;
                 }
             }
             catch (Exception ex)
@@ -66,6 +69,10 @@ namespace Rent_A_Car.WinUI.Zaposlenik
             }
 
         }
+
+        public ObservableCollection<Model.Grad> GradoviList { get; set; } = new ObservableCollection<Model.Grad>();
+        public ObservableCollection<Model.Zaposlenik> ZaposleniciList { get; set; } = new ObservableCollection<Model.Zaposlenik>();
+
         private async Task LoadKorisnickiNalog()
         {
             var result = await _korisnickiNalogService.Get<List<Model.KorisnickiNalog>>(null);
@@ -81,6 +88,31 @@ namespace Rent_A_Car.WinUI.Zaposlenik
             try
             {
                 var idObjekta = cmbKorisnickiNalog.SelectedValue;
+                var gradovi = await _servicegrad.GetById<List<Model.Grad>>(null);
+
+                var pronadjeniGradID = -1;
+
+                GradoviList.Clear();
+                foreach (var grad in gradovi)
+                {
+                    GradoviList.Add(grad);
+                }
+
+                for (int i = 0; i < GradoviList.Count(); i++)
+                {
+                    if (txtGrad.Text == GradoviList[i].Naziv)
+                    {
+                        pronadjeniGradID = (int)GradoviList[i].GradId;
+                    }
+                }
+
+                int korisnickiNalogID = -1;
+                if (cmbKorisnickiNalog.Text == "Administrator")
+                    korisnickiNalogID = 100;
+
+                if (cmbKorisnickiNalog.Text == "Zaposlenik")
+                    korisnickiNalogID = 101;
+
 
                 if (this.ValidateChildren())
                 {
@@ -91,12 +123,15 @@ namespace Rent_A_Car.WinUI.Zaposlenik
                         Ime = txtIme.Text,
                         Prezime = txtPrezime.Text,
                         Email = txtEmail.Text,
-                        Kontakt_br = txtTelefon.Text,
+                        KontaktBr = txtTelefonn.Text,
                         Spol = txtSpol.Text,
-                        GradId = Convert.ToInt32(idObjekta),
+                        //GradId = Convert.ToInt32(idObjekta),
+                        GradId = pronadjeniGradID,                       
                         DatumRodjenja = txtDatumRodjenja.Text,
+                        KorisnickiNalogId = (int)korisnickiNalogID,
                         Password = txtPassword.Text,
-                        PasswordConfirmation = txtPasswordPotvrda.Text
+                        PasswordConfirmation = txtPasswordPotvrda.Text,
+                        Aktivan = Aktivan.Checked
 
                     };
 

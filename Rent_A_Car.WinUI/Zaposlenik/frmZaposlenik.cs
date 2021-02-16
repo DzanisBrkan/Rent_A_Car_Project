@@ -42,6 +42,17 @@ namespace Rent_A_Car.WinUI.Zaposlenik
 
         private void dgvZaposlenik_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
+            //frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void dgvZaposlenik_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
             var id = dgvZaposlenik.SelectedRows[0].Cells[0].Value;
 
             frmZaposlenikDetalji frm = new frmZaposlenikDetalji(int.Parse(id.ToString()));
@@ -50,13 +61,6 @@ namespace Rent_A_Car.WinUI.Zaposlenik
             //frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
             //frm.MdiParent = this;
             //frm.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            frmZaposlenikDetalji frm = new frmZaposlenikDetalji();
-            //frm.MdiParent = this;
-            frm.Show();
         }
     }
 }

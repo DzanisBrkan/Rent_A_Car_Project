@@ -20,8 +20,8 @@ namespace Rent_A_Car.Model.Requests
         [MinLength(5)]
         public string Email { get; set; }
 
-        [Required(AllowEmptyStrings = false)]
-        public string Kontakt_br { get; set; }
+        //[Required(AllowEmptyStrings = false)]
+        public string KontaktBr { get; set; }
 
         [Required]
         public string DatumRodjenja { get; set; }

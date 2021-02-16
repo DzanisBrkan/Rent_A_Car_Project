@@ -18,6 +18,7 @@ namespace Rent_A_Car.WinUI.OcijenaIKomentar
         private readonly APIService _servicesVozilo = new APIService("Vozilo");
         private readonly APIService _servicesUgovor = new APIService("Ugovor");
         private readonly APIService _servicesRezervacija = new APIService("Rezervacija");
+        private readonly APIService _servicesDojam = new APIService("Rezervacija");
         private int? _id = null;
         public frmOcjenaDetalji(int? UgovorId = null)
         {
@@ -40,19 +41,25 @@ namespace Rent_A_Car.WinUI.OcijenaIKomentar
 
                     var rezervacija = await _servicesRezervacija.GetById<Model.Rezervacija>(ocjena.RezervacijaId);
 
-                    var vozilo = await _servicesVozilo.GetById<Model.Vozilo>(rezervacija.VoziloId);
+                    var vozilo = await _servicesVozilo.GetById<Model.Vozilo>(ocjena.VoziloId);
 
-                    var Racun = await _servicesUgovor.GetById<Model.Ugovor>(rezervacija.RacunId);
 
 
                     txtOcjena.Text = ocjena.Ocjena1.ToString();
+                    txtOcjena.ReadOnly = true;
                     txtKomentar.Text = ocjena.Komentar;
-                    //txtDatumRacuna.Text = Racun.DatumUgovora.ToString();
+                    txtKomentar.ReadOnly = true;
+
                     txtModel.Text = vozilo.Model;
+                    txtModel.ReadOnly = true;
+
                     txtMarkaa.Text = vozilo.Marka.ToString();
+                    txtMarkaa.ReadOnly = true;
+
                     txtCijena.Text = rezervacija.UkupnaCijena.ToString();
-                    txtStatus.Text = rezervacija.Status;
-                  
+                    txtCijena.ReadOnly = true;
+
+
                 }
             }
             catch (Exception ex)

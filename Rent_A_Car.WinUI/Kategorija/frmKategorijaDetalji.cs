@@ -37,10 +37,15 @@ namespace Rent_A_Car.WinUI.Kategorija
                 var kategorija = await _services.GetById<Model.Kategorija>(_id);
 
                 txtOznaka.Text = kategorija.Oznaka;
+                txtOznaka.ReadOnly = true;
                 txtNaziv.Text = kategorija.Naziv;
+                txtNaziv.ReadOnly = true;
                 txtOpis.Text = kategorija.Opis;
+                txtOpis.ReadOnly = true;
                 txtMinDob.Text = kategorija.MinDob;
-               
+                txtMinDob.ReadOnly = true;
+
+
             }
         }
     }

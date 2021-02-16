@@ -36,6 +36,7 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             set { SetProperty(ref _Dojam, value); }
         }
 
+
         public ObservableCollection<Model.DojmoviZahtjevi> _PronadjeniDojmoviZahtjevi { get; set; } = new ObservableCollection<Model.DojmoviZahtjevi>();
         public ObservableCollection<Model.DojmoviZahtjevi> DojmoviZahtjeviList { get; set; } = new ObservableCollection<Model.DojmoviZahtjevi>();
 
@@ -56,9 +57,12 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             {
                 if (DojmoviZahtjeviList[i].KlijentId == APIService.UserID && DojmoviZahtjeviList[i].RezervacijaId == rezervacija.RezervacijaID)
                 {
+                    if (DojmoviZahtjeviList[i].ZaposlenikId != null)
+                        DojmoviZahtjeviList[i].visible = true;
                     _PronadjeniDojmoviZahtjevi.Add(DojmoviZahtjeviList[i]);
                 }
             }
+
         }
 
 

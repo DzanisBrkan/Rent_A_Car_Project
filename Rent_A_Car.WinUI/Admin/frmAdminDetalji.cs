@@ -15,6 +15,7 @@ namespace Rent_A_Car.WinUI.Admin
     {
         private readonly APIService _services = new APIService("Zaposlenik");
         private int? _id = null;
+        private int? _korisnickiNalogId = null;
         public frmAdminDetalji(int? UgovorId = null)
         {
             InitializeComponent();
@@ -38,9 +39,8 @@ namespace Rent_A_Car.WinUI.Admin
                 txtEmail.Text = zaposlenik.Email; 
                 txtTelefon.Text = zaposlenik.KontaktBr;
                 txtDatumRodjenja.Text = zaposlenik.DatumRodjenja;
-                //txtPassword.Text = zaposlenik.LozinkaHash;
-                //txtPasswordPotvrda.Text = zaposlenik.LozinkaHash;
-
+                _korisnickiNalogId = zaposlenik.KorisnickiNalogId;
+                txtSpol.Text = zaposlenik.Spol;
             }
         }
 
@@ -56,11 +56,13 @@ namespace Rent_A_Car.WinUI.Admin
                         Ime = txtIme.Text,
                         Prezime = txtPrezime.Text,
                         Email = txtEmail.Text,
-                        Kontakt_br = txtTelefon.Text,
-                        //Adresa = txtAdresa.Text,
-                        DatumRodjenja = txtAdresa.Text,
-                        //Password = txtPassword.Text,
-                        //PasswordConfirmation = txtPasswordPotvrda.Text
+                        KontaktBr = txtTelefon.Text,
+                        DatumRodjenja = txtDatumRodjenja.Text,
+                        Password = txtPassword.Text,
+                        PasswordConfirmation = txtPasswordPotvrda.Text,
+                        Spol = txtSpol.Text,
+                        KorisnickiNalogId = _korisnickiNalogId,
+                        Aktivan = true
                     };
 
                     if (_id.HasValue)
@@ -75,7 +77,7 @@ namespace Rent_A_Car.WinUI.Admin
                     MessageBox.Show("Uspjesno ste promijenili podatke!");
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 MessageBox.Show("Doslo je do greske!");
                 throw;

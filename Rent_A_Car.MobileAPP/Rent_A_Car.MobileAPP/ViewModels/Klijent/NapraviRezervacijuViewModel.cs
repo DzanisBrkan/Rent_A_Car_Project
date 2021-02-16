@@ -67,7 +67,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             set { SetProperty(ref _selectedStatus, value); }
         }
 
-        //LokacijaId dobijamo iz DROPDOWN
         Lokacija _selectedLokacija = null;
         public Lokacija selectedLokacija
         {
@@ -76,7 +75,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             { SetProperty(ref _selectedLokacija, value);}
         }
 
-        //OsiguranjeId dobijamo iz DROPDOWN
         Osiguranje _selectedOsiguranje = null;
         public Osiguranje selectedOsiguranje
         {
@@ -85,7 +83,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             { SetProperty(ref _selectedOsiguranje, value);            }
         }
 
-        //PopustId dobijamo iz DROPDOWN
         Popust _selectedPopust = null;
         public Popust selectedPopust
         {
@@ -94,7 +91,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             {  SetProperty(ref _selectedPopust, value);}
         }
 
-        //OsiguranjeId dobijamo iz sesije (saljemo id klijenta)
         int _KlijentId = 0;
         public int KlijentId
         {
@@ -102,7 +98,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             set { SetProperty(ref _KlijentId, value); }
         }
 
-        //KrajRezervacije dobijamo iz prethodnog viewa (prikaz Vozila)
         DateTime _KrajRezervacije = DateTime.Now;
         public DateTime krajRezervacije
         {
@@ -211,8 +206,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             var rezervacijaResponse = await _rezervacijaService.Insert<Model.Rezervacija>(request);
 
             //dodavanje novog racuna
-            
-
             var requestRacun = new UgovorUpsertRequest()
             {
                 UkupnaCijena = rezervacijaResponse.UkupnaCijena,

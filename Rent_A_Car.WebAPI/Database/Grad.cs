@@ -9,7 +9,6 @@ namespace Rent_A_Car.WebAPI.Database
     {
         public Grad()
         {
-            Klijents = new HashSet<Klijent>();
             Lokacijas = new HashSet<Lokacija>();
             Zaposleniks = new HashSet<Zaposlenik>();
         }
@@ -20,7 +19,6 @@ namespace Rent_A_Car.WebAPI.Database
         public int? DrzavaId { get; set; }
 
         public virtual Drzava Drzava { get; set; }
-        public virtual ICollection<Klijent> Klijents { get; set; }
         public virtual ICollection<Lokacija> Lokacijas { get; set; }
         public virtual ICollection<Zaposlenik> Zaposleniks { get; set; }
     }
