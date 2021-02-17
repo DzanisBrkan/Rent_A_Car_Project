@@ -22,7 +22,6 @@ namespace Rent_A_Car.WinUI.Vozilo
         private readonly APIService _specifikacijaService = new APIService("Specifikacija");
         private readonly APIService _tipVozila = new APIService("Tip");
 
-        //private readonly APIService _tipService = new APIService("Tip");
         public frmVozilo()
         {
             InitializeComponent();
@@ -30,7 +29,6 @@ namespace Rent_A_Car.WinUI.Vozilo
 
         private async void frmVozilo_Load(object sender, EventArgs e)
         {
-            //overajdanje eventa
             await LoadKategorija();
             await LoadSpecifikacija();
             await LoadTipVozila();
@@ -72,36 +70,7 @@ namespace Rent_A_Car.WinUI.Vozilo
             {
                 KategorijaId = kategorijaId
             });
-
-            //VoziloGrid.DataSource = result;
         }
-
-        //public static void getLocation()
-        //{
-        //    double x0 = 43.322802;
-        //    double y0 = 17.813955;
-        //    Random random = new Random();
-
-        //    // Convert radius from meters to degrees
-        //    double radiusInDegrees = 500 / 111000f;
-
-        //    double u = random.NextDouble();
-        //    double v = random.NextDouble();
-        //    double w = radiusInDegrees * Math.Sqrt(u);
-        //    double t = 2 * Math.PI * v;
-        //    double x = w * Math.Cos(t);
-        //    double y = w * Math.Sin(t);
-
-        //    // Adjust the x-coordinate for the shrinking of the east-west distances
-        //    //double new_x = x / Math.Cos(Math.ToRadians(y0));
-        //    var rad = (Math.PI / 180) * y0;
-        //    double new_x = x / Math.Cos(rad);
-
-        //    double foundLongitude = new_x + x0;
-        //    double foundLatitude = y + y0;
-        //    //System.out.println("Longitude: " + foundLongitude + "  Latitude: " + foundLatitude);
-        //}
-
 
         VoziloUpsertRequest request = new VoziloUpsertRequest();
         private async void btnSacuvaj_Click(object sender, EventArgs e)
@@ -131,10 +100,8 @@ namespace Rent_A_Car.WinUI.Vozilo
 
             try
             {
-                //var vozilo = await _voziloService.GetById<Model.Vozilo>(null);
 
-
-                if (this.ValidateChildren())// sprijeciti korisnika da klikne dugme snimi bez ikakvih validacija
+                if (this.ValidateChildren())
                 {
                     var _kategorijaId = 0;
                     var _tipId = 0;
@@ -243,7 +210,6 @@ namespace Rent_A_Car.WinUI.Vozilo
         {
 
         }
-
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             var result = openFileDialog1.ShowDialog();
@@ -258,7 +224,6 @@ namespace Rent_A_Car.WinUI.Vozilo
                 pictureBox.Image = image;
             }
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -269,7 +234,6 @@ namespace Rent_A_Car.WinUI.Vozilo
         public byte[] file2 = null;
         private void btnDodaj_Click_1(object sender, EventArgs e)
         {
-            //var result = openFileDialog1.ShowDialog();
             openFileDialog1.FilterIndex = 1;
             openFileDialog1.Filter = "jpg files(*.jpg)|*.jpg";
 

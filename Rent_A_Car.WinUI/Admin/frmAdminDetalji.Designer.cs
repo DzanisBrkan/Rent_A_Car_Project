@@ -50,6 +50,8 @@
             this.btnExit = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtSpol = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtGrad = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -64,16 +66,16 @@
             // 
             // txtPasswordPotvrda
             // 
-            this.txtPasswordPotvrda.Location = new System.Drawing.Point(286, 390);
+            this.txtPasswordPotvrda.Location = new System.Drawing.Point(286, 415);
             this.txtPasswordPotvrda.Name = "txtPasswordPotvrda";
             this.txtPasswordPotvrda.PasswordChar = '*';
             this.txtPasswordPotvrda.Size = new System.Drawing.Size(168, 20);
-            this.txtPasswordPotvrda.TabIndex = 8;
+            this.txtPasswordPotvrda.TabIndex = 9;
             // 
             // Potvrda
             // 
             this.Potvrda.AutoSize = true;
-            this.Potvrda.Location = new System.Drawing.Point(283, 365);
+            this.Potvrda.Location = new System.Drawing.Point(283, 399);
             this.Potvrda.Name = "Potvrda";
             this.Potvrda.Size = new System.Drawing.Size(44, 13);
             this.Potvrda.TabIndex = 58;
@@ -82,7 +84,7 @@
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Location = new System.Drawing.Point(87, 365);
+            this.Password.Location = new System.Drawing.Point(87, 399);
             this.Password.Name = "Password";
             this.Password.Size = new System.Drawing.Size(53, 13);
             this.Password.TabIndex = 57;
@@ -90,11 +92,11 @@
             // 
             // txtPassword
             // 
-            this.txtPassword.Location = new System.Drawing.Point(90, 390);
+            this.txtPassword.Location = new System.Drawing.Point(90, 415);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(168, 20);
-            this.txtPassword.TabIndex = 7;
+            this.txtPassword.TabIndex = 8;
             // 
             // DatumRodjenja
             // 
@@ -110,7 +112,7 @@
             this.txtDatumRodjenja.Location = new System.Drawing.Point(185, 297);
             this.txtDatumRodjenja.Name = "txtDatumRodjenja";
             this.txtDatumRodjenja.Size = new System.Drawing.Size(265, 20);
-            this.txtDatumRodjenja.TabIndex = 6;
+            this.txtDatumRodjenja.TabIndex = 5;
             // 
             // KorisnickoIme
             // 
@@ -198,10 +200,10 @@
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(185, 435);
+            this.btnSnimi.Location = new System.Drawing.Point(185, 451);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(167, 46);
-            this.btnSnimi.TabIndex = 9;
+            this.btnSnimi.TabIndex = 10;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
             this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
@@ -215,14 +217,14 @@
             this.btnExit.Location = new System.Drawing.Point(488, 17);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 10;
+            this.btnExit.TabIndex = 11;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(87, 326);
+            this.label2.Location = new System.Drawing.Point(87, 332);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(28, 13);
             this.label2.TabIndex = 64;
@@ -230,16 +232,34 @@
             // 
             // txtSpol
             // 
-            this.txtSpol.Location = new System.Drawing.Point(185, 326);
+            this.txtSpol.Location = new System.Drawing.Point(185, 332);
             this.txtSpol.Name = "txtSpol";
             this.txtSpol.Size = new System.Drawing.Size(265, 20);
-            this.txtSpol.TabIndex = 63;
+            this.txtSpol.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(87, 367);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 66;
+            this.label3.Text = "Grad";
+            // 
+            // txtGrad
+            // 
+            this.txtGrad.Location = new System.Drawing.Point(185, 367);
+            this.txtGrad.Name = "txtGrad";
+            this.txtGrad.Size = new System.Drawing.Size(265, 20);
+            this.txtGrad.TabIndex = 7;
             // 
             // frmAdminDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(547, 493);
+            this.ClientSize = new System.Drawing.Size(547, 523);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtGrad);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtSpol);
             this.Controls.Add(this.btnExit);
@@ -294,5 +314,7 @@
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSpol;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtGrad;
     }
 }

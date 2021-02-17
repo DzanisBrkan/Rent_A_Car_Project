@@ -55,7 +55,7 @@
             this.txtIme.Location = new System.Drawing.Point(169, 173);
             this.txtIme.Name = "txtIme";
             this.txtIme.Size = new System.Drawing.Size(265, 20);
-            this.txtIme.TabIndex = 0;
+            this.txtIme.TabIndex = 1;
             this.txtIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtIme_Validating);
             // 
             // Ime
@@ -98,7 +98,7 @@
             this.txtEmail.Location = new System.Drawing.Point(169, 254);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(265, 20);
-            this.txtEmail.TabIndex = 4;
+            this.txtEmail.TabIndex = 3;
             this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // Telefon
@@ -115,7 +115,7 @@
             this.txtTelefon.Location = new System.Drawing.Point(169, 296);
             this.txtTelefon.Name = "txtTelefon";
             this.txtTelefon.Size = new System.Drawing.Size(265, 20);
-            this.txtTelefon.TabIndex = 6;
+            this.txtTelefon.TabIndex = 4;
             this.txtTelefon.Validating += new System.ComponentModel.CancelEventHandler(this.txtTelefon_Validating);
             // 
             // KorisnickoIme
@@ -132,7 +132,7 @@
             this.txtKorisnickoIme.Location = new System.Drawing.Point(169, 134);
             this.txtKorisnickoIme.Name = "txtKorisnickoIme";
             this.txtKorisnickoIme.Size = new System.Drawing.Size(265, 20);
-            this.txtKorisnickoIme.TabIndex = 8;
+            this.txtKorisnickoIme.TabIndex = 0;
             this.txtKorisnickoIme.Validating += new System.ComponentModel.CancelEventHandler(this.txtKorisnickoIme_Validating);
             // 
             // Adresa
@@ -149,7 +149,7 @@
             this.txtAdresa.Location = new System.Drawing.Point(169, 339);
             this.txtAdresa.Name = "txtAdresa";
             this.txtAdresa.Size = new System.Drawing.Size(265, 20);
-            this.txtAdresa.TabIndex = 10;
+            this.txtAdresa.TabIndex = 5;
             this.txtAdresa.Validating += new System.ComponentModel.CancelEventHandler(this.txtAdresa_Validating);
             // 
             // DatumRodjenja
@@ -166,7 +166,7 @@
             this.txtDatumRodjenja.Location = new System.Drawing.Point(169, 388);
             this.txtDatumRodjenja.Name = "txtDatumRodjenja";
             this.txtDatumRodjenja.Size = new System.Drawing.Size(265, 20);
-            this.txtDatumRodjenja.TabIndex = 12;
+            this.txtDatumRodjenja.TabIndex = 6;
             this.txtDatumRodjenja.Validating += new System.ComponentModel.CancelEventHandler(this.txtDatumRodjenja_Validating);
             // 
             // errorProvider
@@ -192,7 +192,7 @@
             this.btnExit.Location = new System.Drawing.Point(447, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 85;
+            this.btnExit.TabIndex = 7;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 

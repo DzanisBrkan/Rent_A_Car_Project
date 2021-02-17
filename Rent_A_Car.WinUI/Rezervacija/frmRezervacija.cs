@@ -26,15 +26,15 @@ namespace Rent_A_Car.WinUI.Rezervacija
 
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
-            var search = new RezervacijaSearchRequest()
-            {
-                Status = txtPretraga.Text
-            };
-            var result = await _apiService.Get<List<Model.Rezervacija>>(search);
+            //var search = new RezervacijaSearchRequest()
+            //{
+            //    Status = txtPretraga.Text
+            //};
+            //var result = await _apiService.Get<List<Model.Rezervacija>>(search);
 
-            dgvKlijent.AutoGenerateColumns = false;
+            //dgvKlijent.AutoGenerateColumns = false;
 
-            dgvKlijent.DataSource = result;
+            //dgvKlijent.DataSource = result;
         }
 
         private void dgvKlijent_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -43,6 +43,16 @@ namespace Rent_A_Car.WinUI.Rezervacija
 
             frmRezervacjiaDetalji frm = new frmRezervacjiaDetalji(int.Parse(id.ToString()));
             frm.Show();
+        }
+
+        private async void frmRezervacija_Load(object sender, EventArgs e)
+        {
+           
+            var result = await _apiService.Get<List<Model.Rezervacija>>(null);
+
+            dgvKlijent.AutoGenerateColumns = false;
+
+            dgvKlijent.DataSource = result;
         }
     }
 }

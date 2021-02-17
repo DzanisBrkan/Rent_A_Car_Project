@@ -14,6 +14,7 @@ namespace Rent_A_Car.WinUI.Admin
     public partial class frmAdminDetalji : Form
     {
         private readonly APIService _services = new APIService("Zaposlenik");
+        private readonly APIService _servicesGrad = new APIService("Grad");
         private int? _id = null;
         private int? _korisnickiNalogId = null;
         public frmAdminDetalji(int? UgovorId = null)
@@ -32,6 +33,7 @@ namespace Rent_A_Car.WinUI.Admin
             if (_id.HasValue)
             {
                 var zaposlenik = await _services.GetById<Model.Zaposlenik>(_id);
+                var grad = await _servicesGrad.GetById<Model.Grad>(zaposlenik.GradId);
 
                 txtKorisnickoIme.Text = zaposlenik.KorisnickoIme;
                 txtIme.Text = zaposlenik.Ime;
@@ -41,6 +43,7 @@ namespace Rent_A_Car.WinUI.Admin
                 txtDatumRodjenja.Text = zaposlenik.DatumRodjenja;
                 _korisnickiNalogId = zaposlenik.KorisnickiNalogId;
                 txtSpol.Text = zaposlenik.Spol;
+                txtGrad.Text = grad.Naziv;
             }
         }
 
@@ -48,6 +51,21 @@ namespace Rent_A_Car.WinUI.Admin
         {
             try
             {
+
+                var zaposlenik = await _services.GetById<Model.Zaposlenik>(_id);
+                var grad = await _servicesGrad.Get<List<Model.Grad>>(null);
+
+                int upisaniGradId = -1;
+
+
+                for (int i = 0; i < grad.Count(); i++)
+                {
+                    if (grad[i].Naziv == txtGrad.Text)
+                    {
+                        upisaniGradId = (int)grad[i].GradId;
+                    }
+                }
+
                 if (this.ValidateChildren())
                 {
                     var request = new ZaposlenikInsertRequest()
@@ -62,6 +80,7 @@ namespace Rent_A_Car.WinUI.Admin
                         PasswordConfirmation = txtPasswordPotvrda.Text,
                         Spol = txtSpol.Text,
                         KorisnickiNalogId = _korisnickiNalogId,
+                        GradId = upisaniGradId,
                         Aktivan = true
                     };
 

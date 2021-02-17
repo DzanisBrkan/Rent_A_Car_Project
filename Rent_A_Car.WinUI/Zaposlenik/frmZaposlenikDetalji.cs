@@ -28,18 +28,16 @@ namespace Rent_A_Car.WinUI.Zaposlenik
 
         private void Adresa_Click(object sender, EventArgs e)
         {
-
         }
-
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        //treba napraviti da Loaduje odabrani korisnicki nalog za zaposlenika kojem mijenjamo detalje
 
         private async void frmZaposlenikDetalji_Load(object sender, EventArgs e)
         {
+            await LoadKorisnickiNalog();
             try
             {
                 if (_id.HasValue)
@@ -82,7 +80,6 @@ namespace Rent_A_Car.WinUI.Zaposlenik
             cmbKorisnickiNalog.DataSource = result;
         }
 
-        //treba napraviti da spasava odabrani korisnicki nalog
         private async void btnSnimi_Click(object sender, EventArgs e)
         {
             try
@@ -125,7 +122,6 @@ namespace Rent_A_Car.WinUI.Zaposlenik
                         Email = txtEmail.Text,
                         KontaktBr = txtTelefonn.Text,
                         Spol = txtSpol.Text,
-                        //GradId = Convert.ToInt32(idObjekta),
                         GradId = pronadjeniGradID,                       
                         DatumRodjenja = txtDatumRodjenja.Text,
                         KorisnickiNalogId = (int)korisnickiNalogID,
@@ -137,29 +133,25 @@ namespace Rent_A_Car.WinUI.Zaposlenik
 
                     var korisnickiNalog = cmbKorisnickiNalog.SelectedValue;
 
-                    //if (int.TryParse(korisnickiNalog.ToString(), out int korisnickiNalogId))
-                    //{
-                    //    request.KorisnickiNalogId = korisnickiNalogId;
-                    //}
+       
 
                     if (_id.HasValue)
                     {
                         await _service.Update<Model.Zaposlenik>(_id, request);
+                        MessageBox.Show("Promjena podataka uspješna!");
+
                     }
                     else
                     {
                         await _service.Insert<Model.Zaposlenik>(request);
+                        MessageBox.Show("Zaposlenik uspješno dodan!");
+
                     }
-
-
-
-
-                    MessageBox.Show("Zaposlenik spjesno dodan!");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Doslo je do greske!");
+                MessageBox.Show("Došlo je do greške!");
 
                 throw;
             }

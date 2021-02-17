@@ -58,12 +58,19 @@ namespace Rent_A_Car.WinUI.Klijent
                 var klijent = await _service.GetById<Model.Klijent>(_id);
 
                 txtKorisnickoIme.Text = klijent.KorisnickoIme;
+                txtKorisnickoIme.ReadOnly = true;
                 txtIme.Text = klijent.Ime;
+                txtIme.ReadOnly = true;
                 txtPrezime.Text = klijent.Prezime;
+                txtPrezime.ReadOnly = true;
                 txtEmail.Text = klijent.Email;
+                txtEmail.ReadOnly = true;
                 txtAdresa.Text = klijent.Adresa;
+                txtAdresa.ReadOnly = true;
                 txtTelefon.Text = klijent.BrojTel;
+                txtTelefon.ReadOnly = true;
                 txtDatumRodjenja.Text = klijent.DatumRodjenja;
+                txtDatumRodjenja.ReadOnly = true;
             }
         }
 

@@ -19,9 +19,9 @@ namespace Rent_A_Car.WebAPI.Services
         public override List<Model.Grad> Get(GradSearchRequest search)
         {
             var query = _context.Set<Grad>().AsQueryable();
-            if (search?.Naziv != null)
+            if (!string.IsNullOrEmpty(search?.Naziv))
             {
-                query = query.Where(x => x.Naziv == search.Naziv);
+                query = query.Where(x => x.Naziv.ToLower().StartsWith(search.Naziv.ToLower()));
             }
             query = query.OrderBy(x => x.Naziv);
             var list = query.ToList();
