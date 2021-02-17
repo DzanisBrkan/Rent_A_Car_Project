@@ -38,19 +38,21 @@
             this.txtPostanskiBroj = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.cmbDrzava = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSnimi
             // 
-            this.btnSnimi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(39)))), ((int)(((byte)(40)))));
+            this.btnSnimi.BackColor = System.Drawing.Color.ForestGreen;
             this.btnSnimi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSnimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSnimi.ForeColor = System.Drawing.Color.White;
-            this.btnSnimi.Location = new System.Drawing.Point(177, 181);
+            this.btnSnimi.Location = new System.Drawing.Point(175, 223);
             this.btnSnimi.Name = "btnSnimi";
             this.btnSnimi.Size = new System.Drawing.Size(138, 57);
-            this.btnSnimi.TabIndex = 2;
+            this.btnSnimi.TabIndex = 3;
             this.btnSnimi.Text = "Sačuvaj";
             this.btnSnimi.UseVisualStyleBackColor = false;
             this.btnSnimi.Click += new System.EventHandler(this.btnSnimi_Click);
@@ -68,9 +70,10 @@
             // Naziv
             // 
             this.Naziv.AutoSize = true;
-            this.Naziv.Location = new System.Drawing.Point(51, 91);
+            this.Naziv.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Naziv.Location = new System.Drawing.Point(89, 87);
             this.Naziv.Name = "Naziv";
-            this.Naziv.Size = new System.Drawing.Size(34, 13);
+            this.Naziv.Size = new System.Drawing.Size(54, 21);
             this.Naziv.TabIndex = 94;
             this.Naziv.Text = "Naziv";
             // 
@@ -85,9 +88,10 @@
             // PostanskiBroj
             // 
             this.PostanskiBroj.AutoSize = true;
-            this.PostanskiBroj.Location = new System.Drawing.Point(51, 130);
+            this.PostanskiBroj.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PostanskiBroj.Location = new System.Drawing.Point(25, 127);
             this.PostanskiBroj.Name = "PostanskiBroj";
-            this.PostanskiBroj.Size = new System.Drawing.Size(73, 13);
+            this.PostanskiBroj.Size = new System.Drawing.Size(118, 21);
             this.PostanskiBroj.TabIndex = 86;
             this.PostanskiBroj.Text = "Postanski broj";
             // 
@@ -108,7 +112,7 @@
             this.btnExit.Location = new System.Drawing.Point(441, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
-            this.btnExit.TabIndex = 3;
+            this.btnExit.TabIndex = 4;
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
@@ -116,11 +120,31 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
+            // cmbDrzava
+            // 
+            this.cmbDrzava.FormattingEnabled = true;
+            this.cmbDrzava.Location = new System.Drawing.Point(149, 165);
+            this.cmbDrzava.Name = "cmbDrzava";
+            this.cmbDrzava.Size = new System.Drawing.Size(264, 21);
+            this.cmbDrzava.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(80, 165);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 21);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Država";
+            // 
             // frmGradDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(500, 292);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.cmbDrzava);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSnimi);
             this.Controls.Add(this.Grada);
@@ -148,5 +172,7 @@
         private System.Windows.Forms.TextBox txtPostanskiBroj;
         private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ComboBox cmbDrzava;
+        private System.Windows.Forms.Label label1;
     }
 }
