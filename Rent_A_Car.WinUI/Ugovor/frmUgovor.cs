@@ -26,15 +26,6 @@ namespace Rent_A_Car.WinUI.Ugovor
 
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
-            var search = new UgovorSearchRequest()
-            {
-                CijenaAutomobila = txtPretraga.Text
-            };
-            var result = await _apiService.Get<List<Model.Ugovor>>(search);
-
-            dgvUgovor.AutoGenerateColumns = false;
-
-            dgvUgovor.DataSource = result;
         }
 
         private void dgvUgovor_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -43,6 +34,16 @@ namespace Rent_A_Car.WinUI.Ugovor
 
             frmUgovorDetalji frm = new frmUgovorDetalji(int.Parse(id.ToString()));
             frm.Show();
+        }
+
+        private async void frmUgovor_Load(object sender, EventArgs e)
+        {
+  
+            var result = await _apiService.Get<List<Model.Ugovor>>(null);
+
+            dgvUgovor.AutoGenerateColumns = false;
+
+            dgvUgovor.DataSource = result;
         }
     }
 }

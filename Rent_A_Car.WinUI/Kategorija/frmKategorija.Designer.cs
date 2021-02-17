@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmKategorija));
-            this.txtPretraga = new System.Windows.Forms.TextBox();
-            this.btnPrikazi = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvKlijent = new System.Windows.Forms.DataGridView();
             this.KategorijaID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,32 +41,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtPretraga
-            // 
-            this.txtPretraga.Location = new System.Drawing.Point(13, 67);
-            this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(341, 20);
-            this.txtPretraga.TabIndex = 8;
-            // 
-            // btnPrikazi
-            // 
-            this.btnPrikazi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(202)))), ((int)(((byte)(41)))), ((int)(((byte)(65)))));
-            this.btnPrikazi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrikazi.ForeColor = System.Drawing.Color.White;
-            this.btnPrikazi.Location = new System.Drawing.Point(373, 67);
-            this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(124, 23);
-            this.btnPrikazi.TabIndex = 7;
-            this.btnPrikazi.Text = "Prikazi";
-            this.btnPrikazi.UseVisualStyleBackColor = false;
-            this.btnPrikazi.Click += new System.EventHandler(this.btnPrikazi_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvKlijent);
-            this.groupBox1.Location = new System.Drawing.Point(10, 120);
+            this.groupBox1.Location = new System.Drawing.Point(10, 80);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(487, 321);
+            this.groupBox1.Size = new System.Drawing.Size(560, 301);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kategorija";
@@ -77,6 +55,7 @@
             // 
             this.dgvKlijent.AllowUserToAddRows = false;
             this.dgvKlijent.AllowUserToDeleteRows = false;
+            this.dgvKlijent.BackgroundColor = System.Drawing.Color.White;
             this.dgvKlijent.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvKlijent.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.KategorijaID,
@@ -89,7 +68,7 @@
             this.dgvKlijent.Name = "dgvKlijent";
             this.dgvKlijent.ReadOnly = true;
             this.dgvKlijent.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvKlijent.Size = new System.Drawing.Size(481, 302);
+            this.dgvKlijent.Size = new System.Drawing.Size(554, 282);
             this.dgvKlijent.TabIndex = 0;
             this.dgvKlijent.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvKlijent_MouseDoubleClick);
             // 
@@ -100,6 +79,7 @@
             this.KategorijaID.Name = "KategorijaID";
             this.KategorijaID.ReadOnly = true;
             this.KategorijaID.Visible = false;
+            this.KategorijaID.Width = 130;
             // 
             // Oznaka
             // 
@@ -107,6 +87,7 @@
             this.Oznaka.HeaderText = "Oznaka";
             this.Oznaka.Name = "Oznaka";
             this.Oznaka.ReadOnly = true;
+            this.Oznaka.Width = 130;
             // 
             // Naziv
             // 
@@ -114,6 +95,7 @@
             this.Naziv.HeaderText = "Naziv";
             this.Naziv.Name = "Naziv";
             this.Naziv.ReadOnly = true;
+            this.Naziv.Width = 130;
             // 
             // Opis
             // 
@@ -121,6 +103,7 @@
             this.Opis.HeaderText = "Opis";
             this.Opis.Name = "Opis";
             this.Opis.ReadOnly = true;
+            this.Opis.Width = 150;
             // 
             // MinDob
             // 
@@ -135,7 +118,7 @@
             this.btnExit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExit.ForeColor = System.Drawing.Color.White;
             this.btnExit.Image = ((System.Drawing.Image)(resources.GetObject("btnExit.Image")));
-            this.btnExit.Location = new System.Drawing.Point(447, 12);
+            this.btnExit.Location = new System.Drawing.Point(540, 12);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(47, 42);
             this.btnExit.TabIndex = 12;
@@ -146,26 +129,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 450);
+            this.ClientSize = new System.Drawing.Size(599, 404);
             this.Controls.Add(this.btnExit);
-            this.Controls.Add(this.txtPretraga);
-            this.Controls.Add(this.btnPrikazi);
             this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmKategorija";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmKategorija";
+            this.Load += new System.EventHandler(this.frmKategorija_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox txtPretraga;
-        private System.Windows.Forms.Button btnPrikazi;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView dgvKlijent;
         private System.Windows.Forms.Button btnExit;

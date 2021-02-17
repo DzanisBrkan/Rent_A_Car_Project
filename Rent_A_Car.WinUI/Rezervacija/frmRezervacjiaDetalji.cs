@@ -15,6 +15,7 @@ namespace Rent_A_Car.WinUI.Rezervacija
     {
         private readonly APIService _services = new APIService("Rezervacija");
         private readonly APIService _servicesVozilo = new APIService("Vozilo");
+        private readonly APIService _servicesKlijent = new APIService("Klijent");
         private int? _id = null;
         public frmRezervacjiaDetalji(int? UgovorId = null)
         {
@@ -35,8 +36,11 @@ namespace Rent_A_Car.WinUI.Rezervacija
             {
                 if (_id.HasValue)
                 {
+                
                     var rezervacija = await _services.GetById<Model.Rezervacija>(_id);
-
+                    
+                    var klijent = await _servicesKlijent.GetById<Model.Klijent>(rezervacija.KlijentId);
+                    
                     var request = new VoziloSearchRequest()
                     {
                         VoziloId = rezervacija.VoziloId
@@ -60,21 +64,19 @@ namespace Rent_A_Car.WinUI.Rezervacija
                     txtMarka.ReadOnly = true;
 
                     txtCijena.Text = vozilo.CijenaPoSatu.ToString();
-                    txtModel.ReadOnly = true;
+                    txtCijena.ReadOnly = true;
 
-                    //if (vozilo.Zauzeto == true)
-                    //{
-                    //    checkBoxZauzeto.Checked = true;
-                    //}
-                    //else
-                    //{
-                    //    checkBoxZauzeto.Checked = false;
-                    //}
+
+                    textKlijent.Text = klijent.Ime + " " + klijent.Prezime;
+                    textKlijent.ReadOnly = true;
+
+                    txtNazivRezervacije.Text = rezervacija.Naziv;
+                    txtNazivRezervacije.ReadOnly = true;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Doslo je do greske!");
+                MessageBox.Show("Došlo je do greške!");
                 throw;
             }
         }

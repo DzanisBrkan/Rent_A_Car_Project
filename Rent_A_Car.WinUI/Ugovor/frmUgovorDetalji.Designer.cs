@@ -37,6 +37,10 @@
             this.UkupnaCijena = new System.Windows.Forms.Label();
             this.txtUkupnaCijena = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtNazivRezervacije = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIzdat = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // Ugovor
@@ -52,15 +56,15 @@
             // Datum
             // 
             this.Datum.AutoSize = true;
-            this.Datum.Location = new System.Drawing.Point(38, 103);
+            this.Datum.Location = new System.Drawing.Point(38, 130);
             this.Datum.Name = "Datum";
-            this.Datum.Size = new System.Drawing.Size(38, 13);
+            this.Datum.Size = new System.Drawing.Size(81, 13);
             this.Datum.TabIndex = 94;
-            this.Datum.Text = "Datum";
+            this.Datum.Text = "Datum placanja";
             // 
             // txtDatum
             // 
-            this.txtDatum.Location = new System.Drawing.Point(136, 100);
+            this.txtDatum.Location = new System.Drawing.Point(136, 127);
             this.txtDatum.Name = "txtDatum";
             this.txtDatum.Size = new System.Drawing.Size(265, 20);
             this.txtDatum.TabIndex = 0;
@@ -68,15 +72,15 @@
             // UkupnaKolicina
             // 
             this.UkupnaKolicina.AutoSize = true;
-            this.UkupnaKolicina.Location = new System.Drawing.Point(38, 180);
+            this.UkupnaKolicina.Location = new System.Drawing.Point(38, 207);
             this.UkupnaKolicina.Name = "UkupnaKolicina";
-            this.UkupnaKolicina.Size = new System.Drawing.Size(85, 13);
+            this.UkupnaKolicina.Size = new System.Drawing.Size(84, 13);
             this.UkupnaKolicina.TabIndex = 88;
-            this.UkupnaKolicina.Text = "Ukupna Kolicina";
+            this.UkupnaKolicina.Text = "Ukupan br dana";
             // 
             // txtUkupnaKolicina
             // 
-            this.txtUkupnaKolicina.Location = new System.Drawing.Point(136, 177);
+            this.txtUkupnaKolicina.Location = new System.Drawing.Point(136, 204);
             this.txtUkupnaKolicina.Name = "txtUkupnaKolicina";
             this.txtUkupnaKolicina.Size = new System.Drawing.Size(265, 20);
             this.txtUkupnaKolicina.TabIndex = 2;
@@ -84,7 +88,7 @@
             // UkupnaCijena
             // 
             this.UkupnaCijena.AutoSize = true;
-            this.UkupnaCijena.Location = new System.Drawing.Point(38, 142);
+            this.UkupnaCijena.Location = new System.Drawing.Point(38, 169);
             this.UkupnaCijena.Name = "UkupnaCijena";
             this.UkupnaCijena.Size = new System.Drawing.Size(77, 13);
             this.UkupnaCijena.TabIndex = 86;
@@ -92,7 +96,7 @@
             // 
             // txtUkupnaCijena
             // 
-            this.txtUkupnaCijena.Location = new System.Drawing.Point(136, 139);
+            this.txtUkupnaCijena.Location = new System.Drawing.Point(136, 166);
             this.txtUkupnaCijena.Name = "txtUkupnaCijena";
             this.txtUkupnaCijena.Size = new System.Drawing.Size(265, 20);
             this.txtUkupnaCijena.TabIndex = 1;
@@ -110,11 +114,48 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(38, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 13);
+            this.label1.TabIndex = 105;
+            this.label1.Text = "Naziv rezervacije";
+            // 
+            // txtNazivRezervacije
+            // 
+            this.txtNazivRezervacije.Location = new System.Drawing.Point(136, 90);
+            this.txtNazivRezervacije.Name = "txtNazivRezervacije";
+            this.txtNazivRezervacije.Size = new System.Drawing.Size(265, 20);
+            this.txtNazivRezervacije.TabIndex = 104;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(38, 251);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 13);
+            this.label2.TabIndex = 107;
+            this.label2.Text = "Racun izdat";
+            // 
+            // txtIzdat
+            // 
+            this.txtIzdat.ForeColor = System.Drawing.Color.Green;
+            this.txtIzdat.Location = new System.Drawing.Point(136, 248);
+            this.txtIzdat.Name = "txtIzdat";
+            this.txtIzdat.Size = new System.Drawing.Size(265, 20);
+            this.txtIzdat.TabIndex = 106;
+            // 
             // frmUgovorDetalji
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(469, 256);
+            this.ClientSize = new System.Drawing.Size(469, 317);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtIzdat);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtNazivRezervacije);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.Ugovor);
             this.Controls.Add(this.Datum);
@@ -142,5 +183,9 @@
         private System.Windows.Forms.Label UkupnaCijena;
         private System.Windows.Forms.TextBox txtUkupnaCijena;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtNazivRezervacije;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtIzdat;
     }
 }

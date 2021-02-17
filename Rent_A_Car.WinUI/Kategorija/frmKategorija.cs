@@ -26,15 +26,6 @@ namespace Rent_A_Car.WinUI.Kategorija
 
         private async void btnPrikazi_Click(object sender, EventArgs e)
         {
-            //var search = new KategorijaSearchRequest()
-            //{
-            //    Ime = txtPretraga.Text
-            //};
-            var result = await _apiService.Get<List<Model.Kategorija>>(null);
-
-            dgvKlijent.AutoGenerateColumns = false;
-
-            dgvKlijent.DataSource = result;
         }
 
         private void dgvKlijent_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -43,6 +34,14 @@ namespace Rent_A_Car.WinUI.Kategorija
 
             frmKategorijaDetalji frm = new frmKategorijaDetalji(int.Parse(id.ToString()));
             frm.Show();
+        }
+
+        private async void frmKategorija_Load(object sender, EventArgs e)
+        {
+            var result = await _apiService.Get<List<Model.Kategorija>>(null);
+
+            dgvKlijent.AutoGenerateColumns = false;
+            dgvKlijent.DataSource = result;
         }
     }
 }

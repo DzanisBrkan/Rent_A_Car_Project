@@ -13,6 +13,7 @@ namespace Rent_A_Car.WinUI.Ugovor
     public partial class frmUgovorDetalji : Form
     {
         private readonly APIService _services = new APIService("Ugovor");
+        private readonly APIService _servicesRezervacija = new APIService("Rezervacija");
         private int? _id = null;
         public frmUgovorDetalji(int? UgovorId = null)
         {
@@ -30,6 +31,7 @@ namespace Rent_A_Car.WinUI.Ugovor
             if (_id.HasValue)
             {
                 var ugovor = await _services.GetById<Model.Ugovor>(_id);
+                var rezervacija = await _servicesRezervacija.GetById<Model.Rezervacija>(ugovor.RezervacijaId);
 
                 txtDatum.Text = ugovor.DatumPlacanja.ToString();
                 txtDatum.ReadOnly = true;
@@ -37,10 +39,24 @@ namespace Rent_A_Car.WinUI.Ugovor
                 txtUkupnaCijena.Text = ugovor.UkupnaCijena.ToString();
                 txtUkupnaCijena.ReadOnly = true;
 
-                txtDatum.Text = ugovor.UkupanBrojDana.ToString();
+                txtDatum.Text = ugovor.DatumPlacanja.ToString();
                 txtDatum.ReadOnly = true;
 
+                txtNazivRezervacije.Text = rezervacija.Naziv;
+                txtNazivRezervacije.ReadOnly = true;
 
+                txtUkupnaKolicina.Text = ugovor.UkupanBrojDana.ToString();
+                txtUkupnaKolicina.ReadOnly = true;
+
+                if (ugovor.Izdano == true)
+                {
+                    txtIzdat.Text = "Račun je izdat";
+                }
+                else
+                {
+                    txtIzdat.Text = "Račun nije izdat, Rezervacija u toku";
+                }
+                txtIzdat.ReadOnly = true;
             }
         }
     }
