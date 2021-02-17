@@ -14,6 +14,8 @@ namespace Rent_A_Car.WinUI.Grad
     public partial class frmGradDetalji : Form
     {
         private readonly APIService _service = new APIService("Grad");
+        private readonly APIService _serviceDrzava = new APIService("Drzava");
+
         private int? _id = null;
         public frmGradDetalji(int? gradId = null) 
         {
@@ -25,15 +27,26 @@ namespace Rent_A_Car.WinUI.Grad
         {
             this.Close();
         }
+        private async Task LoadDrzava()
+        {
+            var result = await _serviceDrzava.Get<List<Model.Drzava>>(null);
+            result.Insert(0, new Model.Drzava());
+            cmbDrzava.DisplayMember = "Naziv";
+            cmbDrzava.ValueMember = "DrzavaId";
+            cmbDrzava.DataSource = result;
+        }
 
         private async void frmGradDetalji_Load(object sender, EventArgs e)
         {
+            await LoadDrzava();
             if (_id.HasValue)
             {
-                var grad = await _service.GetById<Model.Grad>(_id);
 
+                var grad = await _service.GetById<Model.Grad>(_id);
+                var drzava = await _serviceDrzava.GetById<Model.Drzava>(grad.DrzavaId);
                 txtNaziv.Text = grad.Naziv;
                 txtPostanskiBroj.Text = grad.PostanskiBr;
+                cmbDrzava.DisplayMember = drzava.Naziv;
             }
         }
 
@@ -41,15 +54,21 @@ namespace Rent_A_Car.WinUI.Grad
         {
             try
             {
-                if (this.ValidateChildren())// sprijeciti korisnika da klikne dugme snimi bez ikakvih validacija
+                if (this.ValidateChildren())
                 {
+                    var drzavaId = 0;
+                    if (cmbDrzava.Text == "Bosna i Hercegovina")
+                        drzavaId = 100;
+                    else
+                        drzavaId = 101;
+
                     var request = new GradUpsertRequest()
                     {
                         Naziv = txtNaziv.Text,
-                        PostanskiBr = txtPostanskiBroj.Text
+                        PostanskiBr = txtPostanskiBroj.Text,
+                        DrzavaId = drzavaId
                     };
 
-                    // ako je id popunje radimo update
 
                     if (_id.HasValue)
                     {
@@ -65,12 +84,8 @@ namespace Rent_A_Car.WinUI.Grad
             }
             catch (Exception ex)
             {
-
                     MessageBox.Show("Doslo je do greske!");
             }
-
-
-
         }
 
         private void txtPostanskiBroj_Validating(object sender, CancelEventArgs e)
@@ -86,8 +101,6 @@ namespace Rent_A_Car.WinUI.Grad
             }
 
         }
-
-
         private void txtNaziv_Validating(object sender, CancelEventArgs e)
         {
             if (string.IsNullOrEmpty(txtNaziv.Text))
