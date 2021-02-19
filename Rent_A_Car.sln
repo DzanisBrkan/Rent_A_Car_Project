@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rent_A_Car.MobileAPP.Androi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rent_A_Car.MobileAPP.iOS", "Rent_A_Car.MobileAPP\Rent_A_Car.MobileAPP.iOS\Rent_A_Car.MobileAPP.iOS.csproj", "{E8693EB2-6CFC-4A2C-8EB7-49BC9FDA4B17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rent_A_Car.MobileAPP", "Rent_A_Car.MobileAPP\Rent_A_Car.MobileAPP\Rent_A_Car.MobileAPP.csproj", "{5BCF8ED6-F179-41C0-9605-57A354934790}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rent_A_Car.MobileAPP", "Rent_A_Car.MobileAPP\Rent_A_Car.MobileAPP\Rent_A_Car.MobileAPP.csproj", "{5BCF8ED6-F179-41C0-9605-57A354934790}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -110,6 +110,8 @@ Global
 		{30A66F5D-EB29-4C15-9243-1E456A5550CC}.Release|x86.ActiveCfg = Release|Any CPU
 		{30A66F5D-EB29-4C15-9243-1E456A5550CC}.Release|x86.Build.0 = Release|Any CPU
 		{E9916F47-A838-4795-9D67-92ECC6B842F1}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{E9916F47-A838-4795-9D67-92ECC6B842F1}.Debug|Any CPU.Build.0 = Debug|x86
+		{E9916F47-A838-4795-9D67-92ECC6B842F1}.Debug|Any CPU.Deploy.0 = Debug|x86
 		{E9916F47-A838-4795-9D67-92ECC6B842F1}.Debug|ARM.ActiveCfg = Debug|ARM
 		{E9916F47-A838-4795-9D67-92ECC6B842F1}.Debug|ARM.Build.0 = Debug|ARM
 		{E9916F47-A838-4795-9D67-92ECC6B842F1}.Debug|ARM.Deploy.0 = Debug|ARM

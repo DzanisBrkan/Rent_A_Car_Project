@@ -122,8 +122,7 @@ namespace Rent_A_Car.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
-
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 
