@@ -30,5 +30,4 @@
     <ProjectReference Include="..\Rent_A_Car.Model\Rent_A_Car.Model.csproj" />
   </ItemGroup>
 
-
 </Project>
