@@ -20,4 +20,4 @@ services:
       environment:
         - ConnectionStrings:Rent_A_Car=Server=ms-sql-server,1433;Database=Rent_A_CarDocker;User=sa;Password=Pa55w0rd2020;MultipleActiveResultSets=true;ConnectRetryCount=200;TrustServerCertificate=true;
       ports: 
-        - "8080:80"
+        - "5000:80"
