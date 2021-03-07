@@ -225,6 +225,7 @@
             this.Name = "frmPregledVozilo";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmPregledVozilo";
+            this.Load += new System.EventHandler(this.frmPregledVozilo_Load);
             this.groupBoxVozila.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvKlijent)).EndInit();
             this.ResumeLayout(false);
