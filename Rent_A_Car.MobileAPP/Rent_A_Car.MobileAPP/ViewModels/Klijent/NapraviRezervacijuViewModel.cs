@@ -58,7 +58,6 @@ namespace Rent_A_Car.MobileAPP.ViewModels.Klijent
             {SetProperty(ref _Marka, value);}
         }
 
-       
 
         string _selectedStatus = string.Empty;
         public string selectedStatus
